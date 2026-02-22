@@ -38,3 +38,14 @@ export interface LearningHistory {
   averageAnswerTime: number;
   sessionDuration: number;
 }
+
+export interface QuizSet {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  icon: string;
+  questionCount: number;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  dataPath: string;
+}

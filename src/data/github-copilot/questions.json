@@ -262,7 +262,7 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "#codebase は特定の機能実装パターンや設計パターン検出に便利です。\n\n【サンプル】\nユースケース：'#codebase を使って、password をハッシュ化している部分を一括探して'\n例：粗殳なパスワード保存、SQLインジェクションセキュリティズムを事前に検出\n效済性：手作検查㏿時間が数分時間の作業を数秒で完了"
+      "explanation": "#codebase は特定の機能実装パターンや設計パターン検出に便利です。\n\n【サンプル】\nユースケース：'#codebase を使って、password をハッシュ化している部分を一括探して'\n例：粗殳なパスワード保存、SQLインジェクションセキュリティズムを事前に検出\n効竭性：手作検查㏿時間が数分時間の作業を数秒で完了"
     },
     {
       "id": 12,
@@ -310,7 +310,7 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "#problems は『問餔』パネルのコンパイルエラーやリント警告をコンテキストに追加し、エラー修正支援やコード品質向上に役立ちます。VS Code公式ツール変数リストで定義されています。\n\n【サンプル】\nシナリオ：TypeScript ファイルにエラーが複数ある\nステップ1：『問餔』パネルを選択\nステップ2：#problems をコピー\nステップ3：Copilot Chat で '#problems /fix'\n結果：上記すべてのエラーを一気に修正\n效果：手作修正律：\u6570分→ 一括修正"
+      "explanation": "#problems は『問題』パネルのコンパイルエラーやリント警告をコンテキストに追加し、エラー修正支援やコード品質向上に役立ちます。VS Code公式ツール変数リストで定義されています。\n\n【サンプル】\nシナリオ：TypeScript ファイルにエラーが複数ある\nステップ1：『問題』パネルを選択\nステップ2：#problems をコピー\nステップ3：Copilot Chat で '#problems /fix'\n結果：上記すべてのエラーを一気に修正\n効果：手作修正率：数分→ 一括修正"
     },
     {
       "id": 14,
@@ -334,7 +334,7 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "#testFailure はテスト失敗の原因分析と修正案提案に活用できます。VS Code公式で『Get unit test failure information』として定義されています。\n\n【サンプル】\n会話例：\nterminl で 'npm test' 実行\n文例：'AssertionError: expected 10 to equal 11'\nCopilot Chat で '#testFailure /fix'\n結果：テスト敟適値を八→原因を詳細に述明→修正案提示\n效果：TDDや BDD 方案を学緒できる"
+      "explanation": "#testFailure はテスト失敗の原因分析と修正案提案に活用できます。VS Code公式で『Get unit test failure information』として定義されています。\n\n【サンプル】\n会話例：\nterminl で 'npm test' 実行\n文例：'AssertionError: expected 10 to equal 11'\nCopilot Chat で '#testFailure /fix'\n結果：テスト敟適値を八→原因を詳細に述明→修正案提示\n効果：TDDや BDD 方案を学緒できる"
     },
     {
       "id": 15,
@@ -358,7 +358,7 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "#terminalLastCommand はコマンド実行結果の分析やトラブルシューティングに用います。『Get the last run terminal command and its output』として定義されています。\n\n【サンプル】\nシナリオ：\nターミナルで 'npm run build' 実行\nエラー負荷\nコピー：ERROR: ...\nCopilot Chat で '#terminalLastCommand このエラーを修正して'\n結果：エラーメッセージから根本原因を詳細に特定→修正案\n效果：住問解決ぜ6時間→数分"
+      "explanation": "#terminalLastCommand はコマンド実行結果の分析やトラブルシューティングに用います。『Get the last run terminal command and its output』として定義されています。\n\n【サンプル】\nシナリオ：\nターミナルで 'npm run build' 実行\nエラー負荷\nコピー：ERROR: ...\nCopilot Chat で '#terminalLastCommand このエラーを修正して'\n結果：エラーメッセージから根本原因を詳細に特定→修正案\n効果：住問解決ぜ6時間→数分"
     },
     {
       "id": 16,
@@ -382,7 +382,7 @@
         }
       ],
       "correctAnswer": "B",
-      "explanation": "#terminalSelection はターミナル出力の特定部分をコンテキストに含めるのに便利です。『Get the current terminal selection』として定義されています。\n\n【サンプル】\nシナリオ：\nls -la 実行結果で小数のファイルを選択\nCopilot Chat で '#terminalSelection これらのファイルは何をしている？'\n結果：選択部分、特にpackage.json の役割を詳細に述明\n效果：複数ファイルを一気に理解できる"
+      "explanation": "#terminalSelection はターミナル出力の特定部分をコンテキストに含めるのに便利です。『Get the current terminal selection』として定義されています。\n\n【サンプル】\nシナリオ：\nls -la 実行結果で小数のファイルを選択\nCopilot Chat で '#terminalSelection これらのファイルは何をしている？'\n結果：選択部分、特にpackage.json の役割を詳細に述明\n効果：複数ファイルを一気に理解できる"
     },
     {
       "id": 17,
@@ -478,7 +478,7 @@
         }
       ],
       "correctAnswer": "C",
-      "explanation": "#changes はGitの未ステージング変更を一覇で参照し、コミットメッセージ自動生成、影響度分析に使用できます。VS Code公式で『List of source control changes』として定義されています。\n\n【サンプル】\nワークフロー：\n手順1：複数ファイルを編集\n手順2：Source Control ビューで #changes をコピー\n手順3：Copilot Chat で '#changes の変更内容を要約したコミットメッセージを日本語で'\n生成例：'feat: ユーザー認証機能にセッション管理とトークン更新ロジックを追加'\n効果：人力作成：4行程度 → AI生成：1秒"
+      "explanation": "#changes はGitの未ステージング変更を一覧で参照し、コミットメッセージ自動生成、影響度分析に使用できます。VS Code公式で『List of source control changes』として定義されています。\n\n【サンプル】\nワークフロー：\n手順1：複数ファイルを編集\n手順2：Source Control ビューで #changes をコピー\n手順3：Copilot Chat で '#changes の変更内容を要約したコミットメッセージを日本語で'\n生成例：'feat: ユーザー認証機能にセッション管理とトークン更新ロジックを追加'\n効果：人力作成：4行程度 → AI生成：1秒"
     },
     {
       "id": 21,

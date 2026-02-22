@@ -4,9 +4,16 @@ import { downloadAsJSON, downloadAsCSV, generateAIAnalysisPrompt } from '../util
 interface ActivityDownloadProps {
   history: LearningHistory;
   onReset: () => void;
+  showBackButton?: boolean;
+  backButtonText?: string;
 }
 
-export const ActivityDownload: React.FC<ActivityDownloadProps> = ({ history, onReset }) => {
+export const ActivityDownload: React.FC<ActivityDownloadProps> = ({ 
+  history, 
+  onReset,
+  showBackButton = false,
+  backButtonText = '学習履歴をリセット'
+}) => {
   const totalAnswers = history.answers.length;
   if (totalAnswers === 0) {
     return null;
@@ -91,13 +98,22 @@ export const ActivityDownload: React.FC<ActivityDownloadProps> = ({ history, onR
         </button>
       </div>
 
-      {/* リセットボタン */}
-      <button
-        onClick={onReset}
-        className="w-full px-4 py-3 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600 transition-colors duration-200"
-      >
-        🔄 学習履歴をリセット
-      </button>
+      {/* リセット/戻るボタン */}
+      {showBackButton ? (
+        <button
+          onClick={onReset}
+          className="w-full px-4 py-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 transition-colors duration-200"
+        >
+          ← {backButtonText}
+        </button>
+      ) : (
+        <button
+          onClick={onReset}
+          className="w-full px-4 py-3 bg-red-500 text-white font-bold rounded-lg hover:bg-red-600 transition-colors duration-200"
+        >
+          🔄 学習履歴をリセット
+        </button>
+      )}
     </div>
   );
 };

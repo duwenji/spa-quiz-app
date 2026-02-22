@@ -1,0 +1,14 @@
+{
+  "quizSets": [
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot Chat",
+      "description": "GitHub Copilot Chatの基本機能と使用方法を学べるクイズです",
+      "category": "GitHub",
+      "icon": "🤖",
+      "questionCount": 30,
+      "difficulty": "intermediate",
+      "dataPath": "github-copilot/questions.json"
+    }
+  ]
+}
