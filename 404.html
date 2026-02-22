@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // GitHub Pages用のSPAリダイレクト
+        // すべてのパスをindex.htmlにリダイレクト
+        const segmentCount = 0; // サブディレクトリの深さに応じて調整
+        const l = window.location;
+        const base = l.pathname.split('/').slice(0, 1 + segmentCount).join('/');
+        l.replace(
+            l.protocol + '//' + l.host + base + '/' +
+            '?p=/' + l.pathname.slice(base.length + 1).replace(/&/g, '~and~') +
+            (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
+    </script>
+    <noscript>
+        <!-- JavaScriptが無効な場合のフォールバック -->
+        <meta http-equiv="refresh" content="0; url=/spa-quiz-app/">
+        <link rel="canonical" href="/spa-quiz-app/" />
+    </noscript>
+</head>
+<body>
+    <p>Redirecting to the application...</p>
+    <p>If you are not redirected automatically, <a href="/spa-quiz-app/">click here</a>.</p>
+</body>
+</html>

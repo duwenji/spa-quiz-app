@@ -21,9 +21,11 @@ function App() {
   useEffect(() => {
     const loadQuestions = async () => {
       if (selectedQuizSet && appState === 'quiz') {
+        console.log('Loading questions for quiz set:', selectedQuizSet.id);
         setIsLoading(true);
         try {
           const loadedQuestions = await getQuizSetQuestions(selectedQuizSet.id);
+          console.log('Loaded questions:', loadedQuestions.length);
           setQuestions(loadedQuestions);
         } catch (error) {
           console.error('Failed to load questions:', error);

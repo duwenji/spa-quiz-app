@@ -74,6 +74,48 @@ npm run preview
 
 開発サーバーは通常 `http://localhost:5173` で利用可能です。
 
+## 🌐 GitHub Pagesへのデプロイ
+
+このSPAはGitHub Pagesでホストできます。以下の設定が含まれています：
+
+### 自動デプロイ（推奨）
+1. リポジトリのSettings → Pagesに移動
+2. 「Build and deployment」で「GitHub Actions」を選択
+3. プッシュ時に自動的にデプロイされます
+
+### 手動デプロイ
+```bash
+# 依存関係をインストール（初回のみ）
+npm install
+
+# gh-pagesパッケージをインストール
+npm install --save-dev gh-pages
+
+# ビルドとデプロイ
+npm run deploy
+```
+
+### SPAの404エラー対策
+GitHub Pagesは静的サイトホスティングのため、SPAのリロード時に404エラーが発生します。この問題を解決するために以下の対策を実装しています：
+
+1. **404.htmlファイル**: すべてのリクエストをindex.htmlにリダイレクト
+2. **Viteのbase設定**: `/spa-quiz-app/` に設定
+3. **GitHub Actionsワークフロー**: 自動ビルドとデプロイ
+
+### カスタムドメインを使用する場合
+カスタムドメインを使用する場合は、`vite.config.ts`の`base`設定を`/`に変更してください：
+```typescript
+// vite.config.ts
+export default defineConfig({
+  plugins: [react()],
+  base: '/', // カスタムドメイン用
+})
+```
+
+### アクセスURL
+- GitHub Pages: `https://<username>.github.io/spa-quiz-app/`
+- カスタムドメイン: 設定したドメイン
+
 ## 📁 プロジェクト構造
 
 ```

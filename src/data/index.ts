@@ -26,17 +26,27 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
     
     // Vite開発サーバーでは/publicではなく/srcから直接提供される
     // 絶対パスと相対パスの両方を試す
+    // baseパス '/spa-quiz-app/' を考慮する
+    // 現在のページのベースURLを動的に取得
+    const basePath = window.location.pathname.includes('/spa-quiz-app/') ? '/spa-quiz-app' : '';
     const pathsToTry = [
+      `${basePath}/src/data/${dataPath}`,
+      `/spa-quiz-app/src/data/${dataPath}`,
       `/src/data/${dataPath}`,
+      `./src/data/${dataPath}`,
       `./${dataPath}`,
       `${dataPath}`
     ];
+    
+    console.log('Base path:', basePath);
+    console.log('Paths to try:', pathsToTry);
     
     let lastError = null;
     for (const path of pathsToTry) {
       try {
         console.log(`Trying path: ${path}`);
         const response = await fetch(path);
+        console.log(`Response status: ${response.status} ${response.statusText}`);
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
@@ -56,16 +66,20 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
         return questions as Question[];
       } catch (err) {
         lastError = err;
-        console.log(`Failed with path ${path}:`, err.message);
+        console.log(`Failed with path ${path}:`, err instanceof Error ? err.message : String(err));
+        console.log(`Error stack:`, err instanceof Error ? err.stack : 'No stack');
         continue;
       }
     }
     
     // すべてのパスが失敗した場合
+    console.error(`All paths failed for ${dataPath}`);
+    console.error('Last error:', lastError);
     throw lastError || new Error(`All paths failed for ${dataPath}`);
   } catch (error) {
     console.error(`Failed to load quiz set data from ${dataPath}:`, error);
     console.error('Error details:', error);
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack');
     return [];
   }
 };
