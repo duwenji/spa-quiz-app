@@ -1,0 +1,724 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "GitHub Copilotのコード補完機能で、より正確な提案を得るためのコメントの書き方はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "曖昧なコメント（例：『ユーザーを処理する』）"
+        },
+        {
+          "id": "B",
+          "text": "具体的なコメント（例：『ユーザーリストから、最終ログインが30日以上前のユーザーを抽出し、非アクティブユーザーとしてマークする』）"
+        },
+        {
+          "id": "C",
+          "text": "短いコメント（例：『処理する』）"
+        },
+        {
+          "id": "D",
+          "text": "英語のコメントのみ"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "具体的なコメントを書くことで、Copilotはより正確なコードを提案できます。曖昧なコメントでは意図が伝わりにくく、不正確な提案になる可能性があります。\n\n【サンプル】\n// 具体的なコメント\n// ユーザーリストから、最終ログインが30日以上前のユーザーを抽出し、非アクティブユーザーとしてマークする\npublic List<User> MarkInactiveUsers(List<User> users)\n{\n    var thirtyDaysAgo = DateTime.Now.AddDays(-30);\n    // ... 具体的な実装が提案される\n}"
+    },
+    {
+      "id": 2,
+      "question": "C#でCopilotのコード補完精度を向上させるために有効なXMLコメントの要素はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "<summary>のみ"
+        },
+        {
+          "id": "B",
+          "text": "<summary>と<returns>"
+        },
+        {
+          "id": "C",
+          "text": "<summary>、<param>、<returns>の組み合わせ"
+        },
+        {
+          "id": "D",
+          "text": "XMLコメントは不要"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "<summary>、<param>、<returns>を組み合わせることで、メソッドの目的、パラメータの意味、戻り値の型を明確にし、Copilotが適切な実装を提案しやすくなります。\n\n【サンプル】\n/// <summary>\n/// スコアの平均を計算する\n/// </summary>\n/// <param name=\"scores\">スコアのリスト</param>\n/// <returns>平均値、リストが空の場合はnull</returns>\npublic double? CalculateAverageScore(List<double> scores)\n{\n    // XMLコメントに基づいた適切な実装が提案される\n}"
+    },
+    {
+      "id": 3,
+      "question": "Copilotが繰り返しパターンを自動化する例として適切なのはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "ValidateNameメソッドを書くと、ValidateEmail、ValidateAgeなどの類似メソッドを自動提案"
+        },
+        {
+          "id": "B",
+          "text": "コメントだけ書いてすべてのコードを自動生成"
+        },
+        {
+          "id": "C",
+          "text": "既存のコードをすべて削除して新規作成"
+        },
+        {
+          "id": "D",
+          "text": "英語のドキュメントのみを生成"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Validate_ というプレフィックスを持つメソッドパターンをCopilotは学習し、類似のバリデーションメソッドを自動提案します。これは繰り返しパターンの自動化の良い例です。\n\n【サンプル】\npublic bool ValidateName(string name) { ... }\n// Validate_ と入力すると以下が提案される：\npublic bool ValidateEmail(string email) { ... }\npublic bool ValidateAge(int age) { ... }\npublic bool ValidatePhone(string phone) { ... }"
+    },
+    {
+      "id": 4,
+      "question": "Copilot Chatでコードの説明を依頼する正しい方法はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "コードを選択せずに『このコードは何？』と質問"
+        },
+        {
+          "id": "B",
+          "text": "コードを選択して『このコードは何をしていますか？』と質問"
+        },
+        {
+          "id": "C",
+          "text": "コードをコピーして別のファイルに貼り付ける"
+        },
+        {
+          "id": "D",
+          "text": "デバッガーで実行する"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Copilot Chatでコードの説明を依頼するには、説明したいコードを選択し、『このコードは何をしていますか？』と質問します。Copilotは選択されたコードを分析して詳細な説明を提供します。\n\n【サンプル】\n選択コード：\nvar result = items\n    .Where(x => !string.IsNullOrEmpty(x))\n    .Select(x => x.Trim().ToLower())\n    .Distinct()\n    .ToList();\n\nCopilotの回答：\n1. Where(x => !string.IsNullOrEmpty(x)) - 空またはnullの要素を除外\n2. Select(x => x.Trim().ToLower()) - 各要素の前後の空白を除去し、小文字に変換\n3. Distinct() - 重複する要素を除去\n4. ToList() - 結果をリストに変換"
+    },
+    {
+      "id": 5,
+      "question": "Copilot Chatでリファクタリングを依頼する際の効果的な質問はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "『このコードを直して』"
+        },
+        {
+          "id": "B",
+          "text": "『このコードをリファクタリングして、もっと読みやすくしてください』"
+        },
+        {
+          "id": "C",
+          "text": "『バグがあります』"
+        },
+        {
+          "id": "D",
+          "text": "『動きません』"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "具体的なリファクタリングの目的（『もっと読みやすくしてください』）を伝えることで、Copilotは適切な改善提案を行います。曖昧な依頼では期待通りの結果が得られない可能性があります。\n\n【サンプル】\n依頼：『このコードをリファクタリングして、もっと読みやすくしてください』\n\n改善前：\npublic double Calc(double x)\n{\n    if (x > 0) {\n        if (x < 100) { return x * 1.1; }\n        else { return x * 0.9; }\n    } else { return 0; }\n}\n\n改善後（Copilot提案）：\npublic double CalculateAdjustedPrice(double price)\n{\n    if (price <= 0) return 0;\n    return price < 100 ? price * 1.1 : price * 0.9;\n}"
+    },
+    {
+      "id": 6,
+      "question": "Copilot ChatでJSONデシリアライズエラーを解決する方法として適切なのはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "エラーメッセージを無視する"
+        },
+        {
+          "id": "B",
+          "text": "エラーメッセージをCopilot Chatに貼り付けて解決策を依頼"
+        },
+        {
+          "id": "C",
+          "text": "コードをすべて書き直す"
+        },
+        {
+          "id": "D",
+          "text": "別のプログラミング言語に変更する"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "エラーメッセージをCopilot Chatに貼り付けて解決策を依頼すると、Copilotはエラーの原因分析と具体的な解決コードを提案します。\n\n【サンプル】\nエラー：System.Text.Json.JsonException: The JSON value could not be converted to System.Collections.Generic.List`1[Item]\n\nCopilotの提案：\nvar options = new JsonSerializerOptions\n{\n    PropertyNameCaseInsensitive = true,\n    AllowTrailingCommas = true,\n    ReadCommentHandling = JsonCommentHandling.Skip\n};\ntry {\n    var data = JsonSerializer.Deserialize<List<Item>>(json, options);\n} catch (JsonException ex) {\n    Console.WriteLine($\"JSON解析エラー: {ex.Message}\");\n}"
+    },
+    {
+      "id": 7,
+      "question": "Copilot Editsでコードのパフォーマンスを最適化する依頼方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "コードを選択して『パフォーマンスを最適化して』と指示"
+        },
+        {
+          "id": "B",
+          "text": "コードを削除して新規作成"
+        },
+        {
+          "id": "C",
+          "text": "ハードウェアをアップグレードする"
+        },
+        {
+          "id": "D",
+          "text": "コンパイラオプションを変更する"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Copilot Editsでは、最適化したいコードを選択し、『パフォーマンスを最適化して』と指示することで、より効率的なアルゴリズムを提案してくれます。\n\n【サンプル】\n最適化前（O(n²)）：\nfor (int i = 0; i < items.Length; i++) {\n    for (int j = i + 1; j < items.Length; j++) {\n        if (items[i] == items[j] && !duplicates.Contains(items[i])) {\n            duplicates.Add(items[i]);\n        }\n    }\n}\n\n最適化後（O(n) - Copilot提案）：\nvar seen = new HashSet<int>();\nvar duplicates = new HashSet<int>();\nforeach (var item in items) {\n    if (seen.Contains(item)) duplicates.Add(item);\n    else seen.Add(item);\n}"
+    },
+    {
+      "id": 8,
+      "question": "Copilot Editsでエラーハンドリングを追加する適切な方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "コードを選択して『エラーハンドリングを追加して』と指示"
+        },
+        {
+          "id": "B",
+          "text": "try-catchブロックを手動で追加"
+        },
+        {
+          "id": "C",
+          "text": "エラーを無視するコードを書く"
+        },
+        {
+          "id": "D",
+          "text": "グローバル例外ハンドラーのみに依存"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Copilot Editsでエラーハンドリングを追加するには、対象コードを選択して『エラーハンドリングを追加して』と指示します。Copilotは適切な例外処理、ロギング、バリデーションを提案します。\n\n【サンプル】\n追加前：\npublic Config ReadConfig(string filename) {\n    var json = File.ReadAllText(filename);\n    return JsonSerializer.Deserialize<Config>(json);\n}\n\n追加後（Copilot提案）：\npublic async Task<Config> ReadConfigAsync(string filename) {\n    if (!File.Exists(filename))\n        throw new FileNotFoundException($\"設定ファイルが見つかりません: {filename}\");\n    try {\n        var json = await File.ReadAllTextAsync(filename);\n        var config = JsonSerializer.Deserialize<Config>(json);\n        if (config == null) throw new InvalidOperationException(\"設定ファイルが空です\");\n        return config;\n    } catch (JsonException ex) {\n        _logger.LogError(ex, \"JSON形式が不正です: {Filename}\", filename);\n        throw;\n    }\n}"
+    },
+    {
+      "id": 9,
+      "question": "エージェントモードで新機能を追加する際のCopilotへの依頼方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "具体的な要件を箇条書きで伝える"
+        },
+        {
+          "id": "B",
+          "text": "『何か作って』とだけ伝える"
+        },
+        {
+          "id": "C",
+          "text": "既存のコードをすべて表示する"
+        },
+        {
+          "id": "D",
+          "text": "ファイル名だけを伝える"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "エージェントモードでは、具体的な要件を箇条書きで伝えることで、Copilotは複数ファイルにまたがる機能を自動的に実装します。\n\n【サンプル】\n依頼：『ユーザー認証機能を追加して。以下の要件：\n- パスワードはハッシュ化して保存（BCrypt）\n- JWTトークンを発行\n- ログイン/ログアウトAPI（コントローラー）\n- レート制限（1分間に5回まで）』\n\nCopilotの対応：\n- AuthController.cs（新規作成）\n- AuthService.cs（新規作成）\n- JwtService.cs（新規作成）\n- User.cs（更新）\n- RateLimitMiddleware.cs（新規作成）\n- appsettings.json（更新）\n- Program.cs（更新）"
+    },
+    {
+      "id": 10,
+      "question": "エージェントモードでプロジェクト全体のリファクタリングを依頼する方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "@workspace を指定してリファクタリングを依頼"
+        },
+        {
+          "id": "B",
+          "text": "1ファイルずつ手動で修正"
+        },
+        {
+          "id": "C",
+          "text": "外部ツールを使用する"
+        },
+        {
+          "id": "D",
+          "text": "リファクタリングしない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "@workspace を指定することで、Copilotはプロジェクト全体を分析し、大規模なリファクタリングを実行します。\n\n【サンプル】\n依頼：『@workspace このプロジェクトのデータアクセス層をリポジトリパターンにリファクタリングして』\n\nCopilotの実行：\n1. Repositories/ ディレクトリを作成\n2. IRepository<T> インターフェースを作成\n3. 各エンティティのリポジトリクラスを実装\n4. 依存性注入を設定\n5. 既存のコントローラーを修正"
+    },
+    {
+      "id": 11,
+      "question": "初心者プログラマーがCopilotでファイル操作を学ぶ際の適切な方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "コメントで意図を伝えてコード提案を受ける"
+        },
+        {
+          "id": "B",
+          "text": "マニュアルをすべて読む"
+        },
+        {
+          "id": "C",
+          "text": "他の人のコードをコピーする"
+        },
+        {
+          "id": "D",
+          "text": "諦める"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "初心者は『テキストファイルを読み込んで、各行をリストとして返す』などのコメントを書き、Copilotの提案から正しい書き方を学べます。\n\n【サンプル】\nコメント：// テキストファイルを読み込んで、各行をリストとして返す\n\nCopilot提案：\npublic List<string> ReadFileLines(string filename) {\n    var lines = new List<string>();\n    try {\n        using (var reader = new StreamReader(filename)) {\n            string line;\n            while ((line = reader.ReadLine()) != null) {\n                lines.Add(line);\n            }\n        }\n    } catch (FileNotFoundException) {\n        Console.WriteLine($\"ファイルが見つかりません: {filename}\");\n    }\n    return lines;\n}"
+    },
+    {
+      "id": 12,
+      "question": "CopilotでLINQの使い方を学ぶ際の効果的な方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "基本的なforeachコードを書き、CopilotにLINQバージョンを提案してもらう"
+        },
+        {
+          "id": "B",
+          "text": "LINQのドキュメントをすべて暗記する"
+        },
+        {
+          "id": "C",
+          "text": "LINQを使わないコードを書く"
+        },
+        {
+          "id": "D",
+          "text": "他のプログラミング言語に切り替える"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "基本的なforeachループを書き、Copilotに『このコードをLINQで書き直して』と依頼することで、LINQの使い方を効率的に学べます。\n\n【サンプル】\nforeachバージョン：\nvar numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };\nvar evenNumbers = new List<int>();\nforeach (var num in numbers) {\n    if (num % 2 == 0) {\n        evenNumbers.Add(num);\n    }\n}\n\nCopilot提案のLINQバージョン：\nvar evenNumbersLinq = numbers.Where(n => n % 2 == 0).ToList();"
+    },
+    {
+      "id": 13,
+      "question": "初心者がCopilotで非同期プログラミングを学ぶ際の適切な方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "同期メソッドを書き、Copilotに非同期バージョンを提案してもらう"
+        },
+        {
+          "id": "B",
+          "text": "非同期プログラミングの理論書をすべて読む"
+        },
+        {
+          "id": "C",
+          "text": "非同期処理を避ける"
+        },
+        {
+          "id": "D",
+          "text": "別の言語で学ぶ"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "同期メソッドを書き、Copilotに『このメソッドを非同期に変換して』と依頼することで、正しいasync/awaitの使い方、CancellationTokenの扱い方を学べます。\n\n【サンプル】\n同期バージョン：\npublic string GetData() {\n    using var client = new HttpClient();\n    return client.GetStringAsync(\"https://api.example.com/data\").Result;\n}\n\nCopilot提案の非同期バージョン：\npublic async Task<string> GetDataAsync(CancellationToken cancellationToken = default) {\n    using var client = new HttpClient();\n    return await client.GetStringAsync(\"https://api.example.com/data\", cancellationToken);\n}"
+    },
+    {
+      "id": 14,
+      "question": "中級者がCopilotでストラテジーパターンを実装する際の効果的な方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "『支払い処理にストラテジーパターンを適用して』と具体的に依頼"
+        },
+        {
+          "id": "B",
+          "text": "デザインパターンの本をすべて読む"
+        },
+        {
+          "id": "C",
+          "text": "既存のコードをそのまま使う"
+        },
+        {
+          "id": "D",
+          "text": "パターンを使わない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "具体的なユースケース（『支払い処理にストラテジーパターンを適用して』）を伝えることで、Copilotは適切なインターフェース、実装クラス、コンテキストクラスを提案します。\n\n【サンプル】\n依頼：『支払い処理にストラテジーパターンを適用して』\n\nCopilot提案：\npublic interface IPaymentStrategy {\n    Task<PaymentResult> ProcessPaymentAsync(PaymentRequest request);\n    string PaymentMethod { get; }\n}\n\npublic class CreditCardPaymentStrategy : IPaymentStrategy { ... }\npublic class PayPalPaymentStrategy : IPaymentStrategy { ... }\npublic class PaymentContext { ... }"
+    },
+    {
+      "id": 15,
+      "question": "Copilotでパフォーマンス最適化を依頼する際の具体的な方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "非効率なコードを選択して『パフォーマンスを最適化して』と依頼"
+        },
+        {
+          "id": "B",
+          "text": "ハードウェアをアップグレードする"
+        },
+        {
+          "id": "C",
+          "text": "アルゴリズムの理論書を読む"
+        },
+        {
+          "id": "D",
+          "text": "最適化しない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "非効率なアルゴリズム（例：O(n²)の重複検索）を選択し、『パフォーマンスを最適化して』と依頼すると、Copilotはより効率的なアルゴリズム（例：O(n)のHashSet使用）を提案します。\n\n【サンプル】\n最適化前：\npublic List<Product> SearchProducts(List<Product> products, string keyword) {\n    var results = new List<Product>();\n    foreach (var p in products) {\n        if (p.Name.Contains(keyword) && p.Price > 100) {\n            results.Add(p);\n        }\n    }\n    return results.OrderBy(p => p.Price).ToList();\n}\n\nCopilot提案の最適化後：\npublic List<Product> SearchProductsOptimized(IQueryable<Product> products, string keyword) {\n    return products\n        .Where(p => p.Name.Contains(keyword) && p.Price > 100)\n        .OrderBy(p => p.Price)\n        .ToList();\n}"
+    },
+    {
+      "id": 16,
+      "question": "Copilotでテスト容易性を向上させるコードを書くには？",
+      "options": [
+        {
+          "id": "A",
+          "text": "『このクラスをテスト可能にリファクタリングして』と依頼"
+        },
+        {
+          "id": "B",
+          "text": "テストを書かない"
+        },
+        {
+          "id": "C",
+          "text": "すべてのメソッドをstaticにする"
+        },
+        {
+          "id": "D",
+          "text": "データベースに直接アクセスする"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "テスト困難なコード（直接データベースアクセス、メール送信など）を選択し、『このクラスをテスト可能にリファクタリングして』と依頼すると、Copilotは依存性注入、インターフェース分離、モック可能な設計を提案します。\n\n【サンプル】\nリファクタリング前：\npublic class OrderProcessor {\n    public async Task<bool> ProcessOrder(int orderId) {\n        using var conn = new SqlConnection(\"connection string\");\n        var order = await conn.QueryFirstOrDefaultAsync<Order>(\"SELECT * FROM Orders WHERE Id = @Id\", new { Id = orderId });\n        // 直接メール送信など\n    }\n}\n\nCopilot提案のリファクタリング後：\npublic interface IOrderRepository { ... }\npublic interface INotificationService { ... }\npublic class OrderProcessor {\n    private readonly IOrderRepository _orderRepository;\n    private readonly INotificationService _notificationService;\n    // 依存性注入でテスト可能に\n}"
+    },
+    {
+      "id": 17,
+      "question": "上級者がCopilotでクリーンアーキテクチャを設計する際の方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "『C#でクリーンアーキテクチャを実装したい。要件を箇条書きで伝える』"
+        },
+        {
+          "id": "B",
+          "text": "既存のアーキテクチャをそのまま使う"
+        },
+        {
+          "id": "C",
+          "text": "すべてを1つのプロジェクトにまとめる"
+        },
+        {
+          "id": "D",
+          "text": "アーキテクチャ設計をしない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "具体的な要件を箇条書きで伝えることで、Copilotはドメイン層、アプリケーション層、インフラ層、プレゼンテーション層の構造を提案します。\n\n【サンプル】\n依頼：『C#でクリーンアーキテクチャを実装したい。以下の要件：\n- ドメイン層、アプリケーション層、インフラ層、プレゼンテーション層\n- CQRSパターン\n- MediatRの使用\n- Entity Framework Core』\n\nCopilot提案：\n- Domain/Entities/Order.cs（集約ルート）\n- Application/Features/Orders/Commands/CreateOrderCommand.cs（CQRS）\n- Infrastructure/Persistence/Repositories/OrderRepository.cs\n- API/Controllers/OrdersController.cs"
+    },
+    {
+      "id": 18,
+      "question": "QAエンジニアがCopilotでテストケースを生成する方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "ビジネスロジッククラスを選択して『テストケースを生成して』と依頼"
+        },
+        {
+          "id": "B",
+          "text": "手動でテストケースを書く"
+        },
+        {
+          "id": "C",
+          "text": "テストを書かない"
+        },
+        {
+          "id": "D",
+          "text": "既存のテストをコピーする"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "テスト対象のクラスやメソッドを選択し、『テストケースを生成して』と依頼すると、Copilotは境界値分析、組み合わせテスト、エラーケースを含む包括的なテストケースを提案します。\n\n【サンプル】\nテスト対象：\npublic class ShippingCostCalculator {\n    public decimal CalculateShippingCost(decimal weight, decimal distance, bool express, bool international) { ... }\n}\n\nCopilot提案のテストケース：\n[Theory]\n[InlineData(1, 10, false, false, 700)]\n[InlineData(5, 100, false, false, 2000)]\n[InlineData(0, 10, false, false, 600)]\n[InlineData(1, 10, true, false, 1700)]\n[InlineData(1, 10, false, true, 2100)]\n[InlineData(1, 10, true, true, 3100)]\npublic void CalculateShippingCost_ShouldReturnExpectedValue(...) { ... }"
+    },
+    {
+      "id": 19,
+      "question": "Copilotで統合テストを自動生成する方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "『Web APIの統合テストを生成して』と依頼"
+        },
+        {
+          "id": "B",
+          "text": "手動で統合テストを書く"
+        },
+        {
+          "id": "C",
+          "text": "統合テストを書かない"
+        },
+        {
+          "id": "D",
+          "text": "単体テストのみ書く"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "『Web APIの統合テストを生成して』と依頼すると、CopilotはWebApplicationFactoryを使用した統合テストクラスを提案します。\n\n【サンプル】\nCopilot提案：\npublic class OrdersApiIntegrationTests : IClassFixture<WebApplicationFactory<Program>> {\n    private readonly HttpClient _client;\n    \n    public OrdersApiIntegrationTests(WebApplicationFactory<Program> factory) {\n        _client = factory.CreateClient();\n    }\n    \n    [Fact]\n    public async Task CreateOrder_WithValidData_ReturnsCreated() {\n        var request = new { customerName = \"テスト顧客\", items = new[] { ... } };\n        var response = await _client.PostAsJsonAsync(\"/api/orders\", request);\n        Assert.Equal(HttpStatusCode.Created, response.StatusCode);\n    }\n}"
+    },
+    {
+      "id": 20,
+      "question": "Copilotでコーディング標準を策定する方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "『C#コーディング標準を策定して』と依頼"
+        },
+        {
+          "id": "B",
+          "text": "標準を定めない"
+        },
+        {
+          "id": "C",
+          "text": "各自の好きな書き方にする"
+        },
+        {
+          "id": "D",
+          "text": "外部の標準をそのまま使う"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "『C#コーディング標準を策定して』と依頼すると、Copilotは命名規則、エラーハンドリング、非同期パターン、実装例を含む包括的なコーディング標準を提案します。\n\n【サンプル】\nCopilot提案：\n/*\n# C#コーディング標準\n## 基本ルール\n- ファイルスコープの名前空間を使用\n- 全てのpublicメンバーにXMLコメント\n- メソッドは25行以内\n\n## 命名規則\n- クラス/インターフェース: PascalCase\n- メソッド: PascalCase\n- パラメータ: camelCase\n\n## 実装例\nnamespace MyApp.Services;\npublic class UserService : IUserService {\n    public async Task<List<UserDto>> GetActiveUsersAsync(CancellationToken cancellationToken = default) {\n        // 実装例\n    }\n}\n*/"
+    },
+    {
+      "id": 21,
+      "question": "Copilotでテストコードを自動生成するスラッシュコマンドは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/explain"
+        },
+        {
+          "id": "B",
+          "text": "/tests"
+        },
+        {
+          "id": "C",
+          "text": "/fix"
+        },
+        {
+          "id": "D",
+          "text": "/doc"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "/tests スラッシュコマンドは、選択されたメソッドや関数の単体テストコードを自動生成します。xUnit、NUnit、MSTestなどのテストフレームワークに対応しています。\n\n【サンプル】\nテスト対象クラスを選択 → /tests 実行\n生成例：\npublic class CalculatorTests {\n    [Fact]\n    public void Add_ShouldReturnSum_WhenCalled() {\n        var calculator = new Calculator();\n        var result = calculator.Add(2, 3);\n        Assert.Equal(5, result);\n    }\n}"
+    },
+    {
+      "id": 22,
+      "question": "Copilotでエージェントモードを使用するメリットは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "複数ファイルにまたがる複雑なタスクを自動実行できる"
+        },
+        {
+          "id": "B",
+          "text": "コード補完が速くなる"
+        },
+        {
+          "id": "C",
+          "text": "メモリ使用量が減る"
+        },
+        {
+          "id": "D",
+          "text": "オフラインで動作する"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "エージェントモードは、複数ファイルにまたがる複雑なタスク（新機能追加、大規模リファクタリング、アーキテクチャ設計など）を自動的に実行できます。単一の指示で、関連するすべてのファイルを作成・修正します。\n\n【サンプル】\n依頼：『ユーザー認証機能を追加して』\n→ Copilotが自動的に作成：\n- AuthController.cs\n- AuthService.cs  \n- JwtService.cs\n- User.csの更新\n- appsettings.jsonの更新\n- Program.csの更新"
+    },
+    {
+      "id": 23,
+      "question": "初心者向けCopilot活用で最も重要なことは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "具体的なコメントで意図を伝える"
+        },
+        {
+          "id": "B",
+          "text": "英語でコメントを書く"
+        },
+        {
+          "id": "C",
+          "text": "すべてのコードを自分で書く"
+        },
+        {
+          "id": "D",
+          "text": "Copilotを使わない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "初心者は具体的なコメントで意図を伝えることで、Copilotから正しいコードの書き方を学べます。曖昧なコメントでは不正確な提案になる可能性があります。\n\n【サンプル】\n良い例：『テキストファイルを読み込んで、各行をリストとして返す』\n悪い例：『ファイルを処理する』\n\nCopilotは良い例から適切なStreamReader、例外処理、usingステートメントを提案します。"
+    },
+    {
+      "id": 24,
+      "question": "中級者向けCopilot活用で効果的なのは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "デザインパターンの適用を依頼する"
+        },
+        {
+          "id": "B",
+          "text": "基本的な構文のみ依頼する"
+        },
+        {
+          "id": "C",
+          "text": "コードをすべて手書きする"
+        },
+        {
+          "id": "D",
+          "text": "外部ライブラリを避ける"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "中級者は『支払い処理にストラテジーパターンを適用して』など、具体的なデザインパターンの適用を依頼することで、設計スキルを向上させられます。\n\n【サンプル】\n依頼：『在庫管理にオブザーバーパターンを適用して』\n→ Copilotが提案：\npublic interface IStockObserver { ... }\npublic interface IStockSubject { ... }\npublic class StockManager : IStockSubject { ... }\npublic class EmailNotifier : IStockObserver { ... }"
+    },
+    {
+      "id": 25,
+      "question": "上級者/テックリード向けCopilot活用で重要なのは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "チームのコーディング標準策定を支援させる"
+        },
+        {
+          "id": "B",
+          "text": "個人のコーディング速度向上のみに注力"
+        },
+        {
+          "id": "C",
+          "text": "チームメンバーにCopilotを使わせない"
+        },
+        {
+          "id": "D",
+          "text": "すべてのコードレビューを手動で行う"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "上級者/テックリードはCopilotでチームのコーディング標準を策定し、一貫性のあるコードベースを維持できます。\n\n【サンプル】\n依頼：『.NET 8向けのコーディング標準を策定して』\n→ Copilotが提案：\n- ファイルスコープ名前空間の使用\n- プライマリコンストラクタの活用\n- ミニマルAPIのガイドライン\n- パフォーマンス最適化のベストプラクティス"
+    },
+    {
+      "id": 26,
+      "question": "QAエンジニアがCopilotを活用するメリットは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "テストケースの自動生成と組み合わせテスト"
+        },
+        {
+          "id": "B",
+          "text": "コードを書く速度が上がる"
+        },
+        {
+          "id": "C",
+          "text": "テストを書かなくて済む"
+        },
+        {
+          "id": "D",
+          "text": "バグを見つけなくなる"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "QAエンジニアはCopilotでテストケースを自動生成し、境界値分析、組み合わせテスト、エッジケースを含む包括的なテストスイートを作成できます。\n\n【サンプル】\nテスト対象メソッドを選択 → 『組み合わせテストケースを生成して』と依頼\n→ Copilotが提案：\n[Theory]\n[MemberData(nameof(GetCombinationTestData))]\npublic void CalculateShippingCost_AllCombinations_ShouldReturnPositiveValue(...) {\n    // 重み、距離、速達オプション、国際オプションの全組み合わせテスト\n}"
+    },
+    {
+      "id": 27,
+      "question": "Copilot Editsでコードを選択する際のベストプラクティスは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "変更したい特定のコードブロックのみを選択"
+        },
+        {
+          "id": "B",
+          "text": "ファイル全体を選択"
+        },
+        {
+          "id": "C",
+          "text": "ランダムなコードを選択"
+        },
+        {
+          "id": "D",
+          "text": "何も選択しない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Copilot Editsでは、変更したい特定のコードブロックのみを選択することで、より正確な修正提案が得られます。ファイル全体を選択すると、意図しない変更が提案される可能性があります。\n\n【サンプル】\n最適化したい重複検索アルゴリズムのみを選択 → 『パフォーマンスを最適化して』\n→ CopilotがO(n²)からO(n)への最適化を提案"
+    },
+    {
+      "id": 28,
+      "question": "Copilot Chatでエラーメッセージを分析する方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "エラーメッセージをコピーして貼り付け、/fixコマンドを使用"
+        },
+        {
+          "id": "B",
+          "text": "エラーを無視する"
+        },
+        {
+          "id": "C",
+          "text": "コンピューターを再起動する"
+        },
+        {
+          "id": "D",
+          "text": "別のプログラミング言語に切り替える"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "エラーメッセージをCopilot Chatに貼り付けて/fixコマンドを使用すると、Copilotはエラーの原因分析と具体的な修正方法を提案します。\n\n【サンプル】\nエラー：'System.NullReferenceException: Object reference not set to an instance of an object.'\n→ Copilotが提案：\n1. nullチェックの追加\n2. 初期化の確認\n3. デバッグ方法の提案"
+    },
+    {
+      "id": 29,
+      "question": "Copilotで学習効率を上げる方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "自分の書いたコードとCopilotの提案を比較する"
+        },
+        {
+          "id": "B",
+          "text": "Copilotの提案を盲目的に受け入れる"
+        },
+        {
+          "id": "C",
+          "text": "Copilotを使わない"
+        },
+        {
+          "id": "D",
+          "text": "一度にすべてを学ぼうとする"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "自分の書いたコードとCopilotの提案を比較することで、ベストプラクティス、新しいAPI、効率的なアルゴリズムを学べます。\n\n【サンプル】\n自分のコード：foreachループでフィルタリング\nCopilot提案：LINQのWhereメソッド\n→ 比較することでLINQのメリットを理解できる"
+    },
+    {
+      "id": 30,
+      "question": "Copilotをチーム開発で効果的に活用する方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "共有のCopilot Instructionsファイルを作成"
+        },
+        {
+          "id": "B",
+          "text": "各自が独自の設定を使う"
+        },
+        {
+          "id": "C",
+          "text": "Copilotの使用を禁止する"
+        },
+        {
+          "id": "D",
+          "text": "コードレビューを省略する"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "チームで共有のCopilot Instructionsファイル（.github/copilot-instructions.md）を作成することで、一貫性のあるコード生成が可能になります。\n\n【サンプル】\nファイル内容：\n/*\n# チームコーディング規約\n- 非同期メソッドにはAsyncサフィックス\n- 例外は特定の型をキャッチ\n- ログは構造化ログを使用\n- テストはxUnitを使用\n*/\n→ Copilotがこの規約に従ったコードを提案"
+    }
+  ]
+}
