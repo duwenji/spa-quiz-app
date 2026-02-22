@@ -5,6 +5,19 @@
     <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>選択問題クイズアプリ - GitHub Copilot習得チャレンジ</title>
+    <script>
+      // GitHub Pages用のベースパス設定
+      (function() {
+        const base = '/spa-quiz-app/';
+        const path = window.location.pathname;
+        
+        // 開発環境か本番環境かを判定
+        if (path.startsWith(base)) {
+          // 本番環境 - ベースパスを設定
+          document.write('<base href="' + base + '" />');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
