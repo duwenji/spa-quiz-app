@@ -1,14 +1,24 @@
 {
   "quizSets": [
     {
-      "id": "github-copilot",
-      "name": "GitHub Copilot Chat",
-      "description": "GitHub Copilot Chatの基本機能と使用方法を学べるクイズです",
+      "id": "github-copilot-variables",
+      "name": "チャット参加者・スラッシュコマンド・チャット変数",
+      "description": "チャット参加者・スラッシュコマンド・チャット変数を学べるクイズです",
       "category": "GitHub",
       "icon": "🤖",
       "questionCount": 30,
       "difficulty": "intermediate",
       "dataPath": "github-copilot/questions.json"
+    },
+    {
+      "id": "test-react-quiz",
+      "name": "テストReactクイズ",
+      "description": "Reactの基本を学べるテストクイズです",
+      "category": "React",
+      "icon": "⚛️",
+      "questionCount": 2,
+      "difficulty": "beginner",
+      "dataPath": "test-quiz/questions.json"
     }
   ]
 }

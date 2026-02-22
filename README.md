@@ -86,9 +86,15 @@ spa-quiz-app/
 │   │   ├── ProgressBar.tsx         # 進捗バー
 │   │   ├── NavigationButtons.tsx   # 前へ/次へ
 │   │   ├── QuestionNavigation.tsx  # 問題番号ボタン
-│   │   └── ActivityDownload.tsx    # ダウンロード・統計表示
+│   │   ├── ActivityDownload.tsx    # ダウンロード・統計表示
+│   │   └── QuizSetSelector.tsx     # クイズセット選択
 │   ├── data/
-│   │   └── questions.json          # 30問のデータ
+│   │   ├── index.ts                # データ読み込みロジック
+│   │   ├── quizSets.json           # クイズセットメタデータ
+│   │   ├── github-copilot/         # GitHub Copilotクイズセット
+│   │   │   └── questions.json
+│   │   └── template/               # テンプレート（参考用）
+│   │       └── questions.json
 │   ├── types/
 │   │   └── index.ts                # 型定義
 │   ├── hooks/
@@ -177,9 +183,48 @@ spa-quiz-app/
 
 ## ⚙️ カスタマイズ
 
-### 問題の追加・変更
+### クイズセットの追加方法
 
-`src/data/questions.json` を編集して問題を追加または変更できます：
+新しいクイズセットを追加するには、以下の手順に従ってください：
+
+#### 1. ディレクトリ構造の作成
+```
+src/data/
+├── your-topic-name/          # 新しいクイズセットのディレクトリ
+│   └── questions.json        # 質問データ
+├── template/                 # テンプレート（参考用）
+│   └── questions.json
+├── quizSets.json             # クイズセットメタデータ
+└── index.ts                  # データ読み込みロジック
+```
+
+#### 2. 質問データの作成
+`src/data/your-topic-name/questions.json` を作成します。テンプレートをコピーして編集：
+```bash
+cp src/data/template/questions.json src/data/your-topic-name/questions.json
+```
+
+#### 3. クイズセットメタデータの追加
+`src/data/quizSets.json` に新しいエントリを追加：
+```json
+{
+  "id": "your-topic-id",
+  "name": "クイズセット名",
+  "description": "クイズセットの説明",
+  "category": "カテゴリ",
+  "icon": "🎯",
+  "questionCount": 10,
+  "difficulty": "beginner",  // "beginner", "intermediate", "advanced" のいずれか
+  "dataPath": "your-topic-name/questions.json"
+}
+```
+
+#### 4. アプリケーションの再起動
+開発サーバーを再起動すると、新しいクイズセットが自動的に認識されます。
+
+### 既存のクイズセットの編集
+
+`src/data/github-copilot/questions.json` を編集して問題を追加または変更できます：
 
 ```json
 {

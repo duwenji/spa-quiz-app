@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuiz } from './hooks/useQuiz';
 import { ProgressBar } from './components/ProgressBar';
 import { QuestionCard } from './components/QuestionCard';
@@ -8,16 +8,37 @@ import { QuestionNavigation } from './components/QuestionNavigation';
 import { ActivityDownload } from './components/ActivityDownload';
 import { QuizSetSelector } from './components/QuizSetSelector';
 import { Question, QuizSet } from './types';
-import { getAllQuizSets, getQuizSetWithQuestions } from './data';
+import { getAllQuizSets, getQuizSetQuestions } from './data';
 import './App.css';
 
 function App() {
   const [appState, setAppState] = useState<'selecting' | 'intro' | 'quiz'>('selecting');
   const [selectedQuizSet, setSelectedQuizSet] = useState<QuizSet | null>(null);
-  const questions: Question[] = selectedQuizSet 
-    ? (getQuizSetWithQuestions(selectedQuizSet.id)?.questions || [])
-    : [];
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   
+  // クイズセットが選択されたら質問データを非同期で読み込む
+  useEffect(() => {
+    const loadQuestions = async () => {
+      if (selectedQuizSet && appState === 'quiz') {
+        setIsLoading(true);
+        try {
+          const loadedQuestions = await getQuizSetQuestions(selectedQuizSet.id);
+          setQuestions(loadedQuestions);
+        } catch (error) {
+          console.error('Failed to load questions:', error);
+          setQuestions([]);
+        } finally {
+          setIsLoading(false);
+        }
+      } else {
+        setQuestions([]);
+      }
+    };
+
+    loadQuestions();
+  }, [selectedQuizSet, appState]);
+
   const {
     state,
     history,
@@ -38,7 +59,9 @@ function App() {
   };
 
   const handleStartQuiz = () => {
-    resetQuiz();
+    // resetQuiz() は確認ダイアログを表示するので、代わりに状態を直接リセット
+    // 新しいセッションを開始するために状態をクリア
+    setQuestions([]);
     setAppState('quiz');
   };
 
@@ -93,6 +116,39 @@ function App() {
 
   // Show quiz screen
   if (appState === 'quiz' && selectedQuizSet) {
+    // ローディング中の表示
+    if (isLoading) {
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid mx-auto mb-4"></div>
+            <p className="text-gray-700 text-lg">クイズデータを読み込んでいます...</p>
+          </div>
+        </div>
+      );
+    }
+
+    // 質問データがない場合
+    if (questions.length === 0) {
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg shadow-2xl p-12 max-w-md w-full text-center">
+            <div className="text-6xl mb-4">😕</div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-4">データが見つかりません</h1>
+            <p className="text-gray-700 mb-6">
+              クイズデータの読み込みに失敗しました。別のクイズセットをお試しください。
+            </p>
+            <button
+              onClick={handleBackToSelection}
+              className="px-8 py-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 transition-colors duration-200"
+            >
+              クイズセット選択に戻る
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
         <div className="max-w-2xl mx-auto">
