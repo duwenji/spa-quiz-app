@@ -1,0 +1,724 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Copilot Chatで、GitHub固有のコンテキスト（リポジトリ、PR、Issue等）を備えたエージェントを起動する記号はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "@github"
+        },
+        {
+          "id": "B",
+          "text": "@vscode"
+        },
+        {
+          "id": "C",
+          "text": "@azure"
+        },
+        {
+          "id": "D",
+          "text": "/github"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "@github はGitHubプラットフォーム理解が必要なタスク向けのエージェント参加者です。@で始まるチャット参加者は『誰が（どのエージェント）』を指定します。\n\n【サンプル】\n会話例：'@github PRのマージコンフリクトを解決するには？'\n使用場面：PR レビュー、Issue確認、GitHub Actions 実行結果分析"
+    },
+    {
+      "id": 2,
+      "question": "Copilot Chatで、Visual Studio Codeの機能・設定・拡張機能に関する質問に対応するチャット参加者はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "@github"
+        },
+        {
+          "id": "B",
+          "text": "@vscode"
+        },
+        {
+          "id": "C",
+          "text": "@terminal"
+        },
+        {
+          "id": "D",
+          "text": "@azure"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "@vscode はIDE操作やワークスペース設定の相談に最適なチャット参加者です。\n\n【サンプル】\n会話例：'@vscode デバッガーの ブレークポイント機能の使い方を教えて'\n使用場面：拡張機能の設定、キーバインド設定、VS Code設定JSON"
+    },
+    {
+      "id": 3,
+      "question": "Copilot Chatで、選択コードの説明を求めるスラッシュコマンドはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/test"
+        },
+        {
+          "id": "B",
+          "text": "/explain"
+        },
+        {
+          "id": "C",
+          "text": "/fix"
+        },
+        {
+          "id": "D",
+          "text": "/doc"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "/explain はコード、メソッド、ファイル全体の説明を求めるスラッシュコマンドです。『何をするか』という処理を指定します。\n\n【サンプル】\nステップ1：コードを選択\nステップ2：Copilot Chat で /explain と入力\n→ 選択コードが日本語で詳細に説明されます\n例：複雑なJavaScript関数の動作フロー、API呼び出し処理"
+    },
+    {
+      "id": 4,
+      "question": "Copilot ChatでテストコードをAIに自動生成させるスラッシュコマンドはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/explain"
+        },
+        {
+          "id": "B",
+          "text": "/fix"
+        },
+        {
+          "id": "C",
+          "text": "/tests"
+        },
+        {
+          "id": "D",
+          "text": "/run"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "/tests はエディタ内で選択されたメソッドおよび関数の単体テストコード生成に使用します。VS Code公式スラッシュコマンドリストで『Generate tests for all or only the selected methods and functions in the editor』として定義されています。\n\n【サンプル】\nテスト対象関数を選択 → /tests 実行\n生成例：Jest、Vitest、mocha等の フレームワーク別テストコード\n時間削減：手作成が5分かかるテストが30秒で生成"
+    },
+    {
+      "id": 5,
+      "question": "Copilot Chatで、エラーメッセージやバグを修正するスラッシュコマンドはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/explain"
+        },
+        {
+          "id": "B",
+          "text": "/test"
+        },
+        {
+          "id": "C",
+          "text": "/fix"
+        },
+        {
+          "id": "D",
+          "text": "/help"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "/fix はエラーやバグを自動修正し、コード品質の改善提案も含みます。\n\n【サンプル】\nエラーメッセージをコピー → Copilot Chat に貼り付け → /fix 実行\n修正内容例：TypeError: Cannot read property X、null参照エラー、ロジックバグ\n提案内容：修正コード＋改善案＋ベストプラクティス"
+    },
+    {
+      "id": 6,
+      "question": "Copilot Chatで、選択コードのドキュメントを自動生成するスラッシュコマンドはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/test"
+        },
+        {
+          "id": "B",
+          "text": "/doc"
+        },
+        {
+          "id": "C",
+          "text": "/explain"
+        },
+        {
+          "id": "D",
+          "text": "/help"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "/doc はJSDoc、XML Doc、Docstringなど言語別フォーマットで自動生成します。\n\n【サンプル】\nTypeScript関数選択 → /doc 実行\n生成結果例：/**\n * ユーザー認証関数\n * @param {string} email - ユーザーメール\n * @returns {Promise<boolean>} 認証結果\n */\n自動で言語別フォーマット（Python→docstring、C#→XML docコメント）"
+    },
+    {
+      "id": 7,
+      "question": "Copilot Chat内で、プロジェクト全体のコンテキストをAIに含める変数（ツール）はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#file"
+        },
+        {
+          "id": "B",
+          "text": "#selection"
+        },
+        {
+          "id": "C",
+          "text": "@workspace"
+        },
+        {
+          "id": "D",
+          "text": "#codebase"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "#codebase はプロジェクト全体のファイル構造、依存関係、設定ファイルを自動分析する参照変数です。VS Code公式では『Perform a code search in the current workspace』として定義されています。注記：@workspace はチャット参加者（変数ではなく、『誰が』を指定する）です。\n\n【サンプル】\n例1：'#codebase 全体のファイル構造を教えて'\n例2：'#codebase で authentication という単語を含むファイルを検索'\n自動効果：package.json、README、全 .ts ファイルを分析して回答"
+    },
+    {
+      "id": 8,
+      "question": "Copilot Chatで、ワークスペース内の特定のファイルを参照する変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "@workspace"
+        },
+        {
+          "id": "B",
+          "text": "#file"
+        },
+        {
+          "id": "C",
+          "text": "#selection"
+        },
+        {
+          "id": "D",
+          "text": "@symbol"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "#file はファイル選択UIで視覚的に選べ、特定モジュールの説明やバグ修正に最適です。\n\n【サンプル】\nCopilot Chat で #file と入力\n→ ファイル選択ダイアログが表示\n→ src/components/Button.tsx を選択\n会話例：'#file このコンポーネント の改善案は？'\n対応ファイル：単一ファイルに特化した深い分析"
+    },
+    {
+      "id": 9,
+      "question": "Copilot Chatで、エディタで現在選択しているコード片を参照する変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#file"
+        },
+        {
+          "id": "B",
+          "text": "#editor"
+        },
+        {
+          "id": "C",
+          "text": "#selection"
+        },
+        {
+          "id": "D",
+          "text": "#codebase"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "#selection は選択コード片のみを対象にした説明や修正に便利です。\n\n【サンプル】\nステップ1：エディタで3～5行のコード片を選択\nステップ2：Copilot Chat で '/explain #selection'\nステップ3：その選択部分だけが分析対象\n活用例：複雑な正規表現、条件分岐、アルゴリズム部分を集中分析"
+    },
+    {
+      "id": 10,
+      "question": "Copilot Chatで、複数の特定ファイルの関連性を統合分析する変数（ツール）はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#file"
+        },
+        {
+          "id": "B",
+          "text": "#codebase"
+        },
+        {
+          "id": "C",
+          "text": "@workspace"
+        },
+        {
+          "id": "D",
+          "text": "#selection"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "#file は複数の特定ファイルをファイル選択UIで明示的に指定し、それらのファイル間の関連性や依存関係を統合分析するのに最適です。\n\n【サンプル】\nステップ1：Copilot Chat で #file と入力\nステップ2：ダイアログから複数ファイルを選択（例：auth.ts、user.service.ts、database.ts）\nステップ3：'#file これらのファイルの関連性と実装パターンを教えて'\n→ 選択したファイル間のデータフロー、インターフェース、実装パターンを統合分析\n分析結果：ファイル間の依存関係、API設計一貫性、リファクタリング提案などを視覚化"
+    },
+    {
+      "id": 11,
+      "question": "Copilot Chatで、プロジェクト全体のコードベースを意味検索する変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#file"
+        },
+        {
+          "id": "B",
+          "text": "@workspace"
+        },
+        {
+          "id": "C",
+          "text": "#codebase"
+        },
+        {
+          "id": "D",
+          "text": "#selection"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "#codebase は特定の機能実装パターンや設計パターン検出に便利です。\n\n【サンプル】\nユースケース：'#codebase を使って、password をハッシュ化している部分を一括探して'\n例：粗殳なパスワード保存、SQLインジェクションセキュリティズムを事前に検出\n效済性：手作検查㏿時間が数分時間の作業を数秒で完了"
+    },
+    {
+      "id": 12,
+      "question": "Copilot Chatで、Gitにおける最新のソース管理変更点（未ステージング）を参照するツール変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#testFailure"
+        },
+        {
+          "id": "B",
+          "text": "#changes"
+        },
+        {
+          "id": "C",
+          "text": "#problems"
+        },
+        {
+          "id": "D",
+          "text": "#terminalLastCommand"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "#changes は変更ファイルの確認、コミットメッセージ自動生成、影響度分析に使用できます。VS Code公式ツール変数リストで定義されています。\n\n【サンプル】\nステップ1：Git コミット前に コピー\nステップ2：Copilot Chat で '#changes の適切なコミットメッセージを提案して'\n結果：'feat: user login validation' 等自動玠造\n影響度分析：どの範囲のコイルが影響を受けるかを詳細に述べる"
+    },
+    {
+      "id": 13,
+      "question": "Copilot Chatで、VS Codeの『問題』パネルのエラーや警告を参照するツール変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#testFailure"
+        },
+        {
+          "id": "B",
+          "text": "#terminalLastCommand"
+        },
+        {
+          "id": "C",
+          "text": "#problems"
+        },
+        {
+          "id": "D",
+          "text": "#changes"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "#problems は『問餔』パネルのコンパイルエラーやリント警告をコンテキストに追加し、エラー修正支援やコード品質向上に役立ちます。VS Code公式ツール変数リストで定義されています。\n\n【サンプル】\nシナリオ：TypeScript ファイルにエラーが複数ある\nステップ1：『問餔』パネルを選択\nステップ2：#problems をコピー\nステップ3：Copilot Chat で '#problems /fix'\n結果：上記すべてのエラーを一気に修正\n效果：手作修正律：\u6570分→ 一括修正"
+    },
+    {
+      "id": 14,
+      "question": "Copilot Chatで、前回のユニットテスト実行失敗情報を参照するツール変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#problems"
+        },
+        {
+          "id": "B",
+          "text": "#testFailure"
+        },
+        {
+          "id": "C",
+          "text": "#terminalLastCommand"
+        },
+        {
+          "id": "D",
+          "text": "#changes"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "#testFailure はテスト失敗の原因分析と修正案提案に活用できます。VS Code公式で『Get unit test failure information』として定義されています。\n\n【サンプル】\n会話例：\nterminl で 'npm test' 実行\n文例：'AssertionError: expected 10 to equal 11'\nCopilot Chat で '#testFailure /fix'\n結果：テスト敟適値を八→原因を詳細に述明→修正案提示\n效果：TDDや BDD 方案を学緒できる"
+    },
+    {
+      "id": 15,
+      "question": "Copilot Chatで、アクティブなターミナルで最後に実行したコマンド結果を参照するツール変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#terminalSelection"
+        },
+        {
+          "id": "B",
+          "text": "#terminalLastCommand"
+        },
+        {
+          "id": "C",
+          "text": "#problems"
+        },
+        {
+          "id": "D",
+          "text": "#changes"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "#terminalLastCommand はコマンド実行結果の分析やトラブルシューティングに用います。『Get the last run terminal command and its output』として定義されています。\n\n【サンプル】\nシナリオ：\nターミナルで 'npm run build' 実行\nエラー負荷\nコピー：ERROR: ...\nCopilot Chat で '#terminalLastCommand このエラーを修正して'\n結果：エラーメッセージから根本原因を詳細に特定→修正案\n效果：住問解決ぜ6時間→数分"
+    },
+    {
+      "id": 16,
+      "question": "Copilot Chatで、ターミナルで現在選択されている箇所を参照するツール変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#terminalLastCommand"
+        },
+        {
+          "id": "B",
+          "text": "#terminalSelection"
+        },
+        {
+          "id": "C",
+          "text": "#problems"
+        },
+        {
+          "id": "D",
+          "text": "#selection"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "#terminalSelection はターミナル出力の特定部分をコンテキストに含めるのに便利です。『Get the current terminal selection』として定義されています。\n\n【サンプル】\nシナリオ：\nls -la 実行結果で小数のファイルを選択\nCopilot Chat で '#terminalSelection これらのファイルは何をしている？'\n結果：選択部分、特にpackage.json の役割を詳細に述明\n效果：複数ファイルを一気に理解できる"
+    },
+    {
+      "id": 17,
+      "question": "Copilot Chatで、指定したURLのWebページ内容を取得して参照するツール変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#codebase"
+        },
+        {
+          "id": "B",
+          "text": "#fetch"
+        },
+        {
+          "id": "C",
+          "text": "#githubRepo"
+        },
+        {
+          "id": "D",
+          "text": "#changes"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "#fetch <URL> は指定されたURLを取得し、オンラインドキュメントやAPIドキュメント確認、技術情報統合で使用します。VS Code公式ツールリストで『eFetch the content from a given web page』として定義されています。\n\n【サンプル】\n会話例：'#fetch https://www.example.com/api-docs React で API 呼び出しするベストプラクティスは？'\n使用例：\n- MDN Web Docs の特定ページをコンテキストに取込\n- npm パッケージドキュメントをリアルタイムで参照\n- 最新のテクノロジー情報を統合\n効果：ローカルドキュメントなし→即座にオンライン情報を活用"
+    },
+    {
+      "id": 18,
+      "question": "Copilot Chatで、GitHubリポジトリ内をコード検索するツール変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#fetch"
+        },
+        {
+          "id": "B",
+          "text": "#codebase"
+        },
+        {
+          "id": "C",
+          "text": "#githubRepo"
+        },
+        {
+          "id": "D",
+          "text": "#changes"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "#githubRepo <repo name> はGitHubリポジトリ内でコード検索を実行します。VS Code公式ツールリストで『Perform a code search in a GitHub repo』として定義されています。\n\n【サンプル】\nシナリオ：他社の GraphQL 実装を学びたい\n会話例：'#githubRepo apollographql/apollo-client resolver の実装パターンを教えて'\n検索対象：指定リポジトリ内の全ファイルから該当コード\n効果：個人プロジェクトに適用できるベストプラクティスを直接習得"
+    },
+    {
+      "id": 19,
+      "question": "Copilot Chatで、@github との組み合わせで使用し、GitHubリポジトリ情報を検索するのはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#githubRepo"
+        },
+        {
+          "id": "B",
+          "text": "#codebase"
+        },
+        {
+          "id": "C",
+          "text": "#fetch"
+        },
+        {
+          "id": "D",
+          "text": "@workspace"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "#githubRepo は@githubチャット参加者と組み合わせてGitHubリポジトリ統一検索やコードレビューを実行できます。\n\n【サンプル】\n組み合わせ例：'@github #githubRepo expressjs/express の body parser ミドルウェアの動作を説明して'\n実行形式：@github（GitHub エージェント）+ #githubRepo（リポジトリ指定）+ プロジェクト固有の質問\n利点：GitHub の豊富なリソースに直接アクセスしながら AI に解析してもらえる\n活用例：PR レビュー基準、セキュリティ脆弱性検査、実装ガイドライン確認"
+    },
+    {
+      "id": 20,
+      "question": "Copilot Chatで、ソース管理の変更ファイル一覧を参照してコミットメッセージ計画量を提案させるツール変数はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#codebase"
+        },
+        {
+          "id": "B",
+          "text": "#githubRepo"
+        },
+        {
+          "id": "C",
+          "text": "#changes"
+        },
+        {
+          "id": "D",
+          "text": "#fetch"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "#changes はGitの未ステージング変更を一覇で参照し、コミットメッセージ自動生成、影響度分析に使用できます。VS Code公式で『List of source control changes』として定義されています。\n\n【サンプル】\nワークフロー：\n手順1：複数ファイルを編集\n手順2：Source Control ビューで #changes をコピー\n手順3：Copilot Chat で '#changes の変更内容を要約したコミットメッセージを日本語で'\n生成例：'feat: ユーザー認証機能にセッション管理とトークン更新ロジックを追加'\n効果：人力作成：4行程度 → AI生成：1秒"
+    },
+    {
+      "id": 21,
+      "question": "Copilot Chat内で、マルチステップの複雑なタスクを独立したサブエージェントに委譲するのは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "#runSubagent"
+        },
+        {
+          "id": "B",
+          "text": "@extension-name"
+        },
+        {
+          "id": "C",
+          "text": "fetch_webpage"
+        },
+        {
+          "id": "D",
+          "text": "/newNotebook"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "#runSubagent で複数ファイル統合分析や大規模研究タスクをコンテキスト分離して実行できます。\n\n【サンプル】\n活用例：'#runSubagent マイクロフロンテンドのアーキテクチャを設計させ、実装ガイドを書かせてください。複数ファイルの分析、ツール調査、オートメーション構想を含みます'\n処理フロー：\n- コンテキスト分離：別エージェント起動\n- 独立実行：複雑な分析タスクを並行処理\n- 結果統合：最終的に1つの提案書に\nメリット：大規模プロジェクトの設計提案、複数言語の最適な技術スタック検討"
+    },
+    {
+      "id": 22,
+      "question": "Copilot Chatのチャット【参加者】『スラッシュコマンド』『チャット変数』の3つのうち、『誰が（どのエージェント）』を指定するのはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "スラッシュコマンド"
+        },
+        {
+          "id": "B",
+          "text": "チャット変数"
+        },
+        {
+          "id": "C",
+          "text": "チャット参加者"
+        },
+        {
+          "id": "D",
+          "text": "どれでもない"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "チャット参加者（@github等）はAIが『特定のスキル』『エージェント』を起動するWho（誰が）の役割を担います。\n\n【サンプル】\nチャット参加者の対比表：\n@github → GitHub リポジトリ、PR、Issue を扱う\n@vscode → IDE 機能・設定を扱う\n@terminal → シェルコマンド実行を扱う\n@azure → クラウドサービス管理を扱う\n会話例：'@github このリポジトリのリリースノートを読み込んで、今後の互換性を教えて'\nポイント：最初に @mention することで、AIが最適なエージェントを選択する"
+    },
+    {
+      "id": 23,
+      "question": "Copilot Chat内で『何をするか』という定型的な処理を指示するのは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "チャット参加者"
+        },
+        {
+          "id": "B",
+          "text": "スラッシュコマンド"
+        },
+        {
+          "id": "C",
+          "text": "チャット変数"
+        },
+        {
+          "id": "D",
+          "text": "どれでもない"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "スラッシュコマンド（/explain、/test等）はWhat（何をするか）を指定し、『処理の種類』を示します。\n\n【サンプル】\nスラッシュコマンド対比表：\n/explain → コードの説明\n/test → テストコード生成\n/fix → バグ修正\n/doc → ドキュメント生成\n/clear → 履歴リセット\n実装例：\n<複雑な条件分岐を選択> → /explain（説明）\n<エラーメッセージをペースト> → /fix（修正）\n<関数を選択> → /test（テスト生成）\n効果：同じコンテキストでも、コマンドで『何をさせるか』を明確に指示できる"
+    },
+    {
+      "id": 24,
+      "question": "Copilot Chat内で『どこを/どう対象にするか』という参照範囲を指定するのは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "チャット参加者"
+        },
+        {
+          "id": "B",
+          "text": "スラッシュコマンド"
+        },
+        {
+          "id": "C",
+          "text": "チャット変数"
+        },
+        {
+          "id": "D",
+          "text": "どれでもない"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "チャット変数（@workspace、#file等）はWhere/How（どこを/どう対象）を指定し、『参照範囲』を絞り込みます。\n\n【サンプル】\nチャット変数で参照範囲を制御：\n#file → 1 ファイルに限定\n#selection → コード片に限定\n#codebase → プロジェクト全体を検索\n#workspace → ワークスペース全体\n会話例：\n'#file この Button.tsx の props 定義を説明して' （範囲限定）\n'#codebase render と名付けられた関数は全体で何個？' （範囲拡大）\n効果：『広く浅く』から『狭く深く』への分析フォーカスを使い分け"
+    },
+    {
+      "id": 25,
+      "question": "Copilot Chatで、Jiraクライアント・プロジェクト管理システムへのアクセスを提供するチャット参加者はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "@github"
+        },
+        {
+          "id": "B",
+          "text": "@jira"
+        },
+        {
+          "id": "C",
+          "text": "@vscode"
+        },
+        {
+          "id": "D",
+          "text": "@azure"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "@jira（Copilot Extensions経由）はチケット作成やタスク履歴参照に対応しています。\n\n【サンプル】\n会話例：\n'@jira このプロジェクト管理で未完了のバグチケットを一覧表示して'\n'@jira TICKET-123 の詳細情報を読み込んで、実装上の注意点を提案して'\n連携機能：\n- Jira チケット情報の自動取得\n- 新規チケット作成の提案\n- スプリント計画への助言\n効果：コード作成 ↔ Jira タスク管理がシームレスに統合"
+    },
+    {
+      "id": 26,
+      "question": "Copilot Chatで、Slackワークスペースの検索・メッセージ検索を可能にするチャット参加者はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "@github"
+        },
+        {
+          "id": "B",
+          "text": "@jira"
+        },
+        {
+          "id": "C",
+          "text": "@slack"
+        },
+        {
+          "id": "D",
+          "text": "@vscode"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "@slack （拡張機能が有効な場合）はチーム内情報の統合利用を支援します。\n\n【サンプル】\n会話例：\n'@slack #engineering チャンネルで ''設定ファイル'' についての最近の議論は？'\n'@slack @db-team の最新情報から、パフォーマンス最適化の提案をして'\n統合例：\n- チーム議論の文脈を自動取込\n- Slack メッセージから技術決定を参照\n- チーム内知識ベースの活用\n効果：コード実装時に過去のチーム決定を即座に確認可能"
+    },
+    {
+      "id": 27,
+      "question": "Copilot Chatで、ターミナル・コマンドラインに関する質問に専門的に対応するチャット参加者はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "@github"
+        },
+        {
+          "id": "B",
+          "text": "@vscode"
+        },
+        {
+          "id": "C",
+          "text": "@terminal"
+        },
+        {
+          "id": "D",
+          "text": "@azure"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "@terminal はシェルコマンド、スクリプト、ターミナル操作のトラブルシューティング向けです。\n\n【サンプル】\n会話例：'@terminal npm install が 404 エラーで失敗する。原因と対応方法は？'\n'@terminal Docker イメージをビルドして、ECR にプッシュするコマンドを書いて'\n対応範囲：\n- bash/PowerShell/zsh スクリプト\n- パッケージマネージャー操作（npm、brew など）\n- Docker、Kubernetes コマンド\n- CI/CD パイプライン設定\n効果：ターミナルエラー → 即座に原因分析と修正案を提示"
+    },
+    {
+      "id": 28,
+      "question": "Copilot Chatで、Azureの各種サービス（VM、App Service等）の構築・管理に関するチャット参加者はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "@github"
+        },
+        {
+          "id": "B",
+          "text": "@azure"
+        },
+        {
+          "id": "C",
+          "text": "@vscode"
+        },
+        {
+          "id": "D",
+          "text": "@jira"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "@azure （Azure Copilot統合の場合）はクラウドサービス管理に特化しています。\n\n【サンプル】\n会話例：\n'@azure App Service でスケーリング設定を自動化するため、Terraform コードを生成?'\n'@azure このアプリケーションの Azure Cosmos DB 設計をレビューして、パフォーマンス改善案を提案して'\n対応サービス：\n- Azure Virtual Machines（VM インスタンス）\n- App Service（Web/API ホスティング）\n- Azure SQL Database、Cosmos DB\n- Azure DevOps パイプライン\n効果：インフラ設定 → タイムリーな最適化提案"
+    },
+    {
+      "id": 29,
+      "question": "Copilot Chatで、現在のチャット履歴をリセットして新しい会話を開始するスラッシュコマンドはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/new"
+        },
+        {
+          "id": "B",
+          "text": "/clear"
+        },
+        {
+          "id": "C",
+          "text": "/delete"
+        },
+        {
+          "id": "D",
+          "text": "/help"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "/clear は現在のチャット履歴をリセットします。一方、/new は独立した新規セッション開始、/delete はチャット会話を削除します。\n\n【サンプル】\n状況別の使い分け：\n/clear → 同じコンテキスト（ファイル）で別の質問に切り替える場合（例：API設計 → パフォーマンス最適化）\n/new → 全く別のプロジェクトに移る場合\n/delete → 不要なチャット会話履歴を削除\nハンズオン例：\nステップ1：auth.ts について複数質問\nステップ2：/clear 実行\nステップ3：同じ auth.ts について別観点（テスト方法）を質問\n効果：コンテキスト混在を防ぐ→ AI の回答精度向上"
+    },
+    {
+      "id": 30,
+      "question": "Copilot Chatで、現在のチャット会話の名前を変更するスラッシュコマンドはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/delete"
+        },
+        {
+          "id": "B",
+          "text": "/rename"
+        },
+        {
+          "id": "C",
+          "text": "/clear"
+        },
+        {
+          "id": "D",
+          "text": "/new"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "/rename はチャット管理と整理に便利で、会話名をカスタマイズできます。\n\n【サンプル】\n活用例：\nデフォルト名：'Conversation #42'\n実行：'/rename Authentication TDD Refactoring'\n更新後：'Authentication TDD Refactoring'\nメリット：\n- 複数のチャット会話を一目で区別\n- プロジェクト進捗が履歴から可視化\n- チーム内での情報共有時に説明しやすい\nベストプラクティス：\n'[feature] Dark mode toggle component'\n'[bugfix] Session timeout handling'\n'[learning] React patterns from Apollo Client'\n効果：チャット履歴が自動的にプロジェクト日誌に"
+    }
+  ]
+}
