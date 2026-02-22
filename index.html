@@ -6,21 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>選択問題クイズアプリ - GitHub Copilot習得チャレンジ</title>
     <script>
-      // GitHub Pages用のベースパス設定
+      // 環境判定と動的スクリプト読み込み
       (function() {
         const base = '/spa-quiz-app/';
         const path = window.location.pathname;
+        const isProduction = path.startsWith(base);
         
-        // 開発環境か本番環境かを判定
-        if (path.startsWith(base)) {
+        if (isProduction) {
           // 本番環境 - ベースパスを設定
           document.write('<base href="' + base + '" />');
+          
+          // ビルドされたスクリプトを読み込む
+          document.write('<script type="module" crossorigin src="' + base + 'assets/index.js"><\/script>');
+          document.write('<link rel="stylesheet" crossorigin href="' + base + 'assets/index.css">');
+        } else {
+          // 開発環境 - 開発用スクリプトを読み込む
+          document.write('<script type="module" src="./src/main.tsx"><\/script>');
         }
       })();
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./src/main.tsx"></script>
+    <!-- スクリプトは上記で動的に読み込まれます -->
   </body>
 </html>
