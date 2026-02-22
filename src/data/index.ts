@@ -30,9 +30,9 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
     // 現在のページのベースURLを動的に取得
     const basePath = window.location.pathname.includes('/spa-quiz-app/') ? '/spa-quiz-app' : '';
     const pathsToTry = [
+      `/src/data/${dataPath}`,
       `${basePath}/src/data/${dataPath}`,
       `/spa-quiz-app/src/data/${dataPath}`,
-      `/src/data/${dataPath}`,
       `./src/data/${dataPath}`,
       `./${dataPath}`,
       `${dataPath}`
