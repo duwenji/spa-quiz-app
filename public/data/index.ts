@@ -58,10 +58,31 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
           continue;
         }
 
-        console.log(`✓ Successfully loaded ${questions.length} questions from ${path}`);
+        // データ形式の変換（JSONの形式をQuestion型に合わせる）
+        const transformedQuestions: Question[] = questions.map((q: any) => {
+          // optionsにidフィールドがない場合は追加
+          const transformedOptions = (q.options || []).map((opt: any, index: number) => ({
+            id: ['A', 'B', 'C', 'D'][index] as 'A' | 'B' | 'C' | 'D',
+            text: opt.text || '',
+          }));
+
+          // correctOptionIndexをcorrectAnswerに変換
+          const correctIndex = q.correctOptionIndex ?? -1;
+          const correctAnswer = ['A', 'B', 'C', 'D'][correctIndex] as 'A' | 'B' | 'C' | 'D';
+
+          return {
+            id: q.id || 0,
+            question: q.question || '',
+            options: transformedOptions,
+            correctAnswer,
+            explanation: q.explanation || '',
+          } as Question;
+        });
+
+        console.log(`✓ Successfully loaded ${transformedQuestions.length} questions from ${path}`);
         // キャッシュに保存
-        questionDataCache.set(dataPath, questions as Question[]);
-        return questions as Question[];
+        questionDataCache.set(dataPath, transformedQuestions);
+        return transformedQuestions;
       } catch (err) {
         lastError = err instanceof Error ? err : new Error(String(err));
         console.log(`✗ Failed with path ${path}: ${lastError.message}`);

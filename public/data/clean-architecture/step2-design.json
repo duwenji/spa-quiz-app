@@ -5,7 +5,6 @@
   "difficulty": "初級～中級",
   "questions": [
     {
-      "text": "SOLID原則をクリーンアーキテクチャの設計に適用する場合、最も重要な原則は何か？",
       "options": [
         {
           "text": "すべての原則が同じレベルで重要である"
@@ -22,10 +21,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "SOLID原則の中でも、Dependency Inversion（依存性逆転）原則がクリーンアーキテクチャの最も重要な基礎です。これにより、外側の高レベルモジュールが内側の低レベルモジュールに依存しない構造が実現されます。",
-      "id": "step2-design-001"
+      "id": "step2-design-001",
+      "question": "SOLID原則をクリーンアーキテクチャの設計に適用する場合、最も重要な原則は何か？"
     },
     {
-      "text": "Single Responsibility原則に基づいた設計で、注文処理のユースケースを複数に分割する例として、正しい分割方法はどれか？",
       "options": [
         {
           "text": "CreateOrderUseCase（すべての処理を含む）"
@@ -42,10 +41,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "各ユースケースは1つのビジネスプロセスのみに責任を持つべきです。注文作成、支払い処理、商品選択は異なるビジネスプロセスなため、別々のUseCaseに分割することで、変更時の影響を最小化でき、テストも容易になります。",
-      "id": "step2-design-002"
+      "id": "step2-design-002",
+      "question": "Single Responsibility原則に基づいた設計で、注文処理のユースケースを複数に分割する例として、正しい分割方法はどれか？"
     },
     {
-      "text": "Open/Closed原則に従い、新しい決済方法（例：PayPay）を追加する場合の正しい実装パターンはどれか？",
       "options": [
         {
           "text": "既存のPaymentProcessorクラスを直接修正して、新しい決済ロジックを追加する"
@@ -62,10 +61,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Open/Closed原則により、既存コード（PaymentProcessor）には修正を加えず、新しい実装クラス（PayPayPaymentProcessor）を階インターフェース（IPaymentProcessor）を実装して追加すべきです。これにより既存コードへのリスクを避けられます。",
-      "id": "step2-design-003"
+      "id": "step2-design-003",
+      "question": "Open/Closed原則に従い、新しい決済方法（例：PayPay）を追加する場合の正しい実装パターンはどれか？"
     },
     {
-      "text": "Liskov Substitution原則に違反する実装例として、最も適切なものはどれか？",
       "options": [
         {
           "text": "IPaymentProcessorインターフェースを実装した複数のクラスが、全て同じメソッドシグニチャを持つ"
@@ -82,10 +81,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Liskov Substitution原則に違反する例は、インターフェースを実装しながらも、呼び出し側の期待する動作と異なる動作をするクラスです。PayPayが同期でなくUIの対話を必要とする場合、インターフェース定義が矛盾しています。",
-      "id": "step2-design-004"
+      "id": "step2-design-004",
+      "question": "Liskov Substitution原則に違反する実装例として、最も適切なものはどれか？"
     },
     {
-      "text": "Interface Segregation原則に基づいて、巨大なUserRepositoryインターフェースを分割する場合の正しい方法はどれか？",
       "options": [
         {
           "text": "1つの大きなインターフェースを保持し、実装クラスで不要なメソッドは何もしないようにする"
@@ -102,10 +101,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Interface Segregation原則により、クライアントが不必要なメソッドに依存しないよう、大きなインターフェースを特定の目的に限定した複数のインターフェースに分割すべきです。例えば、読み取り専用が必要なクライアントはIUserReaderにのみ依存します。",
-      "id": "step2-design-005"
+      "id": "step2-design-005",
+      "question": "Interface Segregation原則に基づいて、巨大なUserRepositoryインターフェースを分割する場合の正しい方法はどれか？"
     },
     {
-      "text": "ユースケース層の設計において、ユースケースが外部サービス（DB、API）に直接依存しない理由で最も重要なものはどれか？",
       "options": [
         {
           "text": "外部サービスのコストを削減するため"
@@ -122,10 +121,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "ユースケースがPort（インターフェース）に依存することで、テスト時に実装を簡単にモックに置き換えられます。これにより、データベースやAPIなしでビジネスロジックのみを高速かつ独立してテスト可能にします。",
-      "id": "step2-design-006"
+      "id": "step2-design-006",
+      "question": "ユースケース層の設計において、ユースケースが外部サービス（DB、API）に直接依存しない理由で最も重要なものはどれか？"
     },
     {
-      "text": "ポート・アンド・アダプタパターンにおいて、『ポート』の役割として最も正しいものはどれか？",
       "options": [
         {
           "text": "ビジネスロジックが外部サービスとの具体的な通信方法を定義する"
@@ -142,10 +141,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "ポート（Port）は、ビジネスロジック層が外部サービスと通信するための『契約』として機能します。具体的な実装（DB、API）は知らず、必要な操作が定義されたインターフェースのみを意識します。",
-      "id": "step2-design-007"
+      "id": "step2-design-007",
+      "question": "ポート・アンド・アダプタパターンにおいて、『ポート』の役割として最も正しいものはどれか？"
     },
     {
-      "text": "ポート・アンド・アダプタパターンにおいて、『アダプタ』の役割として最も正しいものはどれか？",
       "options": [
         {
           "text": "ビジネスロジックを実装する"
@@ -162,10 +161,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "アダプタ（Adapter）は、ポートが定義した契約を具体的に実装します。例えば、IOrderRepositoryポートに対して、SqlOrderRepository、MongoOrderRepositoryなどの異なるアダプタが実装され、外部システムとの実際の通信を担当します。",
-      "id": "step2-design-008"
+      "id": "step2-design-008",
+      "question": "ポート・アンド・アダプタパターンにおいて、『アダプタ』の役割として最も正しいものはどれか？"
     },
     {
-      "text": "依存性注入（DI）を使用する理由で最も重要なものはどれか？",
       "options": [
         {
           "text": "プログラムの行数を減らして、開発速度を上げるため"
@@ -182,10 +181,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "依存性注入（DI）により、クラスが自身の依存関係をnewで生成するのではなく、外部から注入されます。これにより、テスト時にモックを注入可能で、実装の詳細に依存しないテスト容易な構造が実現されます。",
-      "id": "step2-design-009"
+      "id": "step2-design-009",
+      "question": "依存性注入（DI）を使用する理由で最も重要なものはどれか？"
     },
     {
-      "text": "責務の分離と凝集度についての説明で、最も正しいものはどれか？",
       "options": [
         {
           "text": "責務を分離するほど凝集度は低下し、宛所の拡張性が向上する"
@@ -202,10 +201,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "凝集度が高いとは、関連する機能が1つのモジュール内にいっこまとまっていることです。責務を明確に分離し、関連する機能を凝集させることで、保守性と可読性が向上します。",
-      "id": "step2-design-010"
+      "id": "step2-design-010",
+      "question": "責務の分離と凝集度についての説明で、最も正しいものはどれか？"
     },
     {
-      "text": "エンティティ層の設計目的として最も正しいものはどれか？",
       "options": [
         {
           "text": "ユーザーインターフェースのロジックを実装すること"
@@ -222,10 +221,10 @@
       ],
       "correctOptionIndex": 2,
       "explanation": "エンティティ層は、ビジネスの根本的で変わりにくいルール、例えば『注文者の信用度によって購入限度額を制限する』といった、企業全体で共通のビジネスルールをカプセル化します。",
-      "id": "step2-design-011"
+      "id": "step2-design-011",
+      "question": "エンティティ層の設計目的として最も正しいものはどれか？"
     },
     {
-      "text": "ユースケース層の設計において、Input Port と Output Port の関係で最も正しい説明はどれか？",
       "options": [
         {
           "text": "Input PortはUseCaseの入力、Output PortはUseCaseの出力の形式を定義する"
@@ -242,10 +241,10 @@
       ],
       "correctOptionIndex": 0,
       "explanation": "Input PortはUseCaseが受け取るリクエストの形式を定義し、Output PortはUseCaseが返すレスポンスの形式を定義します。これにより、UseCaseの入出力が明確に定義され、テスタビリティが向上します。",
-      "id": "step2-design-012"
+      "id": "step2-design-012",
+      "question": "ユースケース層の設計において、Input Port と Output Port の関係で最も正しい説明はどれか？"
     },
     {
-      "text": "中級問題：ユースケース層で複数のPortに依存する場合、依存関係の管理で重要な設計パターンはどれか？",
       "options": [
         {
           "text": "Portごとに異なるUseCaseクラスを作成して、結合性を低下させる"
@@ -262,10 +261,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "コンストラクタインジェクションにより、UseCaseが必要とするPortを明示的に宣言します。これにより、クラスの依存関係が一目瞭然で、テスト時にモックを簡単に注入でき、変更の波及影響が最小化されます。",
-      "id": "step2-design-013"
+      "id": "step2-design-013",
+      "question": "中級問題：ユースケース層で複数のPortに依存する場合、依存関係の管理で重要な設計パターンはどれか？"
     },
     {
-      "text": "中級問題：ポート・アンド・アダプタパターンで、複数のアダプタ実装（例：SQLite、PostgreSQL、MongoDB）が存在する場合、実行時に正しいアダプタを選択する仕組みはどれか？",
       "options": [
         {
           "text": "UseCaseで条件分岐してアダプタを選び直す"
@@ -282,10 +281,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "DI設定（DIコンテナ）で、環境やプロファイルに基づいて注入するアダプタを切り替えます。例えば、開発環境ではSQLiteを、本番環境ではPostgreSQLを使用するよう設定でき、ビジネスロジック（UseCase）には影響を与えません。",
-      "id": "step2-design-014"
+      "id": "step2-design-014",
+      "question": "中級問題：ポート・アンド・アダプタパターンで、複数のアダプタ実装（例：SQLite、PostgreSQL、MongoDB）が存在する場合、実行時に正しいアダプタを選択する仕組みはどれか？"
     },
     {
-      "text": "中級問題：ユースケース層が複数の外部サービス（Repository、PaymentService、NotificationService）に依存する場合、設計上の注意点で最も重要なものはどれか？",
       "options": [
         {
           "text": "外部サービスへの依存を隠蔽して、UseCaseの内部で全て解決する"
@@ -302,10 +301,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "複数の外部サービスに依存する場合、各サービスに対応するPort（インターフェース）を定義し、コンストラクタで注入することが重要です。これにより、UseCaseが外部サービスの具体的な実装に依存せず、テストも容易になります。",
-      "id": "step2-design-015"
+      "id": "step2-design-015",
+      "question": "中級問題：ユースケース層が複数の外部サービス（Repository、PaymentService、NotificationService）に依存する場合、設計上の注意点で最も重要なものはどれか？"
     },
     {
-      "text": "中級問題：クリーンアーキテクチャの設計で『アダプタ』が担当すべきではない責務はどれか？",
       "options": [
         {
           "text": "ポート定義に従って、外部システムとの通信を実装すること"
@@ -322,10 +321,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "アダプタは外部システムとの通信、DTO変換、エラーハンドリングなど、技術的な詳細を担当します。複雑なビジネスロジックや判断はアダプタではなく、ユースケース層やエンティティ層で実装すべきです。",
-      "id": "step2-design-016"
+      "id": "step2-design-016",
+      "question": "中級問題：クリーンアーキテクチャの設計で『アダプタ』が担当すべきではない責務はどれか？"
     },
     {
-      "text": "中級問題：テスタビリティを考慮した設計で、ユースケースがService Locatorパターンを使って外部サービスを探索する実装の問題点は何か？",
       "options": [
         {
           "text": "特に問題点はない"
@@ -342,10 +341,10 @@
       ],
       "correctOptionIndex": 2,
       "explanation": "Service Locatorパターンは、UseCaseが必要とする依存関係を隠蔽します。これにより、テスト時にモックが何かが不明確になり、すべてのService Locator登録をセットアップする手作業があり、テストが複雑になってしまいます。",
-      "id": "step2-design-017"
+      "id": "step2-design-017",
+      "question": "中級問題：テスタビリティを考慮した設計で、ユースケースがService Locatorパターンを使って外部サービスを探索する実装の問題点は何か？"
     },
     {
-      "text": "中級問題：InterfaceSegregation原則に基づいて、Repositoryポートを設計する場合、『読み取り専用』と『読み書き』の操作を同じインターフェースに含めるべきか、分割すべきか？",
       "options": [
         {
           "text": "読み書きができるインターフェースを作成し、読み取り専用クライアントには使わないメソッドを実装させる"
@@ -362,7 +361,8 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Interface Segregation原則に従い、読み取り機能と書き込み機能を分割すべきです。読み取り専用が必要なクライアントはIRepositoryReaderにのみ依存し、不要なメソッドを知りません。これにより、各クライアントが最小限の責務に依存します。",
-      "id": "step2-design-018"
+      "id": "step2-design-018",
+      "question": "中級問題：InterfaceSegregation原則に基づいて、Repositoryポートを設計する場合、『読み取り専用』と『読み書き』の操作を同じインターフェースに含めるべきか、分割すべきか？"
     }
   ]
 }
