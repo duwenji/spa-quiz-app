@@ -1,7 +1,7 @@
 {
   "questions": [
     {
-      "id": "q1",
+      "id": 1,
       "question": "GitHub Pages とは何か？",
       "options": [
         {
@@ -27,7 +27,7 @@
       "relatedDocument": "README"
     },
     {
-      "id": "q2",
+      "id": 2,
       "question": "spa-quiz-app の公開URL はどこか？",
       "options": [
         {
@@ -53,7 +53,7 @@
       "relatedDocument": "README"
     },
     {
-      "id": "q3",
+      "id": 3,
       "question": "GitHub Pages へのデプロイの4段階フローの正しい順序は？",
       "options": [
         {
@@ -79,7 +79,7 @@
       "relatedDocument": "README"
     },
     {
-      "id": "q4",
+      "id": 4,
       "question": "spa-quiz-app の開発サーバーを起動するコマンドは？",
       "options": [
         {
@@ -105,7 +105,7 @@
       "relatedDocument": "QUICKSTART"
     },
     {
-      "id": "q5",
+      "id": 5,
       "question": "本番にデプロイする際のコマンドの正しい順序は？",
       "options": [
         {
@@ -131,7 +131,7 @@
       "relatedDocument": "QUICKSTART"
     },
     {
-      "id": "q6",
+      "id": 6,
       "question": "npm run deploy が完了した際に表示されるメッセージは？",
       "options": [
         {
@@ -157,7 +157,7 @@
       "relatedDocument": "QUICKSTART"
     },
     {
-      "id": "q7",
+      "id": 7,
       "question": "Vite とは何か？",
       "options": [
         {
@@ -183,7 +183,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q8",
+      "id": 8,
       "question": "開発環境（npm run dev）での vite.config.ts の base 設定値は？",
       "options": [
         {
@@ -209,7 +209,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q9",
+      "id": 9,
       "question": "本番環境（npm run build）での vite.config.ts の base 設定値は？",
       "options": [
         {
@@ -235,7 +235,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q10",
+      "id": 10,
       "question": "useQuiz フック が管理する以下のうち、正しい項目は何か？",
       "options": [
         {
@@ -261,7 +261,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q11",
+      "id": 11,
       "question": "quizSets.json ファイルの役割として、以下のうち正しいのは？",
       "options": [
         {
@@ -287,7 +287,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q12",
+      "id": 12,
       "question": "TypeScript 設定で Vite 環境変数を認識させるための重要な設定は？",
       "options": [
         {
@@ -313,7 +313,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q13",
+      "id": 13,
       "question": "ビルド出力（dist/）の構造で、assets/ フォルダは以下のうち何に該当するか？",
       "options": [
         {
@@ -339,7 +339,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q14",
+      "id": 14,
       "question": "import.meta.env.BASE_URL は、開発環境と本番環境でどう異なるか？",
       "options": [
         {
@@ -365,7 +365,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q15",
+      "id": 15,
       "question": "GitHub Pages 設定で確認すべき項目として、以下の中で正しいものは？",
       "options": [
         {
@@ -391,7 +391,7 @@
       "relatedDocument": "DEPLOYMENT"
     },
     {
-      "id": "q16",
+      "id": 16,
       "question": "ビルド前に確認すべき、クイズデータの正しい配置として、以下のうち該当するのは？",
       "options": [
         {
@@ -417,7 +417,7 @@
       "relatedDocument": "DEPLOYMENT"
     },
     {
-      "id": "q17",
+      "id": 17,
       "question": "npm run preview の目的は？",
       "options": [
         {
@@ -443,7 +443,7 @@
       "relatedDocument": "DEPLOYMENT"
     },
     {
-      "id": "q18",
+      "id": 18,
       "question": "vite.config.ts の base 設定で /spa-quiz-app/ が必要な理由は？",
       "options": [
         {
@@ -469,7 +469,7 @@
       "relatedDocument": "DEPLOYMENT"
     },
     {
-      "id": "q19",
+      "id": 19,
       "question": "npm run deploy 実行前に Git を確認すべき項目は？",
       "options": [
         {
@@ -495,7 +495,7 @@
       "relatedDocument": "DEPLOYMENT"
     },
     {
-      "id": "q20",
+      "id": 20,
       "question": "TypeScript エラー「Property 'env' does not exist on type 'ImportMeta'」の解決方法は？",
       "options": [
         {
@@ -521,7 +521,7 @@
       "relatedDocument": "TROUBLESHOOTING"
     },
     {
-      "id": "q21",
+      "id": 21,
       "question": "「Module not found」エラーが発生した際の確認ステップは？",
       "options": [
         {
@@ -547,7 +547,7 @@
       "relatedDocument": "TROUBLESHOOTING"
     },
     {
-      "id": "q22",
+      "id": 22,
       "question": "ローカル開発で「404 Not Found」エラーが発生する場合、最初に確認すべきことは？",
       "options": [
         {
@@ -573,7 +573,7 @@
       "relatedDocument": "TROUBLESHOOTING"
     },
     {
-      "id": "q23",
+      "id": 23,
       "question": "クイズセットが読み込めない場合の確認ステップで、コンソール（F12）に表示される内容は？",
       "options": [
         {
@@ -599,7 +599,7 @@
       "relatedDocument": "TROUBLESHOOTING"
     },
     {
-      "id": "q24",
+      "id": 24,
       "question": "GitHub Pages が反映されない場合の対応（複数選択で全て正解）で、正しい順序は？",
       "options": [
         {
@@ -625,7 +625,7 @@
       "relatedDocument": "TROUBLESHOOTING"
     },
     {
-      "id": "q25",
+      "id": 25,
       "question": "gh-pages パッケージのインストール確認コマンドは？",
       "options": [
         {
@@ -651,7 +651,7 @@
       "relatedDocument": "TROUBLESHOOTING"
     },
     {
-      "id": "q26",
+      "id": 26,
       "question": "React のメインコンポーネント App.tsx が存在するディレクトリとして、以下のうち正しいのは？",
       "options": [
         {
@@ -677,7 +677,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q27",
+      "id": 27,
       "question": "src/hooks フォルダに含まれるファイルの主な役割として、以下のうち正しいのは？",
       "options": [
         {
@@ -703,7 +703,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q28",
+      "id": 28,
       "question": "tsconfig.json の \"target\" 設定が \"ES2020\" である理由は？",
       "options": [
         {
@@ -729,7 +729,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q29",
+      "id": 29,
       "question": "src/utils フォルダに含まれるファイルの役割として、以下のうち正しくないのは？",
       "options": [
         {
@@ -755,7 +755,7 @@
       "relatedDocument": "ARCHITECTURE"
     },
     {
-      "id": "q30",
+      "id": 30,
       "question": "vite.config.ts で react プラグインが必要な理由として、以下のうち正しいのは？",
       "options": [
         {

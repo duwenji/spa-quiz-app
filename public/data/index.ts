@@ -66,9 +66,12 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
             text: opt.text || '',
           }));
 
-          // correctOptionIndexをcorrectAnswerに変換
-          const correctIndex = q.correctOptionIndex ?? -1;
-          const correctAnswer = ['A', 'B', 'C', 'D'][correctIndex] as 'A' | 'B' | 'C' | 'D';
+          // correctAnswer フィールドを直接使用
+          let correctAnswer: 'A' | 'B' | 'C' | 'D' = 'A'; // デフォルト値
+          
+          if (q.correctAnswer && ['A', 'B', 'C', 'D'].includes(q.correctAnswer)) {
+            correctAnswer = q.correctAnswer as 'A' | 'B' | 'C' | 'D';
+          }
 
           return {
             id: q.id || 0,
