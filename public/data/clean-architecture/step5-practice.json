@@ -1,0 +1,162 @@
+{
+  "id": "clean-architecture-step5",
+  "title": "クリーンアーキテクチャ STEP 5: 実践応用",
+  "description": "アンチパターン・リソース制約下での適応・FAQ を通じた深掘り学習",
+  "difficulty": "初級～中級",
+  "questions": [
+    {
+      "text": "依存性の逆転に失敗するアンチパターンで、最も多いものはどれか？",
+      "options": [
+        { "text": "UseCase が Repository インターフェースに依存すること" },
+        { "text": "UseCase が具体的な（例：SqlOrderRepository）クラスに直接依存すること" },
+        { "text": "Port を使って依存が逆転しているだけで充分である" },
+        { "text": "すべてインターフェース化するべきである" }
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "アンチパターン的な例は、UseCase が具体的なRepository実装クラスに直接依存している場合です。Repository を変更すると UseCase も修正が必要になり、テストも困難です。必ずPort（インターフェース）を定義し、具体的な実装に依存しないようにすべきです。"
+    },
+    {
+      "text": "層の責務が曖昧になるアンチパターンとして、最も危険なものはどれか？",
+      "options": [
+        { "text": "Domain層 内でビジネスロジックが凝集している" },
+        { "text": "Application層 内でデータベースアクセスが直接実装されている" },
+        { "text": "各層の責務境界が明確である" },
+        { "text": "Adapter層が外部サービスとの通信を担当している" }
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "Application層 内で DB アクセスを直接実装するのは大きなアンチパターンです。これにより、テストが困難になり、DB 変更時の影響が大きくなります。Application層 は Port を使って DB へのアクセスを依頼し、具体的な実装は Adapter層に委譲すべきです。"
+    },
+    {
+      "text": "インターフェースの乱用アンチパターンについて、最も適切な指摘はどれか？",
+      "options": [
+        { "text": "すべてをインターフェース化するべきである" },
+        { "text": "1度だけ使われるオブジェクトまでインターフェース化すると、過度な抽象化になる" },
+        { "text": "インターフェースは全く不要である" },
+        { "text": "インターフェース化の多さは問題にならない" }
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "インターフェースは必要に応じて使用すべきです。1度だけ使われるクラスまでインターフェース化すると、理解が困難で不必要な複雑性が増します。複数の実装が想定される、テスト時のモック化が必要な場合のみインターフェース化すべきです。"
+    },
+    {
+      "text": "過度な抽象化（Over-engineering）のアンチパターンで、最も典型的なものはどれか？",
+      "options": [
+        { "text": "シンプルな CRUD 操作を、複数の Port や Adapter に分割して、不必要に複雑にすること" },
+        { "text": "大規模で複雑なビジネスロジックを、層に分割して整理すること" },
+        { "text": "ビジネスルールを Entity にカプセル化すること" },
+        { "text": "複数 UI からビジネスロジックを再利用することを前提に設計すること" }
+      ],
+      "correctOptionIndex": 0,
+      "explanation": "シンプルな CRUD 操作を、不必要な数の Port や Adapter に分割すると、コードの理解が難しくなり、保守コストが増加します。プロジェクトの複雑性に応じて、適切なレベルの抽象化を選ぶべきです。"
+    },
+    {
+      "text": "テスト戦略の欠落アンチパターンについて、最も問題なものはどれか？",
+      "options": [
+        { "text": "Domain層 のみを Unit Test でテストすること" },
+        { "text": "Application層 を全くテストしないこと" },
+        { "text": "Adapter層 を Integration Test でテストすること" },
+        { "text": "複数の層をテストすることは冗長である" }
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "Application層（Use Case）をテストしないのは大きな欠陥です。Application層はビジネスロジックの流れ（ユースケース）を表現しており、ここのテストが不足するとビジネスロジック全体の信頼性が低下します。"
+    },
+    {
+      "text": "小規模チーム（2-3人）でクリーンアーキテクチャを導入する場合、実現的なアプローチはどれか？",
+      "options": [
+        { "text": "クリーンアーキテクチャは大チーム向けなので、導入すべきではない" },
+        { "text": "完全なクリーンアーキテクチャを最初から実装する" },
+        { "text": "基本的な層分割（Domain・Application・その他）に簡略化し、段階的に拡張する" },
+        { "text": "デザインパターンなしで、フレームワークのみで実装する" }
+      ],
+      "correctOptionIndex": 2,
+      "explanation": "小規模チームでも、基本的な層分割（Domain・Application・Adapter）から始めることで、アーキテクチャの基礎を築けます。プロジェクトの複雑性に応じて、Port・Adapter パターンなどを段階的に導入することが現実的です。"
+    },
+    {
+      "text": "既存レガシーコードへの部分適用戦略について、最も実現的なアプローチはどれか？",
+      "options": [
+        { "text": "レガシーコード全体をクリーンアーキテクチャに書き直す" },
+        { "text": "新机能から段階的にクリーンアーキテクチャを適用し、既存クリーンアーキテクチャとの境界を Adapter で処理する" },
+        { "text": "レガシーコードとクリーンアーキテクチャコードは完全に分離して、別アプリケーションとする" },
+        { "text": "部分適用はできないため、全て刷新すべき" }
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "既存レガシーコードと新しいクリーンアーキテクチャコードの境界に Adapter を配置することで、段階的な統合が可能です。新機能からクリーンアーキテクチャを適用し、既存機能はレガシーから段階的にリファクタリングできます。"
+    },
+    {
+      "text": "MVP（最小限の製品）開発でのクリーンアーキテクチャ適用について、最も現実的なアプローチはどれか？",
+      "options": [
+        { "text": "完全なクリーンアーキテクチャを最初から実装する" },
+        { "text": "最初はシンプルに実装し、MVP 検証後に段階的にクリーンアーキテクチャへリファクタリングする" },
+        { "text": "ビジネスロジック層と外部レイヤーの基本的な分離 だけを行い、細部は後から調整する" },
+        { "text": "クリーンアーキテクチャを無視して、動作確認だけを優先する" }
+      ],
+      "correctOptionIndex": 2,
+      "explanation": "MVP 開発では、最初からビジネスロジック層と外部レイヤーの基本的な分離（Domain層と others）のみを行うことが現実的です。これにより、MVP 検証後のリファクタリングが容易になり、ビジネス価値を損なわずにアーキテクチャを改善できます。"
+    },
+    {
+      "text": "『テスト駆動開発（TDD）』と『クリーンアーキテクチャ』の相性について、最も正しい説明はどれか？",
+      "options": [
+        { "text": "TDD とクリーンアーキテクチャは無関係である" },
+        { "text": "非常に相性が良く、互いに強化しあう" },
+        { "text": "TDD を使うとクリーンアーキテクチャが不要になる" },
+        { "text": "クリーンアーキテクチャを使うと TDD は不要である" }
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "TDD とクリーンアーキテクチャの相性は非常に良いです。クリーンアーキテクチャはテスト容易性を高め、TDD はそのテスト容易性を最大限に活用します。両者を組み合わせることで、品質と保守性が大幅に向上します。"
+    },
+    {
+      "text": "複雑なビジネスルールをどこに配置すべきか、最も正しい場所はどれか？",
+      "options": [
+        { "text": "Controller（UI層）に配置する" },
+        { "text": "Repository（データアクセス層）に配置する" },
+        { "text": "Domain層のEntityやValue Objectに配置する" },
+        { "text": "特に配置場所は重要ではない" }
+      ],
+      "correctOptionIndex": 2,
+      "explanation": "複雑なビジネスルールは Domain層 の Entity や Value Object に配置すべきです。例えば『注文の金額計算ルール』『ユーザーの信用度判定ロジック』などは、Entity メソッドとして実装されるべきです。これにより、ビジネスロジックが保護され、テストも容易です。"
+    },
+    {
+      "text": "API レスポンス形式（JSON等）の定義は、どの層に属するべきか？",
+      "options": [
+        { "text": "Domain層 で定義すべきである" },
+        { "text": "Application層 のUseCase レスポンスで定義すべきである" },
+        { "text": "Adapter層（REST Controller）で最終的な形式に変換すべきである" },
+        { "text": "フレームワークレベルで全てを統一すべきである" }
+      ],
+      "correctOptionIndex": 2,
+      "explanation": "Application層の UseCase はリスポンス（Output Port）を返し、Adapter層（REST Controller）がそれを JSON 形式に変換します。API 仕様による JSON 形式は、HTTP プロトコルの詳細であり、Adapter層で処理すべきです。"
+    },
+    {
+      "text": "中級問題：複数のビジネスルールが相互に影響する複雑なシナリオで、Domain Services をいつ使うべきか？",
+      "options": [
+        { "text": "複数の Entity が関与するビジネスルールで、単一の Entity に配置すると不自然な場合" },
+        { "text": "全てのビジネスロジックを Domain Service に集約すべきである" },
+        { "text": "Domain Services は不要である" },
+        { "text": "Application層のUseCase で全て処理すべき" }
+      ],
+      "correctOptionIndex": 0,
+      "explanation": "Domain Service は複数の Entity が関与する複雑なビジネスルールに適しています。例えば『注文から請求書を生成するロジック』が複数の Entity（Order、Invoice）が関与する場合、単一の Entity に配置するより Domain Service が適切です。"
+    },
+    {
+      "text": "中級問題：非同期処理（例：メール通知）をクリーンアーキテクチャでどこに配置すべきか？",
+      "options": [
+        { "text": "Controller （UI層）で直接非同期処理を実装する" },
+        { "text": "Application層の Use Case では Output Port（例：INotificationService）を定義し、具体的な非同期実装はAdapter層に委譲する" },
+        { "text": "Domain層 で全ての非同期処理を実装する" },
+        { "text": "Framework層のみで非同期処理を実装する" }
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "Application層の Use Case は INotificationService Port を定義します。具体的な非同期実装（メッシャー、ジョブキュー等）は Adapter層で実装されます。これにより、Use Case は非同期処理の詳細を知らず、テスト時はモック通知で対応できます。"
+    },
+    {
+      "text": "中級問題：『同じクエリ結果を複数の UI で表示』される場合（例：Web、モバイル、レポート），CQRS（Command Query Responsibility Segregation）とクリーンアーキテクチャの関係は？",
+      "options": [
+        { "text": "クリーンアーキテクチャは CQRS と相反する" },
+        { "text": "クリーンアーキテクチャの上に CQRS を層状に追加する（読み取り処理を Query層に分離）ことで、複雑なクエリを最適化できる" },
+        { "text": "CQRS は不要である" },
+        { "text": "CQRS は独立した別々のアーキテクチャである" }
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "クリーンアーキテクチャの上に CQRS を層状に追加することで、複雑なクエリ処理を最適化できます。読み取り処理（Query）と書き込み処理（Command）を分離することで、特に複雑な検索やレポート機能の性能が大幅に改善されます。"
+    }
+  ]
+}
