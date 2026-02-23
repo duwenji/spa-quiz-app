@@ -8,7 +8,11 @@
       "icon": "🤖",
       "questionCount": 30,
       "difficulty": "intermediate",
-      "dataPath": "github-copilot/github-copilot-variables.json"
+      "dataPath": "github-copilot/github-copilot-variables.json",
+      "parentId": null,
+      "group": null,
+      "level": 1,
+      "order": 1
     },
     {
       "id": "github-copilot-csharp-best-practices",
@@ -18,7 +22,11 @@
       "icon": "💻",
       "questionCount": 30,
       "difficulty": "intermediate",
-      "dataPath": "github-copilot/github-copilot-csharp-best-practices.json"
+      "dataPath": "github-copilot/github-copilot-csharp-best-practices.json",
+      "parentId": null,
+      "group": null,
+      "level": 1,
+      "order": 2
     },
     {
       "id": "spa-quiz-app-docs",
@@ -28,7 +36,11 @@
       "icon": "📚",
       "questionCount": 30,
       "difficulty": "intermediate",
-      "dataPath": "spa-quiz-app/spa-quiz-app-docs.json"
+      "dataPath": "spa-quiz-app/spa-quiz-app-docs.json",
+      "parentId": null,
+      "group": null,
+      "level": 1,
+      "order": 1
     },
     {
       "id": "clean-architecture",
@@ -38,7 +50,11 @@
       "icon": "🏗️",
       "questionCount": 39,
       "difficulty": "intermediate",
-      "dataPath": "clean-architecture/clean-architecture.json"
+      "dataPath": "clean-architecture/clean-architecture.json",
+      "parentId": null,
+      "group": "clean-architecture-series",
+      "level": 1,
+      "order": 1
     },
     {
       "id": "clean-architecture-step1",
@@ -48,7 +64,11 @@
       "icon": "📖",
       "questionCount": 21,
       "difficulty": "beginner to intermediate",
-      "dataPath": "clean-architecture/step1-foundation.json"
+      "dataPath": "clean-architecture/step1-foundation.json",
+      "parentId": "clean-architecture",
+      "group": "clean-architecture-series",
+      "level": 2,
+      "order": 2
     },
     {
       "id": "clean-architecture-step2",
@@ -58,7 +78,11 @@
       "icon": "🎨",
       "questionCount": 18,
       "difficulty": "beginner to intermediate",
-      "dataPath": "clean-architecture/step2-design.json"
+      "dataPath": "clean-architecture/step2-design.json",
+      "parentId": "clean-architecture",
+      "group": "clean-architecture-series",
+      "level": 2,
+      "order": 3
     },
     {
       "id": "clean-architecture-step3",
@@ -68,7 +92,11 @@
       "icon": "💻",
       "questionCount": 16,
       "difficulty": "beginner to intermediate",
-      "dataPath": "clean-architecture/step3-implementation.json"
+      "dataPath": "clean-architecture/step3-implementation.json",
+      "parentId": "clean-architecture",
+      "group": "clean-architecture-series",
+      "level": 2,
+      "order": 4
     },
     {
       "id": "clean-architecture-step4",
@@ -78,7 +106,11 @@
       "icon": "⚖️",
       "questionCount": 15,
       "difficulty": "beginner to intermediate",
-      "dataPath": "clean-architecture/step4-judgment.json"
+      "dataPath": "clean-architecture/step4-judgment.json",
+      "parentId": "clean-architecture",
+      "group": "clean-architecture-series",
+      "level": 2,
+      "order": 5
     },
     {
       "id": "clean-architecture-step5",
@@ -88,7 +120,11 @@
       "icon": "🚀",
       "questionCount": 14,
       "difficulty": "beginner to intermediate",
-      "dataPath": "clean-architecture/step5-practice.json"
+      "dataPath": "clean-architecture/step5-practice.json",
+      "parentId": "clean-architecture",
+      "group": "clean-architecture-series",
+      "level": 2,
+      "order": 6
     }
   ]
 }
