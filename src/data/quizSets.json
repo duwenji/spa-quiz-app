@@ -21,16 +21,6 @@
       "dataPath": "github-copilot/github-copilot-csharp-best-practices.json"
     },
     {
-      "id": "test-react-quiz",
-      "name": "テストReactクイズ",
-      "description": "Reactの基本を学べるテストクイズです",
-      "category": "React",
-      "icon": "⚛️",
-      "questionCount": 2,
-      "difficulty": "beginner",
-      "dataPath": "test-quiz/questions.json"
-    },
-    {
       "id": "spa-quiz-app-docs",
       "name": "spa-quiz-app ドキュメント",
       "description": "spa-quiz-appのセットアップ、アーキテクチャ、デプロイ、トラブルシューティングに関するクイズです",
