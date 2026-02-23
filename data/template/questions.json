@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "ここに質問文を入力してください",
+      "options": [
+        {
+          "id": "A",
+          "text": "選択肢A"
+        },
+        {
+          "id": "B",
+          "text": "選択肢B"
+        },
+        {
+          "id": "C",
+          "text": "選択肢C"
+        },
+        {
+          "id": "D",
+          "text": "選択肢D"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "ここに解説文を入力してください。正解の理由や関連情報を記載します。"
+    },
+    {
+      "id": 2,
+      "question": "2つ目の質問例",
+      "options": [
+        {
+          "id": "A",
+          "text": "選択肢A"
+        },
+        {
+          "id": "B",
+          "text": "選択肢B"
+        },
+        {
+          "id": "C",
+          "text": "選択肢C"
+        },
+        {
+          "id": "D",
+          "text": "選択肢D"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "2つ目の質問の解説です。"
+    }
+  ]
+}

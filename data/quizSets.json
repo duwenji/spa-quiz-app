@@ -1,0 +1,34 @@
+{
+  "quizSets": [
+    {
+      "id": "github-copilot-variables",
+      "name": "チャット参加者・スラッシュコマンド・チャット変数について",
+      "description": "チャット参加者・スラッシュコマンド・チャット変数を学べるクイズです",
+      "category": "GitHub",
+      "icon": "🤖",
+      "questionCount": 30,
+      "difficulty": "intermediate",
+      "dataPath": "github-copilot/github-copilot-variables.json"
+    },
+    {
+      "id": "github-copilot-csharp-best-practices",
+      "name": "GitHub Copilot C#ベストプラクティスについて",
+      "description": "GitHub CopilotのC#での活用方法を学べるクイズです",
+      "category": "GitHub",
+      "icon": "💻",
+      "questionCount": 30,
+      "difficulty": "intermediate",
+      "dataPath": "github-copilot/github-copilot-csharp-best-practices.json"
+    },
+    {
+      "id": "test-react-quiz",
+      "name": "テストReactクイズ",
+      "description": "Reactの基本を学べるテストクイズです",
+      "category": "React",
+      "icon": "⚛️",
+      "questionCount": 2,
+      "difficulty": "beginner",
+      "dataPath": "test-quiz/questions.json"
+    }
+  ]
+}
