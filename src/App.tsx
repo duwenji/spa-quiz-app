@@ -237,6 +237,8 @@ function App() {
             onReset={handleBackToSelection}
             showBackButton={true}
             backButtonText="別のクイズを選ぶ"
+            quizSet={selectedQuizSet}
+            questions={questions}
           />
 
           {/* フッター */}

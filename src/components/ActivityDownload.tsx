@@ -1,4 +1,4 @@
-import { LearningHistory } from '../types';
+import { LearningHistory, Question, QuizSet } from '../types';
 import { downloadAsJSON, downloadAsCSV, generateAIAnalysisPrompt } from '../utils/downloadHistory';
 
 interface ActivityDownloadProps {
@@ -6,13 +6,17 @@ interface ActivityDownloadProps {
   onReset: () => void;
   showBackButton?: boolean;
   backButtonText?: string;
+  quizSet?: QuizSet;
+  questions?: Question[];
 }
 
 export const ActivityDownload: React.FC<ActivityDownloadProps> = ({ 
   history, 
   onReset,
   showBackButton = false,
-  backButtonText = '学習履歴をリセット'
+  backButtonText = '学習履歴をリセット',
+  quizSet,
+  questions
 }) => {
   const totalAnswers = history.answers.length;
   if (totalAnswers === 0) {
@@ -25,7 +29,7 @@ export const ActivityDownload: React.FC<ActivityDownloadProps> = ({
   const lastAnswerTime = history.answers.length > 0 ? history.answers[history.answers.length - 1].answeredAt : '';
 
   const copyPromptToClipboard = () => {
-    const prompt = generateAIAnalysisPrompt(history);
+    const prompt = generateAIAnalysisPrompt(history, quizSet?.name, questions);
     navigator.clipboard.writeText(prompt).then(() => {
       alert('AI分析用プロンプトをコピーしました！Copilot Chatに貼り付けてください。');
     });
