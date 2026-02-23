@@ -21,32 +21,30 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
   }
 
   try {
-    // fetch APIを使用してJSONファイルを読み込む
     console.log(`Loading quiz set data from: ${dataPath}`);
     
-    // 現在のページのベースパスを動的に取得（GitHub Pagesの場合 /spa-quiz-app/ など）
-    const base = document.querySelector('base')?.href || window.location.href.split(document.location.pathname)[0];
-    const basePath = new URL(base).pathname.replace(/\/$/, '');
+    // Viteの BASE_URL を使用してベースパスを正確に取得
+    // import.meta.env.BASE_URL は vite.config.ts の base 設定値
+    const baseUrl = import.meta.env.BASE_URL; // '/' (dev) or '/spa-quiz-app/' (prod)
     
-    // pathsToTry: publicフォルダからの相対パスを優先
+    // pathsToTry: publicフォルダ内のデータにアクセス
     const pathsToTry = [
-      // 本番環境: GitHub Pages で /spa-quiz-app/ がベース
-      `${basePath}/data/${dataPath}`,
-      // 開発環境とフォールバック
+      // 推奨: ベースURLを含めた絶対パス
+      `${baseUrl}data/${dataPath}`,
+      // フォールバック: /data/で始まるパス
       `/data/${dataPath}`,
-      `../data/${dataPath}`,
-      `./data/${dataPath}`,
     ];
     
-    console.log('Base path:', basePath);
+    console.log('Base URL:', baseUrl);
     console.log('Paths to try:', pathsToTry);
     
-    let lastError = null;
+    let lastError: Error | null = null;
     for (const path of pathsToTry) {
       try {
         console.log(`Trying path: ${path}`);
         const response = await fetch(path);
         console.log(`Response status: ${response.status} ${response.statusText}`);
+        
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
@@ -60,21 +58,22 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
           continue;
         }
 
-        console.log(`Successfully loaded ${questions.length} questions from ${path}`);
+        console.log(`✓ Successfully loaded ${questions.length} questions from ${path}`);
         // キャッシュに保存
         questionDataCache.set(dataPath, questions as Question[]);
         return questions as Question[];
       } catch (err) {
-        lastError = err;
-        console.log(`Failed with path ${path}:`, err instanceof Error ? err.message : String(err));
-        console.log(`Error stack:`, err instanceof Error ? err.stack : 'No stack');
+        lastError = err instanceof Error ? err : new Error(String(err));
+        console.log(`✗ Failed with path ${path}: ${lastError.message}`);
         continue;
       }
     }
     
     // すべてのパスが失敗した場合
-    console.error(`All paths failed for ${dataPath}`);
-    console.error('Last error:', lastError);
+    console.error(`✗ All paths failed for ${dataPath}`);
+    if (lastError) {
+      console.error('Last error:', lastError.message);
+    }
     throw lastError || new Error(`All paths failed for ${dataPath}`);
   } catch (error) {
     console.error(`Failed to load quiz set data from ${dataPath}:`, error);
