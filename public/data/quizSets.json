@@ -22,9 +22,9 @@
     },
     {
       "id": "spa-quiz-app-docs",
-      "name": "SPA Quiz App について",
-      "description": "このSPAクイズアプリケーション自体のドキュメントから出題されるクイズです",
-      "category": "Project",
+      "name": "spa-quiz-app ドキュメント",
+      "description": "spa-quiz-appのセットアップ、アーキテクチャ、デプロイ、トラブルシューティングに関するクイズです",
+      "category": "技術",
       "icon": "📚",
       "questionCount": 30,
       "difficulty": "intermediate",
