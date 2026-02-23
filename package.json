@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "homepage": "https://duwenji.github.io/spa-quiz-app/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
