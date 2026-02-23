@@ -10,6 +10,14 @@ TypeScript + React + Tailwind CSSを使用した習得用選択問題SPA（Singl
 - **4択選択肢**: A/B/C/D の4つのボタン
 - **結果表示**: ✓/✗ アイコン、正誤判定、詳細な解説
 
+### クイズセット選択画面
+- **カテゴリ別グループ化**: GitHub、アーキテクチャ、技術などのカテゴリで整理
+- **シリーズ表示**: クリーンアーキテクチャなど複数のSTEPで構成されるシリーズをグループ化
+- **階層表示**: 親セット（完全ガイド）と子セット（STEP 1-5）の親子関係を視覚的に表示
+- **パンくずリスト**: 各クイズセットで親階層への経路を表示（例：`GitHub › クリーンアーキテクチャ完全ガイド`）
+- **視覚的な強調**: グループ内のセットを背景色やボーダーで視覚的に囲む
+- **段階的学習**: 関連するセットを一覧で表示し、無理のない学習フローを促進
+
 ### ナビゲーション
 - **前へ/次へボタン**: 問題間の移動
 - **問題番号ボタン**: 1-30の任意の問題への直接ジャンプ
@@ -256,12 +264,57 @@ cp src/data/template/questions.json src/data/your-topic-name/questions.json
   "category": "カテゴリ",
   "icon": "🎯",
   "questionCount": 10,
-  "difficulty": "beginner",  // "beginner", "intermediate", "advanced" のいずれか
-  "dataPath": "your-topic-name/questions.json"
+  "difficulty": "beginner",  // "beginner", "intermediate", "advanced", "beginner to intermediate" のいずれか
+  "dataPath": "your-topic-name/questions.json",
+  "parentId": null,           // 親セットのID（シリーズの場合は親を指定）
+  "group": null,              // グループ名（同じグループ内でセットをまとめる）
+  "level": 1,                 // 1=最上位/親, 2=子セット
+  "order": 1                  // グループ内での表示順序
 }
 ```
 
-#### 4. アプリケーションの再起動
+#### 階層構造の設定方法
+
+**【基本的なセット】** (グループなし)
+```json
+{
+  "id": "github-copilot-variables",
+  "parentId": null,
+  "group": null,
+  "level": 1,
+  "order": 1
+}
+```
+
+**【シリーズ親セット】** (複数の子セットの親)
+```json
+{
+  "id": "clean-architecture",
+  "name": "クリーンアーキテクチャ完全ガイド",
+  "parentId": null,
+  "group": "clean-architecture-series",
+  "level": 1,
+  "order": 1
+}
+```
+
+**【シリーズ子セット】** (STEP 1, 2, 3...)
+```json
+{
+  "id": "clean-architecture-step1",
+  "name": "クリーンアーキテクチャ STEP 1: 理論基盤",
+  "parentId": "clean-architecture",  // 親セットのID
+  "group": "clean-architecture-series",
+  "level": 2,
+  "order": 2  // 親の後に出現
+}
+```
+
+##### フィールド説明
+- `parentId`: 親セットのID。シリーズの場合のみ設定。null はトップレベル
+- `group`: グループ識別名。同じグループのセットは一緒に表示される
+- `level`: 1=親/最上位、2=子セット
+- `order`: グループ内での表示順序。昇順でソートされる
 開発サーバーを再起動すると、新しいクイズセットが自動的に認識されます。
 
 ### 既存のクイズセットの編集

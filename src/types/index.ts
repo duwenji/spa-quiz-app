@@ -46,6 +46,10 @@ export interface QuizSet {
   category: string;
   icon: string;
   questionCount: number;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  difficulty: 'beginner' | 'intermediate' | 'advanced' | 'beginner to intermediate';
   dataPath: string;
+  parentId: string | null;
+  group: string | null;
+  level: 1 | 2;
+  order: number;
 }
