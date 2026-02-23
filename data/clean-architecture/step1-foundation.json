@@ -19,10 +19,10 @@
           "text": "フレームワーク依存、テスト困難性、短期開発"
         }
       ],
-      "correctOptionIndex": 0,
       "explanation": "クリーンアーキテクチャの3つの目標は、特定のフレームワークに依存しないこと、ビジネスロジックをフレームワークから切り離してテストを容易にすること、そして長期的な保守と変更の容易さを実現することです。",
-      "id": "step1-foundation-001",
-      "question": "クリーンアーキテクチャの3つの主要なゴールとして正しいものはどれか？"
+      "id": 1,
+      "question": "クリーンアーキテクチャの3つの主要なゴールとして正しいものはどれか？",
+      "correctAnswer": "A"
     },
     {
       "options": [
@@ -39,10 +39,10 @@
           "text": "2010年"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "Robert C. Martinは2012年にクリーンアーキテクチャという設計哲学を提唱しました。彼はSOLID原則や『Clean Code』などの著作でも知られています。",
-      "id": "step1-foundation-002",
-      "question": "Robert C. Martin（Uncle Bob）がクリーンアーキテクチャを提唱した年はいつか？"
+      "id": 1,
+      "question": "Robert C. Martin（Uncle Bob）がクリーンアーキテクチャを提唱した年はいつか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -59,10 +59,10 @@
           "text": "フレームワークが最も中心で、その周囲にビジネスロジックがある"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "クリーンアーキテクチャは同心円状の4つの層（Enterprise Business Rules、Application Business Rules、Interface Adapters、Frameworks & Drivers）で構成されています。重要な原則は、内側の層が外側の層について全く知らないということです。",
-      "id": "step1-foundation-003",
-      "question": "クリーンアーキテクチャの層構造について正しい説明はどれか？"
+      "id": 1,
+      "question": "クリーンアーキテクチャの層構造について正しい説明はどれか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -79,10 +79,10 @@
           "text": "依存関係の方向性は変わらない"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "従来の多層アーキテクチャでは上位層が下位層に依存します。一方、クリーンアーキテクチャでは外側の層が内側に依存する形で、中心のビジネスロジックが外部に依存しないようになっています。",
-      "id": "step1-foundation-004",
-      "question": "従来のアーキテクチャとクリーンアーキテクチャの依存関係の方向性について、最も異なる点は何か？"
+      "id": 1,
+      "question": "従来のアーキテクチャとクリーンアーキテクチャの依存関係の方向性について、最も異なる点は何か？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -99,10 +99,10 @@
           "text": "SOLID原則はクリーンアーキテクチャの後に生まれた"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "SOLID原則はクリーンアーキテクチャの理論的基礎です。クリーンアーキテクチャはSOLID原則を実装するための実践的な方法論と言えます。",
-      "id": "step1-foundation-005",
-      "question": "SOLID原則とクリーンアーキテクチャの関係性について最も正しい説明はどれか？"
+      "id": 1,
+      "question": "SOLID原則とクリーンアーキテクチャの関係性について最も正しい説明はどれか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -119,10 +119,10 @@
           "text": "フレームワークの機能を最大限活用することである"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "重要な考え方として、アーキテクチャの真の目的は『開発初期の速度』ではなく『長期的な保守と変更の容易さ』です。設計に時間をかけることで、開発後期での修正コストを削減します。",
-      "id": "step1-foundation-006",
-      "question": "クリーンアーキテクチャにおいて、アーキテクチャの真の目的は何か？"
+      "id": 1,
+      "question": "クリーンアーキテクチャにおいて、アーキテクチャの真の目的は何か？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -139,10 +139,10 @@
           "text": "責任の分離は不要である"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "Single Responsibility原則は、1つのクラスは1つの責任のみを持つべき、つまり変更の理由が1つだけであるべきことを定義しています。これにより、クラスの変更やテストが容易になります。",
-      "id": "step1-foundation-007",
-      "question": "Single Responsibility（単一責任）原則について、正しい説明はどれか？"
+      "id": 1,
+      "question": "Single Responsibility（単一責任）原則について、正しい説明はどれか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -159,10 +159,10 @@
           "text": "拡張と修正の両方に対して閉じられている"
         }
       ],
-      "correctOptionIndex": 0,
       "explanation": "Open/Closed原則は、ソフトウェアエンティティは拡張に対しては開かれ、修正に対しては閉じられているべきであることを意味します。新機能は新規ファイルで追加し、既存コードの修正は避けるべきです。",
-      "id": "step1-foundation-008",
-      "question": "Open/Closed（開放閉鎖）原則について、最も正しい説明はどれか？"
+      "id": 1,
+      "question": "Open/Closed（開放閉鎖）原則について、最も正しい説明はどれか？",
+      "correctAnswer": "A"
     },
     {
       "options": [
@@ -179,10 +179,10 @@
           "text": "フレームワークの詳細に密結合している"
         }
       ],
-      "correctOptionIndex": 2,
       "explanation": "Enterprise Business Rules（エンティティ層）は、ビジネスの最も基本的で変わりにくいルールを表現します。UIやDBの変更から完全に独立しており、プロジェクト固有のビジネスドメイン知識を集約します。",
-      "id": "step1-foundation-009",
-      "question": "Enterprise Business Rules（エンティティ層）の特徴として正しいものはどれか？"
+      "id": 1,
+      "question": "Enterprise Business Rules（エンティティ層）の特徴として正しいものはどれか？",
+      "correctAnswer": "C"
     },
     {
       "options": [
@@ -199,10 +199,10 @@
           "text": "派生型と基本型は完全に独立していないといけない"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "Liskov Substitution原則は、派生型は基本型の代わりに使用可能であるべきことを定義しています。インターフェースを実装したすべてのクラスが、同じ場所で相互に置き換え可能であるべきです。",
-      "id": "step1-foundation-010",
-      "question": "Liskov Substitution（リスコフの置換）原則について、最も正しい説明はどれか？"
+      "id": 1,
+      "question": "Liskov Substitution（リスコフの置換）原則について、最も正しい説明はどれか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -219,10 +219,10 @@
           "text": "テスト期間が無くなる"
         }
       ],
-      "correctOptionIndex": 0,
       "explanation": "クリーンアーキテクチャ最大のメリットは、ビジネスロジックをフレームワークやデータベースから切り離し、UIやDB呼び出しなしで独立してテストできることです。これにより、テストが高速かつシンプルになります。",
-      "id": "step1-foundation-011",
-      "question": "クリーンアーキテクチャにおけるテスト容易性のメリットで、最も大きいものはどれか？"
+      "id": 1,
+      "question": "クリーンアーキテクチャにおけるテスト容易性のメリットで、最も大きいものはどれか？",
+      "correctAnswer": "A"
     },
     {
       "options": [
@@ -239,10 +239,10 @@
           "text": "UIとビジネスロジックの距離が近くなったこと"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "最大の違いは依存関係の方向性です。従来は上位が下位に依存しますが、クリーンアーキテクチャでは外側が内側に依存し、最も重要なビジネスロジックが外部の詳細（フレームワーク、DB）に依存しないようになっています。",
-      "id": "step1-foundation-012",
-      "question": "従来の多層アーキテクチャ（3段階構成）と比較して、クリーンアーキテクチャの最大の違いは何か？"
+      "id": 1,
+      "question": "従来の多層アーキテクチャ（3段階構成）と比較して、クリーンアーキテクチャの最大の違いは何か？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -259,10 +259,10 @@
           "text": "インターフェースは1つだけ作成するべきである"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "Interface Segregation原則は、大きなインターフェースより、特定の目的に限定された複数のインターフェースを作成すべきことを定義しています。これにより、クライアントが不必要なメソッドに依存することを避けられます。",
-      "id": "step1-foundation-013",
-      "question": "Interface Segregation（インターフェース分離）原則について、最も正しい説明はどれか？"
+      "id": 1,
+      "question": "Interface Segregation（インターフェース分離）原則について、最も正しい説明はどれか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -279,10 +279,10 @@
           "text": "依存性の方向は重要ではない"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "Dependency Inversion原則は、高レベルモジュールが低レベルモジュールに直接依存しないようにすべきことを定義しています。両者が抽象化（インターフェース）に依存することで、依存関係を逆転させます。これはクリーンアーキテクチャの核となる原則です。",
-      "id": "step1-foundation-014",
-      "question": "Dependency Inversion（依存性逆転）原則について、正しい説明はどれか？"
+      "id": 1,
+      "question": "Dependency Inversion（依存性逆転）原則について、正しい説明はどれか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -299,10 +299,10 @@
           "text": "プロジェクトの规模化に応じて後から導入可能である"
         }
       ],
-      "correctOptionIndex": 2,
       "explanation": "クリーンアーキテクチャの導入検討には、プロジェクト規模、チーム構成、ビジネス要件などを総合的に考慮する必要があります。小規模プロジェクトでは過度な抽象化になる可能性があり、段階的導入も検討すべきです。",
-      "id": "step1-foundation-015",
-      "question": "クリーンアーキテクチャを採用する場合、プロジェクトの複雑性や規模に対する考慮で正しいものはどれか？"
+      "id": 1,
+      "question": "クリーンアーキテクチャを採用する場合、プロジェクトの複雑性や規模に対する考慮で正しいものはどれか？",
+      "correctAnswer": "C"
     },
     {
       "options": [
@@ -319,10 +319,10 @@
           "text": "ビジネスロジックをコピー&ペーストして各UIに組み込む"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "クリーンアーキテクチャでは、Application層にUI非依存のビジネスロジック（ユースケース）を実装します。Web UI、Mobile、CLIなどの異なるAdapterがこのビジネスロジックを呼び出すため、ロジックの再利用性と保守性が向上します。",
-      "id": "step1-foundation-016",
-      "question": "中級問題：複数のユーザーインターフェース（Web、Mobile、CLI）から同じビジネスロジックを利用する際、クリーンアーキテクチャではどのような構造が推奨されるか？"
+      "id": 1,
+      "question": "中級問題：複数のユーザーインターフェース（Web、Mobile、CLI）から同じビジネスロジックを利用する際、クリーンアーキテクチャではどのような構造が推奨されるか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -339,10 +339,10 @@
           "text": "技術的負債を減らすため"
         }
       ],
-      "correctOptionIndex": 2,
       "explanation": "ユースケース層が具体的な実装（DB、API）に依存するのではなく、インターフェース（Port）に依存することで、テスト時に実装を簡単にモックに置き換えられます。これにより、テストが高速かつ独立して実行可能になります。",
-      "id": "step1-foundation-017",
-      "question": "中級問題：テスト容易性を考慮した設計で、ユースケース層が外部サービス（データベース、API）に直接依存するべきでない理由は何か？"
+      "id": 1,
+      "question": "中級問題：テスト容易性を考慮した設計で、ユースケース層が外部サービス（データベース、API）に直接依存するべきでない理由は何か？",
+      "correctAnswer": "C"
     },
     {
       "options": [
@@ -359,10 +359,10 @@
           "text": "フレームワーク変更は不可能だため、最初から正しいフレームワークを選ぶしかない"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "クリーンアーキテクチャでは、ビジネスロジックをフレームワークから独立させています。フレームワーク変更時は、Adapter層とFramework層のみを修正すればよく、Domain層やApplication層への影響は最小化されます。これが『フレームワーク非依存』の真の価値です。",
-      "id": "step1-foundation-018",
-      "question": "中級問題：フレームワーク変更（例：Spring → Quarkus）時に、クリーンアーキテクチャの設計がもたらすメリットは何か？"
+      "id": 1,
+      "question": "中級問題：フレームワーク変更（例：Spring → Quarkus）時に、クリーンアーキテクチャの設計がもたらすメリットは何か？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -379,10 +379,10 @@
           "text": "特に理由はなく、慣例に従っているから"
         }
       ],
-      "correctOptionIndex": 2,
       "explanation": "Adapter層とFramework層を分離することで、Application層はHTTP、データベース、外部APIなどの具体的な実装詳細を知りません。これにより、技術スタックの変更時の影響を最小化でき、テストも容易になります。",
-      "id": "step1-foundation-019",
-      "question": "中級問題：クリーンアーキテクチャにおいて、Adapter層とFramework層を分離する理由で最も重要なものはどれか？"
+      "id": 1,
+      "question": "中級問題：クリーンアーキテクチャにおいて、Adapter層とFramework層を分離する理由で最も重要なものはどれか？",
+      "correctAnswer": "C"
     },
     {
       "options": [
@@ -399,10 +399,10 @@
           "text": "各メソッドは1つのユースケースのみ実行できるという制約があるから"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "各ユースケースを分割することで、Single Responsibility原則に従い、各クラスが単一のビジネスプロセス（注文作成 or 更新）のみに責任を持つようになります。これにより、テストがシンプルで、変更時の波及影響が最小化されます。",
-      "id": "step1-foundation-020",
-      "question": "中級問題：ユースケース層の責務分割について、『CreateOrderUseCase』と『UpdateOrderUseCase』を分ける理由で最も正しいものはどれか？"
+      "id": 1,
+      "question": "中級問題：ユースケース層の責務分割について、『CreateOrderUseCase』と『UpdateOrderUseCase』を分ける理由で最も正しいものはどれか？",
+      "correctAnswer": "B"
     },
     {
       "options": [
@@ -419,10 +419,10 @@
           "text": "インターフェースの数は1つだけであるべき"
         }
       ],
-      "correctOptionIndex": 1,
       "explanation": "Port（インターフェース）は、Application層が実際に必要とする操作のみを定義すべきです。これにより、実装の詳細（DB、API仕様など）がApplication層に影響を与えず、テスト時のモック化も容易になります。",
-      "id": "step1-foundation-021",
-      "question": "中級問題：クリーンアーキテクチャで『インターフェース（Port）』を定義する際、最も重要な設計原則はどれか？"
+      "id": 1,
+      "question": "中級問題：クリーンアーキテクチャで『インターフェース（Port）』を定義する際、最も重要な設計原則はどれか？",
+      "correctAnswer": "B"
     }
   ]
 }
