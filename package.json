@@ -6,7 +6,8 @@
   "homepage": "https://duwenji.github.io/spa-quiz-app/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "sync-data": "Copy-Item -Path src\\data -Destination public\\data -Recurse -Force",
+    "build": "npm run sync-data && tsc -b && vite build",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist"
   },

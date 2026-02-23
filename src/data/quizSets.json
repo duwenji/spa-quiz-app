@@ -29,6 +29,16 @@
       "questionCount": 2,
       "difficulty": "beginner",
       "dataPath": "test-quiz/questions.json"
+    },
+    {
+      "id": "spa-quiz-app-docs",
+      "name": "spa-quiz-app ドキュメント",
+      "description": "spa-quiz-appのセットアップ、アーキテクチャ、デプロイ、トラブルシューティングに関するクイズです",
+      "category": "技術",
+      "icon": "📚",
+      "questionCount": 30,
+      "difficulty": "intermediate",
+      "dataPath": "spa-quiz-app/spa-quiz-app-docs.json"
     }
   ]
 }

@@ -1,0 +1,784 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "question": "GitHub Pages とは何か？",
+      "options": [
+        {
+          "id": "A",
+          "text": "GitHubが提供する静的ウェブホスティングサービス"
+        },
+        {
+          "id": "B",
+          "text": "GitHubのバージョン管理機能"
+        },
+        {
+          "id": "C",
+          "text": "GitHubでのコードレビュー機能"
+        },
+        {
+          "id": "D",
+          "text": "GitHubのプロジェクト管理ツール"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "GitHub Pages は、GitHubが提供する無料の静的ウェブホスティングサービスです。静的HTMLファイルのみに対応し、HTTPS（自動）で公開できます。",
+      "difficulty": "beginner",
+      "relatedDocument": "README"
+    },
+    {
+      "id": "q2",
+      "question": "spa-quiz-app の公開URL はどこか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "https://duwenji.github.io/spa-quiz-app/"
+        },
+        {
+          "id": "B",
+          "text": "https://github.com/duwenji/spa-quiz-app"
+        },
+        {
+          "id": "C",
+          "text": "https://duwenji.github.io/"
+        },
+        {
+          "id": "D",
+          "text": "https://spa-quiz-app.github.io/duwenji"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "spa-quiz-app は GitHub Pages でhttps://duwenji.github.io/spa-quiz-app/ で公開されています。リポジトリがプロジェクトサイト形式のため、/spa-quiz-app/ パスが付きます。",
+      "difficulty": "beginner",
+      "relatedDocument": "README"
+    },
+    {
+      "id": "q3",
+      "question": "GitHub Pages へのデプロイの4段階フローの正しい順序は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "ローカルでビルド → gh-pages ブランチへpush → GitHub Pages が配信 → ブラウザで閲覧"
+        },
+        {
+          "id": "B",
+          "text": "ブラウザで閲覧 → gh-pages ブランチへpush → ローカルでビルド → GitHub Pages が配信"
+        },
+        {
+          "id": "C",
+          "text": "GitHub Pages が配信 → ローカルでビルド → gh-pages ブランチへpush → ブラウザで閲覧"
+        },
+        {
+          "id": "D",
+          "text": "gh-pages ブランチへpush → ローカルでビルド → GitHub Pages が配信 → ブラウザで閲覧"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "デプロイの流れは、npm run build で dist/ を生成 → gh-pages パッケージが dist/ を gh-pages ブランチにpush → GitHub Pages が配信 → ブラウザからアクセス可能となります。",
+      "difficulty": "intermediate",
+      "relatedDocument": "README"
+    },
+    {
+      "id": "q4",
+      "question": "spa-quiz-app の開発サーバーを起動するコマンドは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "npm run dev"
+        },
+        {
+          "id": "B",
+          "text": "npm run start"
+        },
+        {
+          "id": "C",
+          "text": "npm run server"
+        },
+        {
+          "id": "D",
+          "text": "npm run watch"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "npm run dev を実行すると、Vite の開発サーバーが起動します。デフォルトでブラウザが自動で開き、http://localhost:5173 でアクセスできます。ホットリロード機能も有効です。",
+      "difficulty": "beginner",
+      "relatedDocument": "QUICKSTART"
+    },
+    {
+      "id": "q5",
+      "question": "本番にデプロイする際のコマンドの正しい順序は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "npm run build → npm run deploy"
+        },
+        {
+          "id": "B",
+          "text": "npm run deploy → npm run build"
+        },
+        {
+          "id": "C",
+          "text": "npm run preview → npm run deploy"
+        },
+        {
+          "id": "D",
+          "text": "npm run deploy → npm run preview"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "npm run deploy には npm run build が内部的に含まれているため、通常ははnpm run deploy だけで問題ありません。npm run preview は本番ビルド結果をローカルで確認したい場合に使用します。",
+      "difficulty": "intermediate",
+      "relatedDocument": "QUICKSTART"
+    },
+    {
+      "id": "q6",
+      "question": "npm run deploy が完了した際に表示されるメッセージは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Published"
+        },
+        {
+          "id": "B",
+          "text": "Build Success"
+        },
+        {
+          "id": "C",
+          "text": "Deploy Complete"
+        },
+        {
+          "id": "D",
+          "text": "Push Finished"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "npm run deploy が成功したら、完了メッセージ「Published」が表示されます。その後、GitHub Pages への反映に数分かかることがあります。",
+      "difficulty": "beginner",
+      "relatedDocument": "QUICKSTART"
+    },
+    {
+      "id": "q7",
+      "question": "Vite とは何か？",
+      "options": [
+        {
+          "id": "A",
+          "text": "フロントエンド開発の高速ビルドツール"
+        },
+        {
+          "id": "B",
+          "text": "JavaScriptランタイム"
+        },
+        {
+          "id": "C",
+          "text": "CSSフレームワーク"
+        },
+        {
+          "id": "D",
+          "text": "HTTPサーバー"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Vite は、フロントエンド開発の高速ビルドツールです。名前はフランス語で「速い」という意味です。開発時は HotModuleReplacement（HMR）で高速なホットリロードを実現し、本番時はバンドル・最適化を行います。",
+      "difficulty": "beginner",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q8",
+      "question": "開発環境（npm run dev）での vite.config.ts の base 設定値は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/（ルートパス）"
+        },
+        {
+          "id": "B",
+          "text": "/spa-quiz-app/"
+        },
+        {
+          "id": "C",
+          "text": "/dev/"
+        },
+        {
+          "id": "D",
+          "text": "http://localhost:5173"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "開発環境では base を '/' に設定します。これにより http://localhost:5173/ でアクセスできます。本番環境では NODE_ENV がproduction のため base は '/spa-quiz-app/' に切り替わります。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q9",
+      "question": "本番環境（npm run build）での vite.config.ts の base 設定値は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "/spa-quiz-app/"
+        },
+        {
+          "id": "B",
+          "text": "/"
+        },
+        {
+          "id": "C",
+          "text": "/production/"
+        },
+        {
+          "id": "D",
+          "text": "/build/"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本番環境では base を '/spa-quiz-app/' に設定します。GitHub Pages でのプロジェクトサイト形式のため、パスに /spa-quiz-app/ が必要です。この設定により、開発・本番のパス構造の違いを自動処理します。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q10",
+      "question": "useQuiz フック が管理する以下のうち、正しい項目はどれか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "状態（現在の問題、選択肢など）と回答履歴"
+        },
+        {
+          "id": "B",
+          "text": "サーバーへの通信のみ"
+        },
+        {
+          "id": "C",
+          "text": "LocalStorage のみ"
+        },
+        {
+          "id": "D",
+          "text": "クイズセットのメタデータのみ"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "useQuiz フックは、クイズの状態管理を一元化します。現在の問題・選択肢の管理、回答履歴の保陰、selectAnswer・confirmAnswer・goToNextQuestion など複数の操作メソッドを提供します。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q11",
+      "question": "quizSets.json ファイルの役割は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "クイズセットのメタデータを管理（ID、名前、説明、問題数など）"
+        },
+        {
+          "id": "B",
+          "text": "実際の問題文と選択肢を保持"
+        },
+        {
+          "id": "C",
+          "text": "ユーザーの回答履歴を保存"
+        },
+        {
+          "id": "D",
+          "text": "TypeScript の型定義"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "quizSets.json は各クイズセットのメタデータを管理します。ID、名前、説明、カテゴリ、難度、問題数、データファイルへのパスなどが含まれます。実際の問題文は各クイズセット専用のJSONファイルに別途保存されます。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q12",
+      "question": "TypeScript 設定で Vite 環境変数を認識させるための重要な設定は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "tsconfig.json で types に \"vite/client\" を追加"
+        },
+        {
+          "id": "B",
+          "text": "vite.config.ts で typescript プラグインを有効化"
+        },
+        {
+          "id": "C",
+          "text": "package.json で strictMode を有効化"
+        },
+        {
+          "id": "D",
+          "text": "index.html で スクリプトタイプを型指定"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "tsconfig.json の compilerOptions に \"types\": [\"vite/client\"] を追加することで、import.meta.env.BASE_URL などの Vite 環境変数の型が正しく認識されます。この設定がないと TypeScript 型チェックエラーが発生します。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q13",
+      "question": "ビルド出力（dist/）の構造で、以下のうういど何に該当するか？ assets/ フォルダ",
+      "options": [
+        {
+          "id": "A",
+          "text": "最適化された JavaScript と CSS"
+        },
+        {
+          "id": "B",
+          "text": "クイズデータの JSON ファイル"
+        },
+        {
+          "id": "C",
+          "text": "ソースコード（TypeScript）"
+        },
+        {
+          "id": "D",
+          "text": "ドキュメントファイル"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "assets/ フォルダには、Vite がバンドル・圧縮した JavaScript ファイル（index-xxxxx.js）と CSS ファイル（index-xxxxx.css）が含まれます。これらは本番環境で使用されます。クイズデータは dist/data/ に別途保存されます。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q14",
+      "question": "import.meta.env.BASE_URL は、開発環境と本番環境でどう異なるか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "開発：'/' 、本番：'/spa-quiz-app/'"
+        },
+        {
+          "id": "B",
+          "text": "開発：'/spa-quiz-app/' 、本番：'/'"
+        },
+        {
+          "id": "C",
+          "text": "開発・本番共に '/'"
+        },
+        {
+          "id": "D",
+          "text": "開発・本番共に '/spa-quiz-app/'"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "vite.config.ts で NODE_ENV に基づいて base 設定を切り替えるため、import.meta.env.BASE_URL も環境に応じて異なります。開発では '/'（localhost）、本番では '/spa-quiz-app/'（GitHub Pages）となり、これにより開発・本番でのパス処理を自動化します。",
+      "difficulty": "advanced",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q15",
+      "question": "GitHub Pages 設定で確認すべき項目として、以下の中で正しいものは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Source: \"Deploy from a branch\", Branch: \"gh-pages\", Folder: \"/(root)\""
+        },
+        {
+          "id": "B",
+          "text": "Source: \"GitHub Actions\", Branch: \"main\", Folder: \"/dist\""
+        },
+        {
+          "id": "C",
+          "text": "Source: \"Deploy from a branch\", Branch: \"main\", Folder: \"/dist\""
+        },
+        {
+          "id": "D",
+          "text": "Source: \"GitHub Actions\", Branch: \"gh-pages\", Folder: \"/(root)\""
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "リポジトリの Settings > Pages で以下を確認：Source は \"Deploy from a branch\"、Branch は \"gh-pages\"、Folder は \"/(root)\" に設定する必要があります。gh-pages パッケージが dist/ の内容を gh-pages ブランチにpush し、この設定に基づいて GitHub Pages が配信します。",
+      "difficulty": "intermediate",
+      "relatedDocument": "DEPLOYMENT"
+    },
+    {
+      "id": "q16",
+      "question": "ビルド前に確認すべき、クイズデータの正しい配置は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "public/data/ にクイズセットの JSON ファイルが存在"
+        },
+        {
+          "id": "B",
+          "text": "src/components/ にクイズデータが存在"
+        },
+        {
+          "id": "C",
+          "text": "dist/ にクイズデータが存在"
+        },
+        {
+          "id": "D",
+          "text": "docs/ にクイズデータが存在"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "ビルド時に public/ フォルダの内容が dist/ にコピーされるため、public/data/ にクイズセットのメタデータ（quizSets.json）と各クイズセットの JSON ファイルが存在する必要があります。DEPLOYMENT.md 内でも「公開する前に必ず確認してください」と記載されています。",
+      "difficulty": "intermediate",
+      "relatedDocument": "DEPLOYMENT"
+    },
+    {
+      "id": "q17",
+      "question": "npm run preview の目的は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "ビルド結果をローカルで確認（本番環境をシミュレート）"
+        },
+        {
+          "id": "B",
+          "text": "ライブ開発サーバーを起動"
+        },
+        {
+          "id": "C",
+          "text": "GitHub Pages にデプロイ"
+        },
+        {
+          "id": "D",
+          "text": "TypeScript 型チェックを実行"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "npm run preview は、npm run build で生成された dist/ フォルダの内容をローカルのサーバーで配信し、ブラウザで確認できます。本番環境に最も近い状態でテストしたい場合に使用します。",
+      "difficulty": "intermediate",
+      "relatedDocument": "DEPLOYMENT"
+    },
+    {
+      "id": "q18",
+      "question": "vite.config.ts の base 設定で /spa-quiz-app/ が必要な理由は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "GitHub Pages がプロジェクトサイト形式で、リポジトリ名をパスに含める必要があるため"
+        },
+        {
+          "id": "B",
+          "text": "セキュリティ対策として必要"
+        },
+        {
+          "id": "C",
+          "text": "Vite の グローバル設定"
+        },
+        {
+          "id": "D",
+          "text": "TypeScript コンパイラの要件"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "GitHub Pages では個人用ページ（username.github.io）と プロジェクトサイト（username.github.io/projectname）の2形式があります。spa-quiz-app はプロジェクトサイトのため、URL が https://duwenji.github.io/spa-quiz-app/ となり、パス設定で /spa-quiz-app/ を指定する必要があります。",
+      "difficulty": "advanced",
+      "relatedDocument": "DEPLOYMENT"
+    },
+    {
+      "id": "q19",
+      "question": "npm run deploy 実行前に Git を確認すべき項目は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "git config user.name と git config user.email"
+        },
+        {
+          "id": "B",
+          "text": "git branch のみ"
+        },
+        {
+          "id": "C",
+          "text": "git log のみ"
+        },
+        {
+          "id": "D",
+          "text": "GitHub API キーのみ"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "npm run deploy が失敗する場合、Git ユーザー設定を確認する必要があります。git config user.name と git config user.email が正しく設定されていないと、gh-pages パッケージが動作しません。",
+      "difficulty": "intermediate",
+      "relatedDocument": "DEPLOYMENT"
+    },
+    {
+      "id": "q20",
+      "question": "TypeScript エラー「Property 'env' does not exist on type 'ImportMeta'」の解決方法は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "tsconfig.json の compilerOptions に \"types\": [\"vite/client\"] を追加"
+        },
+        {
+          "id": "B",
+          "text": "vite.config.ts で env を明示的に定義"
+        },
+        {
+          "id": "C",
+          "text": "package.json で typescript のバージョンを更新"
+        },
+        {
+          "id": "D",
+          "text": "npm install --save-dev @types/vite"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "このエラーは TypeScript が Vite 環境変数型を認識していないために発生します。tsconfig.json の compilerOptions に \"types\": [\"vite/client\"] を追加することで解決します。その後、npm run build を再実行してください。",
+      "difficulty": "intermediate",
+      "relatedDocument": "TROUBLESHOOTING"
+    },
+    {
+      "id": "q21",
+      "question": "「Module not found」エラーが発生した際の確認ステップは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "public/data/ が存在し、必要なファイルが配置されているか確認"
+        },
+        {
+          "id": "B",
+          "text": "npm install を再実行"
+        },
+        {
+          "id": "C",
+          "text": "git clone コマンドを再実行"
+        },
+        {
+          "id": "D",
+          "text": "Node.js を再インストール"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Module not found エラーは、public/data/ が存在しないか、期待されたファイルが配置されていないために発生します。ls public/data/ で確認し、ない場合は Copy-Item -Recurse \"src\\data\" \"public\\data\" で作成・コピーしてください。",
+      "difficulty": "intermediate",
+      "relatedDocument": "TROUBLESHOOTING"
+    },
+    {
+      "id": "q22",
+      "question": "ローカル開発で「404 Not Found」エラーが発生する場合、最初に確認すべきことは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "public/ フォルダが存在し、その中に data/ フォルダが配置されているか"
+        },
+        {
+          "id": "B",
+          "text": "npm run dev で起動したサーバーのアドレス"
+        },
+        {
+          "id": "C",
+          "text": "ブラウザのキャッシュ"
+        },
+        {
+          "id": "D",
+          "text": "ファイアウォール設定"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "npm run dev で 404 エラーが発生する場合、Vite の public/ フォルダが見つからない可能性があります。ls public/ で確認し、ない場合は mkdir public と Copy-Item で data/ をコピーし、npm run dev を再起動してください。",
+      "difficulty": "intermediate",
+      "relatedDocument": "TROUBLESHOOTING"
+    },
+    {
+      "id": "q23",
+      "question": "クイズセットが読み込めない場合の確認ステップで、コンソール（F12）に表示される内容は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "\"Trying path: /spa-quiz-app/data/...\" のようなパス試行ログ"
+        },
+        {
+          "id": "B",
+          "text": "npm run build の実行ログ"
+        },
+        {
+          "id": "C",
+          "text": "Git コミットログ"
+        },
+        {
+          "id": "D",
+          "text": "Node.js バージョン情報"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "src/data/index.ts の loadQuizSetQuestions 関数はデータファイルの読み込みを複数パスで試行します。コンソールに \"Trying path:\" ログが表示されるため、どのパスで失敗しているかを確認できます。これにより、本番環境のパス設定を確認できます。",
+      "difficulty": "advanced",
+      "relatedDocument": "TROUBLESHOOTING"
+    },
+    {
+      "id": "q24",
+      "question": "GitHub Pages が反映されない場合の対応（複数選択で全て正解）で、正しい順序は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "デプロイ確認 → ページ設定確認 → キャッシュクリア（Ctrl+Shift+Delete） → 数分待機 → 再度アクセス"
+        },
+        {
+          "id": "B",
+          "text": "キャッシュクリア → 再度アクセス → できなければ npm run deploy"
+        },
+        {
+          "id": "C",
+          "text": "npm run deploy 再実行 → 確認"
+        },
+        {
+          "id": "D",
+          "text": "git push → npm run deploy → 確認"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "GitHub Pages 反映に問題がある場合：1. GitHub > Settings > Actions で最新実行状況確認 2. GitHub > Settings > Pages で設定確認 3. ブラウザキャッシュをクリア 4. 数分待機 5. 再度アクセス、これらを順に行います。",
+      "difficulty": "advanced",
+      "relatedDocument": "TROUBLESHOOTING"
+    },
+    {
+      "id": "q25",
+      "question": "gh-pages パッケージのインストール確認コマンドは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "npm list gh-pages"
+        },
+        {
+          "id": "B",
+          "text": "npm search gh-pages"
+        },
+        {
+          "id": "C",
+          "text": "gh-pages --version"
+        },
+        {
+          "id": "D",
+          "text": "npm show gh-pages"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "npm list gh-pages コマンドで、gh-pages パッケージがインストール済みか、またどのバージョンがインストールされているかを確認できます。このコマンドで node_modules に gh-pages がない場合は、npm install で再インストールが必要です。",
+      "difficulty": "beginner",
+      "relatedDocument": "TROUBLESHOOTING"
+    },
+    {
+      "id": "q26",
+      "question": "React のメインコンポーネント App.tsx が存在するディレクトリは？",
+      "options": [
+        {
+          "id": "A",
+          "text": "src/"
+        },
+        {
+          "id": "B",
+          "text": "src/components/"
+        },
+        {
+          "id": "C",
+          "text": "public/"
+        },
+        {
+          "id": "D",
+          "text": "dist/"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "App.tsx は src/ ルートディレクトリに配置されています。main.tsx がエントリーポイント（App.tsx をインポートしてレンダリング）となり、Vite がこれを起点に依存関係を解析してバンドルします。",
+      "difficulty": "beginner",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q27",
+      "question": "src/hooks フォルダに含まれるファイルの主な役割は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "React カスタムフック（useQuiz など）でスターの状態管理"
+        },
+        {
+          "id": "B",
+          "text": "API 通信処理"
+        },
+        {
+          "id": "C",
+          "text": "スタイルファイル"
+        },
+        {
+          "id": "D",
+          "text": "ルーティング設定"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "src/hooks フォルダには useQuiz.ts などの React カスタムフックが含まれます。これらはクイズの状態管理（現在の問題、選択肢、回答履歴など）を一元化し、複数のコンポーネントから再利用できます。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q28",
+      "question": "tsconfig.json の \"target\" 設定が \"ES2020\" である理由は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "最新の JavaScript 機能をサポートしつつ、ブラウザ互換性を確保"
+        },
+        {
+          "id": "B",
+          "text": "Vite の必須要件"
+        },
+        {
+          "id": "C",
+          "text": "Node.js の バージョン指定"
+        },
+        {
+          "id": "D",
+          "text": "TypeScript のデフォルト設定"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "\"target\": \"ES2020\" は、TypeScript が最新の JavaScript 言語機能（async/await、オプショナル・チェーン等）を活用しつつ、ほぼすべての近代的ブラウザで動作する バージョンレベルを指定しています。古い環境をサポート必要な場合は低いバージョンに下げることもあります。",
+      "difficulty": "advanced",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q29",
+      "question": "src/utils フォルダに含まれるファイルの役割（正しくないものを除いて）は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "downloadHistory.ts はユーザーの回答履歴をダウンロード処理"
+        },
+        {
+          "id": "B",
+          "text": "storageManager.ts は LocalStorage 管理"
+        },
+        {
+          "id": "C",
+          "text": "apiClient.ts はサーバーの通信処理"
+        },
+        {
+          "id": "D",
+          "text": "両方とも正しい"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "src/utils には downloadHistory.ts（回答履歴ダウンロード処理）と storageManager.ts（LocalStorage 管理）が含まれます。spa-quiz-app はサーバー通信がないため、サーバー API クライアントは実装されていません。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    },
+    {
+      "id": "q30",
+      "question": "vite.config.ts で react プラグインが必要な理由は？",
+      "options": [
+        {
+          "id": "A",
+          "text": "JSX 構文を JavaScript に変換するため"
+        },
+        {
+          "id": "B",
+          "text": "React Router を使用するため"
+        },
+        {
+          "id": "C",
+          "text": "Redux を使用するため"
+        },
+        {
+          "id": "D",
+          "text": "npm install と同等の処理"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "vite.config.ts に plugins: [react()] を設定することで、Vite が JSX 構文（<Component />）を JavaScript（React.createElement(...)）に変換できるようになります。これがないと、.tsx ファイルのビルドが失敗します。",
+      "difficulty": "intermediate",
+      "relatedDocument": "ARCHITECTURE"
+    }
+  ]
+}

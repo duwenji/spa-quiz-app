@@ -29,6 +29,16 @@
       "questionCount": 2,
       "difficulty": "beginner",
       "dataPath": "test-quiz/questions.json"
+    },
+    {
+      "id": "spa-quiz-app-docs",
+      "name": "SPA Quiz App について",
+      "description": "このSPAクイズアプリケーション自体のドキュメントから出題されるクイズです",
+      "category": "Project",
+      "icon": "📚",
+      "questionCount": 30,
+      "difficulty": "intermediate",
+      "dataPath": "spa-quiz-app/spa-quiz-app-docs.json"
     }
   ]
 }
