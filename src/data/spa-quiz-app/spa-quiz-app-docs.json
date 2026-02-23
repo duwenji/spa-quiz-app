@@ -236,7 +236,7 @@
     },
     {
       "id": "q10",
-      "question": "useQuiz フック が管理する以下のうち、正しい項目はどれか？",
+      "question": "useQuiz フック が管理する以下のうち、正しい項目は何か？",
       "options": [
         {
           "id": "A",
@@ -262,7 +262,7 @@
     },
     {
       "id": "q11",
-      "question": "quizSets.json ファイルの役割は？",
+      "question": "quizSets.json ファイルの役割として、以下のうち正しいのは？",
       "options": [
         {
           "id": "A",
@@ -314,7 +314,7 @@
     },
     {
       "id": "q13",
-      "question": "ビルド出力（dist/）の構造で、以下のうういど何に該当するか？ assets/ フォルダ",
+      "question": "ビルド出力（dist/）の構造で、assets/ フォルダは以下のうち何に該当するか？",
       "options": [
         {
           "id": "A",
@@ -392,7 +392,7 @@
     },
     {
       "id": "q16",
-      "question": "ビルド前に確認すべき、クイズデータの正しい配置は？",
+      "question": "ビルド前に確認すべき、クイズデータの正しい配置として、以下のうち該当するのは？",
       "options": [
         {
           "id": "A",
@@ -652,7 +652,7 @@
     },
     {
       "id": "q26",
-      "question": "React のメインコンポーネント App.tsx が存在するディレクトリは？",
+      "question": "React のメインコンポーネント App.tsx が存在するディレクトリとして、以下のうち正しいのは？",
       "options": [
         {
           "id": "A",
@@ -678,7 +678,7 @@
     },
     {
       "id": "q27",
-      "question": "src/hooks フォルダに含まれるファイルの主な役割は？",
+      "question": "src/hooks フォルダに含まれるファイルの主な役割として、以下のうち正しいのは？",
       "options": [
         {
           "id": "A",
@@ -730,7 +730,7 @@
     },
     {
       "id": "q29",
-      "question": "src/utils フォルダに含まれるファイルの役割（正しくないものを除いて）は？",
+      "question": "src/utils フォルダに含まれるファイルの役割として、以下のうち正しくないのは？",
       "options": [
         {
           "id": "A",
@@ -756,7 +756,7 @@
     },
     {
       "id": "q30",
-      "question": "vite.config.ts で react プラグインが必要な理由は？",
+      "question": "vite.config.ts で react プラグインが必要な理由として、以下のうち正しいのは？",
       "options": [
         {
           "id": "A",
