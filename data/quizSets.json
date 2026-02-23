@@ -29,6 +29,66 @@
       "questionCount": 30,
       "difficulty": "intermediate",
       "dataPath": "spa-quiz-app/spa-quiz-app-docs.json"
+    },
+    {
+      "id": "clean-architecture",
+      "name": "クリーンアーキテクチャ完全ガイド",
+      "description": "クリーンアーキテクチャの基礎から実装まで、4階層の層構造、依存性逆転、SOLID原則、C#・TypeScript・Java での実装パターン、メリット・課題、実践的なアンチパターンを学べる包括的なクイズです",
+      "category": "アーキテクチャ",
+      "icon": "🏗️",
+      "questionCount": 39,
+      "difficulty": "intermediate",
+      "dataPath": "clean-architecture/clean-architecture.json"
+    },
+    {
+      "id": "clean-architecture-step1",
+      "name": "クリーンアーキテクチャ STEP 1: 理論基盤",
+      "description": "クリーンアーキテクチャの基本概念、4つの層構造、SOLID原則との関連性を学ぶ",
+      "category": "アーキテクチャ",
+      "icon": "📖",
+      "questionCount": 30,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "clean-architecture/step1-foundation.json"
+    },
+    {
+      "id": "clean-architecture-step2",
+      "name": "クリーンアーキテクチャ STEP 2: 設計方法論",
+      "description": "SOLID原則の実装、責務分離、ユースケース駆動設計、ポートとアダプタパターンを学ぶ",
+      "category": "アーキテクチャ",
+      "icon": "🎨",
+      "questionCount": 30,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "clean-architecture/step2-design.json"
+    },
+    {
+      "id": "clean-architecture-step3",
+      "name": "クリーンアーキテクチャ STEP 3: 言語実装",
+      "description": "C#、TypeScript/JavaScript、Javaでのクリーンアーキテクチャの実装パターンを学ぶ",
+      "category": "アーキテクチャ",
+      "icon": "💻",
+      "questionCount": 30,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "clean-architecture/step3-implementation.json"
+    },
+    {
+      "id": "clean-architecture-step4",
+      "name": "クリーンアーキテクチャ STEP 4: 適用判断",
+      "description": "メリット・課題・適用判断基準、段階的導入戦略を学ぶ",
+      "category": "アーキテクチャ",
+      "icon": "⚖️",
+      "questionCount": 30,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "clean-architecture/step4-judgment.json"
+    },
+    {
+      "id": "clean-architecture-step5",
+      "name": "クリーンアーキテクチャ STEP 5: 実践応用",
+      "description": "アンチパターン・リソース制約下での適応・FAQ を通じた深掘り学習",
+      "category": "アーキテクチャ",
+      "icon": "🚀",
+      "questionCount": 30,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "clean-architecture/step5-practice.json"
     }
   ]
 }
