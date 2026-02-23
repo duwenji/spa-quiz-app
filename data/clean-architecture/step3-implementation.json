@@ -5,7 +5,6 @@
   "difficulty": "初級～中級",
   "questions": [
     {
-      "text": "C#でのクリーンアーキテクチャにおいて、プロジェクトを複数に分割する場合の標準的なアプローチはどれか？",
       "options": [
         {
           "text": "すべてのコードを1つのプロジェクトに詰め込む"
@@ -22,10 +21,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "C#では、各層を独立したプロジェクト（assembly）として分割することが推奨されます。これにより、.csprojの依存関係設定で物理的に不正な依存を防ぐことができます。例えば、Domain プロジェクトは他に依存しない、Application は Domain にのみ依存、といった制約が実行時に強制されます。",
-      "id": "step3-implementation-001"
+      "id": "step3-implementation-001",
+      "question": "C#でのクリーンアーキテクチャにおいて、プロジェクトを複数に分割する場合の標準的なアプローチはどれか？"
     },
     {
-      "text": "C#でのDI設定について、Microsoft.Extensions.DependencyInjectionを使用する場合、インターフェース実装クラスを登録する標準的な方法はどれか？",
       "options": [
         {
           "text": "services.AddSingleton<IOrderRepository, SqlOrderRepository>();"
@@ -42,10 +41,10 @@
       ],
       "correctOptionIndex": 0,
       "explanation": "Microsoft.Extensions.DependencyInjectionでは、`services.AddSingleton<Interface, Implementation>()`、`AddTransient`、`AddScoped`などのメソッドで依存関係を登録します。これにより、DI コンテナが自動的に依存関係を注入します。",
-      "id": "step3-implementation-002"
+      "id": "step3-implementation-002",
+      "question": "C#でのDI設定について、Microsoft.Extensions.DependencyInjectionを使用する場合、インターフェース実装クラスを登録する標準的な方法はどれか？"
     },
     {
-      "text": "TypeScript/JavaScriptでのクリーンアーキテクチャにおいて、プロジェクト構成の分割方法として最も推奨されるのはどれか？",
       "options": [
         {
           "text": "全コードを1つのindex.tsで実装する"
@@ -62,10 +61,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "TypeScript/JavaScriptでは、ファイルシステムがモジュール構成の基本となります。フォルダ構造で層を分離し、各フォルダ内で依存関係を管理することが実践的です。小規模プロジェクトではこれで十分であり、複数のnpm パッケージ分割は過度な複雑性になることがあります。",
-      "id": "step3-implementation-003"
+      "id": "step3-implementation-003",
+      "question": "TypeScript/JavaScriptでのクリーンアーキテクチャにおいて、プロジェクト構成の分割方法として最も推奨されるのはどれか？"
     },
     {
-      "text": "TypeScript/JavaScriptでのDI設定について、tsyringeライブラリを使用する場合の基本的な設定方法はどれか？",
       "options": [
         {
           "text": "@injectable装飾子でクラスをマークし、constructor（）で依存関係を定義する"
@@ -82,10 +81,10 @@
       ],
       "correctOptionIndex": 0,
       "explanation": "tsyringeでは、クラスに@injectable装飾子をマークし、constructorで依存関係を宣言します。DIコンテナが自動的に依存関係の注入を管理します。コンストラクタインジェクションにより、明示的で テストしやすい設計が実現されます。",
-      "id": "step3-implementation-004"
+      "id": "step3-implementation-004",
+      "question": "TypeScript/JavaScriptでのDI設定について、tsyringeライブラリを使用する場合の基本的な設定方法はどれか？"
     },
     {
-      "text": "Javaでのクリーンアーキテクチャにおいて、Spring Bootを使用する場合のプロジェクト構成として最も推奨されるのはどれか？",
       "options": [
         {
           "text": "Spring Boot アプリケーションの1つのプロジェクトに全ての層を含める"
@@ -102,10 +101,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Javaではmavenマルチモジュール構成で、各層を独立したモジュール（Domain、Application、Adapter、Framework）として分割することが推奨されます。各モジュールのpom.xmlで依存関係を明示的に定義し、循環依存を防ぐことができます。",
-      "id": "step3-implementation-005"
+      "id": "step3-implementation-005",
+      "question": "Javaでのクリーンアーキテクチャにおいて、Spring Bootを使用する場合のプロジェクト構成として最も推奨されるのはどれか？"
     },
     {
-      "text": "Javaの Spring DI について、@Component と @Service の違いで最も正しい説明はどれか？",
       "options": [
         {
           "text": "違いはなく、どちらを使用しても同じである"
@@ -122,10 +121,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Spring では @Component と @Service は機能的には同じです。ただし、@Service はビジネスロジック層のコンポーネントであることを意図的に示せるため、可読性の観点からビジネスロジック層には @Service を使用することが推奨されます。",
-      "id": "step3-implementation-006"
+      "id": "step3-implementation-006",
+      "question": "Javaの Spring DI について、@Component と @Service の違いで最も正しい説明はどれか？"
     },
     {
-      "text": "エンティティ層の実装で、C##でのベストプラクティスはどれか？",
       "options": [
         {
           "text": "publicセッターを持つシンプルなPOCI（Plain Old CLR Object）として実装する"
@@ -142,10 +141,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "C#でのドメインエンティティは、ビジネスルールをカプセル化するべきです。クラス内に値の妥当性チェック、状態遷移のルール、関連ロジックを含めます。publicセッターを避け、privateセッターやメソッドを介して状態変更をコントロールします。",
-      "id": "step3-implementation-007"
+      "id": "step3-implementation-007",
+      "question": "エンティティ層の実装で、C##でのベストプラクティスはどれか？"
     },
     {
-      "text": "TypeScriptでエンティティを実装する場合のベストプラクティスはどれか？",
       "options": [
         {
           "text": "インターフェースのみを定義し、実装クラスは持たない"
@@ -162,10 +161,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "TypeScriptでは、readonlyプロパティでイミュータビリティを表現し、Factory Methodパターン（例：Task.create()）で安全に生成します。状態変更はメソッド（例：complete()）を通じて行い、ビジネスルールを適用します。これにより、予期しない状態変更を防げます。",
-      "id": "step3-implementation-008"
+      "id": "step3-implementation-008",
+      "question": "TypeScriptでエンティティを実装する場合のベストプラクティスはどれか？"
     },
     {
-      "text": "JavaでのエンティティをJPA（Hibernate）と組み合わせる場合、クリーンアーキテクチャを遵守するための重要な設計点は何か？",
       "options": [
         {
           "text": "ドメインエンティティにJPA注釈（@Entity、@Column等）を直接付与する"
@@ -182,10 +181,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "ドメインエンティティをJPA注釈で汚さないことが重要です。ドメインエンティティはビジネスロジックの純粋に集中し、JPA用のPersistentエンティティはAdapter層で分離して定義します。MapStruct などを使って変換することで、依存関係を保つことができます。",
-      "id": "step3-implementation-009"
+      "id": "step3-implementation-009",
+      "question": "JavaでのエンティティをJPA（Hibernate）と組み合わせる場合、クリーンアーキテクチャを遵守するための重要な設計点は何か？"
     },
     {
-      "text": "Adapter層（Repository実装）のテスト戦略で最も推奨されるのはどれか？",
       "options": [
         {
           "text": "実データベースを使用して、すべてのテストを実行する"
@@ -202,10 +201,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Adapter層のテストは2段階に分かれます：Unit テストではPort をモック化してAdapter のロジックのみをテストし、Integration テストで実データベースとの連携を検証します。これにより、テスト速度（Unit テスト）と信頼性（Integration テスト）のバランスが取れます。",
-      "id": "step3-implementation-010"
+      "id": "step3-implementation-010",
+      "question": "Adapter層（Repository実装）のテスト戦略で最も推奨されるのはどれか？"
     },
     {
-      "text": "Controller（Driving Adapter）の責務として、含めるべきでないものはどれか？",
       "options": [
         {
           "text": "HTTP リクエストパラメータのバリデーション"
@@ -222,10 +221,10 @@
       ],
       "correctOptionIndex": 2,
       "explanation": "Controller（Driving Adapter）は、HTTPプロトコルの処理（パラメータ抽出、バリデーション、ステータス決定）に専念すべきです。複雑なビジネスロジックはUseCase層やエンティティ層に委譲します。Controllerでロジック判断を行うと、ビジネスロジックが外側に漏出してしまいます。",
-      "id": "step3-implementation-011"
+      "id": "step3-implementation-011",
+      "question": "Controller（Driving Adapter）の責務として、含めるべきでないものはどれか？"
     },
     {
-      "text": "中級問題：プロジェクト間の依存関係を .csproj（C#）で定義する際、循環依存を避けるための設計は何か？",
       "options": [
         {
           "text": "全てを1つのプロジェクトに含めて、循環参照を心配しない"
@@ -242,10 +241,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "C#でプロジェクト間の循環依存を避けることは、クリーンアーキテクチャの実行を保証するための重要な設計原則です。Domain → Application → Adapter → Framework という一方向の参照のみを許可することで、アーキテクチャ違反を物理的に防ぎます。",
-      "id": "step3-implementation-012"
+      "id": "step3-implementation-012",
+      "question": "中級問題：プロジェクト間の依存関係を .csproj（C#）で定義する際、循環依存を避けるための設計は何か？"
     },
     {
-      "text": "中級問題：TypeScriptでのモジュール分割で、各層のindex.ts（バレルファイル）の役割は何か？",
       "options": [
         {
           "text": "全てのコードを1ファイルに集約し、ファイルサイズを削減する"
@@ -262,10 +261,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "index.ts（バレルファイル）は、層内の重要なクラスやインターフェースをエクスポートし、外部からのインポートパスを単純化します。例えば、`import { CreateOrderUseCase } from '../../application'`という簡潔なインポートが可能になります。",
-      "id": "step3-implementation-013"
+      "id": "step3-implementation-013",
+      "question": "中級問題：TypeScriptでのモジュール分割で、各層のindex.ts（バレルファイル）の役割は何か？"
     },
     {
-      "text": "中級問題：Javaでの複数の同じインターフェース実装をDI コンテナで管理する場合、正しい設定方法はどれか？",
       "options": [
         {
           "text": "複数の実装クラスに同じ@Service注釈を付与する"
@@ -282,10 +281,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Javaでは、@Primary で デフォルトの実装を指定し、@Qualifier で特定の実装を指定することで、複数の実装を管理できます。例えば、複数のRepositoryがある場合、@Qualifier(\"sqlRepository\")で指定したRepository実装を注入します。",
-      "id": "step3-implementation-014"
+      "id": "step3-implementation-014",
+      "question": "中級問題：Javaでの複数の同じインターフェース実装をDI コンテナで管理する場合、正しい設定方法はどれか？"
     },
     {
-      "text": "中級問題：C#でのDTO（Data Transfer Object）と ドメインエンティティの変換を実装する場合のベストプラクティスはどれか？",
       "options": [
         {
           "text": "DTOとドメインエンティティを同じクラスで実装する"
@@ -302,10 +301,10 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "AutoMapper や Mapster などのマッピングライブラリは、DTO ↔ エンティティの変換ロジックを一元管理し、コードの重複を避けます。変換処理をAdapter層に集約することで、各層が互いのデータ形式を知らず、結合度が低くなります。",
-      "id": "step3-implementation-015"
+      "id": "step3-implementation-015",
+      "question": "中級問題：C#でのDTO（Data Transfer Object）と ドメインエンティティの変換を実装する場合のベストプラクティスはどれか？"
     },
     {
-      "text": "中級問題：Interface Segregation 原則に基づいて、複数の関連Repositoryportを設計する場合の推奨方法はどれか？",
       "options": [
         {
           "text": "全てのRepositoryメソッド（CRUD、検索等）を1つのインターフェースに統合する"
@@ -322,7 +321,8 @@
       ],
       "correctOptionIndex": 1,
       "explanation": "Interface Segregation 原則により、IOrderRepository はOrder の操作のみを定義し、ICustomerRepository は Customer の操作のみを定義します。さらに、読み取り（IOrderReader）と書き込み（IOrderWriter）を分割することで、各クライアントが必要な操作のみに依存します。",
-      "id": "step3-implementation-016"
+      "id": "step3-implementation-016",
+      "question": "中級問題：Interface Segregation 原則に基づいて、複数の関連Repositoryportを設計する場合の推奨方法はどれか？"
     }
   ]
 }
