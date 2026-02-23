@@ -2,32 +2,12 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>選択問題クイズアプリ - GitHub Copilot習得チャレンジ</title>
-    <script>
-      // 環境判定と動的スクリプト読み込み
-      (function() {
-        const base = '/spa-quiz-app/';
-        const path = window.location.pathname;
-        const isProduction = path.startsWith(base);
-        
-        if (isProduction) {
-          // 本番環境 - ベースパスを設定
-          document.write('<base href="' + base + '" />');
-          
-          // ビルドされたスクリプトを読み込む
-          document.write('<script type="module" crossorigin src="' + base + 'assets/index.js"><\/script>');
-          document.write('<link rel="stylesheet" crossorigin href="' + base + 'assets/index.css">');
-        } else {
-          // 開発環境 - 開発用スクリプトを読み込む
-          document.write('<script type="module" src="./src/main.tsx"><\/script>');
-        }
-      })();
-    </script>
   </head>
   <body>
     <div id="root"></div>
-    <!-- スクリプトは上記で動的に読み込まれます -->
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

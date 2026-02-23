@@ -21,21 +21,21 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
   }
 
   try {
-    // fetch APIを使用してJSONファイルを読み込む
+    // fetch APIを使用してJSONファイルを読み込む（動的インポートの問題を回避）
     console.log(`Loading quiz set data from: ${dataPath}`);
     
-    // 現在のページのベースパスを動的に取得（GitHub Pagesの場合 /spa-quiz-app/ など）
-    const base = document.querySelector('base')?.href || window.location.href.split(document.location.pathname)[0];
-    const basePath = new URL(base).pathname.replace(/\/$/, '');
-    
-    // pathsToTry: publicフォルダからの相対パスを優先
+    // Vite開発サーバーでは/publicではなく/srcから直接提供される
+    // 絶対パスと相対パスの両方を試す
+    // baseパス '/spa-quiz-app/' を考慮する
+    // 現在のページのベースURLを動的に取得
+    const basePath = window.location.pathname.includes('/spa-quiz-app/') ? '/spa-quiz-app' : '';
     const pathsToTry = [
-      // 本番環境: GitHub Pages で /spa-quiz-app/ がベース
-      `${basePath}/data/${dataPath}`,
-      // 開発環境とフォールバック
-      `/data/${dataPath}`,
-      `../data/${dataPath}`,
-      `./data/${dataPath}`,
+      `/src/data/${dataPath}`,
+      `${basePath}/src/data/${dataPath}`,
+      `/spa-quiz-app/src/data/${dataPath}`,
+      `./src/data/${dataPath}`,
+      `./${dataPath}`,
+      `${dataPath}`
     ];
     
     console.log('Base path:', basePath);
