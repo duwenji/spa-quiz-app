@@ -152,7 +152,7 @@
       "parentId": "github-copilot-skills-tutorial",
       "group": "github-copilot-skills-tutorial-series",
       "level": 2,
-      "order": 2,
+      "order": 4,
       "estimatedLearningTime": "5-8分",
       "topics": [
         "Agent Skills のオープンスタンダード",
@@ -175,7 +175,7 @@
       "parentId": "github-copilot-skills-tutorial",
       "group": "github-copilot-skills-tutorial-series",
       "level": 2,
-      "order": 3,
+      "order": 5,
       "estimatedLearningTime": "20-25分",
       "topics": [
         "Agent Skills の定義",
@@ -202,7 +202,7 @@
       "parentId": "github-copilot-skills-tutorial",
       "group": "github-copilot-skills-tutorial-series",
       "level": 2,
-      "order": 4,
+      "order": 6,
       "estimatedLearningTime": "30-40分",
       "topics": [
         "スキル作成の5フェーズ",
@@ -229,7 +229,7 @@
       "parentId": "github-copilot-skills-tutorial",
       "group": "github-copilot-skills-tutorial-series",
       "level": 2,
-      "order": 5,
+      "order": 7,
       "estimatedLearningTime": "30-35分",
       "topics": [
         "複合スキル（Composite Skills）の設計",
@@ -256,7 +256,7 @@
       "parentId": "github-copilot-skills-tutorial",
       "group": "github-copilot-skills-tutorial-series",
       "level": 2,
-      "order": 6,
+      "order": 8,
       "estimatedLearningTime": "35-45分",
       "topics": [
         "スキル共有戦略（リポジトリベース、パッケージ配布、ポータル）",
