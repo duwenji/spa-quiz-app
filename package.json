@@ -9,7 +9,10 @@
     "sync-data": "xcopy src\\data public\\data /E /Y /I",
     "build": "npm run sync-data && tsc -b && vite build",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist",
+    "validate:quiz": "node scripts/validate-quiz-questions.mjs",
+    "validate:metadata": "node scripts/validate-quiz-metadata.mjs",
+    "validate:all": "npm run validate:metadata && npm run validate:quiz -- src/data/clean-architecture/*.json"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -20,6 +23,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
+    "ajv": "^8.18.0",
     "autoprefixer": "^10.4.20",
     "gh-pages": "^6.1.1",
     "postcss": "^8.4.40",
