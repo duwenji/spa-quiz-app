@@ -1,0 +1,102 @@
+{
+  "quizSets": [
+    {
+      "id": "github-copilot-skills-fundamentals",
+      "name": "基礎知識（Fundamentals）",
+      "description": "GitHub Copilot Agent Skills の基本概念、プラットフォーム対応、オープンスタンダードの理解を深めるクイズセット",
+      "category": "GitHub Copilot",
+      "icon": "📚",
+      "questionCount": 15,
+      "difficulty": "beginner",
+      "dataPath": "github-copilot-skills-tutorial/fundamentals.json",
+      "parentId": "github-copilot-skills-tutorial",
+      "group": "github-copilot-skills-series",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "github-copilot-skills-basics",
+      "name": "基本概念（Basics）",
+      "description": "Agent Skills の根本的な目的、スキル作成の 5 フェーズ、要件定義から対象ユーザーの定義までの実践的知識",
+      "category": "GitHub Copilot",
+      "icon": "🎯",
+      "questionCount": 15,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "github-copilot-skills-tutorial/basics.json",
+      "parentId": "github-copilot-skills-tutorial",
+      "group": "github-copilot-skills-series",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "github-copilot-skills-comparison",
+      "name": "比較・対比（Comparison）",
+      "description": "Agent Skills と MCP（Model Context Protocol）の違い、目的・アーキテクチャ・使用場面の詳密な比較と適切なツール選択",
+      "category": "GitHub Copilot",
+      "icon": "⚖️",
+      "questionCount": 15,
+      "difficulty": "intermediate",
+      "dataPath": "github-copilot-skills-tutorial/comparison.json",
+      "parentId": "github-copilot-skills-tutorial",
+      "group": "github-copilot-skills-series",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "github-copilot-skills-implementation",
+      "name": "実装（Implementation）",
+      "description": "スキルの設計・実装・テスト・品質検証の実践的ガイド。パラメータ設計、エラーハンドリング、出力フォーマット、テスト自動化",
+      "category": "GitHub Copilot",
+      "icon": "🔧",
+      "questionCount": 15,
+      "difficulty": "intermediate to advanced",
+      "dataPath": "github-copilot-skills-tutorial/implementation.json",
+      "parentId": "github-copilot-skills-tutorial",
+      "group": "github-copilot-skills-series",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "github-copilot-skills-advanced",
+      "name": "応用・運用（Advanced）",
+      "description": "大規模チーム・エンタープライズレベルのスキル管理。セキュリティ、パフォーマンス、グローバル対応、組織的ガバナンス",
+      "category": "GitHub Copilot",
+      "icon": "🚀",
+      "questionCount": 15,
+      "difficulty": "advanced",
+      "dataPath": "github-copilot-skills-tutorial/advanced.json",
+      "parentId": "github-copilot-skills-tutorial",
+      "group": "github-copilot-skills-series",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "github-copilot-skills-advanced-topics",
+      "name": "高度なパターン（Advanced Topics）",
+      "description": "複合スキル（Composite Skills）、マルチモーダル処理、分散トランザクション、次世代 AI への対応など、最も高度なトピック",
+      "category": "GitHub Copilot",
+      "icon": "🎓",
+      "questionCount": 15,
+      "difficulty": "advanced",
+      "dataPath": "github-copilot-skills-tutorial/advanced-topics.json",
+      "parentId": "github-copilot-skills-tutorial",
+      "group": "github-copilot-skills-series",
+      "level": 2,
+      "order": 6
+    },
+    {
+      "id": "github-copilot-skills-tutorial",
+      "name": "GitHub Copilot Agent Skills 完全学習ガイド",
+      "description": "基礎から高度なホットピック（複合スキル、マルチモーダル、次世代 AI 対応）까지、段階的に習得できる 87 問の包括的クイズシリーズ。企業のエンタープライズレベルでの運用も含む",
+      "category": "GitHub Copilot",
+      "icon": "⭐",
+      "questionCount": 90,
+      "difficulty": "beginner to advanced",
+      "dataPath": "github-copilot-skills-tutorial/metadata.json",
+      "parentId": null,
+      "group": "github-copilot-skills-series",
+      "level": 1,
+      "order": 0
+    }
+  ]
+}

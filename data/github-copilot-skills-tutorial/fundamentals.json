@@ -1,0 +1,364 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "GitHub Copilot Agent Skills とは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Copilot に教え込む再利用可能な作業手順（スキル）"
+        },
+        {
+          "id": "B",
+          "text": "GitHub のリポジトリ管理ツール"
+        },
+        {
+          "id": "C",
+          "text": "コード記述の自動補完機能"
+        },
+        {
+          "id": "D",
+          "text": "バージョン管理システム"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "GitHub Copilot Agent Skills は、繰り返し使う開発作業の手順を一度定義すれば何度でも再利用できる機能です。これにより、チーム全体で統一された作業フローと品質を保つことができます。"
+    },
+    {
+      "id": 2,
+      "question": "Agent Skills はどのプラットフォームで利用可能ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "GitHub.com、GitHub Copilot CLI、VS Code Insiders など複数のプラットフォーム"
+        },
+        {
+          "id": "B",
+          "text": "GitHub.com のみ"
+        },
+        {
+          "id": "C",
+          "text": "VS Code のみ"
+        },
+        {
+          "id": "D",
+          "text": "IDE 内蔵のみで Web では利用不可"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills は Anthropic が管理するオープンスタンダードであり、GitHub.com、GitHub Copilot CLI、VS Code Insiders など複数のプラットフォームで利用可能です。"
+    },
+    {
+      "id": 3,
+      "question": "Agent Skills はどのような問題を解決していますか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "毎回同じプロンプトを書く手間が減り、チーム全体で統一されたルールを適用できる"
+        },
+        {
+          "id": "B",
+          "text": "コードの実行速度を向上させる"
+        },
+        {
+          "id": "C",
+          "text": "バージョン管理の自動化"
+        },
+        {
+          "id": "D",
+          "text": "データベースへのアクセス権限管理"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills は、毎回同じプロンプトを手入力する手間を削減し、チーム全体で統一されたルールを適用できるようにしています。また、複雑なワークフローを自動実行できます。"
+    },
+    {
+      "id": 4,
+      "question": "SKILL.md ファイルはどこに保存されますか？",
+      "options": [
+        {
+          "id": "A",
+          "text": ".github/skills/SKILL.md"
+        },
+        {
+          "id": "B",
+          "text": "src/SKILL.md"
+        },
+        {
+          "id": "C",
+          "text": "docs/SKILL.md"
+        },
+        {
+          "id": "D",
+          "text": "public/SKILL.md"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "スキルは GitHub が推奨する形式で、`.github/skills/` ディレクトリに SKILL.md ファイルとして保存されます。"
+    },
+    {
+      "id": 5,
+      "question": "Agent Skills がオープンスタンダードであることの利点は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "複数のプラットフォームで利用でき、プロプライエタリ仕様ではない"
+        },
+        {
+          "id": "B",
+          "text": "無料で使用できる"
+        },
+        {
+          "id": "C",
+          "text": "GitHub 限定の専有機能である"
+        },
+        {
+          "id": "D",
+          "text": "セキュリティが保証されている"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills は Anthropic が管理するオープンスタンダードであり、GitHub Copilot 以外にも Claude などの複数の LLM で利用可能です。これにより、スキルの再利用性と互換性が向上します。"
+    },
+    {
+      "id": 6,
+      "question": "スキルの実装形式はいくつありますか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "2 つ - SKILL.md（推奨）と JSON"
+        },
+        {
+          "id": "B",
+          "text": "1 つ - SKILL.md のみ"
+        },
+        {
+          "id": "C",
+          "text": "3 つ以上"
+        },
+        {
+          "id": "D",
+          "text": "実装形式を選択する必要がない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "スキルの実装方法は 2 つあります。SKILL.md（ほぼすべての開発者向き）と JSON（システム開発者や複雑なケース向き）です。初めての方は SKILL.md を推奨します。"
+    },
+    {
+      "id": 7,
+      "question": "Agent Skills の概要説明として最も正確なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Copilot に教え込む再利用可能な手順書（プロンプトテンプレート + メタデータ）"
+        },
+        {
+          "id": "B",
+          "text": "自動的にコードを生成するツール"
+        },
+        {
+          "id": "C",
+          "text": "外部ツールと LLM を連携させるプロトコル"
+        },
+        {
+          "id": "D",
+          "text": "コード品質を チェックするシステム"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skill は、Copilot に特定のタスクの手順書を教え込む機能で、プロンプトテンプレートとメタデータロジックの組み合わせです。"
+    },
+    {
+      "id": 8,
+      "question": "初めて Agent Skills を学ぶ場合に最初に読むべきドキュメントは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Part 0: スキル形式の選択と実装"
+        },
+        {
+          "id": "B",
+          "text": "Part 2: MCP との比較"
+        },
+        {
+          "id": "C",
+          "text": "Part 3: スキル作成のステップバイステップ"
+        },
+        {
+          "id": "D",
+          "text": "Part 5: 複合スキルと高度なパターン"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "初めての学習者向けに、最初に Part 0（スキル形式の理解）を読むことを推奨しています。基礎理解なしに複雑な実装や高度なパターンに進むことは避けるべきです。"
+    },
+    {
+      "id": 9,
+      "question": "チーム全体で Agent Skills を利用するメリットは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "統一されたプロンプトで品質が均質化し、ノウハウが共有・再利用される"
+        },
+        {
+          "id": "B",
+          "text": "GitHub の容量が増える"
+        },
+        {
+          "id": "C",
+          "text": "コードの実行速度が向上する"
+        },
+        {
+          "id": "D",
+          "text": "自動的にテストが生成される"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "チームで Agent Skills を共有することで、すべてのメンバーが同じ高さの仕事ができるようになり、個人のノウハウがチーム全体で活用・改善されます。"
+    },
+    {
+      "id": 10,
+      "question": "Agent Skills を「スキル化」する主な目的は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "繰り返し使う作業を定義して、何度でも再利用できるようにする"
+        },
+        {
+          "id": "B",
+          "text": "新しいプログラミング言語を学ぶ"
+        },
+        {
+          "id": "C",
+          "text": "データベースに接続する"
+        },
+        {
+          "id": "D",
+          "text": "API を開発する"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "スキル化の目的は、毎回手で同じプロンプトを入力する手間を削減し、定義したスキルをワンクリックで実行できるようにすることです。"
+    },
+    {
+      "id": 11,
+      "question": "Agent Skills の参考実装はどこで確認できますか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "https://github.com/anthropics/skills"
+        },
+        {
+          "id": "B",
+          "text": "https://github.com/github/copilot"
+        },
+        {
+          "id": "C",
+          "text": "https://github.com/microsoft/vscode"
+        },
+        {
+          "id": "D",
+          "text": "https://github.com/openai/gpt"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Anthropic が公開している参考実装は https://github.com/anthropics/skills で確認できます。これは Agent Skills を理解するための最良のリソースです。"
+    },
+    {
+      "id": 12,
+      "question": "VS Code でのエージェントスキル実行状況はどうなっていますか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "VS Code Insiders ではプレビュー提供中、安定版は近日対応予定"
+        },
+        {
+          "id": "B",
+          "text": "安定版でのみ実装されている"
+        },
+        {
+          "id": "C",
+          "text": "VS Code では全く対応していない"
+        },
+        {
+          "id": "D",
+          "text": "GitHub.com でのみ対応している"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "VS Code Insiders はプレビュー版として Agent Skills に対応しており、通常の安定版 VS Code では近日リリースが予定されています。"
+    },
+    {
+      "id": 13,
+      "question": "スキル作成時に最初に定義すべき項目は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "スキルの目的と要件"
+        },
+        {
+          "id": "B",
+          "text": "ファイルの構造"
+        },
+        {
+          "id": "C",
+          "text": "JSON スキーマの詳細"
+        },
+        {
+          "id": "D",
+          "text": "テストケースのコード"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "スキル作成の最初のフェーズは要件定義です。何をするスキルか、どんな問題を解決するか、対象ユーザーは誰かを明確にすることが重要です。"
+    },
+    {
+      "id": 14,
+      "question": "Agent Skills がサポートされるプラットフォームをすべて選んでください（複数選択可）",
+      "options": [
+        {
+          "id": "A",
+          "text": "GitHub.com（Copilot Editor）- ✅ 利用可能"
+        },
+        {
+          "id": "B",
+          "text": "GitHub Copilot CLI - ✅ 利用可能"
+        },
+        {
+          "id": "C",
+          "text": "VS Code Insiders - ✅ プレビュー"
+        },
+        {
+          "id": "D",
+          "text": "Slack - ❌ 非対応"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "現在、Agent Skills は GitHub.com、GitHub Copilot CLI、VS Code Insiders で利用可能です。Slack は対応していません。"
+    },
+    {
+      "id": 15,
+      "question": "公式が推奨するスキル実装形式は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "SKILL.md（推奨）"
+        },
+        {
+          "id": "B",
+          "text": "JSON（推奨）"
+        },
+        {
+          "id": "C",
+          "text": "YAML のみ"
+        },
+        {
+          "id": "D",
+          "text": "形式は問わない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "GitHub 公式が推奨する実装形式は SKILL.md です。JSON は主にシステム開発者や複雑なケース向きです。初めての方は SKILL.md を使用すべきです。"
+    }
+  ]
+}

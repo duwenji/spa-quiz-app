@@ -1,0 +1,96 @@
+{
+  "series": {
+    "id": "clean-architecture",
+    "name": "クリーンアーキテクチャ完全ガイド",
+    "description": "クリーンアーキテクチャの基礎から実装まで、4階層の層構造、依存性逆転、SOLID原則、C#・TypeScript・Javaでの実装パターン、メリット・課題、実践的なアンチパターンを学べる包括的なクイズシリーズ",
+    "author": "Clean Architecture Team",
+    "version": "1.0.0",
+    "license": "MIT",
+    "language": "ja",
+    "totalQuestions": 84,
+    "estimatedDuration": "8-12 hours",
+    "difficultyProgression": "progressive",
+    "sections": [
+      {
+        "id": "foundation",
+        "order": 1,
+        "name": "STEP 1: 理論基盤",
+        "description": "クリーンアーキテクチャの基本概念、4つの層構造、SOLID原則との関連性を学ぶ",
+        "questionCount": 21,
+        "difficulty": "beginner to intermediate",
+        "estimatedTime": "1-1.5 hours",
+        "keyTopics": [
+          "クリーンアーキテクチャの定義",
+          "4つの層構造",
+          "SOLID原則",
+          "依存性逆転",
+          "エンタープライズアーキテクチャ"
+        ]
+      },
+      {
+        "id": "design",
+        "order": 2,
+        "name": "STEP 2: 設計方法論",
+        "description": "SOLID原則の実装、責務分離、ユースケース駆動設計、ポートとアダプタパターンを学ぶ",
+        "questionCount": 18,
+        "difficulty": "beginner to intermediate",
+        "estimatedTime": "1.5-2 hours",
+        "keyTopics": [
+          "SOLID原則の実装",
+          "責務分離",
+          "ユースケース駆動設計",
+          "ポート・アダプタパターン",
+          "レイヤー分離戦略"
+        ]
+      },
+      {
+        "id": "implementation",
+        "order": 3,
+        "name": "STEP 3: 言語実装",
+        "description": "C#、TypeScript/JavaScript、Javaでのクリーンアーキテクチャの実装パターンを学ぶ",
+        "questionCount": 16,
+        "difficulty": "beginner to intermediate",
+        "estimatedTime": "1.5-2 hours",
+        "keyTopics": [
+          "C#での実装パターン",
+          "TypeScript/JavaScriptでの実装",
+          "Javaでの実装パターン",
+          "依存性注入",
+          "フレームワーク統合"
+        ]
+      },
+      {
+        "id": "judgment",
+        "order": 4,
+        "name": "STEP 4: 適用判断",
+        "description": "メリット・課題・適用判断基準、段階的導入戦略を学ぶ",
+        "questionCount": 15,
+        "difficulty": "beginner to intermediate",
+        "estimatedTime": "1-1.5 hours",
+        "keyTopics": [
+          "メリットと課題",
+          "適用判断基準",
+          "プロジェクト規模別の選択",
+          "段階的導入戦略",
+          "コスト・ベネフィット分析"
+        ]
+      },
+      {
+        "id": "practice",
+        "order": 5,
+        "name": "STEP 5: 実践応用",
+        "description": "アンチパターン・リソース制約下での適応・FAQ を通じた深掘り学習",
+        "questionCount": 14,
+        "difficulty": "beginner to intermediate",
+        "estimatedTime": "1-1.5 hours",
+        "keyTopics": [
+          "実践的なアンチパターン",
+          "リソース制約下での適応",
+          "レガシーコード統合",
+          "トラブルシューティング",
+          "ベストプラクティス"
+        ]
+      }
+    ]
+  }
+}

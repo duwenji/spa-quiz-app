@@ -1,0 +1,364 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Agent Skills と MCP（Model Context Protocol）の根本的な目的の違いは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Agent Skills は手順書を教え込む、MCP は外部ツール・データへのアクセスを実現"
+        },
+        {
+          "id": "B",
+          "text": "どちらも同じ目的"
+        },
+        {
+          "id": "C",
+          "text": "Agent Skills は外部ツール、MCP は手順書"
+        },
+        {
+          "id": "D",
+          "text": "どちらも GitHub 独占機能"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills の目的は Copilot に手順書を教え込むことで、MCP の目的は LLM が外部ツール・データベース・API などに安全にアクセスするための権限を与えることです。"
+    },
+    {
+      "id": 2,
+      "question": "Agent Skills が「Copilot 専用」と言われる理由はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "GitHub Copilot とその関連ツール向け、外部 LLM では直接的には利用できない"
+        },
+        {
+          "id": "B",
+          "text": "GitHub が権利を持っているため他では絶対使用不可"
+        },
+        {
+          "id": "C",
+          "text": "Copilot でしか同等の機能がない"
+        },
+        {
+          "id": "D",
+          "text": "技術的に他のプラットフォームでは動作しない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills は Copilot ファミリー（GitHub.com, CLI, VS Code など）向け設計です。オープンスタンダードですが、MCP と異なり Claude や GPT など外部 LLM での直接的なサポートは限定的です。"
+    },
+    {
+      "id": 3,
+      "question": "Agent Skills vs MCP の選択基準として、「繰り返し使う作業の効率化」ならどちらを選ぶべきですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Agent Skills"
+        },
+        {
+          "id": "B",
+          "text": "MCP"
+        },
+        {
+          "id": "C",
+          "text": "どちらも同じ効果"
+        },
+        {
+          "id": "D",
+          "text": "どちらも不適切"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "繰り返し使う作業の手順書を定義するならば Agent Skills が適切です。MCP は主に「外部システムとの連携」に向いています。"
+    },
+    {
+      "id": 4,
+      "question": "Agent Skills の学習コストと MCP の学習コストを比較した場合、どのような特徴がありますか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Agent Skills は中程度、MCP は高め"
+        },
+        {
+          "id": "B",
+          "text": "MCP は簡単、Agent Skills は難しい"
+        },
+        {
+          "id": "C",
+          "text": "どちらも同じ"
+        },
+        {
+          "id": "D",
+          "text": "どちらも習得が不可能"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills は比較的習得しやすい（中程度）で、Markdown ベースの SKILL.md で始められます。一方、MCP は専用サーバー開発が必要で学習コストが高めです。"
+    },
+    {
+      "id": 5,
+      "question": "Agent Skills と MCP を「トラステッド コンテキスト」として考えた場合、トレードオフはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Agent Skills は簡単だが Copilot 限定、MCP は複雑だが複数 LLM 対応"
+        },
+        {
+          "id": "B",
+          "text": "どちらもトレードオフなし"
+        },
+        {
+          "id": "C",
+          "text": "Agent Skills の方がすべて優れている"
+        },
+        {
+          "id": "D",
+          "text": "MCP は全く使用すべきでない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills は実装が簡単で学習コストが低いが Copilot に限定されます。MCP は実装コストが高いですが、Claude、Cline などの複数の LLM で利用可能です。選択は要件によります。"
+    },
+    {
+      "id": 6,
+      "question": "Agent Skills の「単純度」が低い（複雑）理由は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "多くのメタデータと複雑なパラメータロジックが必要"
+        },
+        {
+          "id": "B",
+          "text": "単純度は低くない"
+        },
+        {
+          "id": "C",
+          "text": "サーバー開発が必須"
+        },
+        {
+          "id": "D",
+          "text": "複数言語での実装が必須"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills は Markdown ベースで直感的に見えますが、実際にはメタデータフロントマター、条件分岐、パラメータ設計など複雑なロジックが必要になります。"
+    },
+    {
+      "id": 7,
+      "question": "MCP（Model Context Protocol）の主な利点は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "複数の LLM で利用可能、外部システム統合が強力"
+        },
+        {
+          "id": "B",
+          "text": "Markdown で簡単に書ける"
+        },
+        {
+          "id": "C",
+          "text": "GitHub 限定で安全"
+        },
+        {
+          "id": "D",
+          "text": "テスト不要"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "MCP の最大の利点は、Claude、GPT-4、Cline など複数の LLM で動作し、データベース、ファイルシステム、API との統合が可能なことです。"
+    },
+    {
+      "id": 8,
+      "question": "Agent Skills アーキテクチャでスキル定義ファイルが保存される場所はどこですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Copilot Server の内蔵ストレージ"
+        },
+        {
+          "id": "B",
+          "text": "ローカルコンピュータ上のみ"
+        },
+        {
+          "id": "C",
+          "text": "外部の MCP サーバー"
+        },
+        {
+          "id": "D",
+          "text": "不明確"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills のアーキテクチャでは、スキル定義ファイルは Copilot Server に統合されたストレージに保存され、クライアント側からアクセスします。"
+    },
+    {
+      "id": 9,
+      "question": "ユースケース「Database に SQL を実行する権限を与える」場合、最適な選択肢は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "MCP（外部システムへのアクセス制御が目的）"
+        },
+        {
+          "id": "B",
+          "text": "Agent Skills"
+        },
+        {
+          "id": "C",
+          "text": "どちらでもよい"
+        },
+        {
+          "id": "D",
+          "text": "より高度なツールが必要"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Database への SQL 実行権限付与は、外部システムへのアクセス制御が目的なので MCP が最適です。Agent Skills は手順書に向いています。"
+    },
+    {
+      "id": 10,
+      "question": "ユースケース「チーム全体で統一されたコード品質チェック手順を実行」する場合、最適では何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Agent Skills（チーム内での標準化手順書が目的）"
+        },
+        {
+          "id": "B",
+          "text": "MCP（外部 API が必須）"
+        },
+        {
+          "id": "C",
+          "text": "どちらでもよい"
+        },
+        {
+          "id": "D",
+          "text": "独自開発が必須"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "チーム全体で統一された手順書を実行するなら Agent Skills が最適です。手順の標準化と再利用がメインのユースケースです。共"
+    },
+    {
+      "id": 11,
+      "question": "Agent Skills のオープンスタンダードとしての強みは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "複数の組織・コミュニティで共有・改善でき、ベンダーロックインがない"
+        },
+        {
+          "id": "B",
+          "text": "GitHub が管理するため絶対安全"
+        },
+        {
+          "id": "C",
+          "text": "無料で使用できる"
+        },
+        {
+          "id": "D",
+          "text": "サポートが完全"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills がオープンスタンダード（Anthropic 管理）であることの強みは、複数の組織やコミュニティが参加でき、より良い仕様へと進化していくことです。特定ベンダーへの依存がありません。"
+    },
+    {
+      "id": 12,
+      "question": "MCP サーバーの実装については、どのような知識が必要ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "サーバー開発、プロトコル設計、セキュリティ管理などシステム開発の知識"
+        },
+        {
+          "id": "B",
+          "text": "Markdown の知識のみ"
+        },
+        {
+          "id": "C",
+          "text": "Git の知識のみ"
+        },
+        {
+          "id": "D",
+          "text": "何の知識も不要"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "MCP サーバーの実装には、専用サーバー開発、外部システムとの通信プロトコル設計、セキュリティとアクセス制御管理など、高度なシステム開発の知識が必須です。"
+    },
+    {
+      "id": 13,
+      "question": "Agent Skills が適さないユースケースはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "複数の LLM プラットフォーム対応、複雑なセキュリティポリシーを伴う外部システム統合"
+        },
+        {
+          "id": "B",
+          "text": "チーム内の統一手順"
+        },
+        {
+          "id": "C",
+          "text": "繰り返し使う作業の効率化"
+        },
+        {
+          "id": "D",
+          "text": "初心者に向けた教育"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "複数の LLM で統合したい場合や、複雑なセキュリティポリシーが必要な外部システム統合は、Agent Skills よりも MCP の方が適しています。"
+    },
+    {
+      "id": 14,
+      "question": "「Awesome Copilot」コミュニティのような場所がある理由は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Agent Skills がオープンスタンダードで、コミュニティが自由に共有・改善できるため"
+        },
+        {
+          "id": "B",
+          "text": "GitHub だけで管理するため"
+        },
+        {
+          "id": "C",
+          "text": "商商業目的で販売するため"
+        },
+        {
+          "id": "D",
+          "text": "特に理由はない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agent Skills がオープンスタンダードであるため、コミュニティメンバーが独立してスキルを作成・共有でき、互いに学び合える環境が生まれています。"
+    },
+    {
+      "id": 15,
+      "question": "最終的な選択基準として、「単純さ」と「拡張性」のどちらを重視すべきですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "プロジェクト要件による。単純な手順書なら Agent Skills、複雑な統合なら MCP"
+        },
+        {
+          "id": "B",
+          "text": "常に Agent Skills"
+        },
+        {
+          "id": "C",
+          "text": "常に MCP"
+        },
+        {
+          "id": "D",
+          "text": "どちらも選ぶべきではない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "最終的な選択は、プロジェクトの具体的要件に基づくべきです。単純な手順書化なら Agent Skills、複雑な外部システム統合なら MCP を選択してください。バランスが重要です。"
+    }
+  ]
+}
