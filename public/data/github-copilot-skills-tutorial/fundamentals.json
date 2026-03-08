@@ -314,27 +314,27 @@
     },
     {
       "id": 14,
-      "question": "Agent Skills がサポートされるプラットフォームをすべて選んでください（複数選択可）",
+      "question": "Agent Skills がサポートされるプラットフォームとして、最初に正式対応したものはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "GitHub.com（Copilot Editor）- ✅ 利用可能"
+          "text": "GitHub.com（Copilot Editor）"
         },
         {
           "id": "B",
-          "text": "GitHub Copilot CLI - ✅ 利用可能"
+          "text": "GitHub Copilot CLI"
         },
         {
           "id": "C",
-          "text": "VS Code Insiders - ✅ プレビュー"
+          "text": "VS Code Insiders"
         },
         {
           "id": "D",
-          "text": "Slack - ❌ 非対応"
+          "text": "Slack"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "現在、Agent Skills は GitHub.com、GitHub Copilot CLI、VS Code Insiders で利用可能です。Slack は対応していません。"
+      "explanation": "Agent Skills は GitHub.com（Copilot Editor）が最初の正式対応プラットフォームです。その後、GitHub Copilot CLI や VS Code Insiders（プレビュー）へと対応が広がっています。"
     },
     {
       "id": 15,
