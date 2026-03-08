@@ -15,10 +15,14 @@ interface OrganizedQuizSets {
 }
 
 const organizeQuizSets = (quizSets: QuizSet[]): OrganizedQuizSets[] => {
-  // カテゴリで分類
+  // カテゴリで分類（親セット除外：group が存在し parentId が null のセット）
   const byCategory = new Map<string, QuizSet[]>();
   
   for (const set of quizSets) {
+    // 親セット（グループ有且つ parentId 無）は UI 表示から除外
+    if (set.group && set.parentId === null) {
+      continue;
+    }
     if (!byCategory.has(set.category)) {
       byCategory.set(set.category, []);
     }
