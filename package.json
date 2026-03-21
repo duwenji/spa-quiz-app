@@ -10,9 +10,9 @@
     "build": "npm run sync-data && tsc -b && vite build",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
-    "validate:quiz": "node scripts/validate-quiz-questions.mjs",
-    "validate:metadata": "node scripts/validate-quiz-metadata.mjs",
-    "validate:all": "npm run validate:metadata && npm run validate:quiz -- src/data/clean-architecture/*.json"
+    "validate:quiz": "powershell -ExecutionPolicy Bypass -File ./.github/skills-config/quiz-generator/invoke-validate.ps1 -Mode quiz",
+    "validate:metadata": "powershell -ExecutionPolicy Bypass -File ./.github/skills-config/quiz-generator/invoke-validate.ps1 -Mode metadata",
+    "validate:all": "powershell -ExecutionPolicy Bypass -File ./.github/skills-config/quiz-generator/invoke-validate.ps1 -Mode all"
   },
   "dependencies": {
     "react": "^18.3.1",

@@ -82,6 +82,27 @@ npm run preview
 
 開発サーバーは通常 `http://localhost:5173` で利用可能です。
 
+## Quiz Generator 検証フロー
+
+`quiz-generator` は shared skill 化され、consumer 側は local wrapper から呼び出します。
+
+- wrapper: `.github/skills-config/quiz-generator/invoke-validate.ps1`
+- config: `.github/skills-config/quiz-generator/quiz-generator.config.json`
+
+実行コマンド:
+
+```bash
+npm run validate:metadata
+npm run validate:quiz
+npm run validate:all
+```
+
+shared skill は以下の順で探索されます。
+
+1. `.github/skills/shared-copilot-skills/quiz-generator`
+2. `.github/skills/quiz-generator`
+3. `../shared-copilot-skills/quiz-generator`（ローカル開発用フォールバック）
+
 ## 🌐 GitHub Pagesへのデプロイ
 
 このSPAはGitHub Pagesでホストできます。以下の設定が含まれています：
