@@ -29,13 +29,18 @@
 
 メタデータは提出時に情報として記載いただければ、管理者側で `quizSets.json` に登録します。
 
+> リポジトリ内では、管理者が `src/data/` を編集元として管理し、ビルド時に `public/data/` へコピーします。外部提供者は **JSON ファイル本体とメタデータ情報** を提出すれば十分です。
+
 ### 配置イメージ
 
 ```
-public/data/
-  quizSets.json                         ← 管理者が更新
-  <カテゴリ>/
-    <quiz-id>.json                      ← 提供いただくファイル
+提出物
+  <quiz-id>.json                        ← 提供いただくファイル
+  メタデータ情報                        ← Issue / PR 本文などで提出
+
+管理者側の配置
+  src/data/<カテゴリ>/<quiz-id>.json    ← 編集元
+  src/data/quizSets.json                ← 管理者が更新
 ```
 
 **カテゴリ例:** `github-copilot/`, `clean-architecture/`, `typescript/`, `aws/`
@@ -89,7 +94,7 @@ public/data/
 | `correctAnswer` | string | ✅ | `"A"`, `"B"`, `"C"`, `"D"` のいずれか | 正解の選択肢 ID |
 | `explanation` | string | ✅ | 空文字禁止 | 正解の解説 |
 
-> ⚠️ `options` の各要素に `"A"` / `"B"` / `"C"` / `"D"` 以外のキーを追加することは禁止されています。
+> ⚠️ 各選択肢オブジェクトに指定できるプロパティは `id` と `text` のみです。追加プロパティは許可されません。
 
 ---
 
@@ -140,7 +145,7 @@ public/data/
 | `name` | string | ✅ | クイズ一覧に表示される名前 | `"TypeScript 基礎"` |
 | `description` | string | ✅ | 学習内容の概要（1〜500 文字、50〜200 文字推奨） | `"TypeScript の型システムと基本文法を学ぶクイズです"` |
 | `category` | string | ✅ | カテゴリ名 | `"TypeScript"`, `"GitHub"`, `"AWS"` |
-| `icon` | string | ✅ | 絵文字アイコン 1 文字 | `"📘"`, `"🤖"`, `"☁️"` |
+| `icon` | string | ✅ | 絵文字または短いアイコン文字列 | `"📘"`, `"🤖"`, `"☁️"` |
 | `questionCount` | number | ✅ | 問題数（問題ファイルの実際の件数と一致させる） | `20` |
 | `difficulty` | string | ✅ | 難易度（下記一覧から選択） | `"intermediate"` |
 | `dataPath` | string | ✅ | 問題ファイルの保存場所（カテゴリ/ファイル名.json） | `"typescript/typescript-basics.json"` |
@@ -279,9 +284,11 @@ public/data/
 # メタデータの検証（quizSets.json 全体）
 npm run validate:metadata
 
-# 問題ファイルの検証（単一ファイル指定）
-npm run validate:quiz -- public/data/<カテゴリ>/<quiz-id>.json
+# 問題ファイルの検証（設定ファイルの questionGlobs に一致するもの）
+npm run validate:quiz
 ```
+
+> 現在の `validate:quiz` は任意の単一ファイルをコマンド引数で直接指定する方式には対応していません。新規ファイルを検証対象に含めるには、管理者側で `.github/skills-config/quiz-generator/quiz-generator.config.json` の `questionGlobs` を更新する必要があります。
 
 ### JSON スキーマ
 
@@ -300,7 +307,7 @@ npm run validate:quiz -- public/data/<カテゴリ>/<quiz-id>.json
 ### Option A: GitHub Pull Request（推奨）
 
 1. リポジトリをフォーク: [https://github.com/duwenji/spa-quiz-app](https://github.com/duwenji/spa-quiz-app)
-2. フォーク先で問題 JSON ファイルを `public/data/<カテゴリ>/` に追加する
+2. フォーク先で問題 JSON ファイルを `src/data/<カテゴリ>/` に追加する
 3. Pull Request を作成し、本文にメタデータ情報（[3-1 節](#3-1-フィールド定義) の全フィールド）を記載する
 
 ### Option B: Issue での依頼
