@@ -103,6 +103,33 @@ shared skill は以下の順で探索されます。
 2. `.github/skills/quiz-generator`
 3. `../shared-copilot-skills/quiz-generator`（ローカル開発用フォールバック）
 
+## Ebook Build フロー
+
+`ebook-build` は shared skill を利用し、`docs/` のMarkdown群からebookを生成します。
+
+- wrapper: `.github/skills-config/ebook-build/invoke-build.ps1`
+- config: `.github/skills-config/ebook-build/spa-quiz-app.build.json`
+- metadata: `.github/skills-config/ebook-build/spa-quiz-app.metadata.yaml`
+
+実行コマンド:
+
+```bash
+npm run build:ebook
+```
+
+wrapper は以下の順で shared skill を探索します。
+
+1. `.github/skills/shared-copilot-skills/ebook-build`
+2. `.github/skills/ebook-build`
+3. `../shared-copilot-skills/ebook-build`
+
+### 今後対応する課題
+
+- 現在の `docs/` 配下は ebook-build が期待する章構造に未対応です。
+- 不足している要素は `00-COVER.md` 相当の表紙原稿、番号付きの章ディレクトリ、章内の番号付き Markdown ファイルです。
+- skill 連携自体は追加済みですが、ebook 生成は原稿構造の整備後に正式運用します。
+- この対応は今後のタスクとして扱い、本 README では課題として明示します。
+
 ## 🌐 GitHub Pagesへのデプロイ
 
 このSPAはGitHub Pagesでホストできます。以下の設定が含まれています：

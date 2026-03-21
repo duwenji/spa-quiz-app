@@ -1,0 +1,11 @@
+{
+  "sourceRoot": ".",
+  "outputDir": "./ebook-output",
+  "projectName": "spa-quiz-app",
+  "metadataFile": "./.github/skills-config/ebook-build/spa-quiz-app.metadata.yaml",
+  "formats": ["epub", "azw3", "mobi"],
+  "enablePageList": true,
+  "chapterDirPattern": "^docs$",
+  "chapterFilePattern": "^.*\\.md$",
+  "coverFile": "README.md"
+}

@@ -8,6 +8,7 @@
     "dev": "vite",
     "sync-data": "xcopy src\\data public\\data /E /Y /I",
     "build": "npm run sync-data && tsc -b && vite build",
+    "build:ebook": "powershell -ExecutionPolicy Bypass -File ./.github/skills-config/ebook-build/invoke-build.ps1",
     "preview": "vite preview",
     "deploy": "npm run build && gh-pages -d dist",
     "validate:quiz": "powershell -ExecutionPolicy Bypass -File ./.github/skills-config/quiz-generator/invoke-validate.ps1 -Mode quiz",
