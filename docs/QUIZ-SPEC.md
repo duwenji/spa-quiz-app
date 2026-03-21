@@ -284,11 +284,14 @@
 # メタデータの検証（quizSets.json 全体）
 npm run validate:metadata
 
+# 問題ファイルの検証（単一ファイル指定）
+npm run validate:quiz -- src/data/<カテゴリ>/<quiz-id>.json
+
 # 問題ファイルの検証（設定ファイルの questionGlobs に一致するもの）
 npm run validate:quiz
 ```
 
-> 現在の `validate:quiz` は任意の単一ファイルをコマンド引数で直接指定する方式には対応していません。新規ファイルを検証対象に含めるには、管理者側で `.github/skills-config/quiz-generator/quiz-generator.config.json` の `questionGlobs` を更新する必要があります。
+> 単一ファイルはコマンド引数で直接指定できます。複数ファイルをまとめて検証対象に含めたい場合は、管理者側で `.github/skills-config/quiz-generator/quiz-generator.config.json` の `questionGlobs` を更新してください。
 
 ### JSON スキーマ
 

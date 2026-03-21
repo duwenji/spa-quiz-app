@@ -1,8 +1,10 @@
-[CmdletBinding()]
+[CmdletBinding(PositionalBinding = $false)]
 param(
     [ValidateSet('metadata', 'quiz', 'normalize', 'all')]
     [string]$Mode = 'all',
-    [string]$ConfigFile = '.github/skills-config/quiz-generator/quiz-generator.config.json'
+    [string]$ConfigFile = '.github/skills-config/quiz-generator/quiz-generator.config.json',
+    [Parameter(ValueFromRemainingArguments = $true)]
+    [string[]]$QuizFiles = @()
 )
 
 Set-StrictMode -Version Latest
@@ -57,6 +59,38 @@ function Resolve-ConfiguredPath {
     return (Join-Path $BasePath $Value)
 }
 
+function Get-QuizValidationTargets {
+    param(
+        [string]$RepoRoot,
+        [string[]]$ConfiguredGlobs,
+        [string[]]$RequestedFiles
+    )
+
+    if ($RequestedFiles.Count -gt 0) {
+        $resolvedFiles = @()
+        foreach ($requestedFile in $RequestedFiles) {
+            $resolvedPath = Resolve-ConfiguredPath -BasePath $RepoRoot -Value $requestedFile
+            if (-not (Test-Path $resolvedPath -PathType Leaf)) {
+                throw "Quiz file not found: $requestedFile"
+            }
+            $resolvedFiles += Get-Item $resolvedPath
+        }
+        return $resolvedFiles
+    }
+
+    if ($ConfiguredGlobs.Count -eq 0) {
+        throw 'questionGlobs is empty in config file.'
+    }
+
+    $matchedFiles = @()
+    foreach ($glob in $ConfiguredGlobs) {
+        $resolvedGlob = Resolve-ConfiguredPath -BasePath $RepoRoot -Value $glob
+        $matchedFiles += Get-ChildItem -Path $resolvedGlob -File -ErrorAction SilentlyContinue
+    }
+
+    return $matchedFiles
+}
+
 $repoRoot = Resolve-RepoRoot
 $configPath = Resolve-ConfiguredPath -BasePath $repoRoot -Value $ConfigFile
 $config = Get-Content $configPath -Raw | ConvertFrom-Json
@@ -82,25 +116,19 @@ if ($Mode -eq 'metadata' -or $Mode -eq 'all') {
 }
 
 if ($Mode -eq 'quiz' -or $Mode -eq 'all') {
-    if ($questionGlobs.Count -eq 0) {
-        throw 'questionGlobs is empty in config file.'
-    }
-
+    $files = Get-QuizValidationTargets -RepoRoot $repoRoot -ConfiguredGlobs $questionGlobs -RequestedFiles $QuizFiles
     $matched = 0
-    foreach ($glob in $questionGlobs) {
-        $resolvedGlob = Resolve-ConfiguredPath -BasePath $repoRoot -Value $glob
-        $files = Get-ChildItem -Path $resolvedGlob -File -ErrorAction SilentlyContinue
-        foreach ($file in $files) {
-            if ($file.Name -eq 'metadata.json' -or $file.Name -eq 'quizSets.json' -or $file.Name.EndsWith('.analysis.json')) {
-                continue
-            }
-            Invoke-Node -ScriptPath $questionScript -Arguments @('--quiz', $file.FullName, '--schema', $questionSchema, '--ajv', $ajvModule)
-            $matched++
+    foreach ($file in $files) {
+        if ($file.Name -eq 'metadata.json' -or $file.Name -eq 'quizSets.json' -or $file.Name.EndsWith('.analysis.json')) {
+            continue
         }
+
+        Invoke-Node -ScriptPath $questionScript -Arguments @('--quiz', $file.FullName, '--schema', $questionSchema, '--ajv', $ajvModule)
+        $matched++
     }
 
     if ($matched -eq 0) {
-        throw 'No quiz files matched questionGlobs.'
+        throw 'No quiz files matched the requested inputs.'
     }
 }
 

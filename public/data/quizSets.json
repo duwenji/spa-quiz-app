@@ -12,7 +12,7 @@
       "parentId": null,
       "group": "github-copilot-skills-series",
       "level": 1,
-      "order": 0
+      "order": 1
     },
     {
       "id": "github-copilot-variables",
@@ -189,7 +189,7 @@
       "category": "GitHub Copilot",
       "icon": "🔧",
       "questionCount": 15,
-      "difficulty": "intermediate to advanced",
+      "difficulty": "beginner to advanced",
       "dataPath": "github-copilot-skills-tutorial/implementation.json",
       "parentId": "github-copilot-skills-tutorial",
       "group": "github-copilot-skills-series",

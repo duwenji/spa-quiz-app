@@ -2,30 +2,85 @@ import { useState, useEffect, useCallback } from 'react';
 import { Question, QuizState, LearningHistory, QuestionAnswer } from '../types';
 import { storageManager } from '../utils/storageManager';
 
-export const useQuiz = (questions: Question[]) => {
-  const [state, setState] = useState<QuizState>({
-    currentQuestionIndex: 0,
-    selectedAnswer: null,
-    isAnswered: false,
-    correctCount: 0,
-    wrongCount: 0,
-  });
+const createEmptyState = (): QuizState => ({
+  currentQuestionIndex: 0,
+  selectedAnswer: null,
+  isAnswered: false,
+  correctCount: 0,
+  wrongCount: 0,
+});
 
-  const [history, setHistory] = useState<LearningHistory>(() => {
-    const sessionId = `session-${Date.now()}`;
+const createEmptyHistory = (quizSetId: string | null): LearningHistory => ({
+  sessionId: `session-${Date.now()}`,
+  quizSetId,
+  startedAt: new Date().toISOString(),
+  completedAt: null,
+  answers: [],
+  totalCorrect: 0,
+  totalWrong: 0,
+  averageAnswerTime: 0,
+  sessionDuration: 0,
+});
+
+const buildRestoredState = (history: LearningHistory, questions: Question[]): QuizState => {
+  const baseState = {
+    ...createEmptyState(),
+    correctCount: history.totalCorrect,
+    wrongCount: history.totalWrong,
+  };
+
+  if (questions.length === 0 || history.answers.length === 0) {
+    return baseState;
+  }
+
+  const answeredIds = new Set(history.answers.map(answer => answer.questionId));
+  const nextUnansweredIndex = questions.findIndex(question => !answeredIds.has(question.id));
+  if (nextUnansweredIndex >= 0) {
     return {
-      sessionId,
-      startedAt: new Date().toISOString(),
-      completedAt: null,
-      answers: [],
-      totalCorrect: 0,
-      totalWrong: 0,
-      averageAnswerTime: 0,
-      sessionDuration: 0,
+      ...baseState,
+      currentQuestionIndex: nextUnansweredIndex,
     };
-  });
+  }
 
+  const lastAnswer = history.answers[history.answers.length - 1];
+  const lastAnsweredIndex = questions.findIndex(question => question.id === lastAnswer.questionId);
+  if (lastAnsweredIndex < 0) {
+    return baseState;
+  }
+
+  return {
+    ...baseState,
+    currentQuestionIndex: lastAnsweredIndex,
+    selectedAnswer: lastAnswer.selectedAnswer,
+    isAnswered: true,
+  };
+};
+
+export const useQuiz = (questions: Question[], quizSetId: string | null) => {
+  const [state, setState] = useState<QuizState>(createEmptyState);
+  const [history, setHistory] = useState<LearningHistory>(() => createEmptyHistory(quizSetId));
   const [questionStartTime, setQuestionStartTime] = useState<number>(Date.now());
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    if (!quizSetId) {
+      setState(createEmptyState());
+      setHistory(createEmptyHistory(null));
+      setIsHydrated(false);
+      return;
+    }
+
+    if (questions.length === 0) {
+      setIsHydrated(false);
+      return;
+    }
+
+    const restoredHistory = storageManager.getLatestHistory(quizSetId) ?? createEmptyHistory(quizSetId);
+    setHistory(restoredHistory);
+    setState(buildRestoredState(restoredHistory, questions));
+    setQuestionStartTime(Date.now());
+    setIsHydrated(true);
+  }, [quizSetId, questions]);
 
   const selectAnswer = useCallback((answer: 'A' | 'B' | 'C' | 'D') => {
     setState(prev => ({
@@ -36,8 +91,11 @@ export const useQuiz = (questions: Question[]) => {
 
   const confirmAnswer = useCallback(() => {
     const currentQuestion = questions[state.currentQuestionIndex];
-    const isCorrect = state.selectedAnswer === currentQuestion.correctAnswer;
+    if (!currentQuestion || !state.selectedAnswer) {
+      return;
+    }
 
+    const isCorrect = state.selectedAnswer === currentQuestion.correctAnswer;
     const answerTime = Date.now() - questionStartTime;
     const newAnswer: QuestionAnswer = {
       questionId: currentQuestion.id,
@@ -50,26 +108,28 @@ export const useQuiz = (questions: Question[]) => {
 
     setHistory(prev => {
       const updatedAnswers = [...prev.answers];
-      // 既に同じ問題の回答がある場合は置き換え
-      const existingIndex = updatedAnswers.findIndex(a => a.questionId === currentQuestion.id);
+      const existingIndex = updatedAnswers.findIndex(answer => answer.questionId === currentQuestion.id);
       if (existingIndex >= 0) {
         updatedAnswers[existingIndex] = newAnswer;
       } else {
         updatedAnswers.push(newAnswer);
       }
 
-      const totalCorrect = updatedAnswers.filter(a => a.isCorrect).length;
+      const totalCorrect = updatedAnswers.filter(answer => answer.isCorrect).length;
       const totalWrong = updatedAnswers.length - totalCorrect;
-      const averageTime = updatedAnswers.reduce((sum, a) => sum + a.answerTime, 0) / updatedAnswers.length;
+      const averageTime = updatedAnswers.reduce((sum, answer) => sum + answer.answerTime, 0) / updatedAnswers.length;
       const sessionDuration = Date.now() - new Date(prev.startedAt).getTime();
+      const completedAt = updatedAnswers.length === questions.length ? new Date().toISOString() : prev.completedAt;
 
       return {
         ...prev,
+        quizSetId,
         answers: updatedAnswers,
         totalCorrect,
         totalWrong,
         averageAnswerTime: averageTime,
         sessionDuration,
+        completedAt,
       };
     });
 
@@ -79,7 +139,7 @@ export const useQuiz = (questions: Question[]) => {
       correctCount: isCorrect ? prev.correctCount + 1 : prev.correctCount,
       wrongCount: isCorrect ? prev.wrongCount : prev.wrongCount + 1,
     }));
-  }, [state.selectedAnswer, state.currentQuestionIndex, questions, questionStartTime]);
+  }, [state.currentQuestionIndex, state.selectedAnswer, questions, questionStartTime, quizSetId]);
 
   const goToNextQuestion = useCallback(() => {
     if (state.currentQuestionIndex < questions.length - 1) {
@@ -96,7 +156,7 @@ export const useQuiz = (questions: Question[]) => {
   const goToPreviousQuestion = useCallback(() => {
     if (state.currentQuestionIndex > 0) {
       const prevQuestionId = questions[state.currentQuestionIndex - 1].id;
-      const prevAnswer = history.answers.find(a => a.questionId === prevQuestionId);
+      const prevAnswer = history.answers.find(answer => answer.questionId === prevQuestionId);
 
       setState(prev => ({
         ...prev,
@@ -111,7 +171,7 @@ export const useQuiz = (questions: Question[]) => {
   const goToQuestion = useCallback((index: number) => {
     if (index >= 0 && index < questions.length) {
       const questionId = questions[index].id;
-      const answer = history.answers.find(a => a.questionId === questionId);
+      const answer = history.answers.find(savedAnswer => savedAnswer.questionId === questionId);
 
       setState(prev => ({
         ...prev,
@@ -125,35 +185,25 @@ export const useQuiz = (questions: Question[]) => {
 
   const resetQuiz = useCallback(() => {
     if (window.confirm('学習履歴をリセットしますか？この操作は取り消せません。')) {
-      storageManager.clearHistory();
-      setState({
-        currentQuestionIndex: 0,
-        selectedAnswer: null,
-        isAnswered: false,
-        correctCount: 0,
-        wrongCount: 0,
-      });
-      setHistory({
-        sessionId: `session-${Date.now()}`,
-        startedAt: new Date().toISOString(),
-        completedAt: null,
-        answers: [],
-        totalCorrect: 0,
-        totalWrong: 0,
-        averageAnswerTime: 0,
-        sessionDuration: 0,
-      });
+      storageManager.clearHistory(quizSetId);
+      setState(createEmptyState());
+      setHistory(createEmptyHistory(quizSetId));
+      setQuestionStartTime(Date.now());
+      setIsHydrated(true);
     }
-  }, []);
+  }, [quizSetId]);
 
-  // 履歴をlocalStorageに定期保存（デバウンス）
   useEffect(() => {
+    if (!quizSetId || !isHydrated || questions.length === 0) {
+      return;
+    }
+
     const timer = setTimeout(() => {
       storageManager.saveHistory(history);
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [history]);
+  }, [history, isHydrated, questions.length, quizSetId]);
 
   return {
     state,

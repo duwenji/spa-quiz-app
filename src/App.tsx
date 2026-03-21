@@ -7,7 +7,7 @@ import { NavigationButtons } from './components/NavigationButtons';
 import { QuestionNavigation } from './components/QuestionNavigation';
 import { ActivityDownload } from './components/ActivityDownload';
 import { QuizSetSelector } from './components/QuizSetSelector';
-import { Question, QuizSet } from './types';
+import { Question, QuestionAnswer, QuizSet } from './types';
 import { getAllQuizSets, getQuizSetQuestions } from './data';
 import './App.css';
 
@@ -51,7 +51,7 @@ function App() {
     goToQuestion,
     resetQuiz,
     currentQuestion,
-  } = useQuiz(questions);
+  } = useQuiz(questions, selectedQuizSet?.id ?? null);
 
   const quizSets = getAllQuizSets();
 
@@ -181,7 +181,7 @@ function App() {
               {state.isAnswered && (
                 <ResultFeedback
                   isCorrect={
-                    history.answers.find(a => a.questionId === currentQuestion.id)?.isCorrect || false
+                    history.answers.find((answer: QuestionAnswer) => answer.questionId === currentQuestion.id)?.isCorrect || false
                   }
                   selectedAnswer={state.selectedAnswer || 'N/A'}
                   correctAnswer={currentQuestion.correctAnswer}

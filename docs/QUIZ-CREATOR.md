@@ -295,12 +295,14 @@ npm run validate:metadata
 # 公開データを更新
 npm run sync-data
 
-# 問題 JSON の検証
-# 現在の validate:quiz は設定ファイルの questionGlobs に一致するファイルだけを検証します
+# 問題 JSON の検証（単一ファイル指定）
+npm run validate:quiz -- src/data/my-category/my-new-quiz.json
+
+# 設定ファイルの questionGlobs に一致するファイルをまとめて検証
 npm run validate:quiz
 ```
 
-新しいカテゴリやファイルを検証対象に含めるには、`.github/skills-config/quiz-generator/quiz-generator.config.json` の `questionGlobs` を更新してください。
+複数ファイルをまとめて検証対象に含めるには、`.github/skills-config/quiz-generator/quiz-generator.config.json` の `questionGlobs` を更新してください。
 
 エラーが出た場合は [バリデーション](#6-バリデーション) セクションを参照してください。
 
@@ -363,11 +365,14 @@ npm run validate:metadata
 ### 問題 JSON の検証
 
 ```bash
+# 特定ファイルを検証
+npm run validate:quiz -- src/data/my-category/my-new-quiz.json
+
 # 設定ファイルの questionGlobs に一致する問題ファイルを検証
 npm run validate:quiz
 ```
 
-現在の `validate:quiz` は任意の単一ファイルを引数で直接指定する方式には対応していません。必要に応じて `.github/skills-config/quiz-generator/quiz-generator.config.json` の `questionGlobs` を更新してください。
+複数ファイルを一括検証したい場合は、`.github/skills-config/quiz-generator/quiz-generator.config.json` の `questionGlobs` を更新してください。
 
 ### 主なエラーメッセージと対処法
 

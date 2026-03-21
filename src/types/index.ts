@@ -30,6 +30,7 @@ export interface QuestionAnswer {
 
 export interface LearningHistory {
   sessionId: string;
+  quizSetId: string | null;
   startedAt: string;
   completedAt: string | null;
   answers: QuestionAnswer[];
@@ -46,7 +47,7 @@ export interface QuizSet {
   category: string;
   icon: string;
   questionCount: number;
-  difficulty: 'beginner' | 'intermediate' | 'advanced' | 'beginner to intermediate' | 'intermediate to advanced';
+  difficulty: 'beginner' | 'intermediate' | 'advanced' | 'beginner to intermediate' | 'beginner to advanced';
   dataPath: string;
   parentId: string | null;
   group: string | null;

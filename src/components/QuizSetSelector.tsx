@@ -135,6 +135,7 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
                               {quizSet.difficulty === 'intermediate' && '中級'}
                               {quizSet.difficulty === 'advanced' && '上級'}
                               {quizSet.difficulty === 'beginner to intermediate' && '初中級'}
+                              {quizSet.difficulty === 'beginner to advanced' && '初級〜上級'}
                             </span>
                           </div>
 
