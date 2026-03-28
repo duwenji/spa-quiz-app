@@ -1,7 +1,8 @@
 {
   "metadataPath": "src/data/quizSets.json",
   "questionGlobs": [
-    "src/data/clean-architecture/*.json"
+    "src/data/clean-architecture/*.json",
+    "src/data/dev-process-skill-library/*.json"
   ],
   "normalizeDataDir": "src/data"
 }
