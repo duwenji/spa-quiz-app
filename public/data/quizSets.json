@@ -227,10 +227,10 @@
       {
         "id": "dev-process-skill-library",
         "name": "開発プロセス標準化 Skill ライブラリ",
-        "description": "要件定義から設計・実装、検証、運用、改善までの標準プロセスを段階的に学べる 75 問の包括的なクイズシリーズ",
+        "description": "要件定義から設計・実装、検証、運用、改善、導入運用までの標準プロセスを段階的に学べる 87 問の包括的なクイズシリーズ",
         "category": "技術",
         "icon": "🧭",
-        "questionCount": 75,
+        "questionCount": 87,
         "difficulty": "beginner to advanced",
         "dataPath": "dev-process-skill-library/metadata.json",
         "parentId": null,
@@ -239,9 +239,23 @@
         "order": 2
       },
       {
+        "id": "dev-process-intro-overview",
+        "name": "概論・運用導入",
+        "description": "対象読者、Skill 選択、承認フロー、証跡管理、KPI などライブラリ全体の導入運用を学ぶ",
+        "category": "技術",
+        "icon": "🧩",
+        "questionCount": 12,
+        "difficulty": "beginner",
+        "dataPath": "dev-process-skill-library/intro-overview.json",
+        "parentId": "dev-process-skill-library",
+        "group": "dev-process-skill-library-series",
+        "level": 2,
+        "order": 1
+      },
+      {
         "id": "dev-process-requirements-planning",
         "name": "要件・計画",
-        "description": "requirements-refinement を中心に、要件明確化、受入条件、優先度判断、導入計画の基礎を学ぶ",
+        "description": "requirements-refinement を中心に、要件明確化、受入条件、非機能要件、スコープ境界の整理を学ぶ",
         "category": "技術",
         "icon": "📝",
         "questionCount": 10,
@@ -250,12 +264,12 @@
         "parentId": "dev-process-skill-library",
         "group": "dev-process-skill-library-series",
         "level": 2,
-        "order": 1
+        "order": 2
       },
       {
         "id": "dev-process-design-implementation",
         "name": "設計・実装",
-        "description": "設計判断、ADR、API 契約、リファクタリング安全性、レビュー観点を通じて実装品質を学ぶ",
+        "description": "設計判断、データモデル、ADR、API 契約、リファクタリング安全性、レビュー観点を通じて実装品質を学ぶ",
         "category": "技術",
         "icon": "🛠️",
         "questionCount": 20,
@@ -264,7 +278,7 @@
         "parentId": "dev-process-skill-library",
         "group": "dev-process-skill-library-series",
         "level": 2,
-        "order": 2
+        "order": 3
       },
       {
         "id": "dev-process-verification-quality",
@@ -278,7 +292,7 @@
         "parentId": "dev-process-skill-library",
         "group": "dev-process-skill-library-series",
         "level": 2,
-        "order": 3
+        "order": 4
       },
       {
         "id": "dev-process-operations-release",
@@ -292,12 +306,12 @@
         "parentId": "dev-process-skill-library",
         "group": "dev-process-skill-library-series",
         "level": 2,
-        "order": 4
+        "order": 5
       },
       {
         "id": "dev-process-learning-improvement",
         "name": "学習・改善",
-        "description": "ポストモーテムとドキュメント同期を通じて再発防止と組織学習の定着を学ぶ",
+        "description": "ポストモーテム、ドキュメント同期、ノウハウ取り込みを通じて再発防止と組織学習の定着を学ぶ",
         "category": "技術",
         "icon": "🔄",
         "questionCount": 14,
@@ -306,7 +320,7 @@
         "parentId": "dev-process-skill-library",
         "group": "dev-process-skill-library-series",
         "level": 2,
-        "order": 5
+        "order": 6
       },
     {
       "id": "spa-quiz-app-docs",

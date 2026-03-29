@@ -2,18 +2,34 @@
   "series": {
     "id": "dev-process-skill-library",
     "name": "開発プロセス標準化 Skill ライブラリ",
-    "description": "要件定義から設計・実装、検証、運用、改善までの標準プロセスを段階的に学べる包括的なクイズシリーズ",
+    "description": "要件定義から設計・実装、検証、運用、改善、導入運用までの標準プロセスを段階的に学べる包括的なクイズシリーズ",
     "author": "GitHub Copilot Team",
     "version": "1.0.0",
     "license": "MIT",
     "language": "ja",
-    "totalQuestions": 75,
-    "estimatedDuration": "4-5 hours",
+    "totalQuestions": 87,
+    "estimatedDuration": "5-6 hours",
     "difficultyProgression": "progressive",
     "sections": [
       {
-        "id": "requirements-planning",
+        "id": "intro-overview",
         "order": 1,
+        "name": "概論・運用導入",
+        "description": "対象読者、Skill 選択、承認フロー、証跡管理、KPI など全体運用の基礎を学ぶ",
+        "questionCount": 12,
+        "difficulty": "beginner",
+        "estimatedTime": "25-35 minutes",
+        "keyTopics": [
+          "対象読者と目的",
+          "Skill 選択",
+          "承認フロー",
+          "証跡管理",
+          "KPI"
+        ]
+      },
+      {
+        "id": "requirements-planning",
+        "order": 2,
         "name": "要件・計画",
         "description": "要件明確化、受入条件、非機能要件、スコープ境界の整理を学ぶ",
         "questionCount": 10,
@@ -29,23 +45,23 @@
       },
       {
         "id": "design-implementation",
-        "order": 2,
+        "order": 3,
         "name": "設計・実装",
-        "description": "方式案比較、ADR、API 契約、コードレビュー、安全な実装変更を学ぶ",
+        "description": "方式案比較、データモデル、ADR、API 契約、コードレビュー、安全な実装変更を学ぶ",
         "questionCount": 20,
         "difficulty": "beginner-intermediate",
         "estimatedTime": "50-70 minutes",
         "keyTopics": [
           "方式案比較",
+          "データモデル設計",
           "ADR",
           "API 契約",
-          "コードレビュー",
-          "リファクタリング安全性"
+          "コードレビュー基準"
         ]
       },
       {
         "id": "verification-quality",
-        "order": 3,
+        "order": 4,
         "name": "検証・品質",
         "description": "テスト戦略、不具合修正、セキュリティ観点、品質ゲートを学ぶ",
         "questionCount": 16,
@@ -61,7 +77,7 @@
       },
       {
         "id": "operations-release",
-        "order": 4,
+        "order": 5,
         "name": "運用・リリース",
         "description": "本番投入判断、監視、性能調査、ロールバック計画を学ぶ",
         "questionCount": 15,
@@ -77,9 +93,9 @@
       },
       {
         "id": "learning-improvement",
-        "order": 5,
+        "order": 6,
         "name": "学習・改善",
-        "description": "ポストモーテム、再発防止、ドキュメント同期、組織学習を学ぶ",
+        "description": "ポストモーテム、ドキュメント同期、ノウハウ取り込み、組織学習の継続改善を学ぶ",
         "questionCount": 14,
         "difficulty": "advanced",
         "estimatedTime": "35-50 minutes",
@@ -88,7 +104,7 @@
           "再発防止",
           "共有準備",
           "ドキュメント同期",
-          "継続改善"
+          "ノウハウ取り込み"
         ]
       }
     ]
