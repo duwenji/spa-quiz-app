@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "この Skill ライブラリを最初に使う目的として最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "個人ごとに異なる進め方を維持し、標準化を避けるため" },
+        { "id": "B", "text": "調査、実装、検証、報告の抜け漏れを減らし、承認付きで進めるため" },
+        { "id": "C", "text": "レビューや承認をなくして速度だけを優先するため" },
+        { "id": "D", "text": "Skill を使わず README だけで運用するため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "このライブラリの目的は、開発作業の標準化、抜け漏れ削減、承認ゲートと証跡管理の一貫運用です。速度だけを優先したり承認を外したりする設計ではありません。"
+    },
+    {
+      "id": 2,
+      "question": "要件が曖昧で、受入条件も固まっていない新規機能に最初に当てる Skill として最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "requirements-refinement" },
+        { "id": "B", "text": "performance-investigation" },
+        { "id": "C", "text": "incident-postmortem" },
+        { "id": "D", "text": "documentation-sync" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README と usage-guide では、要件や受入条件が曖昧な場合は requirements-refinement から始めるのが基本です。下流の Skill を先に適用する前に、要求の土台を固めます。"
+    },
+    {
+      "id": 3,
+      "question": "taxonomy に基づく Skill 適用順として最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "学習・改善 → 運用・リリース → 要件・計画" },
+        { "id": "B", "text": "設計・実装 → 要件・計画 → 検証・品質" },
+        { "id": "C", "text": "要件・計画 → 設計・実装 → 検証・品質 → 運用・リリース" },
+        { "id": "D", "text": "どのカテゴリからでも同じで、依存関係は考えない" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "taxonomy では、要件・計画から設計・実装、検証・品質、運用・リリースへと上流依存でつながります。学習・改善は全体に横断的に作用します。"
+    },
+    {
+      "id": 4,
+      "question": "usage-guide にある全体フローの順序として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Skill 選択 → リポジトリ配布 → ログ記録 → 承認" },
+        { "id": "B", "text": "リポジトリ配布 → Skill 選択 → SKILL.md に沿って実行 → 承認ゲート通過 → ログと出力物記録 → 更新申請" },
+        { "id": "C", "text": "承認ゲート通過 → Skill 選択 → 実行 → 出力物作成" },
+        { "id": "D", "text": "リポジトリ配布 → 実装 → FAQ 確認 → 承認" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "usage-guide の全体フローは、配布、選択、実行、承認、ログ、改善申請の6段階です。承認やログを途中で省く流れではありません。"
+    },
+    {
+      "id": 5,
+      "question": "承認ゲートを伴う段階で必ず残すべき最小記録単位として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "日時、判断者、根拠" },
+        { "id": "B", "text": "担当者名と気分" },
+        { "id": "C", "text": "結論だけ" },
+        { "id": "D", "text": "ログファイル名だけ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README の共通運用ポリシーでは、重要な判断の最小記録単位は日時、判断者、根拠の3点です。承認付き運用の追跡性を保つためです。"
+    },
+    {
+      "id": 6,
+      "question": "append-only でログを残す主な理由として最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "過去の判断や例外の経緯を消さずに追跡できるようにするため" },
+        { "id": "B", "text": "ファイル数を必ず増やすため" },
+        { "id": "C", "text": "runbook を参照しなくて済むようにするため" },
+        { "id": "D", "text": "承認者名を残さないようにするため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "append-only の運用は、変更や例外の経緯を消さずに残し、後から追跡できるようにするためです。履歴の透明性が目的です。"
+    },
+    {
+      "id": 7,
+      "question": "SKILL.md と runbook の記述が食い違い、実装実体とも異なる場合の参照優先順位として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "実行ログ → SKILL.md → runbook → 実装実体" },
+        { "id": "B", "text": "SKILL.md → runbook → 実装実体 → 実行ログ" },
+        { "id": "C", "text": "実装実体 → runbook → SKILL.md → 実行ログ" },
+        { "id": "D", "text": "更新日が新しいものだけを採用する" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "共通運用ポリシーでは、競合時は実装実体が最優先で、その次が runbook、SKILL.md、実行ログです。実行ログは履歴媒体であり、正本ではありません。"
+    },
+    {
+      "id": 8,
+      "question": "役割分担の原則として最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "AI が最終承認を担い、人間は補助に回る" },
+        { "id": "B", "text": "方針決定と最終承認は人間が担い、AI は調査や草案、補助を担う" },
+        { "id": "C", "text": "承認者が不在なら AI が未承認の判断を確定させる" },
+        { "id": "D", "text": "Maintainer が常に全 Skill の実装を代行する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "README では、方針決定と最終承認は人間が担い、AI は調査、草案、実装補助、検証補助を担当すると定義されています。"
+    },
+    {
+      "id": 9,
+      "question": "全 Skill 共通の最小完了条件に含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "定義された承認ゲートを通過していること" },
+        { "id": "B", "text": "必須出力物がテンプレート準拠で揃っていること" },
+        { "id": "C", "text": "変更理由と検証結果の追跡可能性があること" },
+        { "id": "D", "text": "すべての案件で Pilot を完了していること" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Pilot 実施はライブラリ導入計画の論点ですが、個々の Skill 完了条件そのものではありません。共通完了条件は承認、出力物、例外管理、追跡可能性です。"
+    },
+    {
+      "id": 10,
+      "question": "導入効果を測る KPI の使い方として最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "導入前後で比較し、改善率と現場フィードバックを合わせて評価する" },
+        { "id": "B", "text": "導入後の数字だけを見て、ベースラインは不要とする" },
+        { "id": "C", "text": "KPI は Maintainer 以外見なくてよい" },
+        { "id": "D", "text": "レビュー指摘密度だけで全体効果を判断する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README では、導入前1か月をベースラインとし、導入後1か月と3か月の比較に加えて現場フィードバックも合わせて評価するとしています。"
+    },
+    {
+      "id": 11,
+      "question": "承認者がすぐに対応できず、ただちに作業を止めると影響が大きい場合の扱いとして最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "承認を省略して通常どおり進める" },
+        { "id": "B", "text": "例外申請として Owner が承認と記録を行い、暫定実行する" },
+        { "id": "C", "text": "AI に承認させて記録しない" },
+        { "id": "D", "text": "FAQ は参考なので何も見ずに判断する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "usage-guide の FAQ では、承認者がすぐ対応できない場合は例外申請として Owner が承認と記録を行い、暫定実行できるとしています。"
+    },
+    {
+      "id": 12,
+      "question": "README で示されている推奨アサインの組み合わせとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Owner は開発リード、Reviewer は PM と QA、Approver は開発マネージャー、Maintainer は開発プロセス担当" },
+        { "id": "B", "text": "Owner は QA、Reviewer は Maintainer、Approver は AI、Maintainer は開発者全員" },
+        { "id": "C", "text": "Owner と Approver は常に同一人物でなければならない" },
+        { "id": "D", "text": "役割は案件ごとに自由で、推奨は定義されていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README の RACI 簡易版では、Owner は開発リード、Reviewer は PM と QA、Approver は開発マネージャー、Maintainer は開発プロセス担当が推奨されています。"
+    }
+  ]
+}
