@@ -2,7 +2,10 @@
   "metadataPath": "src/data/quizSets.json",
   "questionGlobs": [
     "src/data/clean-architecture/*.json",
-    "src/data/dev-process-skill-library/*.json"
+    "src/data/dev-process-skill-library/*.json",
+    "src/data/github-copilot/*.json",
+    "src/data/github-copilot-agent-series/*.json",
+    "src/data/github-copilot-skills-tutorial/*.json"
   ],
   "normalizeDataDir": "src/data"
 }

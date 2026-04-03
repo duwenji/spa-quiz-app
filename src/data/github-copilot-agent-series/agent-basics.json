@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "GitHub Copilot の Custom Agent が主に解決しようとする課題として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "GPU の温度管理を自動化すること" },
+        { "id": "B", "text": "毎回同じ指示を書き直す負担や、出力のぶれを減らすこと" },
+        { "id": "C", "text": "OS の起動順序を変更すること" },
+        { "id": "D", "text": "ネットワーク配線を最適化すること" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Custom Agent は、毎回同じ依頼を書き直す手間や、作業ごとに期待する出力形式がぶれる問題を整理するための仕組みです。役割定義とツール制御をファイル化することで、再利用性と一貫性を高めます。"
+    },
+    {
+      "id": 2,
+      "question": "Custom Agent を一言で説明したとき、最も近いものはどれですか？",
+      "options": [
+        { "id": "A", "text": "ハードウェア性能を自動調整する BIOS 設定" },
+        { "id": "B", "text": "『この役割のときはこう振る舞う』をファイルとして持つ仕組み" },
+        { "id": "C", "text": "静的サイトの CSS テーマ定義" },
+        { "id": "D", "text": "コンテナのオーケストレーションルール" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "教材では、Custom Agent は『この役割のときはこう振る舞う』をファイルで定義できる仕組みと説明されています。役割・制約・使うツールを明確にできる点が中心です。"
+    },
+    {
+      "id": 3,
+      "question": "次のうち、Custom Agent の主なメリットとして適切でないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "責務を分けやすくなる" },
+        { "id": "B", "text": "チームで共有しやすくなる" },
+        { "id": "C", "text": "安全性を高めやすくなる" },
+        { "id": "D", "text": "物理ディスク容量を自動で増やせる" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Custom Agent のメリットは再利用性、責務分離、安全性、共有のしやすさです。物理ディスク容量の増加のようなインフラ操作は目的ではありません。"
+    },
+    {
+      "id": 4,
+      "question": "Custom Agent を設計するときの基本姿勢として推奨されるものはどれですか？",
+      "options": [
+        { "id": "A", "text": "1つの agent に複数の中心責務を詰め込む" },
+        { "id": "B", "text": "description をできるだけ曖昧にする" },
+        { "id": "C", "text": "1 agent = 1つの中心的な役割を意識する" },
+        { "id": "D", "text": "すべての agent に同じ出力形式を禁止する" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "教材では、1 agent = 1つの中心的な役割という単一責務の考え方が基本とされています。役割を絞ることで使い勝手と安全性が安定します。"
+    },
+    {
+      "id": 5,
+      "question": "Custom Agent の `description` に関する推奨事項はどれですか？",
+      "options": [
+        { "id": "A", "text": "『Helpful assistant』のように抽象的に書く" },
+        { "id": "B", "text": "いつ使うかが分かるように具体的に書く" },
+        { "id": "C", "text": "空欄のままにする" },
+        { "id": "D", "text": "日本語と英語を混ぜるのを必須にする" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "description は『いつ使うか』が伝わる具体的な文章にするのが推奨です。曖昧な説明では役割がぶれ、利用場面も分かりにくくなります。"
+    },
+    {
+      "id": 6,
+      "question": "チームで Custom Agent を共有しやすい理由として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`.github/agents/` に置いてレビュー・再利用しやすいから" },
+        { "id": "B", "text": "USB メモリにしか保存できないから" },
+        { "id": "C", "text": "GUI でしか編集できないから" },
+        { "id": "D", "text": "ネットワーク設定を自動で変更するから" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Custom Agent は `.github/agents/` に配置してレビューできるため、個人依存のプロンプトではなくチーム資産として共有しやすくなります。"
+    }
+  ]
+}

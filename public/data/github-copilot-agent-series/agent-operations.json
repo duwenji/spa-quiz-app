@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Custom Agent 運用のベストプラクティスとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "1つの agent に何でもやらせる" },
+        { "id": "B", "text": "単一責務で設計し、用途ごとに分ける" },
+        { "id": "C", "text": "全 agent に execute を必須で付ける" },
+        { "id": "D", "text": "description を毎回ランダムに変える" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "ベストプラクティスでは、docs 用・debug 用・review 用のように用途ごとに agent を分ける単一責務が推奨されます。責務を絞ることでレビューと保守がしやすくなります。"
+    },
+    {
+      "id": 2,
+      "question": "『Swiss-army agent』とは何を指すアンチパターンですか？",
+      "options": [
+        { "id": "A", "text": "何でもできる1体にしようとして責務が曖昧になる設計" },
+        { "id": "B", "text": "read-only から始める慎重な設計" },
+        { "id": "C", "text": "レビューしやすい出力形式を使うこと" },
+        { "id": "D", "text": "少ないツールで始める構成" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Swiss-army agent は、1つの agent に多くの責務を詰め込みすぎて用途が曖昧になるアンチパターンです。単一責務の原則に反します。"
+    },
+    {
+      "id": 3,
+      "question": "次のうち、曖昧な description の例として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Use this agent when improving README files and user-facing documentation." },
+        { "id": "B", "text": "Use this agent when investigating runtime errors or broken builds." },
+        { "id": "C", "text": "Helpful assistant" },
+        { "id": "D", "text": "Use this agent when organizing repository maintenance tasks." }
+      ],
+      "correctAnswer": "C",
+      "explanation": "『Helpful assistant』のような description は、いつ使うのか・何が得意なのかが分からず曖昧です。用途が伝わる具体的な説明が推奨されます。"
+    },
+    {
+      "id": 4,
+      "question": "debug 系 agent で特に避けるべきなのはどれですか？",
+      "options": [
+        { "id": "A", "text": "実行結果やテスト確認なしで完了宣言すること" },
+        { "id": "B", "text": "根拠と証拠を示すこと" },
+        { "id": "C", "text": "問題の原因を調べること" },
+        { "id": "D", "text": "出力形式を固定すること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材では、特に debug 系 agent で『検証なしの完了宣言』が危険とされています。テストや実行結果といった evidence を伴って確認することが重要です。"
+    },
+    {
+      "id": 5,
+      "question": "レビュー観点として適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "この agent の責務は一文で説明できるか" },
+        { "id": "B", "text": "ファイル名が必ず3文字以内か" },
+        { "id": "C", "text": "絵文字を5個以上使っているか" },
+        { "id": "D", "text": "常に英語のみで書かれているか" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "推奨レビュー観点には『責務が一文で説明できるか』『許可ツールは最小限か』『使う場面と使わない場面が明確か』などが含まれます。"
+    },
+    {
+      "id": 6,
+      "question": "`tools` 設計に関する推奨として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "最初から execute・edit・web・agent を全部許可する" },
+        { "id": "B", "text": "まず read-only に近い最小構成から始める" },
+        { "id": "C", "text": "tools は毎回空にする" },
+        { "id": "D", "text": "description より tools だけを重視する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "ベストプラクティスでは、まず read-only に近い最小構成から始め、必要な権限だけ段階的に許可することが推奨されています。ツール過多は設計のぶれにつながります。"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "`.agent.md` の frontmatter にある `description` の役割として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "エージェントの背景色を決める" },
+        { "id": "B", "text": "いつ使うかを示す説明を書く" },
+        { "id": "C", "text": "JSON の圧縮率を指定する" },
+        { "id": "D", "text": "Git の remote URL を変更する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`description` は、そのエージェントをどんな場面で使うかを利用者に伝える重要な項目です。用途が明確だと、呼び出しの判断もしやすくなります。"
+    },
+    {
+      "id": 2,
+      "question": "frontmatter の `tools` は何を表しますか？",
+      "options": [
+        { "id": "A", "text": "使用を許可するツールの一覧" },
+        { "id": "B", "text": "学習済みモデルの一覧" },
+        { "id": "C", "text": "使用禁止の OS 一覧" },
+        { "id": "D", "text": "必須ライセンスの種類" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`tools` は、その Custom Agent が使ってよいツールを制御するための項目です。必要最小限に絞ることで、責務の明確化と安全性向上につながります。"
+    },
+    {
+      "id": 3,
+      "question": "`user-invocable: true` が意味することとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "手動で選択して使えるようにする" },
+        { "id": "B", "text": "自動的に削除される" },
+        { "id": "C", "text": "Web 公開が必須になる" },
+        { "id": "D", "text": "Python 専用になる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`user-invocable: true` は、利用者がその agent を手動で選んで呼び出せるようにする設定です。使うタイミングをユーザーが明示的に決められます。"
+    },
+    {
+      "id": 4,
+      "question": "本文でエージェントの品質差が出やすいポイントに含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Role" },
+        { "id": "B", "text": "Constraints" },
+        { "id": "C", "text": "Approach" },
+        { "id": "D", "text": "GPU Fan Speed" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "教材では本文で差が出るポイントとして Role、Constraints、Approach、Output Format が挙げられています。GPU Fan Speed のようなハードウェア設定は対象外です。"
+    },
+    {
+      "id": 5,
+      "question": "出力形式を固定する目的として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "回答の一貫性を高め、利用者が扱いやすくするため" },
+        { "id": "B", "text": "ファイルサイズを必ず半分にするため" },
+        { "id": "C", "text": "ネットワーク帯域を制御するため" },
+        { "id": "D", "text": "キーボード入力を減らすため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Output Format を固定すると、summary・root cause・evidence などの形が揃い、使う側が結果を解釈しやすくなります。レビューや再利用にも有利です。"
+    },
+    {
+      "id": 6,
+      "question": "`.agent.md` を設計するときのよくある失敗として適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "役割を1つに絞る" },
+        { "id": "B", "text": "必要なツールだけを許可する" },
+        { "id": "C", "text": "description が曖昧で、役割が複数混ざる" },
+        { "id": "D", "text": "出力形式を明確にする" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "よくある失敗は、description が曖昧だったり、1つの agent に複数の責務が混ざったり、tools を入れすぎたりすることです。これらは利用時のぶれにつながります。"
+    }
+  ]
+}

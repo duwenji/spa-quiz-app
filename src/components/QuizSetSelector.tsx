@@ -15,6 +15,11 @@ interface OrganizedQuizSets {
   }[];
 }
 
+interface SubSeriesGroup {
+  label: string | null;
+  sets: QuizSet[];
+}
+
 type DifficultyFilter = 'all' | QuizSet['difficulty'];
 
 const difficultyItems: Array<{ value: DifficultyFilter; label: string }> = [
@@ -72,11 +77,10 @@ const organizeQuizSets = (quizSets: QuizSet[]): OrganizedQuizSets[] => {
 
 const getGroupLabel = (group: string | null, sets: QuizSet[]): string => {
   if (!group) return '';
-  
-  // グループの親セットを見つける
-  const parentSet = sets.find(s => s.level === 1 && s.group === group);
+
+  const parentSet = sets.find((s) => s.level === 1 && s.group === group);
   if (parentSet) {
-    return `${parentSet.icon} ${parentSet.name.split(' ').slice(0, 3).join(' ')} Series`;
+    return `${parentSet.icon} ${parentSet.name}`;
   }
   return group;
 };
@@ -86,6 +90,33 @@ const isDisplayableSet = (set: QuizSet): boolean => !(set.group && set.parentId 
 const difficultyLabel = (difficulty: QuizSet['difficulty']): string => {
   const found = difficultyItems.find((item) => item.value === difficulty);
   return found ? found.label : difficulty;
+};
+
+const getSubSeriesLabel = (name: string): string | null => {
+  const parts = name.split('|').map((part) => part.trim()).filter(Boolean);
+  return parts.length > 1 ? parts[0] : null;
+};
+
+const getQuizDisplayName = (name: string): string => {
+  const parts = name.split('|').map((part) => part.trim()).filter(Boolean);
+  return parts.length > 1 ? parts.slice(1).join(' | ') : name;
+};
+
+const organizeBySubSeries = (sets: QuizSet[]): SubSeriesGroup[] => {
+  const bySubSeries = new Map<string | null, QuizSet[]>();
+
+  for (const set of sets) {
+    const key = getSubSeriesLabel(set.name);
+    if (!bySubSeries.has(key)) {
+      bySubSeries.set(key, []);
+    }
+    bySubSeries.get(key)!.push(set);
+  }
+
+  return Array.from(bySubSeries.entries()).map(([label, groupedSets]) => ({
+    label,
+    sets: groupedSets,
+  }));
 };
 
 export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorProps) => {
@@ -318,7 +349,12 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
               </h2>
 
               <div className="space-y-5">
-                {section.groups.map((group, idx) => (
+                {section.groups.map((group, idx) => {
+                  const groupParent = group.groupName
+                    ? quizSets.find((set) => set.level === 1 && set.group === group.groupName)
+                    : null;
+
+                  return (
                   <div
                     key={`${section.category}-${group.groupName ?? 'ungrouped'}-${idx}`}
                     className={
@@ -328,55 +364,76 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
                     }
                   >
                     {group.groupName && (
-                      <h3 className="mb-3 border-l-4 border-sky-500 pl-3 text-xs font-black tracking-wide text-sky-900 sm:mb-4 sm:text-base">
-                        {getGroupLabel(group.groupName, quizSets)}
-                      </h3>
+                      <div className="mb-4 space-y-2">
+                        <h3 className="border-l-4 border-sky-500 pl-3 text-xs font-black tracking-wide text-sky-900 sm:text-base">
+                          {getGroupLabel(group.groupName, quizSets)}
+                        </h3>
+                        {groupParent && (
+                          <div className="rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2 text-xs text-slate-600 sm:text-sm">
+                            <p>{groupParent.description}</p>
+                            <p className="mt-1 font-semibold text-slate-500">全 {groupParent.questionCount} 問 / Agent・Skill の 2 系列</p>
+                          </div>
+                        )}
+                      </div>
                     )}
 
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-                      {group.sets.map((quizSet) => (
-                        <button
-                          key={quizSet.id}
-                          type="button"
-                          onClick={() => onSelectQuizSet(quizSet)}
-                          className="group rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-200 sm:p-5"
-                        >
-                          <div className="mb-3 flex items-center gap-2 text-[11px] font-semibold tracking-wide text-slate-500">
-                            <span>{section.category}</span>
-                            {quizSet.parentId && (
-                              <>
-                                <span>›</span>
-                                <span className="max-w-[160px] truncate">
-                                  {parentSetMap.get(quizSet.parentId)?.name}
-                                </span>
-                              </>
-                            )}
+                    <div className="space-y-4">
+                      {organizeBySubSeries(group.sets).map((subSeries) => (
+                        <div key={`${group.groupName ?? 'ungrouped'}-${subSeries.label ?? 'default'}`}>
+                          {subSeries.label && (
+                            <h4 className="mb-3 inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-black tracking-wide text-emerald-800 sm:text-xs">
+                              {subSeries.label}
+                            </h4>
+                          )}
+
+                          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+                            {subSeries.sets.map((quizSet) => (
+                              <button
+                                key={quizSet.id}
+                                type="button"
+                                onClick={() => onSelectQuizSet(quizSet)}
+                                className="group rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm transition duration-300 hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-200 sm:p-5"
+                              >
+                                <div className="mb-3 flex items-center gap-2 text-[11px] font-semibold tracking-wide text-slate-500">
+                                  <span>{section.category}</span>
+                                  {quizSet.parentId && (
+                                    <>
+                                      <span>›</span>
+                                      <span className="max-w-[160px] truncate">
+                                        {parentSetMap.get(quizSet.parentId)?.name}
+                                      </span>
+                                    </>
+                                  )}
+                                </div>
+
+                                <div className="mb-3 flex items-center justify-between gap-3">
+                                  <span className="text-2xl leading-none sm:text-3xl">{quizSet.icon}</span>
+                                  <span className="rounded-full border border-sky-200 bg-sky-50 px-2 py-1 text-[11px] font-bold text-sky-700">
+                                    {difficultyLabel(quizSet.difficulty)}
+                                  </span>
+                                </div>
+
+                                <h3 className="mb-2 line-clamp-2 text-base font-black leading-snug text-slate-900 transition-colors group-hover:text-sky-700">
+                                  {getQuizDisplayName(quizSet.name)}
+                                </h3>
+
+                                <p className="mb-4 line-clamp-2 text-sm text-slate-600">{quizSet.description}</p>
+
+                                <div className="flex items-center justify-between border-t border-slate-100 pt-3">
+                                  <span className="text-xs font-semibold text-slate-500">選択して開始</span>
+                                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
+                                    {quizSet.questionCount}問
+                                  </span>
+                                </div>
+                              </button>
+                            ))}
                           </div>
-
-                          <div className="mb-3 flex items-center justify-between gap-3">
-                            <span className="text-2xl leading-none sm:text-3xl">{quizSet.icon}</span>
-                            <span className="rounded-full border border-sky-200 bg-sky-50 px-2 py-1 text-[11px] font-bold text-sky-700">
-                              {difficultyLabel(quizSet.difficulty)}
-                            </span>
-                          </div>
-
-                          <h3 className="mb-2 line-clamp-2 text-base font-black leading-snug text-slate-900 transition-colors group-hover:text-sky-700">
-                            {quizSet.name}
-                          </h3>
-
-                          <p className="mb-4 line-clamp-2 text-sm text-slate-600">{quizSet.description}</p>
-
-                          <div className="flex items-center justify-between border-t border-slate-100 pt-3">
-                            <span className="text-xs font-semibold text-slate-500">選択して開始</span>
-                            <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
-                              {quizSet.questionCount}問
-                            </span>
-                          </div>
-                        </button>
+                        </div>
                       ))}
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </section>
           ))}

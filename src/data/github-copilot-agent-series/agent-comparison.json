@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Skill の主目的として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "作業手順をまとめて再利用しやすくすること" },
+        { "id": "B", "text": "OS カーネルを更新すること" },
+        { "id": "C", "text": "電源管理を調整すること" },
+        { "id": "D", "text": "GPU ドライバーを最適化すること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Skill は手順やノウハウをまとめて再利用するための仕組みです。教材でも、繰り返し使う標準フローや手順書を整理する用途が中心と説明されています。"
+    },
+    {
+      "id": 2,
+      "question": "MCP の役割として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "役割の人格定義だけを行う仕組み" },
+        { "id": "B", "text": "外部ツールやデータへアクセスする能力を提供する仕組み" },
+        { "id": "C", "text": "CSS の命名規則を固定すること" },
+        { "id": "D", "text": "Git のブランチ名を自動生成すること" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "MCP は外部システムやツール、データへの接続を提供する仕組みです。DB 検索や API 操作など、エージェント単体では持たない能力を補います。"
+    },
+    {
+      "id": 3,
+      "question": "『docs 担当』や『debug 担当』のように役割を分けたい場合、最も適した選択はどれですか？",
+      "options": [
+        { "id": "A", "text": "Custom Agent" },
+        { "id": "B", "text": "Skill だけで十分" },
+        { "id": "C", "text": "MCP だけで十分" },
+        { "id": "D", "text": "README のタイトル変更" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "役割の分離は Custom Agent の得意分野です。Skill は手順の再利用、MCP は外部接続なので、役割そのものを分けたい場合は Custom Agent が適しています。"
+    },
+    {
+      "id": 4,
+      "question": "毎回同じ build 手順や生成フローを再利用したいとき、最も適した仕組みはどれですか？",
+      "options": [
+        { "id": "A", "text": "Custom Agent" },
+        { "id": "B", "text": "Skill" },
+        { "id": "C", "text": "MCP" },
+        { "id": "D", "text": "画像圧縮ツール" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "繰り返し使う手順をまとめて再利用するのは Skill の強みです。教材でも、手順の標準化やワークフローの再利用に向くと整理されています。"
+    },
+    {
+      "id": 5,
+      "question": "Custom Agent・Skill・MCP の関係として最も適切な説明はどれですか？",
+      "options": [
+        { "id": "A", "text": "互いに競合するため、1つだけを選ぶ必要がある" },
+        { "id": "B", "text": "役割・手順・能力の観点で補完的に組み合わせられる" },
+        { "id": "C", "text": "どれもまったく同じ機能を持つ" },
+        { "id": "D", "text": "常に MCP が他の2つを置き換える" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "教材では、Custom Agent・Skill・MCP は競合ではなく補完関係とされています。Agent が役割、Skill が手順、MCP が外部能力を支える構図です。"
+    },
+    {
+      "id": 6,
+      "question": "『外部システムに触れたい』という判断基準に対して、最も適切な選択はどれですか？",
+      "options": [
+        { "id": "A", "text": "Custom Agent" },
+        { "id": "B", "text": "Skill" },
+        { "id": "C", "text": "MCP" },
+        { "id": "D", "text": "Markdown frontmatter" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "判断基準として『外部システムに触れたい』場合は MCP が適しています。データベースや API、社内情報へのアクセスを提供するためです。"
+    }
+  ]
+}
