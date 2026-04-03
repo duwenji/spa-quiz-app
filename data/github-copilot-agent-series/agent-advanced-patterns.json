@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "subagent の考え方として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "親 Agent が専門 Agent に一部の仕事を任せる構成" },
+        { "id": "B", "text": "1つの Agent がすべての役割を抱え込む構成" },
+        { "id": "C", "text": "Agent を使わずに手作業だけで進める構成" },
+        { "id": "D", "text": "Markdown の見出し階層だけを増やす構成" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "subagent は、親 Agent が別の専門 Agent に一部の作業を任せる設計です。大きな依頼を専門性ごとに分割できるため、責務の肥大化を防げます。"
+    },
+    {
+      "id": 2,
+      "question": "handoff の説明として最も近いものはどれですか？",
+      "options": [
+        { "id": "A", "text": "担当フェーズに応じて Agent を切り替える考え方" },
+        { "id": "B", "text": "常に同じ Agent が全部やること" },
+        { "id": "C", "text": "ネットワーク接続を切断する作業" },
+        { "id": "D", "text": "JSON を CSV に変換する処理" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "handoff は、企画段階は docs 系、実装確認は debug 系、仕上げは repo-maintainer のように、担当を切り替えていく考え方です。"
+    },
+    {
+      "id": 3,
+      "question": "orchestrator Agent の中心責務として適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "大きな依頼を分解し、必要に応じて専門 Agent に任せる調整役になること" },
+        { "id": "B", "text": "自分だけで全作業を抱え込むこと" },
+        { "id": "C", "text": "常に UI デザインだけを変更すること" },
+        { "id": "D", "text": "Git のタグだけを管理すること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材の `tutorial-orchestrator` は、依頼を小さなステップに分け、必要に応じて専門 Agent に委譲し、全体の進捗を整理する調整役の例として示されています。"
+    },
+    {
+      "id": 4,
+      "question": "高度な Agent 設計で避けるべきアンチパターンはどれですか？",
+      "options": [
+        { "id": "A", "text": "handoff の条件が曖昧で、循環的な委譲が起きること" },
+        { "id": "B", "text": "親 Agent を調整役に絞ること" },
+        { "id": "C", "text": "子 Agent に専門領域を持たせること" },
+        { "id": "D", "text": "最終判断の場所を明確にすること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材では、全員が何でもやる構成や、handoff 条件が曖昧なまま循環的に受け渡す設計がアンチパターンとされています。責任境界を明確にすることが重要です。"
+    },
+    {
+      "id": 5,
+      "question": "チーム向け命名パターンとして推奨されるものはどれですか？",
+      "options": [
+        { "id": "A", "text": "`docs-writer` や `debug-helper` のように役割が分かる名前" },
+        { "id": "B", "text": "`ultimate-helper` のような曖昧で万能感のある名前" },
+        { "id": "C", "text": "`smart-agent` のように責務が読み取れない名前" },
+        { "id": "D", "text": "ランダムな文字列だけの名前" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材では、`helper`, `writer`, `reviewer`, `maintainer` など役割語を含め、短く責務が分かる名前が推奨されています。曖昧な名前は避けるべきです。"
+    },
+    {
+      "id": 6,
+      "question": "orchestration を持ち込む場面として不適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "docs・debug・maintenance が混ざる大きな依頼" },
+        { "id": "B", "text": "複数成果物をまとめて整理したい依頼" },
+        { "id": "C", "text": "ごく小さい単純な依頼にまで毎回 orchestration を使うこと" },
+        { "id": "D", "text": "専門性を分けて進めたい複合タスク" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "教材では、小さい依頼にまで orchestration を持ち込まないことが注意点として挙げられています。必要以上に複雑化させない判断も重要です。"
+    }
+  ]
+}

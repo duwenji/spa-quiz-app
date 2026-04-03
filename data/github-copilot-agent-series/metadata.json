@@ -1,0 +1,74 @@
+{
+  "series": {
+    "id": "github-copilot-agent-series",
+    "name": "GitHub Copilot Agent Series",
+    "description": "GitHub Copilot の Agent と Skill を横断的に学ぶための学習シリーズです。Custom Agents の役割設計から、Skill の再利用戦略までを段階的に学べます。",
+    "version": "1.0.0",
+    "totalQuestions": 126,
+    "sections": [
+      {
+        "id": "agent-basics",
+        "track": "Agent",
+        "order": 1,
+        "name": "Agent | 基礎理解",
+        "questionCount": 6,
+        "estimatedTime": "5-7分",
+        "keyTopics": ["custom agents", "roles", "tool boundaries"]
+      },
+      {
+        "id": "agent-comparison",
+        "track": "Agent",
+        "order": 2,
+        "name": "Agent | Skill・MCPとの比較",
+        "questionCount": 6,
+        "estimatedTime": "5-7分",
+        "keyTopics": ["skills", "mcp", "selection guide"]
+      },
+      {
+        "id": "agent-implementation",
+        "track": "Agent",
+        "order": 3,
+        "name": "Agent | 実装と定義構造",
+        "questionCount": 6,
+        "estimatedTime": "6-8分",
+        "keyTopics": ["frontmatter", "constraints", "output format"]
+      },
+      {
+        "id": "agent-examples-evaluation",
+        "track": "Agent",
+        "order": 4,
+        "name": "Agent | サンプルと評価",
+        "questionCount": 6,
+        "estimatedTime": "6-8分",
+        "keyTopics": ["docs-writer", "evaluation", "iteration"]
+      },
+      {
+        "id": "agent-operations",
+        "track": "Agent",
+        "order": 5,
+        "name": "Agent | 運用ベストプラクティス",
+        "questionCount": 6,
+        "estimatedTime": "6-8分",
+        "keyTopics": ["single responsibility", "review", "verification"]
+      },
+      {
+        "id": "agent-advanced-patterns",
+        "track": "Agent",
+        "order": 6,
+        "name": "Agent | 発展パターン",
+        "questionCount": 6,
+        "estimatedTime": "6-9分",
+        "keyTopics": ["subagents", "handoff", "orchestrator"]
+      },
+      {
+        "id": "skill-track",
+        "track": "Skill",
+        "order": 7,
+        "name": "Skill | 既存シリーズ",
+        "questionCount": 90,
+        "estimatedTime": "45-60分",
+        "keyTopics": ["fundamentals", "implementation", "advanced topics"]
+      }
+    ]
+  }
+}
