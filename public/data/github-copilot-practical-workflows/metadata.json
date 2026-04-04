@@ -1,7 +1,7 @@
 {
   "series": {
     "id": "github-copilot-practical-workflows",
-    "name": "GitHub Copilot Practical Workflows",
+    "name": "GitHub Copilot 実務ワークフローシリーズ",
     "description": "GitHub と GitHub Copilot を、オンボーディングから日常開発、協業、運用、ガバナンスまで実務フロー単位で学ぶシリーズです。",
     "version": "1.0.0",
     "totalQuestions": 42,

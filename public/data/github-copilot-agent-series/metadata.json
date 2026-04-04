@@ -1,8 +1,8 @@
 {
   "series": {
     "id": "github-copilot-agent-series",
-    "name": "GitHub Copilot Agent Series",
-    "description": "GitHub Copilot の Agent と Skill を横断的に学ぶための学習シリーズです。Custom Agents の役割設計から、Skill の再利用戦略までを段階的に学べます。",
+    "name": "GitHub Copilot Agent & Skills 総合シリーズ",
+    "description": "GitHub Copilot の Custom Agent と Agent Skills を横断的に学ぶための総合シリーズです。役割設計から比較、実装、再利用、運用までを段階的に学べます。",
     "version": "1.0.0",
     "totalQuestions": 126,
     "sections": [
@@ -64,7 +64,7 @@
         "id": "skill-track",
         "track": "Skill",
         "order": 7,
-        "name": "Skill | 既存シリーズ",
+        "name": "Skill | 学習トラック",
         "questionCount": 90,
         "estimatedTime": "45-60分",
         "keyTopics": ["fundamentals", "implementation", "advanced topics"]

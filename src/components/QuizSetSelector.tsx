@@ -31,10 +31,30 @@ const difficultyItems: Array<{ value: DifficultyFilter; label: string }> = [
   { value: 'beginner to advanced', label: '初級〜上級' },
 ];
 
-const organizeQuizSets = (quizSets: QuizSet[]): OrganizedQuizSets[] => {
+const getGroupParent = (group: string | null, allQuizSets: QuizSet[]): QuizSet | null => {
+  if (!group) return null;
+  return allQuizSets.find((set) => set.level === 1 && set.group === group) ?? null;
+};
+
+const getGroupSortOrder = (
+  groupName: string | null,
+  sets: QuizSet[],
+  allQuizSets: QuizSet[]
+): number => {
+  if (groupName === null) return -1;
+
+  const parentSet = getGroupParent(groupName, allQuizSets);
+  if (parentSet) {
+    return parentSet.order;
+  }
+
+  return Math.min(...sets.map((set) => set.order));
+};
+
+const organizeQuizSets = (quizSets: QuizSet[], allQuizSets: QuizSet[]): OrganizedQuizSets[] => {
   // カテゴリで分類（親セット除外：group が存在し parentId が null のセット）
   const byCategory = new Map<string, QuizSet[]>();
-  
+
   for (const set of quizSets) {
     // 親セット（グループ有且つ parentId 無）は UI 表示から除外
     if (set.group && set.parentId === null) {
@@ -48,10 +68,10 @@ const organizeQuizSets = (quizSets: QuizSet[]): OrganizedQuizSets[] => {
 
   // 各カテゴリ内でグループで分類
   const organized: OrganizedQuizSets[] = [];
-  
+
   for (const [category, sets] of byCategory.entries()) {
     const byGroup = new Map<string | null, QuizSet[]>();
-    
+
     for (const set of sets) {
       const key = set.group ?? null;
       if (!byGroup.has(key)) {
@@ -60,11 +80,23 @@ const organizeQuizSets = (quizSets: QuizSet[]): OrganizedQuizSets[] => {
       byGroup.get(key)!.push(set);
     }
 
-    // グループ内でorderでソート
-    const groups = Array.from(byGroup.entries()).map(([groupName, groupSets]) => ({
-      groupName,
-      sets: groupSets.sort((a, b) => a.order - b.order),
-    }));
+    // グループ内で order を保ちつつ、グループ自体も親メタデータ順に整理
+    const groups = Array.from(byGroup.entries())
+      .map(([groupName, groupSets]) => ({
+        groupName,
+        sets: groupSets.sort((a, b) => a.order - b.order),
+      }))
+      .sort((a, b) => {
+        const orderDiff =
+          getGroupSortOrder(a.groupName, a.sets, allQuizSets) -
+          getGroupSortOrder(b.groupName, b.sets, allQuizSets);
+
+        if (orderDiff !== 0) {
+          return orderDiff;
+        }
+
+        return (a.groupName ?? '').localeCompare(b.groupName ?? '', 'ja');
+      });
 
     organized.push({
       category,
@@ -75,14 +107,32 @@ const organizeQuizSets = (quizSets: QuizSet[]): OrganizedQuizSets[] => {
   return organized;
 };
 
-const getGroupLabel = (group: string | null, sets: QuizSet[]): string => {
+const getGroupLabel = (group: string | null, allQuizSets: QuizSet[]): string => {
   if (!group) return '';
 
-  const parentSet = sets.find((s) => s.level === 1 && s.group === group);
+  const parentSet = getGroupParent(group, allQuizSets);
   if (parentSet) {
     return `${parentSet.icon} ${parentSet.name}`;
   }
   return group;
+};
+
+const getGroupSummary = (group: string | null, allQuizSets: QuizSet[]): string | null => {
+  const parentSet = getGroupParent(group, allQuizSets);
+  if (!parentSet) return null;
+
+  const childSets = allQuizSets.filter((set) => set.group === group && set.level === 2);
+  if (childSets.length === 0) {
+    return `全 ${parentSet.questionCount} 問`;
+  }
+
+  const subSeriesLabels = childSets
+    .map((set) => getSubSeriesLabel(set.name))
+    .filter((label): label is string => Boolean(label));
+
+  const subSeriesCount = new Set(subSeriesLabels).size;
+
+  return `全 ${parentSet.questionCount} 問 / ${childSets.length} セット${subSeriesCount > 1 ? ` / ${subSeriesCount} 系列` : ''}`;
 };
 
 const isDisplayableSet = (set: QuizSet): boolean => !(set.group && set.parentId === null);
@@ -157,7 +207,7 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
     });
   }, [quizSets, difficulty, normalizedQuery, parentSetMap]);
 
-  const organized = useMemo(() => organizeQuizSets(filteredQuizSets), [filteredQuizSets]);
+  const organized = useMemo(() => organizeQuizSets(filteredQuizSets, quizSets), [filteredQuizSets, quizSets]);
 
   const totalDisplayable = useMemo(
     () => quizSets.filter(isDisplayableSet).length,
@@ -350,9 +400,8 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
 
               <div className="space-y-5">
                 {section.groups.map((group, idx) => {
-                  const groupParent = group.groupName
-                    ? quizSets.find((set) => set.level === 1 && set.group === group.groupName)
-                    : null;
+                  const groupParent = getGroupParent(group.groupName, quizSets);
+                  const groupSummary = getGroupSummary(group.groupName, quizSets);
 
                   return (
                   <div
@@ -371,7 +420,9 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
                         {groupParent && (
                           <div className="rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2 text-xs text-slate-600 sm:text-sm">
                             <p>{groupParent.description}</p>
-                            <p className="mt-1 font-semibold text-slate-500">全 {groupParent.questionCount} 問 / Agent・Skill の 2 系列</p>
+                            {groupSummary && (
+                              <p className="mt-1 font-semibold text-slate-500">{groupSummary}</p>
+                            )}
                           </div>
                         )}
                       </div>

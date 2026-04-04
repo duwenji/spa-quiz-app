@@ -44,7 +44,7 @@ https://duwenji.github.io/spa-quiz-app/
 
 ### シリーズ（ステップ）形式のクイズ
 
-「Clean Architecture」や「GitHub Copilot Skills Tutorial」など、複数のステップに分かれているクイズは、一覧画面で**シリーズ見出し付きの個別ステップ**として表示されます。
+「クリーンアーキテクチャ完全ガイド」や「GitHub Copilot Agent & Skills 総合シリーズ」「GitHub Copilot 実務ワークフローシリーズ」など、複数のステップに分かれているクイズは、一覧画面で**シリーズ見出し付きの個別ステップ**として表示されます。
 
 **受験の際は表示されている個別のステップをそのまま選択してください。**
 

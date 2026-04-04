@@ -1,7 +1,7 @@
 ﻿# SPA Quiz App — ドキュメント
 
 **spa-quiz-app** は、React + TypeScript + Vite で構築された学習クイズ SPA です。  
-GitHub Pages（無料・HTTPS 自動）にホストされています。
+GitHub Copilot 系の総合シリーズや実務ワークフロー、アーキテクチャ学習クイズを GitHub Pages 上で公開しています。
 
 ## 📖 マニュアル
 
