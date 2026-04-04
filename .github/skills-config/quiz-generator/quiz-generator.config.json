@@ -5,6 +5,7 @@
     "src/data/dev-process-skill-library/*.json",
     "src/data/github-copilot/*.json",
     "src/data/github-copilot-agent-series/*.json",
+    "src/data/github-copilot-practical-workflows/*.json",
     "src/data/github-copilot-skills-tutorial/*.json"
   ],
   "normalizeDataDir": "src/data"

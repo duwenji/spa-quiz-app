@@ -1,0 +1,74 @@
+{
+  "series": {
+    "id": "github-copilot-practical-workflows",
+    "name": "GitHub Copilot Practical Workflows",
+    "description": "GitHub と GitHub Copilot を、オンボーディングから日常開発、協業、運用、ガバナンスまで実務フロー単位で学ぶシリーズです。",
+    "version": "1.0.0",
+    "totalQuestions": 42,
+    "sections": [
+      {
+        "id": "getting-started-onboarding",
+        "track": "Workflow",
+        "order": 1,
+        "name": "Workflow | オンボーディングと初期セットアップ",
+        "questionCount": 6,
+        "estimatedTime": "5-7分",
+        "keyTopics": ["setup", "origin", "copilot-instructions", "first day checklist"]
+      },
+      {
+        "id": "daily-development-workflows",
+        "track": "Workflow",
+        "order": 2,
+        "name": "Workflow | 日常開発フロー",
+        "questionCount": 6,
+        "estimatedTime": "5-7分",
+        "keyTopics": ["issue", "branch", "commit", "pr"]
+      },
+      {
+        "id": "collaboration-patterns",
+        "track": "Collaboration",
+        "order": 3,
+        "name": "Collaboration | fork・upstream・競合解消",
+        "questionCount": 6,
+        "estimatedTime": "6-8分",
+        "keyTopics": ["fork", "upstream", "merge", "rebase"]
+      },
+      {
+        "id": "shared-assets-multi-repo",
+        "track": "Repo",
+        "order": 4,
+        "name": "Repo | 共有資産とマルチ repo 管理",
+        "questionCount": 6,
+        "estimatedTime": "6-8分",
+        "keyTopics": ["submodule", "subtree", "single source", "sync policy"]
+      },
+      {
+        "id": "release-hotfix-operations",
+        "track": "Ops",
+        "order": 5,
+        "name": "Ops | リリース・Hotfix・運用",
+        "questionCount": 6,
+        "estimatedTime": "6-8分",
+        "keyTopics": ["ci", "release", "hotfix", "rollback"]
+      },
+      {
+        "id": "team-standards-governance",
+        "track": "Governance",
+        "order": 6,
+        "name": "Governance | チーム標準とガバナンス",
+        "questionCount": 6,
+        "estimatedTime": "6-9分",
+        "keyTopics": ["review", "security", "kpi", "content exclusion"]
+      },
+      {
+        "id": "reference-scenario-playbook",
+        "track": "Reference",
+        "order": 7,
+        "name": "Reference | リファレンスとシナリオ判断",
+        "questionCount": 6,
+        "estimatedTime": "6-9分",
+        "keyTopics": ["cheatsheet", "prompt patterns", "decision matrix", "faq"]
+      }
+    ]
+  }
+}
