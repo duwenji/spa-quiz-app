@@ -2,8 +2,8 @@
   "quizSets": [
     {
       "id": "github-copilot-agent-series",
-      "name": "GitHub Copilot Agent Series",
-      "description": "GitHub Copilot の Agent と Skill を横断的に学べる総合シリーズです。役割設計、比較、実装、運用までを体系的に理解できます。",
+      "name": "GitHub Copilot Agent & Skills 総合シリーズ",
+      "description": "GitHub Copilot の Custom Agent と Agent Skills を横断的に学べる総合シリーズです。役割設計、比較、実装、運用までを体系的に理解できます。",
       "category": "GitHub Copilot",
       "icon": "🧠",
       "questionCount": 126,
@@ -120,7 +120,7 @@
     },
     {
       "id": "github-copilot-practical-workflows",
-      "name": "GitHub Copilot 実務ワークフロー完全ガイド",
+      "name": "GitHub Copilot 実務ワークフローシリーズ",
       "description": "GitHub と GitHub Copilot を、オンボーディング、日常開発、協業、共有資産管理、運用、ガバナンスまで実務シナリオ単位で学べるクイズシリーズです。",
       "category": "GitHub Copilot",
       "icon": "🧭",
@@ -247,23 +247,9 @@
       "topics": ["cheatsheet", "prompts", "decision matrix", "faq"]
     },
     {
-      "id": "github-copilot-skills-tutorial",
-      "name": "GitHub Copilot Agent Skills 完全学習ガイド",
-      "description": "基礎から高度なトピック（複合スキル、マルチモーダル、次世代 AI 対応）まで、段階的に習得できる 90 問の包括的クイズシリーズ。企業のエンタープライズレベルでの運用も含む",
-      "category": "GitHub Copilot",
-      "icon": "⭐",
-      "questionCount": 90,
-      "difficulty": "beginner to advanced",
-      "dataPath": "github-copilot-skills-tutorial/metadata.json",
-      "parentId": null,
-      "group": "github-copilot-skills-series",
-      "level": 1,
-      "order": 1
-    },
-    {
       "id": "github-copilot-variables",
-      "name": "チャット参加者・スラッシュコマンド・チャット変数について",
-      "description": "チャット参加者・スラッシュコマンド・チャット変数を学べるクイズです",
+      "name": "チャット参加者・スラッシュコマンド・チャット変数",
+      "description": "GitHub Copilot Chat で使う参加者・スラッシュコマンド・チャット変数の役割と使い分けを学ぶクイズです。",
       "category": "GitHub Copilot",
       "icon": "🤖",
       "questionCount": 30,
@@ -276,8 +262,8 @@
     },
     {
       "id": "github-copilot-csharp-best-practices",
-      "name": "GitHub Copilot C#ベストプラクティスについて",
-      "description": "GitHub CopilotのC#での活用方法を学べるクイズです",
+      "name": "GitHub Copilot C# ベストプラクティス",
+      "description": "GitHub Copilot を C# 開発で安全かつ効果的に活用するためのベストプラクティスを学ぶクイズです。",
       "category": "GitHub Copilot",
       "icon": "💻",
       "questionCount": 30,
