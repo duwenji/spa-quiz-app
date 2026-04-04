@@ -12,7 +12,7 @@
       "parentId": null,
       "group": "github-copilot-agent-series",
       "level": 1,
-      "order": 1,
+      "order": 2,
       "estimatedLearningTime": "60-90分",
       "topics": [
         "custom agents",
@@ -130,7 +130,7 @@
       "parentId": null,
       "group": "github-copilot-practical-workflows-series",
       "level": 1,
-      "order": 2,
+      "order": 1,
       "estimatedLearningTime": "25-35分",
       "topics": ["onboarding", "pull requests", "collaboration", "release", "governance"]
     },

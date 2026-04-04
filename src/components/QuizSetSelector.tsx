@@ -41,7 +41,7 @@ const getGroupSortOrder = (
   sets: QuizSet[],
   allQuizSets: QuizSet[]
 ): number => {
-  if (groupName === null) return -1;
+  if (groupName === null) return Number.MAX_SAFE_INTEGER;
 
   const parentSet = getGroupParent(groupName, allQuizSets);
   if (parentSet) {
@@ -402,20 +402,26 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
                 {section.groups.map((group, idx) => {
                   const groupParent = getGroupParent(group.groupName, quizSets);
                   const groupSummary = getGroupSummary(group.groupName, quizSets);
+                  const groupLabel = group.groupName
+                    ? getGroupLabel(group.groupName, quizSets)
+                    : section.groups.length > 1
+                      ? '📦 その他'
+                      : '';
+                  const showGroupHeader = Boolean(groupLabel);
 
                   return (
                   <div
                     key={`${section.category}-${group.groupName ?? 'ungrouped'}-${idx}`}
                     className={
-                      group.groupName
+                      showGroupHeader
                         ? 'rounded-2xl border border-sky-200 bg-gradient-to-br from-white to-sky-50/60 p-3 sm:p-4'
                         : 'rounded-2xl p-1'
                     }
                   >
-                    {group.groupName && (
+                    {showGroupHeader && (
                       <div className="mb-4 space-y-2">
                         <h3 className="border-l-4 border-sky-500 pl-3 text-xs font-black tracking-wide text-sky-900 sm:text-base">
-                          {getGroupLabel(group.groupName, quizSets)}
+                          {groupLabel}
                         </h3>
                         {groupParent && (
                           <div className="rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2 text-xs text-slate-600 sm:text-sm">
