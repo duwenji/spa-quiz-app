@@ -14,8 +14,8 @@
       {
         "id": "fundamentals",
         "order": 1,
-        "name": "基礎知識（Fundamentals）",
-        "description": "Agent Skills の基本概念と必須知識を習得",
+        "name": "基礎知識",
+        "description": "Agent Skills の基本概念と必須知識を習得するセクション",
         "questionCount": 15,
         "difficulty": "beginner",
         "estimatedTime": "30-45 minutes",
@@ -30,7 +30,7 @@
       {
         "id": "basics",
         "order": 2,
-        "name": "基本概念（Basics）",
+        "name": "基本概念",
         "description": "Agent Skills の根本的な概念と、スキル作成フェーズの流れを理解するセクション",
         "questionCount": 15,
         "difficulty": "beginner-intermediate",
@@ -46,8 +46,8 @@
       {
         "id": "comparison",
         "order": 3,
-        "name": "比較・対比（Comparison）",
-        "description": "MCP（Model Context Protocol）との違いを理解し、適切なツール選択ができる知識",
+        "name": "比較と使い分け",
+        "description": "MCP との違いを理解し、適切なツール選択ができるようになるセクション",
         "questionCount": 15,
         "difficulty": "intermediate",
         "estimatedTime": "45-60 minutes",
@@ -62,8 +62,8 @@
       {
         "id": "implementation",
         "order": 4,
-        "name": "実装（Implementation）",
-        "description": "スキル設計・実装・テスト・デプロイの実践的な知識",
+        "name": "実装と品質",
+        "description": "スキル設計・実装・テスト・品質検証を扱う実践セクション",
         "questionCount": 15,
         "difficulty": "intermediate-advanced",
         "estimatedTime": "60-90 minutes",
@@ -79,8 +79,8 @@
       {
         "id": "advanced",
         "order": 5,
-        "name": "応用・運用（Advanced）",
-        "description": "大規模チーム・エンタープライズレベルのスキル管理と最適化",
+        "name": "応用運用",
+        "description": "大規模チームやエンタープライズ環境でのスキル管理と最適化を学ぶセクション",
         "questionCount": 15,
         "difficulty": "advanced",
         "estimatedTime": "90-120 minutes",
@@ -96,7 +96,7 @@
       {
         "id": "advanced-topics",
         "order": 6,
-        "name": "高度なパターン（Advanced Topics）",
+        "name": "高度なパターン",
         "description": "複合スキル、マルチモーダル処理、次世代 AI への対応を扱う上級セクション",
         "questionCount": 15,
         "difficulty": "advanced",
