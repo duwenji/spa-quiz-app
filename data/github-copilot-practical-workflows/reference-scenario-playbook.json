@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "`07-reference-and-scenario-playbook` でコマンド早見表を使う目的として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "ワークフローを理解した後の確認用リファレンスとして使う" },
+        { "id": "B", "text": "前提理解なしで全部暗記することを目的にする" },
+        { "id": "C", "text": "レビューを省略するために使う" },
+        { "id": "D", "text": "Issue を自動作成するためだけに使う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材では、コマンド集は『まず覚える本編』ではなく、流れを理解した後に必要な場面で参照する補助資料として位置づけられています。文脈なしの暗記は推奨されていません。"
+    },
+    {
+      "id": 2,
+      "question": "Copilot のプロンプトパターン集を実務で使う際の正しい考え方はどれですか？",
+      "options": [
+        { "id": "A", "text": "プロジェクト固有の `copilot-instructions.md` と組み合わせて使う" },
+        { "id": "B", "text": "そのまま貼れば常に最適解になる" },
+        { "id": "C", "text": "設計や要件の確認は不要になる" },
+        { "id": "D", "text": "チーム標準とは切り離して個人だけで使う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材では、汎用プロンプトは便利でも、プロジェクト固有のルールや制約と組み合わせて初めて実務で役立つと説明されています。パターン単体では文脈が不足しがちです。"
+    },
+    {
+      "id": 3,
+      "question": "新しいタスクに取りかかる際、decision matrix をどう使うのが最も適切ですか？",
+      "options": [
+        { "id": "A", "text": "まずシナリオの種類を見極め、対応する章や手順へ当てはめる" },
+        { "id": "B", "text": "ランダムに行を選んで従う" },
+        { "id": "C", "text": "Issue を読まずに matrix だけで実装を決める" },
+        { "id": "D", "text": "matrix にないケースは必ず無視する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "decision matrix は、状況を分類して適切な章や手順に案内するための道具です。教材でも、場当たり的に試すのではなく、まずシナリオを見立てることが重要だとされています。"
+    },
+    {
+      "id": 4,
+      "question": "`fork / upstream` の扱いで迷ったときに、最初に参照すべき章として適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "03. Collaboration Patterns" },
+        { "id": "B", "text": "01. Getting Started and Onboarding" },
+        { "id": "C", "text": "05. Release, Hotfix and Operations" },
+        { "id": "D", "text": "07. Diagram Legend" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材の構成では、fork、upstream、merge/rebase、conflict 解消は Chapter 03 にまとめられています。scenario index や decision matrix から該当章へ案内される設計です。"
+    },
+    {
+      "id": 5,
+      "question": "FAQ やトラブルシューティング資料の位置づけとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "例外ケースや困ったときの参照先であり、本編理解を補助する" },
+        { "id": "B", "text": "本編を読まずに代替として使う唯一の教材" },
+        { "id": "C", "text": "毎回最初から最後まで通読する必須手順" },
+        { "id": "D", "text": "レビューを自動化する専用機能" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "FAQ は疑問点の逆引きや例外状況への対応に便利ですが、教材では本編を置き換えるものではありません。ワークフロー理解を支える補助資料として使うのが適切です。"
+    },
+    {
+      "id": 6,
+      "question": "この章で『コマンドよりワークフロー文脈が重要』とされる理由として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "同じコマンドでも、いつ・なぜ使うかを誤ると実務では失敗するから" },
+        { "id": "B", "text": "コマンドは GitHub が毎日禁止しているから" },
+        { "id": "C", "text": "ワークフローを学ぶと Git が不要になるから" },
+        { "id": "D", "text": "シンタックスを知るとレビューできなくなるから" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材では、コマンドの構文だけ覚えても、どの状況で何の目的で使うかを理解していなければ実務で誤用しやすいと説明されています。文脈を先に押さえることが重要です。"
+    }
+  ]
+}
