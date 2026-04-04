@@ -169,12 +169,40 @@ const organizeBySubSeries = (sets: QuizSet[]): SubSeriesGroup[] => {
   }));
 };
 
+const getGroupPanelId = (category: string, groupName: string | null, index: number): string => {
+  const safeCategory = category
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+  const safeGroup = (groupName ?? 'ungrouped')
+    .toLowerCase()
+    .replace(/[^a-z0-9_-]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+
+  return `quiz-series-panel-${safeCategory || 'category'}-${safeGroup || 'group'}-${index}`;
+};
+
 export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorProps) => {
   const [query, setQuery] = useState('');
   const [difficulty, setDifficulty] = useState<DifficultyFilter>('all');
   const [isConditionExpanded, setIsConditionExpanded] = useState(false);
+  const [expandedGroups, setExpandedGroups] = useState<Set<string>>(() => new Set());
 
   const normalizedQuery = query.trim().toLowerCase();
+
+  const toggleGroupExpansion = (groupKey: string) => {
+    setExpandedGroups((prev) => {
+      const next = new Set(prev);
+      if (next.has(groupKey)) {
+        next.delete(groupKey);
+      } else {
+        next.add(groupKey);
+      }
+      return next;
+    });
+  };
 
   const parentSetMap = useMemo(
     () => new Map(quizSets.map((set) => [set.id, set])),
@@ -408,6 +436,9 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
                       ? '📦 その他'
                       : '';
                   const showGroupHeader = Boolean(groupLabel);
+                  const panelId = getGroupPanelId(section.category, group.groupName, idx);
+                  const isExpandableGroup = showGroupHeader;
+                  const isExpanded = !isExpandableGroup || expandedGroups.has(panelId);
 
                   return (
                   <div
@@ -420,21 +451,43 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
                   >
                     {showGroupHeader && (
                       <div className="mb-4 space-y-2">
-                        <h3 className="border-l-4 border-sky-500 pl-3 text-xs font-black tracking-wide text-sky-900 sm:text-base">
-                          {groupLabel}
-                        </h3>
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                          <h3 className="border-l-4 border-sky-500 pl-3 text-xs font-black tracking-wide text-sky-900 sm:text-base">
+                            {groupLabel}
+                          </h3>
+                          {isExpandableGroup && (
+                            <button
+                              type="button"
+                              onClick={() => toggleGroupExpansion(panelId)}
+                              aria-expanded={isExpanded}
+                              aria-controls={panelId}
+                              aria-label={`${groupLabel} の詳細を${isExpanded ? '閉じる' : '表示'}`}
+                              className="inline-flex items-center justify-center gap-2 self-start rounded-full border border-sky-200 bg-white px-3 py-1.5 text-[11px] font-bold text-sky-800 transition hover:border-sky-300 hover:bg-sky-50 focus:outline-none focus:ring-2 focus:ring-sky-200 sm:text-xs"
+                            >
+                              <span>{isExpanded ? '詳細を閉じる' : '詳細を表示'}</span>
+                              <span aria-hidden="true" className="text-sm leading-none">
+                                {isExpanded ? '−' : '+'}
+                              </span>
+                            </button>
+                          )}
+                        </div>
                         {groupParent && (
                           <div className="rounded-xl border border-slate-200/80 bg-white/80 px-3 py-2 text-xs text-slate-600 sm:text-sm">
                             <p>{groupParent.description}</p>
                             {groupSummary && (
                               <p className="mt-1 font-semibold text-slate-500">{groupSummary}</p>
                             )}
+                            {isExpandableGroup && !isExpanded && (
+                              <p className="mt-2 text-[11px] font-semibold text-sky-700 sm:text-xs">
+                                必要なときだけ詳細を開いて、クイズセットを確認できます。
+                              </p>
+                            )}
                           </div>
                         )}
                       </div>
                     )}
 
-                    <div className="space-y-4">
+                    <div id={panelId} className={isExpanded ? 'space-y-4' : 'hidden'} hidden={!isExpanded}>
                       {organizeBySubSeries(group.sets).map((subSeries) => (
                         <div key={`${group.groupName ?? 'ungrouped'}-${subSeries.label ?? 'default'}`}>
                           {subSeries.label && (
