@@ -1,6 +1,6 @@
 # KDP 登録情報一式: SPA Quiz App Guide
 
-- 生成日時: 2026-04-05 13:11:06
+- 生成日時: 2026-04-05 13:41:47
 - プロジェクト名: spa-quiz-app
 - 元メタデータ: C:\dev\apps\spa-quiz-app\.\.github\skills-config\ebook-build\spa-quiz-app.metadata.yaml
 - KDP 追加メタデータ: C:\dev\apps\spa-quiz-app\.\.github\skills-config\ebook-build\spa-quiz-app.kdp.yaml
