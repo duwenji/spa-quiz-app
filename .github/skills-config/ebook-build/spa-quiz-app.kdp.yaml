@@ -1,0 +1,26 @@
+title: SPA Quiz App Guide
+subtitle: React + TypeScriptで学ぶSPA開発とクイズUI実装
+description: >
+  React と TypeScript を使って、シングルページアプリケーションを設計・実装する流れを学ぶ実践ガイドです。
+  クイズアプリを題材に、画面設計、状態管理、UI コンポーネント分割、開発補助としての GitHub Copilot 活用までを順序立てて扱います。
+keywords:
+  - React
+  - TypeScript
+  - SPA
+  - Frontend
+  - Quiz App
+  - UI Design
+  - GitHub Copilot
+categories:
+  - Computers / Programming / JavaScript
+  - Computers / Web / General
+  - Computers / Software Development / Tools
+listPrice: "1280 JPY"
+royaltyPlan: "70%"
+territories: Worldwide
+kdpSelect: "No"
+ageRange: 指定なし
+gradeRange: 指定なし
+trimSize: "6in x 9in"
+bleed: "No bleed"
+layout: fixed-layout PDF
