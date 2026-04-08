@@ -1,13 +1,33 @@
-title: SPA Quiz App Guide
-creator: 杜 文吉
+title: "SPA Quiz App Guide"
+subtitle: "React + TypeScriptで学ぶSPA開発とクイズUI実装"
+creator: "杜 文吉"
+date: "2026-03-21"
 language: ja-JP
-rights: Copyright (c) Duwenji
-publisher: Duwenji
-date: 2026-03-21
+publisher: "Duwenji"
+rights: "Creative Commons Attribution 4.0 International License"
+identifier: "spa-quiz-app-v1"
+description: |
+  React と TypeScript を使って、シングルページアプリケーションを設計・実装する流れを学ぶ
+  実践ガイドです。
+  クイズアプリを題材に、画面設計、状態管理、UI コンポーネント分割、
+  GitHub Copilot を活用した開発補助までを順序立てて扱います。
+keywords:
+  - React
+  - TypeScript
+  - SPA
+  - Frontend
+  - Quiz App
+  - UI Design
+  - GitHub Copilot
+cover: "README.md"
 toc: true
 toc-depth: 2
-identifier: spa-quiz-app-v1
-subject:
-  - quiz
-  - react
-  - github copilot
+chapters:
+  auto-discover: true
+  dir-pattern: "^docs$"
+  file-pattern: "^.*\\.md$"
+include-readme: false
+version: "0.1"
+revision-date: "2026-04-08"
+license: "CC-BY-4.0"
+license-url: "https://creativecommons.org/licenses/by/4.0/"

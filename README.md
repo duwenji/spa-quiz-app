@@ -1,6 +1,21 @@
 # React SPA 選択問題アプリ
 
-TypeScript + React + Tailwind CSS を使用した学習用クイズ SPA（Single Page Application）です。GitHub Copilot、アーキテクチャ、開発プロセスなどをテーマにした複数のクイズセットを選び、回答→確認→解説の流れで学習できます。
+## 学習用クイズアプリ実践ガイド
+
+TypeScript + React + Tailwind CSS を用いた学習用クイズ SPA の実装と運用を、
+UI・状態管理・学習体験の設計観点から学べるガイドです。
+
+> 💡 ブラウザで https://duwenji.github.io/spa-quiz-app/ を開くと、実際のクイズ UI と学習フローをそのまま体験できます。
+
+- 著者: 杜 文吉
+- 対象: フロントエンド学習者 / React 開発者 / 教材作成者
+- テーマ: React / TypeScript / Tailwind CSS / quiz UX
+
+### このガイドで学べること
+- カテゴリ別クイズ UI の設計と実装
+- 回答履歴・進捗・分析データの扱い方
+- ダウンロード / AI 分析連携の設計パターン
+- Vite ベースの SPA 構成とビルド運用
 
 ## 🚀 機能
 

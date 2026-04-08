@@ -1,6 +1,6 @@
 # KDP 登録情報一式: SPA Quiz App Guide
 
-- 生成日時: 2026-04-05 13:41:47
+- 生成日時: 2026-04-09 00:14:38
 - プロジェクト名: spa-quiz-app
 - 元メタデータ: C:\dev\apps\spa-quiz-app\.\.github\skills-config\ebook-build\spa-quiz-app.metadata.yaml
 - KDP 追加メタデータ: C:\dev\apps\spa-quiz-app\.\.github\skills-config\ebook-build\spa-quiz-app.kdp.yaml
@@ -14,7 +14,7 @@
 | 著者 | 杜 文吉 |
 | 言語 | ja-JP |
 | 出版社 | Duwenji |
-| 権利 | Copyright (c) Duwenji |
+| 権利 | Creative Commons Attribution 4.0 International License |
 | 識別子 | spa-quiz-app-v1 |
 | 出版日 | 2026-03-21 |
 | ISBN | Kindle 版のみなら通常不要 |
