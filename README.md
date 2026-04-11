@@ -138,12 +138,12 @@ wrapper は以下の順で shared skill を探索します。
 2. `.github/skills/ebook-build`
 3. `../shared-copilot-skills/ebook-build`
 
-### 今後対応する課題
+### 現在の ebook 原稿構成
 
-- 現在の `docs/` 配下は ebook-build が期待する章構造に未対応です。
-- 不足している要素は `00-COVER.md` 相当の表紙原稿、番号付きの章ディレクトリ、章内の番号付き Markdown ファイルです。
-- skill 連携自体は追加済みですが、ebook 生成は原稿構造の整備後に正式運用します。
-- この対応は今後のタスクとして扱い、本 README では課題として明示します。
+- `docs/00-COVER.md` を表紙原稿として配置しています。
+- `docs/01-*`, `docs/02-*`, `docs/03-*` の番号付き章ディレクトリで shared `ebook-build` の標準IFに準拠しています。
+- ebook 生成は `.github/skills-config/ebook-build/invoke-build.ps1` から実行できます。
+- 実行コマンドは `npm run build:ebook` です。
 
 ## 🌐 GitHub Pagesへのデプロイ
 

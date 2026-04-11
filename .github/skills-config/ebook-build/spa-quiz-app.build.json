@@ -3,14 +3,12 @@
   "sourceRoot": ".",
   "outputDir": "./ebook-output",
   "formats": ["epub", "pdf", "kdp-markdown"],
-  "enablePageList": false,
-  "chapterDirPattern": "^docs$",
-  "chapterFilePattern": "^.*\\.md$",
-  "coverFile": "README.md",
+  "chapterDirPattern": "^\\d{2}-",
+  "chapterFilePattern": "^\\d{2}-.*\\.md$",
+  "coverFile": "00-COVER.md",
   "mermaidMode": "auto",
   "mermaidFormat": "svg",
   "failOnMermaidError": false,
   "metadataFile": "./.github/skills-config/ebook-build/spa-quiz-app.metadata.yaml",
-  "kdpMetadataFile": "./.github/skills-config/ebook-build/spa-quiz-app.kdp.yaml",
-  "preserveTemp": false
+  "kdpMetadataFile": "./.github/skills-config/ebook-build/spa-quiz-app.kdp.yaml"
 }
