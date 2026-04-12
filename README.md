@@ -134,9 +134,9 @@ npm run build:ebook
 
 wrapper は以下の順で shared skill を探索します。
 
-1. `.github/skills/shared-copilot-skills/ebook-build`
-2. `.github/skills/ebook-build`
-3. `../shared-copilot-skills/ebook-build`
+1. `../shared-copilot-skills/ebook-build`
+2. `.github/skills/shared-skills/ebook-build`
+3. `.github/skills/shared-copilot-skills/ebook-build`
 
 ### 現在の ebook 原稿構成
 
