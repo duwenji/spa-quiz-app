@@ -1,0 +1,100 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "vLLM の「Paged Attention」が解決する主な課題として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "KVキャッシュのメモリ断片化を抑えることで、メモリ使用量とスループットを最適化する" },
+        { "id": "B", "text": "ページネーション付きAPIレスポンスを自動生成する" },
+        { "id": "C", "text": "GPUの電源管理を最適化して消費電力を削減する" },
+        { "id": "D", "text": "ページキャッシュをSSDにオフロードしてメモリを解放する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "vLLM の Paged Attention は、LLM推論で使われる KVキャッシュをOSのページング技術と同様に管理することでメモリ断片化を抑制します。これにより複数リクエストを効率的にバッチ処理でき、スループットが大幅に向上します。"
+    },
+    {
+      "id": 2,
+      "question": "vLLM が「OpenAI互換API」を提供することの主なメリットとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "既存のOpenAI APIを使ったコードを変更せずにvLLMへ移行できる" },
+        { "id": "B", "text": "OpenAI社のGPT-4モデルを無料で利用できるようになる" },
+        { "id": "C", "text": "API認証をOAuthで統一できる" },
+        { "id": "D", "text": "OpenAI の利用料金を50%割引で使用できる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "vLLM はOpenAI互換APIを提供するため、`openai.ChatCompletion.create()` などOpenAI APIを使った既存コードのURLをvLLMのエンドポイントに変えるだけで移行できます。ローカルLLMへの切り替えコストを大幅に削減できます。"
+    },
+    {
+      "id": 3,
+      "question": "Ollama でモデルを取得・管理するために使うコマンドとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "ollama pull <モデル名>" },
+        { "id": "B", "text": "ollama install <モデル名>" },
+        { "id": "C", "text": "ollama fetch <モデル名>" },
+        { "id": "D", "text": "ollama download <モデル名>" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Ollama では `ollama pull <モデル名>` でモデルをローカルに取得します。取得したモデルは `/api/generate` や `/api/chat` エンドポイントを通じて推論できます。Dockerイメージの `docker pull` と同様の操作感です。"
+    },
+    {
+      "id": 4,
+      "question": "Ollama の `/api/generate` エンドポイントの主な用途として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "ローカルに配置したLLMへプロンプトを送信して推論結果を受け取る" },
+        { "id": "B", "text": "モデルの重みを新しいデータで更新（ファインチューニング）する" },
+        { "id": "C", "text": "Ollama サーバのヘルスチェックを行う" },
+        { "id": "D", "text": "LoRAアダプタを自動生成する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Ollama の `/api/generate` エンドポイントは、ローカルに配置したLLMへプロンプトをPOSTリクエストで送信して推論結果を受け取るためのAPIです。`/api/chat` は会話履歴を持つマルチターン用で、用途に応じて使い分けます。"
+    },
+    {
+      "id": 5,
+      "question": "TGI（Text Generation Inference）が「本番向け推論配信」に適している理由として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Hugging Face製で高スループット・コンテナ運用に対応し、大規模モデルを本番配信しやすい" },
+        { "id": "B", "text": "TGI はテキスト生成専用のGPUを内蔵しているため" },
+        { "id": "C", "text": "Kubernetes のオートスケーラーと独自プロトコルで直接連携できるため" },
+        { "id": "D", "text": "モデルの重みを暗号化して安全に配布できるため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "TGI は Hugging Face が開発した推論サーバで、高スループット設計・コンテナ運用・OpenAI互換APIに対応しています。Llama等の大規模モデルを本番環境でDocker/Kubernetesで安定稼働させる用途に向いています。"
+    },
+    {
+      "id": 6,
+      "question": "TGI と Ollama を比較したとき、Ollama がより適している場面はどれですか？",
+      "options": [
+        { "id": "A", "text": "ローカル開発・検証環境で手軽にLLMを試したい場合" },
+        { "id": "B", "text": "数千リクエスト/秒の本番トラフィックを処理する場合" },
+        { "id": "C", "text": "複数GPU を使ったテンソル並列推論を行う場合" },
+        { "id": "D", "text": "Hugging Face Hub から最新モデルを即座に配信する場合" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Ollama はセットアップが簡単でローカル開発・検証向けです。TGI は本番向けの高スループット設計で、大規模トラフィック処理や複数GPU対応に強みがあります。用途に応じて使い分けるのが適切です。"
+    },
+    {
+      "id": 7,
+      "question": "llama.cpp が扱う「GGUF形式」のモデルの主な特徴として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "量子化（精度を落とすことでファイルサイズ削減）されたモデル形式でCPU推論に対応している" },
+        { "id": "B", "text": "グラフィックGPU専用のバイナリ形式" },
+        { "id": "C", "text": "音声モデルのストリーミング専用フォーマット" },
+        { "id": "D", "text": "GitでバージョニングできるLFSポインタ形式" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "GGUF（GPT-Generated Unified Format）は量子化されたモデルを格納するフォーマットで、llama.cpp が採用しています。4bit量子化等でファイルサイズを大幅に削減し、GPU なし・CPU のみでも推論できるのが特徴です。"
+    },
+    {
+      "id": 8,
+      "question": "llama.cpp のCPU推論が適している場面として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "GPU環境がない開発PC・検証環境で小型LLMを手軽に試したい場合" },
+        { "id": "B", "text": "本番の高スループットAPIサーバを構築する場合" },
+        { "id": "C", "text": "マルチGPUで100Bパラメータ超の大型モデルを推論する場合" },
+        { "id": "D", "text": "音声をリアルタイムに文字起こしする場合" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "llama.cpp は GPU なしの CPU のみでも動作するため、GPUを持たない一般的な開発PCや検証環境でLLMを試す用途に適しています。大型モデルの本番高スループット配信には vLLM や TGI を選ぶのが適切です。"
+    }
+  ]
+}

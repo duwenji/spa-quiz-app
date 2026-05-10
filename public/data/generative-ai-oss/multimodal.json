@@ -1,0 +1,172 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Whisper が「音声→テキスト変換」で提供する「セグメント情報」とは何ですか？",
+      "options": [
+        { "id": "A", "text": "音声をチャンクに分割した各区間の開始時刻・終了時刻と認識テキストのペア" },
+        { "id": "B", "text": "音声ファイルのビットレートとサンプリング周波数の情報" },
+        { "id": "C", "text": "音声に含まれる話者の性別・年齢の推定情報" },
+        { "id": "D", "text": "音声ファイルのID3タグ（アーティスト・アルバム等のメタデータ）" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Whisper は音声認識結果として全体のテキストに加え、セグメントごとの情報（start/end のタイムスタンプとテキスト）を返します。動画への字幕付けや会議録の時刻マッピングに活用できます。"
+    },
+    {
+      "id": 2,
+      "question": "Whisper の「言語推定」機能が自動的に行うこととして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "音声の最初の数秒を解析して話されている言語を自動判定する" },
+        { "id": "B", "text": "テキストを翻訳して複数言語版を同時に生成する" },
+        { "id": "C", "text": "話者が使っているプログラミング言語を識別する" },
+        { "id": "D", "text": "音声ファイルのメタデータから言語コードを読み取る" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Whisper は音声の冒頭部分を解析して話されている言語を自動判定します。98言語以上をサポートしており、言語を事前に指定しなくても自動で適切な認識モデルを選択します。"
+    },
+    {
+      "id": 3,
+      "question": "Piper の主な特徴として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "軽量なローカルTTSエンジンで、低遅延・オフラインで音声合成できる" },
+        { "id": "B", "text": "クラウドAPIを使った高精度の多言語翻訳ツール" },
+        { "id": "C", "text": "テキストのリーダービリティスコアを計算するライブラリ" },
+        { "id": "D", "text": "音楽のBPMと調性を自動解析するツール" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Piper は軽量なオープンソースTTS（Text-to-Speech）エンジンです。CLIで `echo 'テキスト' | piper` と実行するだけで音声ファイルを生成でき、ローカルで低遅延・オフライン動作が可能です。"
+    },
+    {
+      "id": 4,
+      "question": "Piper と Whisper の用途の違いとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Whisper は音声→テキスト（STT）、Piper はテキスト→音声（TTS）で用途が逆" },
+        { "id": "B", "text": "どちらも音声→テキストで、対応言語の数が異なるだけ" },
+        { "id": "C", "text": "Whisper はリアルタイム通話向け、Piper はバッチ処理向け" },
+        { "id": "D", "text": "Whisper はOpenAI専用、Piper はGoogleサービスと連携" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Whisper はSpeech-to-Text（音声→テキスト）、Piper はText-to-Speech（テキスト→音声）で、処理の方向が逆です。音声アプリで両者を組み合わせることで、音声入力→LLM処理→音声出力のパイプラインが構築できます。"
+    },
+    {
+      "id": 5,
+      "question": "ComfyUI の「ノードベース画像生成」の主な特徴として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Stable Diffusionの生成工程をノードとして視覚化し、細粒度に制御しながらフローを組み立てられる" },
+        { "id": "B", "text": "画像のノードを選択してフィルターをGUI操作で適用するPhotoshop代替ツール" },
+        { "id": "C", "text": "ネットワーク上のコンピュータノードに画像を分散保存する" },
+        { "id": "D", "text": "画像ファイルのアセットをノードツリーで管理するCMS" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "ComfyUI はStable Diffusionの生成パイプライン（テキストエンコード・ノイズ除去・デコード等）をノードとして配置・接続するUIです。ControlNetやLoRAも組み込めるため、生成工程を細かく制御したいユーザーに向いています。"
+    },
+    {
+      "id": 6,
+      "question": "ComfyUI がAPI経由での自動実行をサポートする主なユースケースとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "外部スクリプトやWebアプリからPOSTリクエストで画像生成ジョブをキューに投入して自動化する" },
+        { "id": "B", "text": "ComfyUIのUIをAPIで遠隔操作してマウスクリックを自動化する" },
+        { "id": "C", "text": "生成した画像をクラウドストレージに自動同期するAPI連携" },
+        { "id": "D", "text": "画像のメタデータをREST APIでCMSへ自動投稿する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "ComfyUI の `/prompt` APIにPOSTリクエストを送ることで、外部スクリプトやWebアプリから画像生成ジョブをキューに投入して自動実行できます。大量バッチ生成や他システムとの連携に活用されます。"
+    },
+    {
+      "id": 7,
+      "question": "AUTOMATIC1111 の「txt2img」と「img2img」の違いとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "txt2imgはテキストプロンプトから画像を生成し、img2imgは既存画像を元に変換・加工する" },
+        { "id": "B", "text": "txt2imgはモノクロ、img2imgはカラー画像を生成する" },
+        { "id": "C", "text": "txt2imgは低解像度、img2imgは高解像度に対応する" },
+        { "id": "D", "text": "txt2imgはローカル実行専用、img2imgはクラウド実行専用" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "AUTOMATIC1111のtxt2imgはテキストプロンプトからゼロベースで画像を生成します。img2imgは既存の画像をインプットとして、プロンプトの指示に従って変換・加工・スタイル変換するモードです。"
+    },
+    {
+      "id": 8,
+      "question": "AUTOMATIC1111 を REST API モードで起動する主な目的として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "外部スクリプトやWebアプリからAPIリクエストで画像生成を自動化するため" },
+        { "id": "B", "text": "UIのアクセスを特定IPからのみに制限するセキュリティ強化のため" },
+        { "id": "C", "text": "複数GPU間でモデルを分散ロードするため" },
+        { "id": "D", "text": "モデルのファインチューニングをAPIで実行するため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "AUTOMATIC1111 を `--api` オプションで起動するとREST APIが有効になり、外部のPythonスクリプト・Webアプリ・CI/CDパイプラインからPOSTリクエストで画像生成を自動実行できます。大量生成や他システム連携に使われます。"
+    },
+    {
+      "id": 9,
+      "question": "InvokeAI が「実務向け機能を備えた画像生成ツール」とされる主な理由として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "モデル管理・履歴管理・Web UIを備え、継続的に画像生成を行う運用寄りの構成に向くため" },
+        { "id": "B", "text": "企業向け有料ライセンスのみで提供されるプロ版ツールであるため" },
+        { "id": "C", "text": "RTX 4090以上の高性能GPUでしか動作しないため" },
+        { "id": "D", "text": "Adobe CCと直接連携してPhotoshopレイヤーを自動生成するため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "InvokeAI はモデルの切り替え管理・生成履歴の管理・Web UIの提供を組み合わせており、継続的に画像生成業務を行う運用寄りの構成に向いています。`pip install invokeai` → `invokeai-configure` → `invokeai-web` の手順で起動できます。"
+    },
+    {
+      "id": 10,
+      "question": "Fooocus が「使いやすさ重視」と評価される主な理由として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "細かいパラメータ設定を不要にし、短時間で品質の高い画像を生成できるシンプルなUIを提供するため" },
+        { "id": "B", "text": "モデルのパラメータ数が他より少なく処理が速いため" },
+        { "id": "C", "text": "コマンドライン操作のみに対応して設定が単純なため" },
+        { "id": "D", "text": "GPUが不要でCPUのみで動作するため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Fooocus は AUTOMATIC1111 や ComfyUI と異なり、細かいパラメータ調整を意識させない設計で、シンプルなUIからプロンプトを入力するだけで高品質な画像を生成できます。画像生成の初心者や素早く試したいユーザーに向いています。"
+    },
+    {
+      "id": 11,
+      "question": "Coqui TTS の「学習済みモデルの切り替え」機能の主なメリットとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "目的（言語・話者・スタイル）に合わせて学習済みモデルをCLIで指定して使い分けられる" },
+        { "id": "B", "text": "モデルの重みをユーザーが自由に編集して音声スタイルを変更できる" },
+        { "id": "C", "text": "クラウドAPIの接続先を動的に切り替えるロードバランシング機能" },
+        { "id": "D", "text": "音声モデルをリアルタイムでA/Bテストして品質を比較する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Coqui TTS は `tts --model_name` オプションで複数の学習済みモデルを切り替えられます。日本語・英語・各種話者スタイルなど目的に合ったモデルをCLIで指定して音声合成できます。"
+    },
+    {
+      "id": 12,
+      "question": "Coqui TTS と Piper を比較したとき、Coqui TTS がより適している場面はどれですか？",
+      "options": [
+        { "id": "A", "text": "複数の学習済みモデルを切り替えて異なる話者スタイルを試したい音声アプリ開発" },
+        { "id": "B", "text": "最低限の依存パッケージでCPUのみの超軽量環境で動かしたい場合" },
+        { "id": "C", "text": "組み込みシステムでフラッシュメモリが512KB以下の超低メモリ環境" },
+        { "id": "D", "text": "ブラウザのWebSpeech APIで音声合成を行う場合" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Coqui TTS は多数の学習済みモデル（言語・話者・スタイル違い）をAPIで切り替えられる拡張性が強みです。一方 Piper は超軽量・最小依存で素早くCLI合成したい場合に適しています。用途に応じて使い分けます。"
+    },
+    {
+      "id": 13,
+      "question": "音声認識（STT）→ LLM処理 → 音声合成（TTS）のパイプラインを構築する際の典型的なOSSの組み合わせとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Whisper（STT）→ LangChain等（LLM）→ Piper または Coqui TTS（TTS）" },
+        { "id": "B", "text": "ComfyUI（STT）→ RAGFlow（LLM）→ AUTOMATIC1111（TTS）" },
+        { "id": "C", "text": "Fooocus（STT）→ Ollama（LLM）→ InvokeAI（TTS）" },
+        { "id": "D", "text": "ECharts（STT）→ Guardrails（LLM）→ Vega-Lite（TTS）" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "音声対話パイプラインの典型構成は、Whisper（音声→テキスト）→ LangChain等のLLMフレームワーク（テキスト処理・回答生成）→ Piper や Coqui TTS（テキスト→音声出力）です。それぞれのOSSが役割を分担します。"
+    },
+    {
+      "id": 14,
+      "question": "画像生成ツール（ComfyUI・AUTOMATIC1111・InvokeAI・Fooocus）の中で、生成工程を最も細粒度に制御したい場合に適しているのはどれですか？",
+      "options": [
+        { "id": "A", "text": "ComfyUI（ノードベースで各生成ステップを個別に接続・制御できる）" },
+        { "id": "B", "text": "Fooocus（パラメータを最小化して手軽さを優先している）" },
+        { "id": "C", "text": "AUTOMATIC1111（WebUI中心でノード設計機能がない）" },
+        { "id": "D", "text": "InvokeAI（履歴管理が中心で生成フロー制御機能がない）" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "ComfyUI はStable Diffusionの各生成ステップ（CLIPエンコード・サンプリング・デコード等）をノードとして個別に配置・接続できるため、生成工程を最も細粒度に制御できます。ControlNetやLoRAも組み込んで複雑なフローを設計できます。"
+    }
+  ]
+}

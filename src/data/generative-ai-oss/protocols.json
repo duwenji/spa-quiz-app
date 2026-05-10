@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "MCP（Model Context Protocol）において「JSON-RPC」が担う役割として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "LLMホストとMCPサーバ間の通信プロトコルとして、メソッド呼び出しと応答を標準形式で行う" },
+        { "id": "B", "text": "LLMのモデルファイルをJSON形式でシリアライズして保存する" },
+        { "id": "C", "text": "REST APIのリクエストボディをJSONスキーマで検証する" },
+        { "id": "D", "text": "WebSocketでブラウザとサーバ間のバイナリ通信を行う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "MCPはJSON-RPC 2.0をベースとした通信プロトコルです。LLMホスト（Claude Desktop等）とMCPサーバ間で `initialize`・`tools/list`・`tools/call` 等のメソッドをJSON形式でやり取りします。"
+    },
+    {
+      "id": 2,
+      "question": "MCP の基本フローである「initialize → tools/list → tools/call」の各ステップの意味として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "接続確立・利用可能なツール一覧の取得・ツールの実行という3段階の基本シーケンス" },
+        { "id": "B", "text": "データベース初期化・テーブル一覧取得・SQLクエリ実行の3段階" },
+        { "id": "C", "text": "LLMモデルのロード・プロンプト作成・推論実行の3段階" },
+        { "id": "D", "text": "コンテナ起動・ポートバインド・ヘルスチェックの3段階" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`initialize` でMCPホストとサーバが接続・ネゴシエーションし、`tools/list` でサーバが公開するツール一覧（名前・スキーマ）を取得し、`tools/call` で特定ツールに引数を渡して実行します。この3ステップがMCPの基本シーケンスです。"
+    },
+    {
+      "id": 3,
+      "question": "MCPサーバが「ツールを公開する」とはどういう意味ですか？",
+      "options": [
+        { "id": "A", "text": "サーバが実行できる機能（ファイル操作・DB検索・API呼び出し等）をJSONスキーマで定義してLLMに提供する" },
+        { "id": "B", "text": "npmパッケージとしてツールをパブリッシュしてインターネットで公開する" },
+        { "id": "C", "text": "サーバがHTMLページとしてツールUIをブラウザに提供する" },
+        { "id": "D", "text": "開発ツール（デバッガ・プロファイラ）をIDEプラグインとして公開する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "MCPサーバがツールを公開するとは、`tools/list` で返す各ツールの名前・説明・引数スキーマをLLMホストに登録することです。LLMはこの情報を元にどのツールをいつ呼び出すか判断し、`tools/call` で実行を依頼します。"
+    },
+    {
+      "id": 4,
+      "question": "MCPサーバを「filesystem・SQL・APIサーバ」として実装する場合、共通して必要な実装要素として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "tools/list で公開するツールのJSONスキーマ定義と、tools/call を受け取って実行する処理" },
+        { "id": "B", "text": "HTTP Webサーバのルーティングとミドルウェアの実装" },
+        { "id": "C", "text": "OAuth認証フローとJWTトークン検証の実装" },
+        { "id": "D", "text": "データベースのマイグレーションスクリプトとシードデータ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "filesystemサーバ・SQLサーバ・APIサーバいずれの場合も、`tools/list` で提供するツールのJSONスキーマ（名前・引数定義）と、`tools/call` リクエストを受け取って実際の処理（ファイル読み書き・SQLクエリ実行・HTTP呼び出し）を行う部分が必要です。"
+    },
+    {
+      "id": 5,
+      "question": "バックエンド統合でMCPサーバの設定をファイルから読み込む際に抽出すべき主な情報として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "MCPサーバのコマンド・引数・環境変数（接続先・認証情報等）を設定ファイルから読み取る" },
+        { "id": "B", "text": "LLMのモデルファイルパスとGPUメモリ割り当て設定を読み取る" },
+        { "id": "C", "text": "CSSテーマとカラースキームの設定をJSONから読み取る" },
+        { "id": "D", "text": "Dockerネットワーク設定とポートマッピングを読み取る" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "MCPサーバの設定ファイル（claude_desktop_config.json等）には各サーバの `command`（実行コマンド）・`args`（引数）・`env`（接続先URLや認証情報等の環境変数）が記述されます。バックエンドはこれらを読み込んでサーバプロセスを起動・管理します。"
+    },
+    {
+      "id": 6,
+      "question": "バックエンドからMCPサーバの `tools/call` を呼び出すJSON-RPCリクエストの必須要素として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "jsonrpc・method（tools/call）・id・params（name: ツール名、arguments: 引数オブジェクト）" },
+        { "id": "B", "text": "Content-Type・Authorization・X-API-Keyの3つのHTTPヘッダ" },
+        { "id": "C", "text": "ツール名・実行タイムアウト・最大リトライ回数・ログレベルの4フィールド" },
+        { "id": "D", "text": "モデル名・プロンプト・temperature・max_tokensの4フィールド" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "MCPの `tools/call` JSON-RPCリクエストは `{\"jsonrpc\": \"2.0\", \"method\": \"tools/call\", \"id\": 1, \"params\": {\"name\": \"<ツール名>\", \"arguments\": {<引数>}}}` の形式です。`jsonrpc`・`method`・`id`・`params` が必須要素です。"
+    }
+  ]
+}

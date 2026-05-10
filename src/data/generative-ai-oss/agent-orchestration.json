@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "LangChain の「チェーン構築」機能が解決する主な課題として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "GPU のメモリ使用量を自動最適化すること" },
+        { "id": "B", "text": "複数のLLM呼び出しやツール操作を組み合わせた処理パイプラインを構築すること" },
+        { "id": "C", "text": "音声ファイルをリアルタイムに文字起こしすること" },
+        { "id": "D", "text": "コンテナのオーケストレーションを自動化すること" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "LangChain のチェーン構築機能は、複数のLLM呼び出しやツール操作、データ変換を組み合わせた処理パイプラインを構成するための主要機能です。単発のプロンプト実行では実現しにくい複雑なフローを扱えます。"
+    },
+    {
+      "id": 2,
+      "question": "LangChain が「複数LLMサポート」を提供する主なメリットとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "OpenAI・Anthropic・Ollama 等を共通インターフェースで切り替えられる" },
+        { "id": "B", "text": "複数の GPU を並列に動作させる分散処理を実現できる" },
+        { "id": "C", "text": "複数の音声モデルを同時に推論できる" },
+        { "id": "D", "text": "複数のデータベースに同時書き込みできる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "LangChain は OpenAI・Anthropic・Ollama 等の異なるLLMプロバイダを共通インターフェースで扱えるため、コードを大きく変えずにモデルを切り替えられます。これにより本番環境でのプロバイダ変更が容易になります。"
+    },
+    {
+      "id": 3,
+      "question": "LangGraph において「状態オブジェクト」が果たす役割として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "ノード間で共有され、各ノードが受け取り・更新して次に渡すデータの入れ物" },
+        { "id": "B", "text": "モデルのパラメータを保持するファイル形式" },
+        { "id": "C", "text": "HTTPリクエストのセッション情報を管理するクッキー" },
+        { "id": "D", "text": "コンテナイメージのレイヤー情報" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "LangGraph では状態オブジェクト（State）をノード間で共有します。各ノードは状態を受け取り、処理後に更新した状態を返します。これによりノード間でデータを引き継ぎながら処理フローを制御できます。"
+    },
+    {
+      "id": 4,
+      "question": "LangChain に対して LangGraph を選ぶべき場面として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "単発のプロンプトを1回だけ実行したい場合" },
+        { "id": "B", "text": "条件分岐・再試行・ループを含む実運用の対話フローを設計したい場合" },
+        { "id": "C", "text": "GPU ドライバのバージョン管理が必要な場合" },
+        { "id": "D", "text": "静的HTMLページを生成したい場合" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "LangGraph は状態を持つエージェントワークフローをグラフとして定義し、条件分岐・再試行・ループを明示的に制御できます。単発のプロンプト実行には LangChain が向き、複数ステップの実運用フローには LangGraph が適しています。"
+    },
+    {
+      "id": 5,
+      "question": "AutoGen の UserProxyAgent が担う主な役割として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "会話の起点となり、タスクを順番にエージェントへ渡す" },
+        { "id": "B", "text": "LLM の重みを更新するファインチューニングを実行する" },
+        { "id": "C", "text": "ベクトルDBへの文書インデックスを管理する" },
+        { "id": "D", "text": "コンテナのヘルスチェックを定期実行する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "AutoGen の UserProxyAgent は会話の起点となり、タスクを各エージェントへ順番に渡す役割を持ちます。AssistantAgent や Planner/Reviewer といった役割エージェントと対話することで、計画→レビューのような複数ターン対話を実現します。"
+    },
+    {
+      "id": 6,
+      "question": "AutoGen で「計画担当 → レビュー担当」という2ターン対話を実現するために使う2種のエージェントの組み合わせとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "AssistantAgent（Planner）と AssistantAgent（Reviewer）" },
+        { "id": "B", "text": "UserProxyAgent のみ1つを繰り返し呼び出す" },
+        { "id": "C", "text": "LangChain の ChainAgent と RetrieverAgent" },
+        { "id": "D", "text": "CrewAI の Crew と Task" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "AutoGen では AssistantAgent に role（Planner / Reviewer 等）を与えて複数作成し、UserProxy が起点となってそれぞれと対話します。計画担当が出力した内容をレビュー担当が評価する2ターン対話が典型的な構成です。"
+    },
+    {
+      "id": 7,
+      "question": "CrewAI の Agent・Task・Crew の3層構造において、全体の実行順を制御する責務を持つのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Agent" },
+        { "id": "B", "text": "Task" },
+        { "id": "C", "text": "Crew" },
+        { "id": "D", "text": "LLM モデル本体" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "CrewAI では Crew が Task の実行順を制御し、全体フローを管理します。Agent は役割と目標を持つ実行者、Task は期待出力と担当 Agent を定義する単位です。Crew が Sequential Process でこれらを統括します。"
+    },
+    {
+      "id": 8,
+      "question": "CrewAI の Sequential Process を使ったとき、前段のタスク結果はどのように次段へ渡されますか？",
+      "options": [
+        { "id": "A", "text": "共有ファイルシステムへ保存して手動で読み込む" },
+        { "id": "B", "text": "前段タスクの出力が次段タスクの入力として自動的に引き継がれる" },
+        { "id": "C", "text": "それぞれ独立して実行され、結果は統合されない" },
+        { "id": "D", "text": "ランダムな順序で実行されるため順序保証はない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "CrewAI の Sequential Process では、前段タスクの出力が次段タスクの文脈として自動的に引き継がれます。分析担当 → レビュー担当のように段階的に品質を高める設計が可能です。"
+    },
+    {
+      "id": 9,
+      "question": "Semantic Kernel の「Prompt Function」と「Tool Function」の違いとして最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Prompt Function はLLMへのプロンプトを関数として再利用し、Tool Function は外部API等を呼び出す" },
+        { "id": "B", "text": "両者は同義であり、違いはない" },
+        { "id": "C", "text": "Prompt Function は Python 専用で、Tool Function は C# 専用" },
+        { "id": "D", "text": "Prompt Function は画像生成、Tool Function はテキスト生成に使う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Semantic Kernel では Prompt Function がプロンプトテンプレートを関数として登録・再利用できる仕組みで、Tool Function（Native Function）は外部APIや通常の関数をLLMから呼び出す仕組みです。Function Calling で両者を組み合わせます。"
+    },
+    {
+      "id": 10,
+      "question": "Semantic Kernel が C# と Python の両言語に対応している主な意義として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "既存の C# エンタープライズアプリにLLM機能を組み込む際の選択肢を広げるため" },
+        { "id": "B", "text": "2言語を同時に実行して処理速度を2倍にするため" },
+        { "id": "C", "text": "C# と Python を自動で相互変換するコンパイラを提供するため" },
+        { "id": "D", "text": "GPUドライバを言語に合わせて自動インストールするため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Semantic Kernel は C# と Python 両方に対応しており、既存の .NET エンタープライズアプリケーションへ LLM 機能を組み込みたい場合や、Python ベースの ML チームが導入する場合など、組織の技術スタックに合わせて選択できます。"
+    }
+  ]
+}

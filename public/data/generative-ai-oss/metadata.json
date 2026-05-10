@@ -1,0 +1,92 @@
+{
+  "series": {
+    "id": "generative-ai-oss",
+    "name": "生成AI活用OSS 実践ガイド 総合シリーズ",
+    "description": "LangChain・RAG・推論サーバ・評価・マルチモーダル・MCPなど生成AI関連OSSを9カテゴリ全42ツールにわたって横断的に学べる総合クイズシリーズです。",
+    "version": "1.0.0",
+    "totalQuestions": 86,
+    "sections": [
+      {
+        "id": "genai-oss-agent-orchestration",
+        "track": "Agent Orchestration",
+        "order": 1,
+        "name": "OSS | エージェント・オーケストレーション",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["LangChain", "LangGraph", "AutoGen", "CrewAI", "Semantic Kernel"]
+      },
+      {
+        "id": "genai-oss-rag",
+        "track": "RAG",
+        "order": 2,
+        "name": "OSS | RAGフレームワーク",
+        "questionCount": 14,
+        "estimatedTime": "10-15分",
+        "keyTopics": ["LlamaIndex", "Haystack", "txtai", "RAGFlow", "PrivateGPT", "Quivr", "Onyx"]
+      },
+      {
+        "id": "genai-oss-inference",
+        "track": "Inference",
+        "order": 3,
+        "name": "OSS | LLM推論サーバー",
+        "questionCount": 8,
+        "estimatedTime": "6-10分",
+        "keyTopics": ["vLLM", "Ollama", "TGI", "llama.cpp"]
+      },
+      {
+        "id": "genai-oss-ui",
+        "track": "UI",
+        "order": 4,
+        "name": "OSS | チャットUI・ノーコード",
+        "questionCount": 14,
+        "estimatedTime": "10-15分",
+        "keyTopics": ["Open WebUI", "Dify", "Flowise", "LibreChat", "Chatbot UI", "LobeChat", "AnythingLLM"]
+      },
+      {
+        "id": "genai-oss-evaluation",
+        "track": "Evaluation",
+        "order": 5,
+        "name": "OSS | 評価・モニタリング",
+        "questionCount": 8,
+        "estimatedTime": "6-10分",
+        "keyTopics": ["promptfoo", "Ragas", "Langfuse", "Guardrails"]
+      },
+      {
+        "id": "genai-oss-multimodal",
+        "track": "Multimodal",
+        "order": 6,
+        "name": "OSS | マルチモーダル",
+        "questionCount": 14,
+        "estimatedTime": "10-15分",
+        "keyTopics": ["Whisper", "Piper", "ComfyUI", "AUTOMATIC1111", "InvokeAI", "Fooocus", "Coqui TTS"]
+      },
+      {
+        "id": "genai-oss-visualization",
+        "track": "Visualization",
+        "order": 7,
+        "name": "OSS | データ可視化",
+        "questionCount": 4,
+        "estimatedTime": "3-5分",
+        "keyTopics": ["Vega-Lite", "ECharts"]
+      },
+      {
+        "id": "genai-oss-protocols",
+        "track": "Protocols",
+        "order": 8,
+        "name": "OSS | プロトコル・MCP",
+        "questionCount": 6,
+        "estimatedTime": "5-8分",
+        "keyTopics": ["MCP", "MCP Servers", "JSON-RPC", "backend integration"]
+      },
+      {
+        "id": "genai-oss-code-generation",
+        "track": "Code Generation",
+        "order": 9,
+        "name": "OSS | コード生成ツール",
+        "questionCount": 8,
+        "estimatedTime": "6-10分",
+        "keyTopics": ["Aider", "Continue", "Tabby", "OpenHands"]
+      }
+    ]
+  }
+}

@@ -4,11 +4,13 @@
 
 TypeScript + React + Vite + Tailwind CSS を用いた学習用クイズ SPA の実装・運用・教材作成フローをまとめたガイドです。
 
+> 💡 このアプリは https://duwenji.github.io/spa-quiz-app/ で公開中です。関連トピックをクイズ形式で復習できます。
+
 - 著者: 杜 文吉
 - 対象: フロントエンド学習者 / React 開発者 / 教材作成者
-- 公開サイト: https://duwenji.github.io/spa-quiz-app/
+- テーマ: `TypeScript` / `React` / `Vite` / `Tailwind CSS`
 
-### 収録内容
+### この教材で学べること
 
 - クイズ受験者向けの利用ガイド
 - クイズ作成者向けの取り込み・運用ガイド
