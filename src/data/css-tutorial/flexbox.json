@@ -249,120 +249,191 @@
       "question": "Flexbox演習パターン に関する説明として最も適切なものはどれですか？",
       "options": [
         {
-          "id": "A",
-          "text": "可変領域でも高さを固定pxにする"
-        },
-        {
-          "id": "B",
-          "text": "スクロールが必要でも overflow を一切設定しない"
-        },
-        {
-          "id": "C",
-          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
-        },
-        {
-          "id": "D",
-          "text": "全要素に同じ flex 値だけを設定する"
-        }
-      ],
-      "correctAnswer": "C",
-      "explanation": "実践では固定領域と可変領域の責務分離が重要です。"
-    },
-    {
-      "id": 12,
-      "question": "Flexbox演習パターン を実装する際の推奨アプローチはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "可変領域でも高さを固定pxにする"
-        },
-        {
-          "id": "B",
-          "text": "スクロールが必要でも overflow を一切設定しない"
-        },
-        {
-          "id": "C",
-          "text": "全要素に同じ flex 値だけを設定する"
-        },
-        {
-          "id": "D",
-          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
-        }
-      ],
-      "correctAnswer": "D",
-      "explanation": "実践では固定領域と可変領域の責務分離が重要です。 実装時は一貫したルールを保つことが重要です。"
-    },
-    {
-      "id": 13,
-      "question": "Flexbox演習パターン の観点で推奨されるアプローチはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
-        },
-        {
-          "id": "B",
-          "text": "可変領域でも高さを固定pxにする"
-        },
-        {
-          "id": "C",
-          "text": "スクロールが必要でも overflow を一切設定しない"
-        },
-        {
-          "id": "D",
-          "text": "全要素に同じ flex 値だけを設定する"
-        }
-      ],
-      "correctAnswer": "A",
-      "explanation": "「ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する」はFlexbox演習パターンにおける推奨アプローチです。実装の安定性と保守性を高めます。"
-    },
-    {
-      "id": 14,
-      "question": "Flexbox演習パターン がうまく機能しない場合、最初に見直すべき点はどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "可変領域でも高さを固定pxにする"
-        },
-        {
-          "id": "B",
-          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
-        },
-        {
-          "id": "C",
-          "text": "スクロールが必要でも overflow を一切設定しない"
-        },
-        {
-          "id": "D",
-          "text": "全要素に同じ flex 値だけを設定する"
-        }
-      ],
-      "correctAnswer": "B",
-      "explanation": "実践では固定領域と可変領域の責務分離が重要です。 問題切り分けでは前提条件の確認が有効です。"
-    },
-    {
-      "id": 15,
-      "question": "Flexbox演習パターン を使ったレイアウトで保守性を高める選択はどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "可変領域でも高さを固定pxにする"
-        },
-        {
-          "id": "B",
-          "text": "スクロールが必要でも overflow を一切設定しない"
-        },
-        {
-          "id": "C",
-          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
-        },
-        {
-          "id": "D",
-          "text": "全要素に同じ flex 値だけを設定する"
-        }
-      ],
-      "correctAnswer": "C",
-      "explanation": "実践では固定領域と可変領域の責務分離が重要です。 チーム開発では再利用性と予測可能性が重要です。"
-    }
-  ]
-}
+          {
+            "id": "css-tutorial-flexbox",
+            "title": "Flexbox レイアウト",
+            "description": "Flexコンテナ、Flexアイテム、演習パターンを通じて1次元レイアウト設計を確認する15問セット",
+            "difficulty": "beginner to intermediate",
+            "questions": [
+              {
+                "id": 1,
+                "question": "`display: flex` を指定した要素について、教材の説明として正しいものはどれですか？",
+                "options": [
+                  { "id": "A", "text": "フレックスコンテナになり、直下の子要素の配置を制御できる" },
+                  { "id": "B", "text": "自動的に Grid コンテナにもなる" },
+                  { "id": "C", "text": "自身の親要素だけが flex アイテムになる" },
+                  { "id": "D", "text": "高さ伝播とは無関係で、見た目は変わらない" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "教材では、`display: flex` を指定した要素がフレックスコンテナになり、直下の子要素を flex アイテムとして扱うと説明しています。"
+              },
+              {
+                "id": 2,
+                "question": "`flex-direction: row` のとき、教材で説明されている主軸と交差軸の関係として正しいものはどれですか？",
+                "options": [
+                  { "id": "A", "text": "主軸は縦方向、交差軸は横方向" },
+                  { "id": "B", "text": "主軸は横方向、交差軸は縦方向" },
+                  { "id": "C", "text": "主軸も交差軸も横方向" },
+                  { "id": "D", "text": "主軸と交差軸は `gap` の値で決まる" }
+                ],
+                "correctAnswer": "B",
+                "explanation": "教材では `row` の場合、主軸が横方向、交差軸が縦方向になると示されています。"
+              },
+              {
+                "id": 3,
+                "question": "`justify-content` が制御するものとして正しいのはどれですか？",
+                "options": [
+                  { "id": "A", "text": "主軸方向の配置" },
+                  { "id": "B", "text": "交差軸方向の配置" },
+                  { "id": "C", "text": "アイテムの縮小率" },
+                  { "id": "D", "text": "各アイテムの初期サイズ" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "教材では、`justify-content` は主軸方向、`align-items` は交差軸方向を制御するプロパティとして整理されています。"
+              },
+              {
+                "id": 4,
+                "question": "`align-items` のデフォルト値として教材に示されているものはどれですか？",
+                "options": [
+                  { "id": "A", "text": "center" },
+                  { "id": "B", "text": "flex-start" },
+                  { "id": "C", "text": "stretch" },
+                  { "id": "D", "text": "space-between" }
+                ],
+                "correctAnswer": "C",
+                "explanation": "フレックスコンテナプロパティ一覧では、`align-items` のデフォルトは `stretch` と説明されています。"
+              },
+              {
+                "id": 5,
+                "question": "教材が `gap` プロパティを使う理由として最も適切なものはどれですか？",
+                "options": [
+                  { "id": "A", "text": "アイテム間の余白を統一的に管理できるため" },
+                  { "id": "B", "text": "主軸を縦方向に固定するため" },
+                  { "id": "C", "text": "`flex-wrap` を自動で有効にするため" },
+                  { "id": "D", "text": "`min-height: 0` を不要にするため" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "教材では `gap` を、flex アイテム間の間隔を統一的に管理する方法として紹介しています。"
+              },
+              {
+                "id": 6,
+                "question": "教材で `flex: 1` のショートハンドが意味するものとして正しいのはどれですか？",
+                "options": [
+                  { "id": "A", "text": "`flex: 1 1 0%` で、余白に応じて伸び縮みする" },
+                  { "id": "B", "text": "`flex: 0 0 auto` で、固定サイズになる" },
+                  { "id": "C", "text": "`flex: 1 0 auto` で、絶対に縮まない" },
+                  { "id": "D", "text": "`flex: auto 1 0` で、常に親幅いっぱいになる" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "教材では `flex: 1` を `flex: 1 1 0%` と同等のショートハンドとして説明しています。"
+              },
+              {
+                "id": 7,
+                "question": "教材で固定サイズ要素を作る例として示されている指定はどれですか？",
+                "options": [
+                  { "id": "A", "text": "`flex: 1 1 0%`" },
+                  { "id": "B", "text": "`flex: 0 0 auto`" },
+                  { "id": "C", "text": "`flex: 1 0 auto`" },
+                  { "id": "D", "text": "`flex: auto`" }
+                ],
+                "correctAnswer": "B",
+                "explanation": "教材では `flex: 0 0 auto` を、伸縮させない固定サイズ要素の例として紹介しています。"
+              },
+              {
+                "id": 8,
+                "question": "flex 子要素に `min-height: 0` が必須とされる主な理由は何ですか？",
+                "options": [
+                  { "id": "A", "text": "デフォルトの `min-height: auto` がコンテンツサイズを保証し、親を押し広げるため" },
+                  { "id": "B", "text": "`justify-content` を使うための構文上の必須条件だから" },
+                  { "id": "C", "text": "`gap` が効かなくなるのを防ぐため" },
+                  { "id": "D", "text": "`display: flex` を `inline-flex` に変換するため" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "教材では、flex 子要素のデフォルト `min-height: auto` がコンテンツサイズを守ろうとしてレイアウトを押し広げる問題を説明しています。"
+              },
+              {
+                "id": 9,
+                "question": "教材でヘッダーやフッターのような固定領域を縮ませないために使うプロパティはどれですか？",
+                "options": [
+                  { "id": "A", "text": "`justify-content: flex-start`" },
+                  { "id": "B", "text": "`align-self: center`" },
+                  { "id": "C", "text": "`flex-shrink: 0`" },
+                  { "id": "D", "text": "`flex-wrap: nowrap`" }
+                ],
+                "correctAnswer": "C",
+                "explanation": "教材では `flex-shrink: 0` によってヘッダーやフッターのような固定サイズ要素を保護すると説明しています。"
+              },
+              {
+                "id": 10,
+                "question": "教材の縦3段レイアウト例で、可変コンテンツ領域に設定されている組み合わせとして正しいものはどれですか？",
+                "options": [
+                  { "id": "A", "text": "`flex: 1; min-height: 0; overflow-y: auto;`" },
+                  { "id": "B", "text": "`height: 100vh; overflow: hidden;`" },
+                  { "id": "C", "text": "`flex-shrink: 0; align-self: center;`" },
+                  { "id": "D", "text": "`position: absolute; bottom: 0;`" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "フレックスアイテム教材の例では、本文領域を `flex: 1`, `min-height: 0`, `overflow-y: auto` で構成しています。"
+              },
+              {
+                "id": 11,
+                "question": "Flexbox 演習1 の「ヘッダー＋2カラム＋フッター」で、サイドバーに設定されている条件として正しいものはどれですか？",
+                "options": [
+                  { "id": "A", "text": "`width: 200px` と `flex-shrink: 0`" },
+                  { "id": "B", "text": "`flex: 1` と `min-width: 0`" },
+                  { "id": "C", "text": "`position: fixed` と `left: 0`" },
+                  { "id": "D", "text": "`grid-column: span 2`" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "演習1 の解答例では、サイドバーを `width: 200px` と `flex-shrink: 0` で固定幅にしています。"
+              },
+              {
+                "id": 12,
+                "question": "Flexbox 演習2 のカードリストで、6枚のカードを3列で折り返し表示するために使っている指定はどれですか？",
+                "options": [
+                  { "id": "A", "text": "`flex-wrap: wrap`" },
+                  { "id": "B", "text": "`justify-content: center` のみ" },
+                  { "id": "C", "text": "`position: absolute`" },
+                  { "id": "D", "text": "`grid-template-areas`" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "演習2 では `.card-list` に `display: flex` と `flex-wrap: wrap` を指定して折り返しを実現しています。"
+              },
+              {
+                "id": 13,
+                "question": "Flexbox 演習2 のカード幅の計算式として教材に示されているものはどれですか？",
+                "options": [
+                  { "id": "A", "text": "`calc(50% - 8px)`" },
+                  { "id": "B", "text": "`calc(33.333% - 11px)`" },
+                  { "id": "C", "text": "`calc(25% - 4px)`" },
+                  { "id": "D", "text": "`calc(100% - 16px)`" }
+                ],
+                "correctAnswer": "B",
+                "explanation": "教材では、3列で gap を考慮するために `flex: 0 0 calc(33.333% - 11px)` を使っています。"
+              },
+              {
+                "id": 14,
+                "question": "Flexbox 演習3 で単一要素を縦横中央に配置するために、コンテナへ指定する組み合わせはどれですか？",
+                "options": [
+                  { "id": "A", "text": "`justify-content: center` と `align-items: center`" },
+                  { "id": "B", "text": "`flex-wrap: wrap` と `gap: 16px`" },
+                  { "id": "C", "text": "`flex-shrink: 0` と `min-width: 0`" },
+                  { "id": "D", "text": "`grid-template-columns` と `grid-template-rows`" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "演習3 の解答例では、`justify-content: center` と `align-items: center` の組み合わせで縦横中央を実現しています。"
+              },
+              {
+                "id": 15,
+                "question": "Flexbox 演習1 のメイン領域に `min-width: 0` を付けている主な理由として適切なものはどれですか？",
+                "options": [
+                  { "id": "A", "text": "横方向の flex レイアウトで、内容によるはみ出しを抑えて可変幅を成立させるため" },
+                  { "id": "B", "text": "高さ伝播を無効化するため" },
+                  { "id": "C", "text": "サイドバー幅を 200px に固定するため" },
+                  { "id": "D", "text": "`flex-wrap` を自動で有効にするため" }
+                ],
+                "correctAnswer": "A",
+                "explanation": "演習1 の解答例では、横方向の flex でメイン領域を安全に縮められるよう `min-width: 0` を設定しています。"
+              }
+            ]
+          }

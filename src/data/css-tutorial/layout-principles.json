@@ -6,483 +6,243 @@
   "questions": [
     {
       "id": 1,
-      "question": "高さ伝播レイヤー に関する説明として最も適切なものはどれですか？",
+      "question": "高さ伝播レイヤー設計の原則1として教材に示されている内容はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
-        },
-        {
-          "id": "B",
-          "text": "任意の階層で calc(100vh - npx) を多用する"
-        },
-        {
-          "id": "C",
-          "text": "高さ伝播は height:100% だけで常に成立する"
-        },
-        {
-          "id": "D",
-          "text": "レイヤー構造を意識せず都度ハックを追加する"
-        }
+        { "id": "A", "text": "固定値はルートのみで使う" },
+        { "id": "B", "text": "中間レイヤーでも `100vh` を多用する" },
+        { "id": "C", "text": "`height: auto` だけで高さ伝播を完結させる" },
+        { "id": "D", "text": "`position: fixed` を主軸にレイヤーを作る" }
       ],
       "correctAnswer": "A",
-      "explanation": "高さ伝播はレイアウト崩れ防止の基盤です。"
+      "explanation": "教材では `html`, `body`, `#root` だけを固定値の置き場とし、中間層では `100vh` や `calc()` を避けると説明しています。"
     },
     {
       "id": 2,
-      "question": "高さ伝播レイヤー を実装する際の推奨アプローチはどれですか？",
+      "question": "教材が中間レイヤーで `calc(100vh - 120px)` を禁止している理由として適切なものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "任意の階層で calc(100vh - npx) を多用する"
-        },
-        {
-          "id": "B",
-          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
-        },
-        {
-          "id": "C",
-          "text": "高さ伝播は height:100% だけで常に成立する"
-        },
-        {
-          "id": "D",
-          "text": "レイヤー構造を意識せず都度ハックを追加する"
-        }
+        { "id": "A", "text": "ヘッダー高さ変更やモバイルのビューポート変化に追従できなくなるため" },
+        { "id": "B", "text": "`calc()` は CSS Grid でしか使えないため" },
+        { "id": "C", "text": "`100vh` は常に `100%` より小さいため" },
+        { "id": "D", "text": "`calc()` を使うと `overflow-y: auto` が無効になるため" }
       ],
-      "correctAnswer": "B",
-      "explanation": "高さ伝播はレイアウト崩れ防止の基盤です。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、固定値依存によりヘッダー変更やモバイルのアドレスバー変化に追従できない点を問題視しています。"
     },
     {
       "id": 3,
-      "question": "高さ伝播レイヤー の観点で推奨されるアプローチはどれですか？",
+      "question": "高さを下位レイヤーへ伝播する方法として、教材が推奨しているものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "任意の階層で calc(100vh - npx) を多用する"
-        },
-        {
-          "id": "B",
-          "text": "高さ伝播は height:100% だけで常に成立する"
-        },
-        {
-          "id": "C",
-          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
-        },
-        {
-          "id": "D",
-          "text": "レイヤー構造を意識せず都度ハックを追加する"
-        }
+        { "id": "A", "text": "`display: flex; flex-direction: column;` と `flex: 1` を使う" },
+        { "id": "B", "text": "子要素へ `height: 100%` だけを並べる" },
+        { "id": "C", "text": "各層に `position: absolute` を指定する" },
+        { "id": "D", "text": "`overflow: hidden` を多段で指定する" }
       ],
-      "correctAnswer": "C",
-      "explanation": "「固定値はルートに限定し、子要素は flex:1 で高さを伝播させる」は高さ伝播レイヤーにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+      "correctAnswer": "A",
+      "explanation": "教材では「伝播は flex」を原則にし、親を縦 flex コンテナ、子を `flex: 1` として高さを伝える設計を推奨しています。"
     },
     {
       "id": 4,
-      "question": "高さ伝播レイヤー がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "教材が `height: 100%` だけでは不十分だと説明している理由はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "任意の階層で calc(100vh - npx) を多用する"
-        },
-        {
-          "id": "B",
-          "text": "高さ伝播は height:100% だけで常に成立する"
-        },
-        {
-          "id": "C",
-          "text": "レイヤー構造を意識せず都度ハックを追加する"
-        },
-        {
-          "id": "D",
-          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
-        }
+        { "id": "A", "text": "親の高さが明示されていないと期待通りに効かないため" },
+        { "id": "B", "text": "`height: 100%` は flex と同時に使えないため" },
+        { "id": "C", "text": "`height: 100%` は常に viewport 基準になるため" },
+        { "id": "D", "text": "Grid 内でのみ有効な指定だから" }
       ],
-      "correctAnswer": "D",
-      "explanation": "高さ伝播はレイアウト崩れ防止の基盤です。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、単に `height: 100%` を重ねても親側の高さ条件が揃わないと伝播が成立しないと説明しています。"
     },
     {
       "id": 5,
-      "question": "高さ伝播レイヤー を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "高さ伝播の完全な実装例で `.app-main` に設定されている組み合わせとして正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
-        },
-        {
-          "id": "B",
-          "text": "任意の階層で calc(100vh - npx) を多用する"
-        },
-        {
-          "id": "C",
-          "text": "高さ伝播は height:100% だけで常に成立する"
-        },
-        {
-          "id": "D",
-          "text": "レイヤー構造を意識せず都度ハックを追加する"
-        }
+        { "id": "A", "text": "`flex: 1; min-height: 0; overflow: auto;`" },
+        { "id": "B", "text": "`height: 100vh; overflow: hidden;`" },
+        { "id": "C", "text": "`position: fixed; top: 0;`" },
+        { "id": "D", "text": "`display: none;`" }
       ],
       "correctAnswer": "A",
-      "explanation": "高さ伝播はレイアウト崩れ防止の基盤です。 チーム開発では再利用性と予測可能性が重要です。"
+      "explanation": "高さ伝播教材の完全実装では、`.app-main` が残り高さを使う `flex: 1`、縮小許可の `min-height: 0`、スクロール境界の `overflow: auto` を持っています。"
     },
     {
       "id": 6,
-      "question": "min-height: 0 の適用 に関する説明として最も適切なものはどれですか？",
+      "question": "教材が flex 子要素へ `min-height: 0` を付けるべきだと強調している理由はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "デフォルトの min-height:auto のままにする"
-        },
-        {
-          "id": "B",
-          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
-        },
-        {
-          "id": "C",
-          "text": "縮小制御は max-height:none だけで十分である"
-        },
-        {
-          "id": "D",
-          "text": "min-height は Grid でのみ必要になる"
-        }
+        { "id": "A", "text": "デフォルトの `min-height: auto` によるコンテンツ拡張を打ち消すため" },
+        { "id": "B", "text": "`justify-content` を使えるようにするため" },
+        { "id": "C", "text": "`height: 100%` を無効化するため" },
+        { "id": "D", "text": "`gap` を使う必須条件だから" }
       ],
-      "correctAnswer": "B",
-      "explanation": "min-height:0 はスクロール可能領域の成立に直結します。"
+      "correctAnswer": "A",
+      "explanation": "教材では `min-height: auto` が内容を守ろうとして親を押し広げるため、それを抑えるために `min-height: 0` が必須だと説明しています。"
     },
     {
       "id": 7,
-      "question": "min-height: 0 の適用 を実装する際の推奨アプローチはどれですか？",
+      "question": "教材で `min-height: 0` と組み合わせて使われることが多い指定はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "デフォルトの min-height:auto のままにする"
-        },
-        {
-          "id": "B",
-          "text": "縮小制御は max-height:none だけで十分である"
-        },
-        {
-          "id": "C",
-          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
-        },
-        {
-          "id": "D",
-          "text": "min-height は Grid でのみ必要になる"
-        }
+        { "id": "A", "text": "`overflow-y: auto`" },
+        { "id": "B", "text": "`position: sticky`" },
+        { "id": "C", "text": "`float: left`" },
+        { "id": "D", "text": "`clear: both`" }
       ],
-      "correctAnswer": "C",
-      "explanation": "min-height:0 はスクロール可能領域の成立に直結します。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、可変コンテンツ領域に `flex: 1`, `min-height: 0`, `overflow-y: auto` を組み合わせてスクロール領域を作っています。"
     },
     {
       "id": 8,
-      "question": "min-height: 0 の適用 の観点で推奨されるアプローチはどれですか？",
+      "question": "スクロール戦略の表で、`main` などのページコンテナに与える役割として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "デフォルトの min-height:auto のままにする"
-        },
-        {
-          "id": "B",
-          "text": "縮小制御は max-height:none だけで十分である"
-        },
-        {
-          "id": "C",
-          "text": "min-height は Grid でのみ必要になる"
-        },
-        {
-          "id": "D",
-          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
-        }
+        { "id": "A", "text": "全体が溢れた場合の最終スクロール境界" },
+        { "id": "B", "text": "絶対にスクロールしない固定ヘッダー" },
+        { "id": "C", "text": "空セルの表示場所" },
+        { "id": "D", "text": "疑似要素の描画境界" }
       ],
-      "correctAnswer": "D",
-      "explanation": "「flex 子要素には min-height: 0 を設定して縮小を許可する」はmin-height: 0 の適用における推奨アプローチです。実装の安定性と保守性を高めます。"
+      "correctAnswer": "A",
+      "explanation": "教材では、ページコンテナの `overflow: auto` を、全体が溢れたときの最終スクロール境界と位置付けています。"
     },
     {
       "id": 9,
-      "question": "min-height: 0 の適用 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "教材が `overflow: hidden` をパネルラッパーに設定する意図として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
-        },
-        {
-          "id": "B",
-          "text": "デフォルトの min-height:auto のままにする"
-        },
-        {
-          "id": "C",
-          "text": "縮小制御は max-height:none だけで十分である"
-        },
-        {
-          "id": "D",
-          "text": "min-height は Grid でのみ必要になる"
-        }
+        { "id": "A", "text": "内部でのみスクロールさせる境界を明示するため" },
+        { "id": "B", "text": "常にコンテンツを見えなくするため" },
+        { "id": "C", "text": "高さ伝播を止めるため" },
+        { "id": "D", "text": "ブラウザ全体のスクロールを禁止するため" }
       ],
       "correctAnswer": "A",
-      "explanation": "min-height:0 はスクロール可能領域の成立に直結します。 問題切り分けでは前提条件の確認が有効です。"
+      "explanation": "教材では、`overflow: hidden` を「この要素内でのみスクロールする」という境界宣言として用いると説明しています。"
     },
     {
       "id": 10,
-      "question": "min-height: 0 の適用 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "実際にスクロールバーが表示される場所として、教材が推奨しているのはどこですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "デフォルトの min-height:auto のままにする"
-        },
-        {
-          "id": "B",
-          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
-        },
-        {
-          "id": "C",
-          "text": "縮小制御は max-height:none だけで十分である"
-        },
-        {
-          "id": "D",
-          "text": "min-height は Grid でのみ必要になる"
-        }
+        { "id": "A", "text": "コンテンツ領域の `overflow-y: auto`" },
+        { "id": "B", "text": "`html, body, #root` の `overflow: hidden`" },
+        { "id": "C", "text": "ヘッダーの `flex-shrink: 0`" },
+        { "id": "D", "text": "`grid-template-columns`" }
       ],
-      "correctAnswer": "B",
-      "explanation": "min-height:0 はスクロール可能領域の成立に直結します。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、実際のスクロール発生箇所をコンテンツ領域に限定し、そこで `overflow-y: auto` を使う方針を示しています。"
     },
     {
       "id": 11,
-      "question": "スクロール戦略 に関する説明として最も適切なものはどれですか？",
+      "question": "教材のメディアクエリ例で、画面幅 768px 以下を指定する構文はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "html/body/#root に overflow:hidden を常時指定する"
-        },
-        {
-          "id": "B",
-          "text": "全階層に overflow:auto を付ける"
-        },
-        {
-          "id": "C",
-          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
-        },
-        {
-          "id": "D",
-          "text": "スクロール責務を決めず運用で回避する"
-        }
+        { "id": "A", "text": "`@media (max-width: 768px)`" },
+        { "id": "B", "text": "`@media (min-width: 768px)`" },
+        { "id": "C", "text": "`@media (height: 768px)`" },
+        { "id": "D", "text": "`@media (device-width > 768px)`" }
       ],
-      "correctAnswer": "C",
-      "explanation": "スクロール責務を明確にすると隠れや二重スクロールを防げます。"
+      "correctAnswer": "A",
+      "explanation": "レスポンシブ教材では、768px 以下を `@media (max-width: 768px)` で表しています。"
     },
     {
       "id": 12,
-      "question": "スクロール戦略 を実装する際の推奨アプローチはどれですか？",
+      "question": "教材で示されているブレークポイント設計として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "html/body/#root に overflow:hidden を常時指定する"
-        },
-        {
-          "id": "B",
-          "text": "全階層に overflow:auto を付ける"
-        },
-        {
-          "id": "C",
-          "text": "スクロール責務を決めず運用で回避する"
-        },
-        {
-          "id": "D",
-          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
-        }
+        { "id": "A", "text": "〜600px: 1カラム、600〜900px: 2カラム、900〜1200px: サイドバー表示、1200px〜: フルレイアウト" },
+        { "id": "B", "text": "〜600px: 3カラム、600〜900px: 1カラム、900px〜: 固定幅" },
+        { "id": "C", "text": "すべての幅で常に同じレイアウト" },
+        { "id": "D", "text": "ブレークポイントは高さ 100vh だけで決める" }
       ],
-      "correctAnswer": "D",
-      "explanation": "スクロール責務を明確にすると隠れや二重スクロールを防げます。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "A",
+      "explanation": "レスポンシブ教材では、画面幅ごとに 1 カラム、2 カラム、サイドバー表示、フルレイアウトへ切り替える表が示されています。"
     },
     {
       "id": 13,
-      "question": "スクロール戦略 の観点で推奨されるアプローチはどれですか？",
+      "question": "レスポンシブ対応でも教材が守るべきとしている原則はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
-        },
-        {
-          "id": "B",
-          "text": "html/body/#root に overflow:hidden を常時指定する"
-        },
-        {
-          "id": "C",
-          "text": "全階層に overflow:auto を付ける"
-        },
-        {
-          "id": "D",
-          "text": "スクロール責務を決めず運用で回避する"
-        }
+        { "id": "A", "text": "固定値はルートのみ" },
+        { "id": "B", "text": "中間レイヤーで `100vh` を必ず使う" },
+        { "id": "C", "text": "`overflow: hidden` を全階層に入れる" },
+        { "id": "D", "text": "すべて `position: fixed` に置き換える" }
       ],
       "correctAnswer": "A",
-      "explanation": "「overflow は末端コンテンツに集約し、上位層は境界だけを持つ」はスクロール戦略における推奨アプローチです。実装の安定性と保守性を高めます。"
+      "explanation": "教材は、レスポンシブ時でも固定値はルートのみというレイアウト設計原則を維持すべきだとしています。"
     },
     {
       "id": 14,
-      "question": "スクロール戦略 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "チェックリスト教材で、新規コンポーネント追加時に確認する項目数はいくつですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "html/body/#root に overflow:hidden を常時指定する"
-        },
-        {
-          "id": "B",
-          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
-        },
-        {
-          "id": "C",
-          "text": "全階層に overflow:auto を付ける"
-        },
-        {
-          "id": "D",
-          "text": "スクロール責務を決めず運用で回避する"
-        }
+        { "id": "A", "text": "4項目" },
+        { "id": "B", "text": "5項目" },
+        { "id": "C", "text": "7項目" },
+        { "id": "D", "text": "10項目" }
       ],
-      "correctAnswer": "B",
-      "explanation": "スクロール責務を明確にすると隠れや二重スクロールを防げます。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "C",
+      "explanation": "教材では「新規コンポーネント追加チェックリスト」として 7 項目が列挙されています。"
     },
     {
       "id": 15,
-      "question": "スクロール戦略 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "チェックリストのデータ量テストで確認すべき件数の組み合わせとして正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "html/body/#root に overflow:hidden を常時指定する"
-        },
-        {
-          "id": "B",
-          "text": "全階層に overflow:auto を付ける"
-        },
-        {
-          "id": "C",
-          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
-        },
-        {
-          "id": "D",
-          "text": "スクロール責務を決めず運用で回避する"
-        }
+        { "id": "A", "text": "1件 / 5件 / 10件" },
+        { "id": "B", "text": "10件 / 30件 / 50件" },
+        { "id": "C", "text": "20件 / 40件 / 80件" },
+        { "id": "D", "text": "50件 / 100件 / 200件" }
       ],
-      "correctAnswer": "C",
-      "explanation": "スクロール責務を明確にすると隠れや二重スクロールを防げます。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "B",
+      "explanation": "教材では、10件・30件・50件のデータ量でレイアウトが崩れないかを確認するよう明示しています。"
     },
     {
       "id": 16,
-      "question": "ベース+モディファイア設計 に関する説明として最も適切なものはどれですか？",
+      "question": "チェックリストの高さ確認で、教材が挙げているウィンドウ高さの組み合わせとして正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "モディファイアで overflow:visible や max-height:none を多用する"
-        },
-        {
-          "id": "B",
-          "text": "ベースクラスを作らず個別クラスだけで実装する"
-        },
-        {
-          "id": "C",
-          "text": "差分が無くても毎回新クラスを作る"
-        },
-        {
-          "id": "D",
-          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
-        }
+        { "id": "A", "text": "480 / 720 / 960 / 1440 px" },
+        { "id": "B", "text": "500 / 600 / 700 / 800 px" },
+        { "id": "C", "text": "600 / 768 / 900 / 1080 px" },
+        { "id": "D", "text": "640 / 800 / 1024 / 1200 px" }
       ],
-      "correctAnswer": "D",
-      "explanation": "ベースと差分の分離で詳細度競合を減らせます。"
+      "correctAnswer": "C",
+      "explanation": "教材では 600px, 768px, 900px, 1080px の各高さでレイアウトを確認するよう案内しています。"
     },
     {
       "id": 17,
-      "question": "ベース+モディファイア設計 を実装する際の推奨アプローチはどれですか？",
+      "question": "チェックリスト教材で、固定高さの検出方法として示されているものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
-        },
-        {
-          "id": "B",
-          "text": "モディファイアで overflow:visible や max-height:none を多用する"
-        },
-        {
-          "id": "C",
-          "text": "ベースクラスを作らず個別クラスだけで実装する"
-        },
-        {
-          "id": "D",
-          "text": "差分が無くても毎回新クラスを作る"
-        }
+        { "id": "A", "text": "CSS ファイル内で `100vh`, `calc(100vh`, 固定 `px` の `height` を検索する" },
+        { "id": "B", "text": "JavaScript の console.log だけを見る" },
+        { "id": "C", "text": "HTML タグ数を数える" },
+        { "id": "D", "text": "画像ファイル名を比較する" }
       ],
       "correctAnswer": "A",
-      "explanation": "ベースと差分の分離で詳細度競合を減らせます。 実装時は一貫したルールを保つことが重要です。"
+      "explanation": "教材では、固定高さの混入を見つける方法として CSS 内検索を具体的に案内しています。"
     },
     {
       "id": 18,
-      "question": "ベース+モディファイア設計 の観点で推奨されるアプローチはどれですか？",
+      "question": "チェックリスト教材で、Computed Height を確認する目的として適切なものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "モディファイアで overflow:visible や max-height:none を多用する"
-        },
-        {
-          "id": "B",
-          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
-        },
-        {
-          "id": "C",
-          "text": "ベースクラスを作らず個別クラスだけで実装する"
-        },
-        {
-          "id": "D",
-          "text": "差分が無くても毎回新クラスを作る"
-        }
+        { "id": "A", "text": "高さ伝播チェーンが途中で途切れていないかを確認するため" },
+        { "id": "B", "text": "フォントファミリーを自動変更するため" },
+        { "id": "C", "text": "疑似要素の色を固定するため" },
+        { "id": "D", "text": "`gap` の計算式を生成するため" }
       ],
-      "correctAnswer": "B",
-      "explanation": "「ベースに共通制約を置き、モディファイアは差分のみを追加する」はベース+モディファイア設計における推奨アプローチです。実装の安定性と保守性を高めます。"
+      "correctAnswer": "A",
+      "explanation": "教材では、開発者ツールで Computed Height を見て、高さが正しく伝播しているか検証する方法が示されています。"
     },
     {
       "id": 19,
-      "question": "ベース+モディファイア設計 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "アンチパターン修正マッピングで、`calc(100vh - 120px)` に対する修正として示されているものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "モディファイアで overflow:visible や max-height:none を多用する"
-        },
-        {
-          "id": "B",
-          "text": "ベースクラスを作らず個別クラスだけで実装する"
-        },
-        {
-          "id": "C",
-          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
-        },
-        {
-          "id": "D",
-          "text": "差分が無くても毎回新クラスを作る"
-        }
+        { "id": "A", "text": "`flex: 1` + `min-height: 0`" },
+        { "id": "B", "text": "`position: fixed`" },
+        { "id": "C", "text": "`display: none`" },
+        { "id": "D", "text": "`float: left`" }
       ],
-      "correctAnswer": "C",
-      "explanation": "ベースと差分の分離で詳細度競合を減らせます。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、固定値による高さ計算の代わりに flex 伝播と `min-height: 0` を使う修正方針を示しています。"
     },
     {
       "id": 20,
-      "question": "ベース+モディファイア設計 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "ベース + モディファイア設計で教材が避けるべきと説明している操作はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "モディファイアで overflow:visible や max-height:none を多用する"
-        },
-        {
-          "id": "B",
-          "text": "ベースクラスを作らず個別クラスだけで実装する"
-        },
-        {
-          "id": "C",
-          "text": "差分が無くても毎回新クラスを作る"
-        },
-        {
-          "id": "D",
-          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
-        }
+        { "id": "A", "text": "モディファイアで `max-height: none` や `overflow: visible` のような制約解除を行うこと" },
+        { "id": "B", "text": "ベースクラスに共通プロパティを書くこと" },
+        { "id": "C", "text": "モディファイアで差分だけを書くこと" },
+        { "id": "D", "text": "詳細度を低く保つこと" }
       ],
-      "correctAnswer": "D",
-      "explanation": "ベースと差分の分離で詳細度競合を減らせます。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、モディファイアで制約解除を行うと副作用が出やすく、ベース + モディファイア設計の意図が崩れると説明しています。"
     }
   ]
-}
+}        },

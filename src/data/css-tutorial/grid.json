@@ -24,345 +24,192 @@
           "id": "D",
           "text": "display:grid だけで全レイアウトが自動最適化される"
         }
-      ],
-      "correctAnswer": "A",
-      "explanation": "Grid は行列を明示的に管理するのに適したレイアウト手法です。"
-    },
-    {
-      "id": 2,
-      "question": "gridコンテナ設計 を実装する際の推奨アプローチはどれですか？",
-      "options": [
+      {
+        "id": "css-tutorial-grid",
+        "title": "CSS Grid レイアウト",
+        "description": "Gridコンテナ、Gridアイテム、演習パターンを通じて2次元レイアウト設計を確認する15問セット",
+        "difficulty": "beginner to intermediate",
+        "questions": [
+          {
+            "id": 1,
+            "question": "`display: grid` を指定した要素について、教材の説明として正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "グリッドコンテナになり、行と列の構造を定義できる" },
+              { "id": "B", "text": "必ず 1 列レイアウトに固定される" },
+              { "id": "C", "text": "直下の子要素は自動的に absolute 配置になる" },
+              { "id": "D", "text": "`justify-content` しか使えなくなる" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "教材では、`display: grid` を指定した要素がグリッドコンテナになり、行列構造を定義できると説明しています。"
+          },
+          {
+            "id": 2,
+            "question": "教材の `grid-template-columns: 1fr 2fr 1fr` の説明として正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "3列が 1 : 2 : 1 の比率で分配される" },
+              { "id": "B", "text": "中央列だけ固定 2px になる" },
+              { "id": "C", "text": "3列すべて 25% 固定になる" },
+              { "id": "D", "text": "`fr` は margin の比率を表す" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "教材では、`1fr 2fr 1fr` を 1 : 2 : 1、つまり 25% : 50% : 25% に相当する比率として説明しています。"
+          },
+          {
+            "id": 3,
+            "question": "教材における `fr` 単位の意味として正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "利用可能なスペースの比率を表す" },
+              { "id": "B", "text": "フォントサイズの比率を表す" },
+              { "id": "C", "text": "固定ピクセル幅を短く書く記法である" },
+              { "id": "D", "text": "行番号を指定する単位である" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "教材では `fr` を fraction として説明し、利用可能スペースの比率を示す単位としています。"
+          },
+          {
+            "id": 4,
+            "question": "`repeat(3, minmax(200px, 1fr))` の説明として教材内容に合うものはどれですか？",
+            "options": [
+              { "id": "A", "text": "3列を、最小 200px・最大は均等配分で定義する" },
+              { "id": "B", "text": "3行だけを 200px 固定にする" },
+              { "id": "C", "text": "列間の gap を 200px にする" },
+              { "id": "D", "text": "`minmax()` は Grid では使えない" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "教材では `repeat()` と `minmax()` を組み合わせて、最小幅を確保しつつ均等に広がる列定義を紹介しています。"
+          },
+          {
+            "id": 5,
+            "question": "`grid-template-areas` に関する教材のルールとして正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "同じ名前の領域は長方形で連続していなければならない" },
+              { "id": "B", "text": "同じ名前を離れたセルに置いても自動補完される" },
+              { "id": "C", "text": "エリア名は HTML の順序も必ず並び替える" },
+              { "id": "D", "text": "空セルは空文字でしか表現できない" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "教材では、`grid-template-areas` の領域は長方形でなければならず、離れたセルに同じ名前は付けられないと説明しています。"
+          },
+          {
+            "id": 6,
+            "question": "教材で `grid-column: span 2` が意味するものはどれですか？",
+            "options": [
+              { "id": "A", "text": "2列分を占有する" },
+              { "id": "B", "text": "2行分を占有する" },
+              { "id": "C", "text": "列番号 2 から開始する" },
+              { "id": "D", "text": "列 gap を 2 倍にする" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "グリッドアイテム教材では `grid-column: span 2` を 2列分占有する指定として解説しています。"
+          },
+          {
+            "id": 7,
+            "question": "3列グリッドで `grid-column: 1 / 3` を指定したときの効果として正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "1列目だけを使う" },
+              { "id": "B", "text": "1行目から3行目までを使う" },
+              { "id": "C", "text": "ライン1からライン3まで、つまり2セル分の幅を使う" },
+              { "id": "D", "text": "3列すべてを使う" }
+            ],
+            "correctAnswer": "C",
+            "explanation": "教材では、ライン番号ベースの指定として `grid-column: 1 / 3` は 2セル分の幅になると説明しています。"
+          },
+          {
+            "id": 8,
+            "question": "教材のライン番号の説明として正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "3列グリッドでは列ラインは 1, 2, 3 の3本しかない" },
+              { "id": "B", "text": "3列グリッドでは列ラインは 1, 2, 3, 4 の4本ある" },
+              { "id": "C", "text": "ライン番号は 0 から始まる" },
+              { "id": "D", "text": "ライン番号は `gap` を数えた数になる" }
+            ],
+            "correctAnswer": "B",
+            "explanation": "教材では、3列グリッドには 4 本の列ラインがあると図と説明で示しています。"
+          },
+          {
+            "id": 9,
+            "question": "セル内の個別配置を制御するプロパティの組み合わせとして正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "`justify-self` と `align-self`" },
+              { "id": "B", "text": "`justify-content` と `align-content`" },
+              { "id": "C", "text": "`flex-grow` と `flex-shrink`" },
+              { "id": "D", "text": "`top` と `left`" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "グリッドアイテム教材では、セル内での水平・垂直の個別配置に `justify-self` と `align-self` を使うと説明しています。"
+          },
+          {
+            "id": 10,
+            "question": "教材が Grid 内で Flex をネストする場合にも `min-height: 0` が必要だと説明している理由は何ですか？",
+            "options": [
+              { "id": "A", "text": "コンテンツのはみ出しを抑え、内部スクロールを成立させるため" },
+              { "id": "B", "text": "`grid-column` を使う必須条件だから" },
+              { "id": "C", "text": "Grid では `overflow-y: auto` が禁止だから" },
+              { "id": "D", "text": "すべてのアイテムを同じ高さに固定するため" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "教材では、Grid 内の panel を Flex で縦構成するときも、`min-height: 0` がないと内部スクロールが崩れると説明しています。"
+          },
+          {
+            "id": 11,
+            "question": "Grid 演習1 のダッシュボードグリッドで、4エリア構成を定義するために使っているものはどれですか？",
+            "options": [
+              { "id": "A", "text": "`grid-template-areas`" },
+              { "id": "B", "text": "`position: fixed`" },
+              { "id": "C", "text": "`float: left`" },
+              { "id": "D", "text": "`flex-wrap: wrap`" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "演習1 では、ヘッダー・サイドバー・メイン・フッターを `grid-template-areas` で定義しています。"
+          },
+          {
+            "id": 12,
+            "question": "Grid 演習2 のレスポンシブカードグリッドで使われている列定義はどれですか？",
+            "options": [
+              { "id": "A", "text": "`repeat(auto-fill, minmax(280px, 1fr))`" },
+              { "id": "B", "text": "`repeat(3, 1fr 2fr)`" },
+              { "id": "C", "text": "`240px 240px 240px`" },
+              { "id": "D", "text": "`span 2 span 2 span 2`" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "演習2 では `auto-fill` と `minmax(280px, 1fr)` を使って、幅に応じて列数が変わるカードグリッドを作っています。"
+          },
+          {
+            "id": 13,
+            "question": "教材で説明されている `auto-fill` の役割として正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "利用可能な幅に応じて自動的にカラム数を増減させる" },
+              { "id": "B", "text": "すべてのカードを 1 列に固定する" },
+              { "id": "C", "text": "`gap` を自動計算して 0 にする" },
+              { "id": "D", "text": "`grid-area` 名を自動生成する" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "教材では `auto-fill` を、利用可能な幅に応じてカラム数が変わるレスポンシブグリッドの要素として説明しています。"
+          },
+          {
+            "id": 14,
+            "question": "Grid 演習3 の複合レイアウトで、上部パネルを全幅にする指定として正しいものはどれですか？",
+            "options": [
+              { "id": "A", "text": "`grid-column: 1 / -1`" },
+              { "id": "B", "text": "`justify-self: stretch`" },
+              { "id": "C", "text": "`flex: 1`" },
+              { "id": "D", "text": "`position: sticky`" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "演習3 では `.top-full { grid-column: 1 / -1; }` によって、最初の列ラインから最後の列ラインまでを全幅で使っています。"
+          },
+          {
+            "id": 15,
+            "question": "Grid 演習3 のパネル構造で、独立スクロールを成立させる組み合わせとして教材に合うものはどれですか？",
+            "options": [
+              { "id": "A", "text": "`.panel { overflow: hidden; display: flex; flex-direction: column; }` と `.panel-body { flex: 1; min-height: 0; overflow-y: auto; }`" },
+              { "id": "B", "text": "`.panel { position: fixed; }` と `.panel-body { display: none; }`" },
+              { "id": "C", "text": "`.panel { float: left; }` と `.panel-body { clear: both; }`" },
+              { "id": "D", "text": "`.panel { overflow: visible; }` のみ" }
+            ],
+            "correctAnswer": "A",
+            "explanation": "教材では、Grid で全体枠を作りつつ、各パネル内は Flex で縦方向に高さ伝播させ、本文だけを `overflow-y: auto` にしています。"
+          }
+        ]
+      }
         {
-          "id": "A",
-          "text": "Gridは1次元配置しか扱えない"
-        },
-        {
-          "id": "B",
-          "text": "grid-template-columns と rows を使って2次元構造を明示する"
-        },
-        {
-          "id": "C",
-          "text": "列定義はJavaScriptでしか行えない"
-        },
-        {
-          "id": "D",
-          "text": "display:grid だけで全レイアウトが自動最適化される"
-        }
-      ],
-      "correctAnswer": "B",
-      "explanation": "Grid は行列を明示的に管理するのに適したレイアウト手法です。 実装時は一貫したルールを保つことが重要です。"
-    },
-    {
-      "id": 3,
-      "question": "gridコンテナ設計 の観点で推奨されるアプローチはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "Gridは1次元配置しか扱えない"
-        },
-        {
-          "id": "B",
-          "text": "列定義はJavaScriptでしか行えない"
-        },
-        {
-          "id": "C",
-          "text": "grid-template-columns と rows を使って2次元構造を明示する"
-        },
-        {
-          "id": "D",
-          "text": "display:grid だけで全レイアウトが自動最適化される"
-        }
-      ],
-      "correctAnswer": "B",
-      "explanation": "「列定義はJavaScriptでしか行えない」はgridコンテナ設計における推奨アプローチです。実装の安定性と保守性を高めます。"
-    },
-    {
-      "id": 4,
-      "question": "gridコンテナ設計 がうまく機能しない場合、最初に見直すべき点はどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "Gridは1次元配置しか扱えない"
-        },
-        {
-          "id": "B",
-          "text": "列定義はJavaScriptでしか行えない"
-        },
-        {
-          "id": "C",
-          "text": "display:grid だけで全レイアウトが自動最適化される"
-        },
-        {
-          "id": "D",
-          "text": "grid-template-columns と rows を使って2次元構造を明示する"
-        }
-      ],
-      "correctAnswer": "D",
-      "explanation": "Grid は行列を明示的に管理するのに適したレイアウト手法です。 問題切り分けでは前提条件の確認が有効です。"
-    },
-    {
-      "id": 5,
-      "question": "gridコンテナ設計 を使ったレイアウトで保守性を高める選択はどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "grid-template-columns と rows を使って2次元構造を明示する"
-        },
-        {
-          "id": "B",
-          "text": "Gridは1次元配置しか扱えない"
-        },
-        {
-          "id": "C",
-          "text": "列定義はJavaScriptでしか行えない"
-        },
-        {
-          "id": "D",
-          "text": "display:grid だけで全レイアウトが自動最適化される"
-        }
-      ],
-      "correctAnswer": "A",
-      "explanation": "Grid は行列を明示的に管理するのに適したレイアウト手法です。 チーム開発では再利用性と予測可能性が重要です。"
-    },
-    {
-      "id": 6,
-      "question": "gridアイテム配置 に関する説明として最も適切なものはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "Gridアイテムは常に1セル固定で拡張できない"
-        },
-        {
-          "id": "B",
-          "text": "grid-column と grid-row で占有範囲を指定できる"
-        },
-        {
-          "id": "C",
-          "text": "span は Flexbox 専用記法である"
-        },
-        {
-          "id": "D",
-          "text": "配置指定すると自動配置は完全に無効になる"
-        }
-      ],
-      "correctAnswer": "B",
-      "explanation": "アイテム配置の制御でダッシュボードや管理画面の構造を表現できます。"
-    },
-    {
-      "id": 7,
-      "question": "gridアイテム配置 を実装する際の推奨アプローチはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "Gridアイテムは常に1セル固定で拡張できない"
-        },
-        {
-          "id": "B",
-          "text": "span は Flexbox 専用記法である"
-        },
-        {
-          "id": "C",
-          "text": "grid-column と grid-row で占有範囲を指定できる"
-        },
-        {
-          "id": "D",
-          "text": "配置指定すると自動配置は完全に無効になる"
-        }
-      ],
-      "correctAnswer": "C",
-      "explanation": "アイテム配置の制御でダッシュボードや管理画面の構造を表現できます。 実装時は一貫したルールを保つことが重要です。"
-    },
-    {
-      "id": 8,
-      "question": "gridアイテム配置 の観点で推奨されるアプローチはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "Gridアイテムは常に1セル固定で拡張できない"
-        },
-        {
-          "id": "B",
-          "text": "span は Flexbox 専用記法である"
-        },
-        {
-          "id": "C",
-          "text": "配置指定すると自動配置は完全に無効になる"
-        },
-        {
-          "id": "D",
-          "text": "grid-column と grid-row で占有範囲を指定できる"
-        }
-      ],
-      "correctAnswer": "B",
-      "explanation": "「span は Flexbox 専用記法である」はgridアイテム配置における推奨アプローチです。実装の安定性と保守性を高めます。"
-    },
-    {
-      "id": 9,
-      "question": "gridアイテム配置 がうまく機能しない場合、最初に見直すべき点はどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "grid-column と grid-row で占有範囲を指定できる"
-        },
-        {
-          "id": "B",
-          "text": "Gridアイテムは常に1セル固定で拡張できない"
-        },
-        {
-          "id": "C",
-          "text": "span は Flexbox 専用記法である"
-        },
-        {
-          "id": "D",
-          "text": "配置指定すると自動配置は完全に無効になる"
-        }
-      ],
-      "correctAnswer": "A",
-      "explanation": "アイテム配置の制御でダッシュボードや管理画面の構造を表現できます。 問題切り分けでは前提条件の確認が有効です。"
-    },
-    {
-      "id": 10,
-      "question": "gridアイテム配置 を使ったレイアウトで保守性を高める選択はどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "Gridアイテムは常に1セル固定で拡張できない"
-        },
-        {
-          "id": "B",
-          "text": "grid-column と grid-row で占有範囲を指定できる"
-        },
-        {
-          "id": "C",
-          "text": "span は Flexbox 専用記法である"
-        },
-        {
-          "id": "D",
-          "text": "配置指定すると自動配置は完全に無効になる"
-        }
-      ],
-      "correctAnswer": "B",
-      "explanation": "アイテム配置の制御でダッシュボードや管理画面の構造を表現できます。 チーム開発では再利用性と予測可能性が重要です。"
-    },
-    {
-      "id": 11,
-      "question": "Grid演習パターン に関する説明として最も適切なものはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "template-areas はレスポンシブに使えない"
-        },
-        {
-          "id": "B",
-          "text": "名前付きエリアは1回しか使えない"
-        },
-        {
-          "id": "C",
-          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
-        },
-        {
-          "id": "D",
-          "text": "エリア定義には display:flex が必須である"
-        }
-      ],
-      "correctAnswer": "C",
-      "explanation": "template-areas は設計意図をコードに残しやすい手法です。"
-    },
-    {
-      "id": 12,
-      "question": "Grid演習パターン を実装する際の推奨アプローチはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "template-areas はレスポンシブに使えない"
-        },
-        {
-          "id": "B",
-          "text": "名前付きエリアは1回しか使えない"
-        },
-        {
-          "id": "C",
-          "text": "エリア定義には display:flex が必須である"
-        },
-        {
-          "id": "D",
-          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
-        }
-      ],
-      "correctAnswer": "D",
-      "explanation": "template-areas は設計意図をコードに残しやすい手法です。 実装時は一貫したルールを保つことが重要です。"
-    },
-    {
-      "id": 13,
-      "question": "Grid演習パターン の観点で推奨されるアプローチはどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
-        },
-        {
-          "id": "B",
-          "text": "template-areas はレスポンシブに使えない"
-        },
-        {
-          "id": "C",
-          "text": "名前付きエリアは1回しか使えない"
-        },
-        {
-          "id": "D",
-          "text": "エリア定義には display:flex が必須である"
-        }
-      ],
-      "correctAnswer": "A",
-      "explanation": "「template-areas を使うと可読性の高いレイアウト定義ができる」はGrid演習パターンにおける推奨アプローチです。実装の安定性と保守性を高めます。"
-    },
-    {
-      "id": 14,
-      "question": "Grid演習パターン がうまく機能しない場合、最初に見直すべき点はどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "template-areas はレスポンシブに使えない"
-        },
-        {
-          "id": "B",
-          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
-        },
-        {
-          "id": "C",
-          "text": "名前付きエリアは1回しか使えない"
-        },
-        {
-          "id": "D",
-          "text": "エリア定義には display:flex が必須である"
-        }
-      ],
-      "correctAnswer": "B",
-      "explanation": "template-areas は設計意図をコードに残しやすい手法です。 問題切り分けでは前提条件の確認が有効です。"
-    },
-    {
-      "id": 15,
-      "question": "Grid演習パターン を使ったレイアウトで保守性を高める選択はどれですか？",
-      "options": [
-        {
-          "id": "A",
-          "text": "template-areas はレスポンシブに使えない"
-        },
-        {
-          "id": "B",
-          "text": "名前付きエリアは1回しか使えない"
-        },
-        {
-          "id": "C",
-          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
-        },
-        {
-          "id": "D",
-          "text": "エリア定義には display:flex が必須である"
-        }
-      ],
-      "correctAnswer": "C",
-      "explanation": "template-areas は設計意図をコードに残しやすい手法です。 チーム開発では再利用性と予測可能性が重要です。"
-    }
-  ]
-}

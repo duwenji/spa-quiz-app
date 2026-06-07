@@ -6,603 +6,303 @@
   "questions": [
     {
       "id": 1,
-      "question": "セレクタと詳細度 に関する説明として最も適切なものはどれですか？",
+      "question": "要素型セレクタ・クラスセレクタ・IDセレクタの詳細度の強さの順として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "要素よりクラス、クラスよりIDの順に詳細度が高くなる"
-        },
-        {
-          "id": "B",
-          "text": "詳細度は宣言順だけで決まり、セレクタ種別は無関係"
-        },
-        {
-          "id": "C",
-          "text": "IDセレクタはクラスより常に詳細度が低い"
-        },
-        {
-          "id": "D",
-          "text": "!important を使えば常に最適な設計になる"
-        }
+        { "id": "A", "text": "要素型 < クラス < ID" },
+        { "id": "B", "text": "ID < クラス < 要素型" },
+        { "id": "C", "text": "クラス < 要素型 < ID" },
+        { "id": "D", "text": "要素型 < ID < クラス" }
       ],
       "correctAnswer": "A",
-      "explanation": "詳細度はセレクタの種類で計算され、競合時の適用結果を決定します。"
+      "explanation": "教材では、要素型セレクタよりクラスセレクタ、クラスセレクタよりIDセレクタのほうが強いと説明しています。"
     },
     {
       "id": 2,
-      "question": "セレクタと詳細度 を実装する際の推奨アプローチはどれですか？",
+      "question": "教材で説明されている詳細度の4要素 `a, b, c, d` のうち、擬似クラスが加算されるのはどのカテゴリですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "詳細度は宣言順だけで決まり、セレクタ種別は無関係"
-        },
-        {
-          "id": "B",
-          "text": "要素よりクラス、クラスよりIDの順に詳細度が高くなる"
-        },
-        {
-          "id": "C",
-          "text": "IDセレクタはクラスより常に詳細度が低い"
-        },
-        {
-          "id": "D",
-          "text": "!important を使えば常に最適な設計になる"
-        }
+        { "id": "A", "text": "インラインスタイルのカテゴリ" },
+        { "id": "B", "text": "IDセレクタのカテゴリ" },
+        { "id": "C", "text": "クラス・属性セレクタ・擬似クラスのカテゴリ" },
+        { "id": "D", "text": "要素型・擬似要素のカテゴリ" }
       ],
-      "correctAnswer": "B",
-      "explanation": "詳細度はセレクタの種類で計算され、競合時の適用結果を決定します。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "C",
+      "explanation": "教材では、擬似クラスはクラスセレクタや属性セレクタと同じカテゴリに含まれると整理されています。"
     },
     {
       "id": 3,
-      "question": "セレクタと詳細度 の観点で推奨されるアプローチはどれですか？",
+      "question": "教材の説明で、疑似クラスと疑似要素の違いとして正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "詳細度は宣言順だけで決まり、セレクタ種別は無関係"
-        },
-        {
-          "id": "B",
-          "text": "IDセレクタはクラスより常に詳細度が低い"
-        },
-        {
-          "id": "C",
-          "text": "要素よりクラス、クラスよりIDの順に詳細度が高くなる"
-        },
-        {
-          "id": "D",
-          "text": "!important を使えば常に最適な設計になる"
-        }
+        { "id": "A", "text": "疑似クラスは要素の状態、疑似要素は要素の特定の部分を対象にする" },
+        { "id": "B", "text": "疑似クラスは要素の特定の部分、疑似要素は要素の状態を対象にする" },
+        { "id": "C", "text": "どちらも常に同じ詳細度で、役割の違いはない" },
+        { "id": "D", "text": "疑似要素は `:`、疑似クラスは `::` で書く" }
       ],
-      "correctAnswer": "C",
-      "explanation": "「要素よりクラス、クラスよりIDの順に詳細度が高くなる」はセレクタと詳細度における推奨アプローチです。実装の安定性と保守性を高めます。"
+      "correctAnswer": "A",
+      "explanation": "教材では `:hover` などは状態、`::before` などは要素の一部を扱うものとして区別しています。"
     },
     {
       "id": 4,
-      "question": "セレクタと詳細度 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "教材の実ソースコードで、`p { color: red; }` と `.text { color: blue; }` が同じ要素に適用された場合、どちらが優先されますか？",
       "options": [
-        {
-          "id": "A",
-          "text": "詳細度は宣言順だけで決まり、セレクタ種別は無関係"
-        },
-        {
-          "id": "B",
-          "text": "IDセレクタはクラスより常に詳細度が低い"
-        },
-        {
-          "id": "C",
-          "text": "!important を使えば常に最適な設計になる"
-        },
-        {
-          "id": "D",
-          "text": "要素よりクラス、クラスよりIDの順に詳細度が高くなる"
-        }
+        { "id": "A", "text": "後に書かれた `p` が優先される" },
+        { "id": "B", "text": "詳細度が高い `.text` が優先される" },
+        { "id": "C", "text": "常に要素型セレクタが優先される" },
+        { "id": "D", "text": "両方の色が混ざって表示される" }
       ],
-      "correctAnswer": "D",
-      "explanation": "詳細度はセレクタの種類で計算され、競合時の適用結果を決定します。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "B",
+      "explanation": "要素型セレクタよりクラスセレクタのほうが詳細度が高いため、`.text` の指定が勝ちます。"
     },
     {
       "id": 5,
-      "question": "セレクタと詳細度 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "レイアウト設計原則との関連で、教材がIDセレクタよりクラスセレクタを基本にする理由として最も適切なものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "要素よりクラス、クラスよりIDの順に詳細度が高くなる"
-        },
-        {
-          "id": "B",
-          "text": "詳細度は宣言順だけで決まり、セレクタ種別は無関係"
-        },
-        {
-          "id": "C",
-          "text": "IDセレクタはクラスより常に詳細度が低い"
-        },
-        {
-          "id": "D",
-          "text": "!important を使えば常に最適な設計になる"
-        }
+        { "id": "A", "text": "IDセレクタはブラウザで使えないため" },
+        { "id": "B", "text": "クラスセレクタのほうが上書きしやすく、ベース + モディファイア構成に向くため" },
+        { "id": "C", "text": "クラスセレクタだけが疑似クラスと組み合わせられるため" },
+        { "id": "D", "text": "IDセレクタでは詳細度が常に 0,0,0,0 になるため" }
       ],
-      "correctAnswer": "A",
-      "explanation": "詳細度はセレクタの種類で計算され、競合時の適用結果を決定します。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "B",
+      "explanation": "教材では、詳細度が高すぎると上書きが難しくなるため、レイアウト設計ではクラスベースが推奨されています。"
     },
     {
       "id": 6,
-      "question": "ボックスモデル に関する説明として最も適切なものはどれですか？",
+      "question": "教材で説明されているボックスモデルの層の並びとして、外側から内側へ正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "margin は常に要素の内側サイズに含まれる"
-        },
-        {
-          "id": "B",
-          "text": "要素サイズは content + padding + border で決まり、margin は外側に加算される"
-        },
-        {
-          "id": "C",
-          "text": "padding はレイアウトサイズに影響しない"
-        },
-        {
-          "id": "D",
-          "text": "border は視覚効果のみでサイズに影響しない"
-        }
+        { "id": "A", "text": "margin → border → padding → content" },
+        { "id": "B", "text": "border → margin → padding → content" },
+        { "id": "C", "text": "margin → padding → border → content" },
+        { "id": "D", "text": "padding → border → margin → content" }
       ],
-      "correctAnswer": "B",
-      "explanation": "ボックスモデルを理解すると、はみ出しや意図しない折返しを防ぎやすくなります。"
+      "correctAnswer": "A",
+      "explanation": "教材の構成図では、最も外側が margin、その内側に border、padding、content の順で示されています。"
     },
     {
       "id": 7,
-      "question": "ボックスモデル を実装する際の推奨アプローチはどれですか？",
+      "question": "`box-sizing: border-box` について教材で説明されている内容として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "margin は常に要素の内側サイズに含まれる"
-        },
-        {
-          "id": "B",
-          "text": "padding はレイアウトサイズに影響しない"
-        },
-        {
-          "id": "C",
-          "text": "要素サイズは content + padding + border で決まり、margin は外側に加算される"
-        },
-        {
-          "id": "D",
-          "text": "border は視覚効果のみでサイズに影響しない"
-        }
+        { "id": "A", "text": "width は content 幅だけを表し、padding と border は常に外側に加算される" },
+        { "id": "B", "text": "width に content + padding + border の合計が含まれる" },
+        { "id": "C", "text": "margin も width の内側に含まれる" },
+        { "id": "D", "text": "height しか制御できず、width には影響しない" }
       ],
-      "correctAnswer": "C",
-      "explanation": "ボックスモデルを理解すると、はみ出しや意図しない折返しを防ぎやすくなります。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "B",
+      "explanation": "`border-box` では、指定した width の中に padding と border が含まれるため、実際の幅を固定しやすくなります。"
     },
     {
       "id": 8,
-      "question": "ボックスモデル の観点で推奨されるアプローチはどれですか？",
+      "question": "教材の例で `width: 200px; padding: 20px; border: 5px solid` の要素を `content-box` にした場合、実際の幅はいくつですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "margin は常に要素の内側サイズに含まれる"
-        },
-        {
-          "id": "B",
-          "text": "padding はレイアウトサイズに影響しない"
-        },
-        {
-          "id": "C",
-          "text": "border は視覚効果のみでサイズに影響しない"
-        },
-        {
-          "id": "D",
-          "text": "要素サイズは content + padding + border で決まり、margin は外側に加算される"
-        }
+        { "id": "A", "text": "200px" },
+        { "id": "B", "text": "225px" },
+        { "id": "C", "text": "240px" },
+        { "id": "D", "text": "250px" }
       ],
       "correctAnswer": "D",
-      "explanation": "「要素サイズは content + padding + border で決まり、margin は外側に加算される」はボックスモデルにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+      "explanation": "content-box では width に padding 40px と border 10px が外側に加わるため、200 + 40 + 10 = 250px です。"
     },
     {
       "id": 9,
-      "question": "ボックスモデル がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "上下に隣接する要素で `margin-bottom: 20px` と `margin-top: 30px` が指定されているとき、教材の説明では間隔はいくつになりますか？",
       "options": [
-        {
-          "id": "A",
-          "text": "要素サイズは content + padding + border で決まり、margin は外側に加算される"
-        },
-        {
-          "id": "B",
-          "text": "margin は常に要素の内側サイズに含まれる"
-        },
-        {
-          "id": "C",
-          "text": "padding はレイアウトサイズに影響しない"
-        },
-        {
-          "id": "D",
-          "text": "border は視覚効果のみでサイズに影響しない"
-        }
+        { "id": "A", "text": "20px" },
+        { "id": "B", "text": "30px" },
+        { "id": "C", "text": "50px" },
+        { "id": "D", "text": "60px" }
       ],
-      "correctAnswer": "A",
-      "explanation": "ボックスモデルを理解すると、はみ出しや意図しない折返しを防ぎやすくなります。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "B",
+      "explanation": "上下の margin は相殺されるため、単純に加算されず、大きい方の 30px が有効になります。"
     },
     {
       "id": 10,
-      "question": "ボックスモデル を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "教材が `*`, `*::before`, `*::after { box-sizing: border-box; }` を推奨している主な理由は何ですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "margin は常に要素の内側サイズに含まれる"
-        },
-        {
-          "id": "B",
-          "text": "要素サイズは content + padding + border で決まり、margin は外側に加算される"
-        },
-        {
-          "id": "C",
-          "text": "padding はレイアウトサイズに影響しない"
-        },
-        {
-          "id": "D",
-          "text": "border は視覚効果のみでサイズに影響しない"
-        }
+        { "id": "A", "text": "要素の実寸計算を単純化し、レイアウト崩れを防ぎやすくするため" },
+        { "id": "B", "text": "margin の相殺を無効化するため" },
+        { "id": "C", "text": "すべての要素をインライン化するため" },
+        { "id": "D", "text": "border を自動的に継承させるため" }
       ],
-      "correctAnswer": "B",
-      "explanation": "ボックスモデルを理解すると、はみ出しや意図しない折返しを防ぎやすくなります。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "A",
+      "explanation": "border-box を全要素に適用すると、padding や border を含めた実サイズが把握しやすくなり、実務上の計算ミスを減らせます。"
     },
     {
       "id": 11,
-      "question": "カスケードと継承 に関する説明として最も適切なものはどれですか？",
+      "question": "教材で示されているカスケードの優先順位として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "すべてのCSSプロパティは親から自動で継承される"
-        },
-        {
-          "id": "B",
-          "text": "継承を使うと詳細度は常に最大になる"
-        },
-        {
-          "id": "C",
-          "text": "継承されるプロパティと継承されないプロパティを区別して設計する"
-        },
-        {
-          "id": "D",
-          "text": "カスケード順序はブラウザごとに完全に異なる"
-        }
+        { "id": "A", "text": "出現順 → 詳細度 → 出所 → !important" },
+        { "id": "B", "text": "詳細度 → 出所 → !important → 出現順" },
+        { "id": "C", "text": "出所 → 詳細度 → 出現順（!important は例外的に最優先）" },
+        { "id": "D", "text": "継承 → 出所 → 詳細度 → 出現順" }
       ],
       "correctAnswer": "C",
-      "explanation": "継承の特性を把握すると、共通スタイルの設計がシンプルになります。"
+      "explanation": "教材では、出所、詳細度、出現順の順で比較し、`!important` はそれらに割り込む強い指定として説明しています。"
     },
     {
       "id": 12,
-      "question": "カスケードと継承 を実装する際の推奨アプローチはどれですか？",
+      "question": "教材で「継承されるプロパティ」の例として挙げられているものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "すべてのCSSプロパティは親から自動で継承される"
-        },
-        {
-          "id": "B",
-          "text": "継承を使うと詳細度は常に最大になる"
-        },
-        {
-          "id": "C",
-          "text": "カスケード順序はブラウザごとに完全に異なる"
-        },
-        {
-          "id": "D",
-          "text": "継承されるプロパティと継承されないプロパティを区別して設計する"
-        }
+        { "id": "A", "text": "border" },
+        { "id": "B", "text": "padding" },
+        { "id": "C", "text": "display" },
+        { "id": "D", "text": "color" }
       ],
       "correctAnswer": "D",
-      "explanation": "継承の特性を把握すると、共通スタイルの設計がシンプルになります。 実装時は一貫したルールを保つことが重要です。"
+      "explanation": "教材では `color`, `font-family`, `font-size`, `line-height`, `text-align` などが継承される例として示されています。"
     },
     {
       "id": 13,
-      "question": "カスケードと継承 の観点で推奨されるアプローチはどれですか？",
+      "question": "教材の表で、継承されないプロパティとして示されているものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "継承されるプロパティと継承されないプロパティを区別して設計する"
-        },
-        {
-          "id": "B",
-          "text": "すべてのCSSプロパティは親から自動で継承される"
-        },
-        {
-          "id": "C",
-          "text": "継承を使うと詳細度は常に最大になる"
-        },
-        {
-          "id": "D",
-          "text": "カスケード順序はブラウザごとに完全に異なる"
-        }
+        { "id": "A", "text": "font-size" },
+        { "id": "B", "text": "text-align" },
+        { "id": "C", "text": "margin" },
+        { "id": "D", "text": "color" }
       ],
-      "correctAnswer": "A",
-      "explanation": "「継承されるプロパティと継承されないプロパティを区別して設計する」はカスケードと継承における推奨アプローチです。実装の安定性と保守性を高めます。"
+      "correctAnswer": "C",
+      "explanation": "教材では `margin`, `padding`, `border`, `width`, `height`, `display` は継承されない側に分類されています。"
     },
     {
       "id": 14,
-      "question": "カスケードと継承 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "継承制御キーワードに関する教材の説明として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "すべてのCSSプロパティは親から自動で継承される"
-        },
-        {
-          "id": "B",
-          "text": "継承されるプロパティと継承されないプロパティを区別して設計する"
-        },
-        {
-          "id": "C",
-          "text": "継承を使うと詳細度は常に最大になる"
-        },
-        {
-          "id": "D",
-          "text": "カスケード順序はブラウザごとに完全に異なる"
-        }
+        { "id": "A", "text": "`inherit` はブラウザデフォルト値に戻す" },
+        { "id": "B", "text": "`initial` は親要素の値を強制継承する" },
+        { "id": "C", "text": "`unset` は常に `inherit` と同じ意味になる" },
+        { "id": "D", "text": "`revert` はブラウザデフォルトに戻す用途で使う" }
       ],
-      "correctAnswer": "B",
-      "explanation": "継承の特性を把握すると、共通スタイルの設計がシンプルになります。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "D",
+      "explanation": "教材では `revert` をブラウザデフォルトに戻すキーワードとして紹介しています。"
     },
     {
       "id": 15,
-      "question": "カスケードと継承 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "教材の実ソースコードで `.child { border: inherit; }` としている理由は何ですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "すべてのCSSプロパティは親から自動で継承される"
-        },
-        {
-          "id": "B",
-          "text": "継承を使うと詳細度は常に最大になる"
-        },
-        {
-          "id": "C",
-          "text": "継承されるプロパティと継承されないプロパティを区別して設計する"
-        },
-        {
-          "id": "D",
-          "text": "カスケード順序はブラウザごとに完全に異なる"
-        }
+        { "id": "A", "text": "border は自動継承されないため、親の border を明示的に受け取りたいから" },
+        { "id": "B", "text": "color を継承させたくないから" },
+        { "id": "C", "text": "border を初期値に戻したいから" },
+        { "id": "D", "text": "詳細度を最大化したいから" }
       ],
-      "correctAnswer": "C",
-      "explanation": "継承の特性を把握すると、共通スタイルの設計がシンプルになります。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "A",
+      "explanation": "border は通常は継承されないため、親と同じ border を使いたい場合は `inherit` を明示します。"
     },
     {
       "id": 16,
-      "question": "displayプロパティ に関する説明として最も適切なものはどれですか？",
+      "question": "教材で説明されている `display: block` の特徴として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "display を変えてもレイアウトには影響しない"
-        },
-        {
-          "id": "B",
-          "text": "inline 要素は幅・高さを自由に持てる"
-        },
-        {
-          "id": "C",
-          "text": "block 要素は横並び専用である"
-        },
-        {
-          "id": "D",
-          "text": "display は要素のレイアウト参加方式を決める中核プロパティである"
-        }
+        { "id": "A", "text": "改行せずテキストのように流れる" },
+        { "id": "B", "text": "親の幅いっぱいに広がり、前後で改行される" },
+        { "id": "C", "text": "width / height を指定できない" },
+        { "id": "D", "text": "子要素を自動で grid アイテム化する" }
       ],
-      "correctAnswer": "D",
-      "explanation": "display の理解は Flexbox や Grid の前提になります。"
+      "correctAnswer": "B",
+      "explanation": "教材の表では、block は親幅いっぱいに広がり、前後で改行が入る表示として整理されています。"
     },
     {
       "id": 17,
-      "question": "displayプロパティ を実装する際の推奨アプローチはどれですか？",
+      "question": "教材における `inline` と `inline-block` の違いとして正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "display は要素のレイアウト参加方式を決める中核プロパティである"
-        },
-        {
-          "id": "B",
-          "text": "display を変えてもレイアウトには影響しない"
-        },
-        {
-          "id": "C",
-          "text": "inline 要素は幅・高さを自由に持てる"
-        },
-        {
-          "id": "D",
-          "text": "block 要素は横並び専用である"
-        }
+        { "id": "A", "text": "`inline` は width / height が有効で、`inline-block` は無効" },
+        { "id": "B", "text": "`inline` は改行あり、`inline-block` は改行なし" },
+        { "id": "C", "text": "`inline-block` は改行せず並びつつ、width / height を指定できる" },
+        { "id": "D", "text": "両者にレイアウト上の違いはない" }
       ],
-      "correctAnswer": "A",
-      "explanation": "display の理解は Flexbox や Grid の前提になります。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "C",
+      "explanation": "教材では `inline-block` を、inline の流れを保ちながら block のようにサイズ指定できる表示として説明しています。"
     },
     {
       "id": 18,
-      "question": "displayプロパティ の観点で推奨されるアプローチはどれですか？",
+      "question": "教材で `display: flex` を指定したときに起こることとして正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "display を変えてもレイアウトには影響しない"
-        },
-        {
-          "id": "B",
-          "text": "display は要素のレイアウト参加方式を決める中核プロパティである"
-        },
-        {
-          "id": "C",
-          "text": "inline 要素は幅・高さを自由に持てる"
-        },
-        {
-          "id": "D",
-          "text": "block 要素は横並び専用である"
-        }
+        { "id": "A", "text": "要素自身が flex アイテムになり、親の配置だけが変わる" },
+        { "id": "B", "text": "直下の子要素が flex アイテムとして扱われる" },
+        { "id": "C", "text": "要素は自動的に非表示になる" },
+        { "id": "D", "text": "width / height が無効になる" }
       ],
       "correctAnswer": "B",
-      "explanation": "「display は要素のレイアウト参加方式を決める中核プロパティである」はdisplayプロパティにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+      "explanation": "`display: flex` を指定すると、その要素が flex コンテナになり、直下の子要素が flex アイテムになります。"
     },
     {
       "id": 19,
-      "question": "displayプロパティ がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "教材の比較表で、`display: none` と `visibility: hidden` の違いとして正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "display を変えてもレイアウトには影響しない"
-        },
-        {
-          "id": "B",
-          "text": "inline 要素は幅・高さを自由に持てる"
-        },
-        {
-          "id": "C",
-          "text": "display は要素のレイアウト参加方式を決める中核プロパティである"
-        },
-        {
-          "id": "D",
-          "text": "block 要素は横並び専用である"
-        }
+        { "id": "A", "text": "どちらも領域を残し、イベントを受け付ける" },
+        { "id": "B", "text": "`display: none` は領域ごと消え、`visibility: hidden` は領域が残る" },
+        { "id": "C", "text": "`visibility: hidden` だけが子要素を flex アイテム化する" },
+        { "id": "D", "text": "`display: none` は見えなくなるが領域だけ残る" }
       ],
-      "correctAnswer": "C",
-      "explanation": "display の理解は Flexbox や Grid の前提になります。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "B",
+      "explanation": "教材では `display: none` は領域も消え、`visibility: hidden` は見えなくなるが領域は残ると比較しています。"
     },
     {
       "id": 20,
-      "question": "displayプロパティ を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "レイアウト設計原則との関連で、教材が `display: flex` と `flex-direction: column` の組み合わせを重視している理由は何ですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "display を変えてもレイアウトには影響しない"
-        },
-        {
-          "id": "B",
-          "text": "inline 要素は幅・高さを自由に持てる"
-        },
-        {
-          "id": "C",
-          "text": "block 要素は横並び専用である"
-        },
-        {
-          "id": "D",
-          "text": "display は要素のレイアウト参加方式を決める中核プロパティである"
-        }
+        { "id": "A", "text": "高さ伝播レイヤーを構成する基礎になるため" },
+        { "id": "B", "text": "すべての要素をインライン化するため" },
+        { "id": "C", "text": "Grid の代わりに2次元配置を行うため" },
+        { "id": "D", "text": "`display: none` を不要にするため" }
       ],
-      "correctAnswer": "D",
-      "explanation": "display の理解は Flexbox や Grid の前提になります。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、高さ伝播レイヤー設計の中心として `display: flex` + `flex-direction: column` が使われています。"
     },
     {
       "id": 21,
-      "question": "position指定 に関する説明として最も適切なものはどれですか？",
+      "question": "教材における `position: relative` の説明として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "absolute は通常フローから外れ、基準要素に対して配置される"
-        },
-        {
-          "id": "B",
-          "text": "relative は常にビューポート基準で配置される"
-        },
-        {
-          "id": "C",
-          "text": "fixed は親要素のスクロールに追従する"
-        },
-        {
-          "id": "D",
-          "text": "sticky は常に absolute と同じ挙動になる"
-        }
+        { "id": "A", "text": "通常フローから除外され、ビューポート基準で配置される" },
+        { "id": "B", "text": "自身の本来の位置を基準にしつつ、通常フローは維持する" },
+        { "id": "C", "text": "最も近い position 指定祖先を基準に完全に再配置される" },
+        { "id": "D", "text": "スクロールに応じて固定される" }
       ],
-      "correctAnswer": "A",
-      "explanation": "position の使い分けは重なりや固定UIの品質を左右します。"
+      "correctAnswer": "B",
+      "explanation": "relative は通常フローを維持したまま、自身の本来位置を基準に少しずらす用途に使います。"
     },
     {
       "id": 22,
-      "question": "position指定 を実装する際の推奨アプローチはどれですか？",
+      "question": "教材で `position: absolute` の配置基準として説明されているものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "relative は常にビューポート基準で配置される"
-        },
-        {
-          "id": "B",
-          "text": "absolute は通常フローから外れ、基準要素に対して配置される"
-        },
-        {
-          "id": "C",
-          "text": "fixed は親要素のスクロールに追従する"
-        },
-        {
-          "id": "D",
-          "text": "sticky は常に absolute と同じ挙動になる"
-        }
+        { "id": "A", "text": "常に html 要素" },
+        { "id": "B", "text": "常にビューポート" },
+        { "id": "C", "text": "最も近い position 指定祖先" },
+        { "id": "D", "text": "常に前の兄弟要素" }
       ],
-      "correctAnswer": "B",
-      "explanation": "position の使い分けは重なりや固定UIの品質を左右します。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "C",
+      "explanation": "教材の表では、absolute は最も近い position 指定祖先を基準に配置されると説明されています。"
     },
     {
       "id": 23,
-      "question": "position指定 の観点で推奨されるアプローチはどれですか？",
+      "question": "教材で `z-index` が有効になる条件として説明されているものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "relative は常にビューポート基準で配置される"
-        },
-        {
-          "id": "B",
-          "text": "fixed は親要素のスクロールに追従する"
-        },
-        {
-          "id": "C",
-          "text": "absolute は通常フローから外れ、基準要素に対して配置される"
-        },
-        {
-          "id": "D",
-          "text": "sticky は常に absolute と同じ挙動になる"
-        }
+        { "id": "A", "text": "どの要素でも自動的に効く" },
+        { "id": "B", "text": "position が static のままでも効く" },
+        { "id": "C", "text": "position が static 以外の要素に対して有効" },
+        { "id": "D", "text": "display: flex が指定されていれば十分" }
       ],
-      "correctAnswer": "B",
-      "explanation": "「fixed は親要素のスクロールに追従する」はposition指定における推奨アプローチです。実装の安定性と保守性を高めます。"
+      "correctAnswer": "C",
+      "explanation": "教材では、`z-index` は position が static 以外の要素にのみ有効と説明されています。"
     },
     {
       "id": 24,
-      "question": "position指定 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "教材がレイアウト全体で `position` より flex / grid を推奨している理由として最も適切なものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "relative は常にビューポート基準で配置される"
-        },
-        {
-          "id": "B",
-          "text": "fixed は親要素のスクロールに追従する"
-        },
-        {
-          "id": "C",
-          "text": "sticky は常に absolute と同じ挙動になる"
-        },
-        {
-          "id": "D",
-          "text": "absolute は通常フローから外れ、基準要素に対して配置される"
-        }
+        { "id": "A", "text": "`position` はブラウザ間で動作しないため" },
+        { "id": "B", "text": "`position: fixed` などが高さ伝播チェーンを断ち切り、全体レイアウトと競合しやすいため" },
+        { "id": "C", "text": "`position` では top / left が使えないため" },
+        { "id": "D", "text": "flex / grid では重なり順を制御できないため" }
       ],
-      "correctAnswer": "D",
-      "explanation": "position の使い分けは重なりや固定UIの品質を左右します。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "B",
+      "explanation": "教材では、全体レイアウトは flex / grid で構成し、position はモーダルやツールチップなど補助用途に限定する方針が示されています。"
     },
     {
       "id": 25,
-      "question": "position指定 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "教材の `position` 実ソースコードで、画面右下に固定される要素に使われている値はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "absolute は通常フローから外れ、基準要素に対して配置される"
-        },
-        {
-          "id": "B",
-          "text": "relative は常にビューポート基準で配置される"
-        },
-        {
-          "id": "C",
-          "text": "fixed は親要素のスクロールに追従する"
-        },
-        {
-          "id": "D",
-          "text": "sticky は常に absolute と同じ挙動になる"
-        }
+        { "id": "A", "text": "static" },
+        { "id": "B", "text": "relative" },
+        { "id": "C", "text": "absolute" },
+        { "id": "D", "text": "fixed" }
       ],
-      "correctAnswer": "A",
-      "explanation": "position の使い分けは重なりや固定UIの品質を左右します。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "D",
+      "explanation": "実例では `.fixed { position: fixed; bottom: 20px; right: 20px; }` として、画面右下固定を表現しています。"
     }
   ]
 }

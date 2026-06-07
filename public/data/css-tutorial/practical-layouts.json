@@ -6,363 +6,183 @@
   "questions": [
     {
       "id": 1,
-      "question": "ダッシュボードレイアウト に関する説明として最も適切なものはどれですか？",
+      "question": "ダッシュボードレイアウトの4エリア構成として、教材の説明に合うものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "サイドバー固定とメイン可変を分離し、可変側にスクロール責務を置く"
-        },
-        {
-          "id": "B",
-          "text": "サイドバーとメインを同じ固定高さで縛る"
-        },
-        {
-          "id": "C",
-          "text": "カード一覧にだけ高さ固定を多用する"
-        },
-        {
-          "id": "D",
-          "text": "ヘッダーを可変縮小させて空間を確保する"
-        }
+        { "id": "A", "text": "ヘッダー → サイドバー + メイン → フッター" },
+        { "id": "B", "text": "ヘッダー → メインのみ → フッター" },
+        { "id": "C", "text": "サイドバー → ヘッダー → メイン → フッター" },
+        { "id": "D", "text": "ヘッダー → モーダル → フッター" }
       ],
       "correctAnswer": "A",
-      "explanation": "ダッシュボードでは情報密度と可読性の両立が重要です。"
+      "explanation": "教材のダッシュボード例は、ヘッダー、サイドバー、メイン、フッターの4エリア構成で説明されています。"
     },
     {
       "id": 2,
-      "question": "ダッシュボードレイアウト を実装する際の推奨アプローチはどれですか？",
+      "question": "ダッシュボード例で `.app-body` に設定されている組み合わせとして正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "サイドバーとメインを同じ固定高さで縛る"
-        },
-        {
-          "id": "B",
-          "text": "サイドバー固定とメイン可変を分離し、可変側にスクロール責務を置く"
-        },
-        {
-          "id": "C",
-          "text": "カード一覧にだけ高さ固定を多用する"
-        },
-        {
-          "id": "D",
-          "text": "ヘッダーを可変縮小させて空間を確保する"
-        }
+        { "id": "A", "text": "`display: flex; flex: 1; min-height: 0;`" },
+        { "id": "B", "text": "`position: fixed; height: 100vh;`" },
+        { "id": "C", "text": "`display: grid; grid-template-columns: 1fr;`" },
+        { "id": "D", "text": "`overflow: hidden; height: calc(100vh - 56px);`" }
       ],
-      "correctAnswer": "B",
-      "explanation": "ダッシュボードでは情報密度と可読性の両立が重要です。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材のダッシュボード実装では、ボディを横 flex コンテナにし、残り高さを使うため `flex: 1` と `min-height: 0` を与えています。"
     },
     {
       "id": 3,
-      "question": "ダッシュボードレイアウト の観点で推奨されるアプローチはどれですか？",
+      "question": "ダッシュボード例のサイドバーについて、教材内容に合うものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "サイドバーとメインを同じ固定高さで縛る"
-        },
-        {
-          "id": "B",
-          "text": "カード一覧にだけ高さ固定を多用する"
-        },
-        {
-          "id": "C",
-          "text": "サイドバー固定とメイン可変を分離し、可変側にスクロール責務を置く"
-        },
-        {
-          "id": "D",
-          "text": "ヘッダーを可変縮小させて空間を確保する"
-        }
+        { "id": "A", "text": "`width: 240px`, `flex-shrink: 0`, `overflow-y: auto` を持つ" },
+        { "id": "B", "text": "常に `flex: 1` でメイン領域と等幅になる" },
+        { "id": "C", "text": "`position: fixed` だけで実装する" },
+        { "id": "D", "text": "レスポンシブ時も幅は自動的に 0 になる" }
       ],
-      "correctAnswer": "C",
-      "explanation": "「サイドバー固定とメイン可変を分離し、可変側にスクロール責務を置く」はダッシュボードレイアウトにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+      "correctAnswer": "A",
+      "explanation": "教材ではサイドバーを固定幅 240px・縮小禁止・独立スクロールという構成で実装しています。"
     },
     {
       "id": 4,
-      "question": "ダッシュボードレイアウト がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "ダッシュボードのスタッツカード群に使われている Grid 定義として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "サイドバーとメインを同じ固定高さで縛る"
-        },
-        {
-          "id": "B",
-          "text": "カード一覧にだけ高さ固定を多用する"
-        },
-        {
-          "id": "C",
-          "text": "ヘッダーを可変縮小させて空間を確保する"
-        },
-        {
-          "id": "D",
-          "text": "サイドバー固定とメイン可変を分離し、可変側にスクロール責務を置く"
-        }
+        { "id": "A", "text": "`repeat(auto-fill, minmax(240px, 1fr))`" },
+        { "id": "B", "text": "`1fr 1fr 1fr 1fr 1fr 1fr`" },
+        { "id": "C", "text": "`repeat(2, 200px)`" },
+        { "id": "D", "text": "`grid-template-areas: \"card\"`" }
       ],
-      "correctAnswer": "D",
-      "explanation": "ダッシュボードでは情報密度と可読性の両立が重要です。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "A",
+      "explanation": "教材ではスタッツカードを折り返し対応させるため、`repeat(auto-fill, minmax(240px, 1fr))` を使用しています。"
     },
     {
       "id": 5,
-      "question": "ダッシュボードレイアウト を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "ダッシュボード教材のチェックリスト検証で確認している内容として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "サイドバー固定とメイン可変を分離し、可変側にスクロール責務を置く"
-        },
-        {
-          "id": "B",
-          "text": "サイドバーとメインを同じ固定高さで縛る"
-        },
-        {
-          "id": "C",
-          "text": "カード一覧にだけ高さ固定を多用する"
-        },
-        {
-          "id": "D",
-          "text": "ヘッダーを可変縮小させて空間を確保する"
-        }
+        { "id": "A", "text": "テーブル行を50行に増やしても `.main` が適切にスクロールすること" },
+        { "id": "B", "text": "サイドバーを `position: absolute` に変えること" },
+        { "id": "C", "text": "ヘッダーを `overflow: hidden` にすること" },
+        { "id": "D", "text": "カードの影をすべて削除すること" }
       ],
       "correctAnswer": "A",
-      "explanation": "ダッシュボードでは情報密度と可読性の両立が重要です。 チーム開発では再利用性と予測可能性が重要です。"
+      "explanation": "教材ではデータ量テストとして、テーブル行を増やしてもメイン領域が安定してスクロールするかを確認しています。"
     },
     {
       "id": 6,
-      "question": "チャットUIレイアウト に関する説明として最も適切なものはどれですか？",
+      "question": "チャットUIレイアウトの3層構成として、教材に合うものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "入力欄にも flex:1 を付けて可変化する"
-        },
-        {
-          "id": "B",
-          "text": "メッセージ領域を flex:1 + min-height:0 で可変にし、入力欄は縮まないようにする"
-        },
-        {
-          "id": "C",
-          "text": "メッセージ領域に overflow を設定しない"
-        },
-        {
-          "id": "D",
-          "text": "全体を position:fixed だけで調整する"
-        }
+        { "id": "A", "text": "ヘッダー（固定）→ メッセージリスト（スクロール）→ 入力エリア（固定）" },
+        { "id": "B", "text": "入力エリア → ヘッダー → メッセージリスト" },
+        { "id": "C", "text": "ヘッダー → フッター → メッセージリスト" },
+        { "id": "D", "text": "サイドバー → メッセージリスト → モーダル" }
       ],
-      "correctAnswer": "B",
-      "explanation": "チャットUIは入力欄の可用性と履歴閲覧性を両立する必要があります。"
+      "correctAnswer": "A",
+      "explanation": "教材では、チャット UI をヘッダー、メッセージリスト、入力エリアの3層構成として図で説明しています。"
     },
     {
       "id": 7,
-      "question": "チャットUIレイアウト を実装する際の推奨アプローチはどれですか？",
+      "question": "メッセージリストに設定されている主要な組み合わせとして、教材に合うものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "入力欄にも flex:1 を付けて可変化する"
-        },
-        {
-          "id": "B",
-          "text": "メッセージ領域に overflow を設定しない"
-        },
-        {
-          "id": "C",
-          "text": "メッセージ領域を flex:1 + min-height:0 で可変にし、入力欄は縮まないようにする"
-        },
-        {
-          "id": "D",
-          "text": "全体を position:fixed だけで調整する"
-        }
+        { "id": "A", "text": "`flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column;`" },
+        { "id": "B", "text": "`position: fixed; bottom: 0;`" },
+        { "id": "C", "text": "`display: grid; grid-template-areas: \"message\";`" },
+        { "id": "D", "text": "`height: 100vh; overflow: hidden;`" }
       ],
-      "correctAnswer": "C",
-      "explanation": "チャットUIは入力欄の可用性と履歴閲覧性を両立する必要があります。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材のチャット UI では、メッセージリストを残り高さに追従しつつスクロールする領域としてこの組み合わせで定義しています。"
     },
     {
       "id": 8,
-      "question": "チャットUIレイアウト の観点で推奨されるアプローチはどれですか？",
+      "question": "教材で、ヘッダーと入力エリアに共通して与えている役割はどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "入力欄にも flex:1 を付けて可変化する"
-        },
-        {
-          "id": "B",
-          "text": "メッセージ領域に overflow を設定しない"
-        },
-        {
-          "id": "C",
-          "text": "全体を position:fixed だけで調整する"
-        },
-        {
-          "id": "D",
-          "text": "メッセージ領域を flex:1 + min-height:0 で可変にし、入力欄は縮まないようにする"
-        }
+        { "id": "A", "text": "`flex-shrink: 0` による固定領域" },
+        { "id": "B", "text": "`flex: 1` による可変領域" },
+        { "id": "C", "text": "`overflow-y: auto` によるスクロール領域" },
+        { "id": "D", "text": "`grid-row: span 2` による占有" }
       ],
       "correctAnswer": "A",
-      "explanation": "「入力欄にも flex:1 を付けて可変化する」はチャットUIレイアウトにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+      "explanation": "教材ではヘッダーと入力エリアを縮ませないために `flex-shrink: 0` を指定しています。"
     },
     {
       "id": 9,
-      "question": "チャットUIレイアウト がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "教材のチャット入力欄 textarea に設定されている制約として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "メッセージ領域を flex:1 + min-height:0 で可変にし、入力欄は縮まないようにする"
-        },
-        {
-          "id": "B",
-          "text": "入力欄にも flex:1 を付けて可変化する"
-        },
-        {
-          "id": "C",
-          "text": "メッセージ領域に overflow を設定しない"
-        },
-        {
-          "id": "D",
-          "text": "全体を position:fixed だけで調整する"
-        }
+        { "id": "A", "text": "`min-height: 44px; max-height: 120px; resize: none;`" },
+        { "id": "B", "text": "`height: 100vh; resize: both;`" },
+        { "id": "C", "text": "`position: fixed; top: 0;`" },
+        { "id": "D", "text": "`grid-area: input;` だけ" }
       ],
       "correctAnswer": "A",
-      "explanation": "チャットUIは入力欄の可用性と履歴閲覧性を両立する必要があります。 問題切り分けでは前提条件の確認が有効です。"
+      "explanation": "教材では textarea を使いやすい高さに保つため、最小 44px、最大 120px、手動リサイズなしで制御しています。"
     },
     {
       "id": 10,
-      "question": "チャットUIレイアウト を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "AIスタジオV2で発生した問題の修正として、教材が強調しているポイントはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "入力欄にも flex:1 を付けて可変化する"
-        },
-        {
-          "id": "B",
-          "text": "メッセージ領域を flex:1 + min-height:0 で可変にし、入力欄は縮まないようにする"
-        },
-        {
-          "id": "C",
-          "text": "メッセージ領域に overflow を設定しない"
-        },
-        {
-          "id": "D",
-          "text": "全体を position:fixed だけで調整する"
-        }
+        { "id": "A", "text": "`.message-list { flex: 1; min-height: 0; }` にして、メッセージリストに残り高さを割り当てること" },
+        { "id": "B", "text": "入力欄を `flex: 1` にして一番大きくすること" },
+        { "id": "C", "text": "上位層へ `overflow: hidden` を追加すること" },
+        { "id": "D", "text": "ヘッダーを絶対配置にすること" }
       ],
-      "correctAnswer": "B",
-      "explanation": "チャットUIは入力欄の可用性と履歴閲覧性を両立する必要があります。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、AIスタジオV2の問題を `message-list` の `flex: 1` と `min-height: 0` で解消したと説明しています。"
     },
     {
       "id": 11,
-      "question": "管理画面レイアウト に関する説明として最も適切なものはどれですか？",
+      "question": "管理画面レイアウトで `.panels` に設定されている Grid 定義として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "すべてを1つのFlexコンテナで無理に表現する"
-        },
-        {
-          "id": "B",
-          "text": "フォーム領域を固定高さにして内容を切り捨てる"
-        },
-        {
-          "id": "C",
-          "text": "Grid と Flex を役割分担し、表・フォーム・パネルの責務を分ける"
-        },
-        {
-          "id": "D",
-          "text": "レスポンシブを後工程で手作業調整する"
-        }
+        { "id": "A", "text": "`grid-template-columns: 280px 1fr 1fr`" },
+        { "id": "B", "text": "`grid-template-columns: repeat(3, 280px)`" },
+        { "id": "C", "text": "`grid-template-columns: 1fr`" },
+        { "id": "D", "text": "`grid-template-columns: 240px 240px 240px`" }
       ],
-      "correctAnswer": "C",
-      "explanation": "管理画面は複合要素が多く、責務分離が保守性に直結します。"
+      "correctAnswer": "A",
+      "explanation": "教材では、ユーザー一覧、統計、操作ログの3パネルを `280px 1fr 1fr` で構成しています。"
     },
     {
       "id": 12,
-      "question": "管理画面レイアウト を実装する際の推奨アプローチはどれですか？",
+      "question": "管理画面の各パネル共通スタイルとして、教材に合うものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "すべてを1つのFlexコンテナで無理に表現する"
-        },
-        {
-          "id": "B",
-          "text": "フォーム領域を固定高さにして内容を切り捨てる"
-        },
-        {
-          "id": "C",
-          "text": "レスポンシブを後工程で手作業調整する"
-        },
-        {
-          "id": "D",
-          "text": "Grid と Flex を役割分担し、表・フォーム・パネルの責務を分ける"
-        }
+        { "id": "A", "text": "`overflow: hidden; display: flex; flex-direction: column; min-height: 0;`" },
+        { "id": "B", "text": "`position: fixed; width: 100%;`" },
+        { "id": "C", "text": "`display: inline-block;` のみ" },
+        { "id": "D", "text": "`height: 100vh; overflow: visible;`" }
       ],
-      "correctAnswer": "D",
-      "explanation": "管理画面は複合要素が多く、責務分離が保守性に直結します。 実装時は一貫したルールを保つことが重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、各パネルを独立スクロール対応の縦 Flex コンテナにするため、この構成を採用しています。"
     },
     {
       "id": 13,
-      "question": "管理画面レイアウト の観点で推奨されるアプローチはどれですか？",
+      "question": "管理画面の `.panel-body` に与えている役割として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "Grid と Flex を役割分担し、表・フォーム・パネルの責務を分ける"
-        },
-        {
-          "id": "B",
-          "text": "すべてを1つのFlexコンテナで無理に表現する"
-        },
-        {
-          "id": "C",
-          "text": "フォーム領域を固定高さにして内容を切り捨てる"
-        },
-        {
-          "id": "D",
-          "text": "レスポンシブを後工程で手作業調整する"
-        }
+        { "id": "A", "text": "`flex: 1; min-height: 0; overflow-y: auto;` で本文だけをスクロールさせる" },
+        { "id": "B", "text": "`flex-shrink: 0` で本文を固定高さにする" },
+        { "id": "C", "text": "`position: absolute` でパネル外に出す" },
+        { "id": "D", "text": "`display: none` で非表示にする" }
       ],
       "correctAnswer": "A",
-      "explanation": "「Grid と Flex を役割分担し、表・フォーム・パネルの責務を分ける」は管理画面レイアウトにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+      "explanation": "教材では、各パネルヘッダーを固定しつつ本文だけが独立スクロールするよう `.panel-body` にこの組み合わせを与えています。"
     },
     {
       "id": 14,
-      "question": "管理画面レイアウト がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "question": "管理画面のレスポンシブ対応で、`@media (max-width: 900px)` 時の動作として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "すべてを1つのFlexコンテナで無理に表現する"
-        },
-        {
-          "id": "B",
-          "text": "Grid と Flex を役割分担し、表・フォーム・パネルの責務を分ける"
-        },
-        {
-          "id": "C",
-          "text": "フォーム領域を固定高さにして内容を切り捨てる"
-        },
-        {
-          "id": "D",
-          "text": "レスポンシブを後工程で手作業調整する"
-        }
+        { "id": "A", "text": "2カラムになり、最初のパネルが非表示になる" },
+        { "id": "B", "text": "常に 4 カラムへ増える" },
+        { "id": "C", "text": "すべてのパネルが固定 280px になる" },
+        { "id": "D", "text": "アプリ全体が `display: none` になる" }
       ],
-      "correctAnswer": "B",
-      "explanation": "管理画面は複合要素が多く、責務分離が保守性に直結します。 問題切り分けでは前提条件の確認が有効です。"
+      "correctAnswer": "A",
+      "explanation": "教材では 900px 以下で 2 カラムにし、最初のパネルを非表示にするレスポンシブ設定を採用しています。"
     },
     {
       "id": 15,
-      "question": "管理画面レイアウト を使ったレイアウトで保守性を高める選択はどれですか？",
+      "question": "教材が管理画面を「Grid + Flex の使い分け」と説明している内容として正しいものはどれですか？",
       "options": [
-        {
-          "id": "A",
-          "text": "すべてを1つのFlexコンテナで無理に表現する"
-        },
-        {
-          "id": "B",
-          "text": "フォーム領域を固定高さにして内容を切り捨てる"
-        },
-        {
-          "id": "C",
-          "text": "Grid と Flex を役割分担し、表・フォーム・パネルの責務を分ける"
-        },
-        {
-          "id": "D",
-          "text": "レスポンシブを後工程で手作業調整する"
-        }
+        { "id": "A", "text": "`.app` は Flex、`.panels` は Grid、各 `.panel` は Flex で役割分担する" },
+        { "id": "B", "text": "全階層を Grid のみで統一する" },
+        { "id": "C", "text": "全階層を Flex のみで統一する" },
+        { "id": "D", "text": "高さ伝播は `position: fixed` だけで行う" }
       ],
-      "correctAnswer": "C",
-      "explanation": "管理画面は複合要素が多く、責務分離が保守性に直結します。 チーム開発では再利用性と予測可能性が重要です。"
+      "correctAnswer": "A",
+      "explanation": "教材では、アプリ全体の縦方向は Flex、3パネル分割は Grid、各パネル内部の高さ伝播は Flex と明確に役割分担しています。"
     }
   ]
-}
+}      "options": [
