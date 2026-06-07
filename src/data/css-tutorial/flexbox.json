@@ -1,0 +1,368 @@
+{
+  "id": "css-tutorial-flexbox",
+  "title": "Flexbox レイアウト",
+  "description": "Flexコンテナ、Flexアイテム、演習パターンを通じて1次元レイアウト設計を確認する15問セット",
+  "difficulty": "beginner to intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "flexコンテナ設定 に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "主軸と交差軸を理解して justify-content と align-items を使い分ける"
+        },
+        {
+          "id": "B",
+          "text": "justify-content は縦方向専用である"
+        },
+        {
+          "id": "C",
+          "text": "align-items は主軸方向の配置のみを制御する"
+        },
+        {
+          "id": "D",
+          "text": "flex-direction は見た目に影響しない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Flexbox は1次元レイアウトの整列を簡潔に扱えます。"
+    },
+    {
+      "id": 2,
+      "question": "flexコンテナ設定 を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "justify-content は縦方向専用である"
+        },
+        {
+          "id": "B",
+          "text": "主軸と交差軸を理解して justify-content と align-items を使い分ける"
+        },
+        {
+          "id": "C",
+          "text": "align-items は主軸方向の配置のみを制御する"
+        },
+        {
+          "id": "D",
+          "text": "flex-direction は見た目に影響しない"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Flexbox は1次元レイアウトの整列を簡潔に扱えます。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 3,
+      "question": "flexコンテナ設定 の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "justify-content は縦方向専用である"
+        },
+        {
+          "id": "B",
+          "text": "align-items は主軸方向の配置のみを制御する"
+        },
+        {
+          "id": "C",
+          "text": "主軸と交差軸を理解して justify-content と align-items を使い分ける"
+        },
+        {
+          "id": "D",
+          "text": "flex-direction は見た目に影響しない"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "「主軸と交差軸を理解して justify-content と align-items を使い分ける」はflexコンテナ設定における推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 4,
+      "question": "flexコンテナ設定 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "justify-content は縦方向専用である"
+        },
+        {
+          "id": "B",
+          "text": "align-items は主軸方向の配置のみを制御する"
+        },
+        {
+          "id": "C",
+          "text": "flex-direction は見た目に影響しない"
+        },
+        {
+          "id": "D",
+          "text": "主軸と交差軸を理解して justify-content と align-items を使い分ける"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Flexbox は1次元レイアウトの整列を簡潔に扱えます。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 5,
+      "question": "flexコンテナ設定 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "主軸と交差軸を理解して justify-content と align-items を使い分ける"
+        },
+        {
+          "id": "B",
+          "text": "justify-content は縦方向専用である"
+        },
+        {
+          "id": "C",
+          "text": "align-items は主軸方向の配置のみを制御する"
+        },
+        {
+          "id": "D",
+          "text": "flex-direction は見た目に影響しない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Flexbox は1次元レイアウトの整列を簡潔に扱えます。 チーム開発では再利用性と予測可能性が重要です。"
+    },
+    {
+      "id": 6,
+      "question": "flexアイテム制御 に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "flex-grow を増やすと常に高さだけが伸びる"
+        },
+        {
+          "id": "B",
+          "text": "flex-grow・flex-shrink・flex-basis を組み合わせて伸縮を制御する"
+        },
+        {
+          "id": "C",
+          "text": "flex-shrink は 0 か 1 しか指定できない"
+        },
+        {
+          "id": "D",
+          "text": "flex-basis は width と常に同じ意味になる"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "アイテムごとの伸縮ルールを理解すると比率設計が安定します。"
+    },
+    {
+      "id": 7,
+      "question": "flexアイテム制御 を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "flex-grow を増やすと常に高さだけが伸びる"
+        },
+        {
+          "id": "B",
+          "text": "flex-shrink は 0 か 1 しか指定できない"
+        },
+        {
+          "id": "C",
+          "text": "flex-grow・flex-shrink・flex-basis を組み合わせて伸縮を制御する"
+        },
+        {
+          "id": "D",
+          "text": "flex-basis は width と常に同じ意味になる"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "アイテムごとの伸縮ルールを理解すると比率設計が安定します。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 8,
+      "question": "flexアイテム制御 の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "flex-grow を増やすと常に高さだけが伸びる"
+        },
+        {
+          "id": "B",
+          "text": "flex-shrink は 0 か 1 しか指定できない"
+        },
+        {
+          "id": "C",
+          "text": "flex-basis は width と常に同じ意味になる"
+        },
+        {
+          "id": "D",
+          "text": "flex-grow・flex-shrink・flex-basis を組み合わせて伸縮を制御する"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "「flex-grow・flex-shrink・flex-basis を組み合わせて伸縮を制御する」はflexアイテム制御における推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 9,
+      "question": "flexアイテム制御 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "flex-grow・flex-shrink・flex-basis を組み合わせて伸縮を制御する"
+        },
+        {
+          "id": "B",
+          "text": "flex-grow を増やすと常に高さだけが伸びる"
+        },
+        {
+          "id": "C",
+          "text": "flex-shrink は 0 か 1 しか指定できない"
+        },
+        {
+          "id": "D",
+          "text": "flex-basis は width と常に同じ意味になる"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "アイテムごとの伸縮ルールを理解すると比率設計が安定します。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 10,
+      "question": "flexアイテム制御 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "flex-grow を増やすと常に高さだけが伸びる"
+        },
+        {
+          "id": "B",
+          "text": "flex-grow・flex-shrink・flex-basis を組み合わせて伸縮を制御する"
+        },
+        {
+          "id": "C",
+          "text": "flex-shrink は 0 か 1 しか指定できない"
+        },
+        {
+          "id": "D",
+          "text": "flex-basis は width と常に同じ意味になる"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "アイテムごとの伸縮ルールを理解すると比率設計が安定します。 チーム開発では再利用性と予測可能性が重要です。"
+    },
+    {
+      "id": 11,
+      "question": "Flexbox演習パターン に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "可変領域でも高さを固定pxにする"
+        },
+        {
+          "id": "B",
+          "text": "スクロールが必要でも overflow を一切設定しない"
+        },
+        {
+          "id": "C",
+          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
+        },
+        {
+          "id": "D",
+          "text": "全要素に同じ flex 値だけを設定する"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "実践では固定領域と可変領域の責務分離が重要です。"
+    },
+    {
+      "id": 12,
+      "question": "Flexbox演習パターン を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "可変領域でも高さを固定pxにする"
+        },
+        {
+          "id": "B",
+          "text": "スクロールが必要でも overflow を一切設定しない"
+        },
+        {
+          "id": "C",
+          "text": "全要素に同じ flex 値だけを設定する"
+        },
+        {
+          "id": "D",
+          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "実践では固定領域と可変領域の責務分離が重要です。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 13,
+      "question": "Flexbox演習パターン の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
+        },
+        {
+          "id": "B",
+          "text": "可変領域でも高さを固定pxにする"
+        },
+        {
+          "id": "C",
+          "text": "スクロールが必要でも overflow を一切設定しない"
+        },
+        {
+          "id": "D",
+          "text": "全要素に同じ flex 値だけを設定する"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する」はFlexbox演習パターンにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 14,
+      "question": "Flexbox演習パターン がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "可変領域でも高さを固定pxにする"
+        },
+        {
+          "id": "B",
+          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
+        },
+        {
+          "id": "C",
+          "text": "スクロールが必要でも overflow を一切設定しない"
+        },
+        {
+          "id": "D",
+          "text": "全要素に同じ flex 値だけを設定する"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "実践では固定領域と可変領域の責務分離が重要です。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 15,
+      "question": "Flexbox演習パターン を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "可変領域でも高さを固定pxにする"
+        },
+        {
+          "id": "B",
+          "text": "スクロールが必要でも overflow を一切設定しない"
+        },
+        {
+          "id": "C",
+          "text": "ヘッダー固定 + コンテンツ可変などで flex: 1 と min-height: 0 を併用する"
+        },
+        {
+          "id": "D",
+          "text": "全要素に同じ flex 値だけを設定する"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "実践では固定領域と可変領域の責務分離が重要です。 チーム開発では再利用性と予測可能性が重要です。"
+    }
+  ]
+}

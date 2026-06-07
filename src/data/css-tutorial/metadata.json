@@ -1,0 +1,48 @@
+{
+  "series": {
+    "id": "css-tutorial",
+    "name": "CSS Tutorial レイアウト実践シリーズ",
+    "description": "CSS Basics から Flexbox・Grid・レイアウト設計原則・実践演習まで段階的に学べるシリーズ",
+    "author": "CSS Tutorial Team",
+    "version": "1.0.0",
+    "language": "ja",
+    "totalQuestions": 90,
+    "sections": [
+      {
+        "id": "basics",
+        "order": 1,
+        "name": "CSS Basics 基礎知識",
+        "questionCount": 25,
+        "difficulty": "beginner"
+      },
+      {
+        "id": "flexbox",
+        "order": 2,
+        "name": "Flexbox レイアウト",
+        "questionCount": 15,
+        "difficulty": "beginner to intermediate"
+      },
+      {
+        "id": "grid",
+        "order": 3,
+        "name": "CSS Grid レイアウト",
+        "questionCount": 15,
+        "difficulty": "beginner to intermediate"
+      },
+      {
+        "id": "layout-principles",
+        "order": 4,
+        "name": "レイアウト設計原則",
+        "questionCount": 20,
+        "difficulty": "intermediate"
+      },
+      {
+        "id": "practical-layouts",
+        "order": 5,
+        "name": "実践レイアウト演習",
+        "questionCount": 15,
+        "difficulty": "intermediate"
+      }
+    ]
+  }
+}

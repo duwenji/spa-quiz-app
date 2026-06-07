@@ -1,0 +1,488 @@
+{
+  "id": "css-tutorial-layout-principles",
+  "title": "レイアウト設計原則",
+  "description": "高さ伝播、min-height:0、スクロール戦略、ベース+モディファイアを確認する20問セット",
+  "difficulty": "intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "高さ伝播レイヤー に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
+        },
+        {
+          "id": "B",
+          "text": "任意の階層で calc(100vh - npx) を多用する"
+        },
+        {
+          "id": "C",
+          "text": "高さ伝播は height:100% だけで常に成立する"
+        },
+        {
+          "id": "D",
+          "text": "レイヤー構造を意識せず都度ハックを追加する"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "高さ伝播はレイアウト崩れ防止の基盤です。"
+    },
+    {
+      "id": 2,
+      "question": "高さ伝播レイヤー を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "任意の階層で calc(100vh - npx) を多用する"
+        },
+        {
+          "id": "B",
+          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
+        },
+        {
+          "id": "C",
+          "text": "高さ伝播は height:100% だけで常に成立する"
+        },
+        {
+          "id": "D",
+          "text": "レイヤー構造を意識せず都度ハックを追加する"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "高さ伝播はレイアウト崩れ防止の基盤です。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 3,
+      "question": "高さ伝播レイヤー の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "任意の階層で calc(100vh - npx) を多用する"
+        },
+        {
+          "id": "B",
+          "text": "高さ伝播は height:100% だけで常に成立する"
+        },
+        {
+          "id": "C",
+          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
+        },
+        {
+          "id": "D",
+          "text": "レイヤー構造を意識せず都度ハックを追加する"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "「固定値はルートに限定し、子要素は flex:1 で高さを伝播させる」は高さ伝播レイヤーにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 4,
+      "question": "高さ伝播レイヤー がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "任意の階層で calc(100vh - npx) を多用する"
+        },
+        {
+          "id": "B",
+          "text": "高さ伝播は height:100% だけで常に成立する"
+        },
+        {
+          "id": "C",
+          "text": "レイヤー構造を意識せず都度ハックを追加する"
+        },
+        {
+          "id": "D",
+          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "高さ伝播はレイアウト崩れ防止の基盤です。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 5,
+      "question": "高さ伝播レイヤー を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "固定値はルートに限定し、子要素は flex:1 で高さを伝播させる"
+        },
+        {
+          "id": "B",
+          "text": "任意の階層で calc(100vh - npx) を多用する"
+        },
+        {
+          "id": "C",
+          "text": "高さ伝播は height:100% だけで常に成立する"
+        },
+        {
+          "id": "D",
+          "text": "レイヤー構造を意識せず都度ハックを追加する"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "高さ伝播はレイアウト崩れ防止の基盤です。 チーム開発では再利用性と予測可能性が重要です。"
+    },
+    {
+      "id": 6,
+      "question": "min-height: 0 の適用 に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "デフォルトの min-height:auto のままにする"
+        },
+        {
+          "id": "B",
+          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
+        },
+        {
+          "id": "C",
+          "text": "縮小制御は max-height:none だけで十分である"
+        },
+        {
+          "id": "D",
+          "text": "min-height は Grid でのみ必要になる"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "min-height:0 はスクロール可能領域の成立に直結します。"
+    },
+    {
+      "id": 7,
+      "question": "min-height: 0 の適用 を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "デフォルトの min-height:auto のままにする"
+        },
+        {
+          "id": "B",
+          "text": "縮小制御は max-height:none だけで十分である"
+        },
+        {
+          "id": "C",
+          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
+        },
+        {
+          "id": "D",
+          "text": "min-height は Grid でのみ必要になる"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "min-height:0 はスクロール可能領域の成立に直結します。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 8,
+      "question": "min-height: 0 の適用 の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "デフォルトの min-height:auto のままにする"
+        },
+        {
+          "id": "B",
+          "text": "縮小制御は max-height:none だけで十分である"
+        },
+        {
+          "id": "C",
+          "text": "min-height は Grid でのみ必要になる"
+        },
+        {
+          "id": "D",
+          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "「flex 子要素には min-height: 0 を設定して縮小を許可する」はmin-height: 0 の適用における推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 9,
+      "question": "min-height: 0 の適用 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
+        },
+        {
+          "id": "B",
+          "text": "デフォルトの min-height:auto のままにする"
+        },
+        {
+          "id": "C",
+          "text": "縮小制御は max-height:none だけで十分である"
+        },
+        {
+          "id": "D",
+          "text": "min-height は Grid でのみ必要になる"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "min-height:0 はスクロール可能領域の成立に直結します。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 10,
+      "question": "min-height: 0 の適用 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "デフォルトの min-height:auto のままにする"
+        },
+        {
+          "id": "B",
+          "text": "flex 子要素には min-height: 0 を設定して縮小を許可する"
+        },
+        {
+          "id": "C",
+          "text": "縮小制御は max-height:none だけで十分である"
+        },
+        {
+          "id": "D",
+          "text": "min-height は Grid でのみ必要になる"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "min-height:0 はスクロール可能領域の成立に直結します。 チーム開発では再利用性と予測可能性が重要です。"
+    },
+    {
+      "id": 11,
+      "question": "スクロール戦略 に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "html/body/#root に overflow:hidden を常時指定する"
+        },
+        {
+          "id": "B",
+          "text": "全階層に overflow:auto を付ける"
+        },
+        {
+          "id": "C",
+          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
+        },
+        {
+          "id": "D",
+          "text": "スクロール責務を決めず運用で回避する"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "スクロール責務を明確にすると隠れや二重スクロールを防げます。"
+    },
+    {
+      "id": 12,
+      "question": "スクロール戦略 を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "html/body/#root に overflow:hidden を常時指定する"
+        },
+        {
+          "id": "B",
+          "text": "全階層に overflow:auto を付ける"
+        },
+        {
+          "id": "C",
+          "text": "スクロール責務を決めず運用で回避する"
+        },
+        {
+          "id": "D",
+          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "スクロール責務を明確にすると隠れや二重スクロールを防げます。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 13,
+      "question": "スクロール戦略 の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
+        },
+        {
+          "id": "B",
+          "text": "html/body/#root に overflow:hidden を常時指定する"
+        },
+        {
+          "id": "C",
+          "text": "全階層に overflow:auto を付ける"
+        },
+        {
+          "id": "D",
+          "text": "スクロール責務を決めず運用で回避する"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「overflow は末端コンテンツに集約し、上位層は境界だけを持つ」はスクロール戦略における推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 14,
+      "question": "スクロール戦略 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "html/body/#root に overflow:hidden を常時指定する"
+        },
+        {
+          "id": "B",
+          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
+        },
+        {
+          "id": "C",
+          "text": "全階層に overflow:auto を付ける"
+        },
+        {
+          "id": "D",
+          "text": "スクロール責務を決めず運用で回避する"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "スクロール責務を明確にすると隠れや二重スクロールを防げます。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 15,
+      "question": "スクロール戦略 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "html/body/#root に overflow:hidden を常時指定する"
+        },
+        {
+          "id": "B",
+          "text": "全階層に overflow:auto を付ける"
+        },
+        {
+          "id": "C",
+          "text": "overflow は末端コンテンツに集約し、上位層は境界だけを持つ"
+        },
+        {
+          "id": "D",
+          "text": "スクロール責務を決めず運用で回避する"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "スクロール責務を明確にすると隠れや二重スクロールを防げます。 チーム開発では再利用性と予測可能性が重要です。"
+    },
+    {
+      "id": 16,
+      "question": "ベース+モディファイア設計 に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "モディファイアで overflow:visible や max-height:none を多用する"
+        },
+        {
+          "id": "B",
+          "text": "ベースクラスを作らず個別クラスだけで実装する"
+        },
+        {
+          "id": "C",
+          "text": "差分が無くても毎回新クラスを作る"
+        },
+        {
+          "id": "D",
+          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "ベースと差分の分離で詳細度競合を減らせます。"
+    },
+    {
+      "id": 17,
+      "question": "ベース+モディファイア設計 を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
+        },
+        {
+          "id": "B",
+          "text": "モディファイアで overflow:visible や max-height:none を多用する"
+        },
+        {
+          "id": "C",
+          "text": "ベースクラスを作らず個別クラスだけで実装する"
+        },
+        {
+          "id": "D",
+          "text": "差分が無くても毎回新クラスを作る"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "ベースと差分の分離で詳細度競合を減らせます。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 18,
+      "question": "ベース+モディファイア設計 の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "モディファイアで overflow:visible や max-height:none を多用する"
+        },
+        {
+          "id": "B",
+          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
+        },
+        {
+          "id": "C",
+          "text": "ベースクラスを作らず個別クラスだけで実装する"
+        },
+        {
+          "id": "D",
+          "text": "差分が無くても毎回新クラスを作る"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「ベースに共通制約を置き、モディファイアは差分のみを追加する」はベース+モディファイア設計における推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 19,
+      "question": "ベース+モディファイア設計 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "モディファイアで overflow:visible や max-height:none を多用する"
+        },
+        {
+          "id": "B",
+          "text": "ベースクラスを作らず個別クラスだけで実装する"
+        },
+        {
+          "id": "C",
+          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
+        },
+        {
+          "id": "D",
+          "text": "差分が無くても毎回新クラスを作る"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "ベースと差分の分離で詳細度競合を減らせます。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 20,
+      "question": "ベース+モディファイア設計 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "モディファイアで overflow:visible や max-height:none を多用する"
+        },
+        {
+          "id": "B",
+          "text": "ベースクラスを作らず個別クラスだけで実装する"
+        },
+        {
+          "id": "C",
+          "text": "差分が無くても毎回新クラスを作る"
+        },
+        {
+          "id": "D",
+          "text": "ベースに共通制約を置き、モディファイアは差分のみを追加する"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "ベースと差分の分離で詳細度競合を減らせます。 チーム開発では再利用性と予測可能性が重要です。"
+    }
+  ]
+}
