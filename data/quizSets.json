@@ -36,7 +36,12 @@
       "level": 2,
       "order": 1,
       "estimatedLearningTime": "5-7分",
-      "topics": ["custom agents", "roles", "description", "tool boundaries"]
+      "topics": [
+        "custom agents",
+        "roles",
+        "description",
+        "tool boundaries"
+      ]
     },
     {
       "id": "github-copilot-agent-comparison",
@@ -52,7 +57,12 @@
       "level": 2,
       "order": 2,
       "estimatedLearningTime": "5-7分",
-      "topics": ["custom agents", "skills", "mcp", "selection guide"]
+      "topics": [
+        "custom agents",
+        "skills",
+        "mcp",
+        "selection guide"
+      ]
     },
     {
       "id": "github-copilot-agent-implementation",
@@ -68,7 +78,12 @@
       "level": 2,
       "order": 3,
       "estimatedLearningTime": "6-8分",
-      "topics": ["frontmatter", "role", "constraints", "output format"]
+      "topics": [
+        "frontmatter",
+        "role",
+        "constraints",
+        "output format"
+      ]
     },
     {
       "id": "github-copilot-agent-examples-evaluation",
@@ -84,7 +99,12 @@
       "level": 2,
       "order": 4,
       "estimatedLearningTime": "6-8分",
-      "topics": ["docs-writer", "evaluation", "consistency", "iteration"]
+      "topics": [
+        "docs-writer",
+        "evaluation",
+        "consistency",
+        "iteration"
+      ]
     },
     {
       "id": "github-copilot-agent-operations",
@@ -100,7 +120,12 @@
       "level": 2,
       "order": 5,
       "estimatedLearningTime": "6-8分",
-      "topics": ["best practices", "single responsibility", "review", "verification"]
+      "topics": [
+        "best practices",
+        "single responsibility",
+        "review",
+        "verification"
+      ]
     },
     {
       "id": "github-copilot-agent-advanced-patterns",
@@ -116,7 +141,12 @@
       "level": 2,
       "order": 6,
       "estimatedLearningTime": "6-9分",
-      "topics": ["subagents", "handoff", "orchestrator", "team design patterns"]
+      "topics": [
+        "subagents",
+        "handoff",
+        "orchestrator",
+        "team design patterns"
+      ]
     },
     {
       "id": "github-copilot-practical-workflows",
@@ -132,7 +162,13 @@
       "level": 1,
       "order": 1,
       "estimatedLearningTime": "25-35分",
-      "topics": ["onboarding", "pull requests", "collaboration", "release", "governance"]
+      "topics": [
+        "onboarding",
+        "pull requests",
+        "collaboration",
+        "release",
+        "governance"
+      ]
     },
     {
       "id": "github-copilot-practical-workflows-onboarding",
@@ -148,7 +184,12 @@
       "level": 2,
       "order": 1,
       "estimatedLearningTime": "5-7分",
-      "topics": ["setup", "origin", "org policy", "copilot instructions"]
+      "topics": [
+        "setup",
+        "origin",
+        "org policy",
+        "copilot instructions"
+      ]
     },
     {
       "id": "github-copilot-practical-workflows-daily-dev",
@@ -164,7 +205,12 @@
       "level": 2,
       "order": 2,
       "estimatedLearningTime": "5-7分",
-      "topics": ["issue", "branch", "commit", "pr"]
+      "topics": [
+        "issue",
+        "branch",
+        "commit",
+        "pr"
+      ]
     },
     {
       "id": "github-copilot-practical-workflows-collaboration",
@@ -180,7 +226,12 @@
       "level": 2,
       "order": 3,
       "estimatedLearningTime": "6-8分",
-      "topics": ["fork", "upstream", "merge", "rebase"]
+      "topics": [
+        "fork",
+        "upstream",
+        "merge",
+        "rebase"
+      ]
     },
     {
       "id": "github-copilot-practical-workflows-shared-assets",
@@ -196,7 +247,12 @@
       "level": 2,
       "order": 4,
       "estimatedLearningTime": "6-8分",
-      "topics": ["submodule", "subtree", "single source", "shared repo"]
+      "topics": [
+        "submodule",
+        "subtree",
+        "single source",
+        "shared repo"
+      ]
     },
     {
       "id": "github-copilot-practical-workflows-ops",
@@ -212,7 +268,12 @@
       "level": 2,
       "order": 5,
       "estimatedLearningTime": "6-8分",
-      "topics": ["ci", "release", "hotfix", "rollback"]
+      "topics": [
+        "ci",
+        "release",
+        "hotfix",
+        "rollback"
+      ]
     },
     {
       "id": "github-copilot-practical-workflows-governance",
@@ -228,7 +289,12 @@
       "level": 2,
       "order": 6,
       "estimatedLearningTime": "6-9分",
-      "topics": ["review", "security", "kpi", "governance"]
+      "topics": [
+        "review",
+        "security",
+        "kpi",
+        "governance"
+      ]
     },
     {
       "id": "github-copilot-practical-workflows-reference",
@@ -244,7 +310,12 @@
       "level": 2,
       "order": 7,
       "estimatedLearningTime": "6-9分",
-      "topics": ["cheatsheet", "prompts", "decision matrix", "faq"]
+      "topics": [
+        "cheatsheet",
+        "prompts",
+        "decision matrix",
+        "faq"
+      ]
     },
     {
       "id": "github-copilot-variables",
@@ -456,104 +527,104 @@
       "level": 2,
       "order": 12
     },
-      {
-        "id": "dev-process-skill-library",
-        "name": "開発プロセス標準化 Skill ライブラリ",
-        "description": "要件定義から設計・実装、検証、運用、改善までを段階的に学べる 87 問の包括的なクイズシリーズ。GitHub Copilot 活用を支える補完教材としても有効です",
-        "category": "技術",
-        "icon": "🧭",
-        "questionCount": 87,
-        "difficulty": "beginner to advanced",
-        "dataPath": "dev-process-skill-library/metadata.json",
-        "parentId": null,
-        "group": "dev-process-skill-library-series",
-        "level": 1,
-        "order": 2
-      },
-      {
-        "id": "dev-process-intro-overview",
-        "name": "概論・運用導入",
-        "description": "対象読者、Skill 選択、承認フロー、証跡管理、KPI などライブラリ全体の導入運用を学ぶ",
-        "category": "技術",
-        "icon": "🧩",
-        "questionCount": 12,
-        "difficulty": "beginner",
-        "dataPath": "dev-process-skill-library/intro-overview.json",
-        "parentId": "dev-process-skill-library",
-        "group": "dev-process-skill-library-series",
-        "level": 2,
-        "order": 1
-      },
-      {
-        "id": "dev-process-requirements-planning",
-        "name": "要件・計画",
-        "description": "requirements-refinement を中心に、要件明確化、受入条件、非機能要件、スコープ境界の整理を学ぶ",
-        "category": "技術",
-        "icon": "📝",
-        "questionCount": 10,
-        "difficulty": "beginner",
-        "dataPath": "dev-process-skill-library/requirements-planning.json",
-        "parentId": "dev-process-skill-library",
-        "group": "dev-process-skill-library-series",
-        "level": 2,
-        "order": 2
-      },
-      {
-        "id": "dev-process-design-implementation",
-        "name": "設計・実装",
-        "description": "設計判断、データモデル、ADR、API 契約、リファクタリング安全性、レビュー観点を通じて実装品質を学ぶ",
-        "category": "技術",
-        "icon": "🛠️",
-        "questionCount": 20,
-        "difficulty": "beginner to intermediate",
-        "dataPath": "dev-process-skill-library/design-implementation.json",
-        "parentId": "dev-process-skill-library",
-        "group": "dev-process-skill-library-series",
-        "level": 2,
-        "order": 3
-      },
-      {
-        "id": "dev-process-verification-quality",
-        "name": "検証・品質",
-        "description": "不具合修正、テスト戦略、セキュリティ強化を通じて品質ゲートと検証判断を学ぶ",
-        "category": "技術",
-        "icon": "✅",
-        "questionCount": 16,
-        "difficulty": "intermediate",
-        "dataPath": "dev-process-skill-library/verification-quality.json",
-        "parentId": "dev-process-skill-library",
-        "group": "dev-process-skill-library-series",
-        "level": 2,
-        "order": 4
-      },
-      {
-        "id": "dev-process-operations-release",
-        "name": "運用・リリース",
-        "description": "リリース準備、性能調査、可観測性整備を通じて本番運用の実践判断を学ぶ",
-        "category": "技術",
-        "icon": "🚦",
-        "questionCount": 15,
-        "difficulty": "advanced",
-        "dataPath": "dev-process-skill-library/operations-release.json",
-        "parentId": "dev-process-skill-library",
-        "group": "dev-process-skill-library-series",
-        "level": 2,
-        "order": 5
-      },
-      {
-        "id": "dev-process-learning-improvement",
-        "name": "学習・改善",
-        "description": "ポストモーテム、ドキュメント同期、ノウハウ取り込みを通じて再発防止と組織学習の定着を学ぶ",
-        "category": "技術",
-        "icon": "🔄",
-        "questionCount": 14,
-        "difficulty": "advanced",
-        "dataPath": "dev-process-skill-library/learning-improvement.json",
-        "parentId": "dev-process-skill-library",
-        "group": "dev-process-skill-library-series",
-        "level": 2,
-        "order": 6
-      },
+    {
+      "id": "dev-process-skill-library",
+      "name": "開発プロセス標準化 Skill ライブラリ",
+      "description": "要件定義から設計・実装、検証、運用、改善までを段階的に学べる 87 問の包括的なクイズシリーズ。GitHub Copilot 活用を支える補完教材としても有効です",
+      "category": "技術",
+      "icon": "🧭",
+      "questionCount": 87,
+      "difficulty": "beginner to advanced",
+      "dataPath": "dev-process-skill-library/metadata.json",
+      "parentId": null,
+      "group": "dev-process-skill-library-series",
+      "level": 1,
+      "order": 2
+    },
+    {
+      "id": "dev-process-intro-overview",
+      "name": "概論・運用導入",
+      "description": "対象読者、Skill 選択、承認フロー、証跡管理、KPI などライブラリ全体の導入運用を学ぶ",
+      "category": "技術",
+      "icon": "🧩",
+      "questionCount": 12,
+      "difficulty": "beginner",
+      "dataPath": "dev-process-skill-library/intro-overview.json",
+      "parentId": "dev-process-skill-library",
+      "group": "dev-process-skill-library-series",
+      "level": 2,
+      "order": 1
+    },
+    {
+      "id": "dev-process-requirements-planning",
+      "name": "要件・計画",
+      "description": "requirements-refinement を中心に、要件明確化、受入条件、非機能要件、スコープ境界の整理を学ぶ",
+      "category": "技術",
+      "icon": "📝",
+      "questionCount": 10,
+      "difficulty": "beginner",
+      "dataPath": "dev-process-skill-library/requirements-planning.json",
+      "parentId": "dev-process-skill-library",
+      "group": "dev-process-skill-library-series",
+      "level": 2,
+      "order": 2
+    },
+    {
+      "id": "dev-process-design-implementation",
+      "name": "設計・実装",
+      "description": "設計判断、データモデル、ADR、API 契約、リファクタリング安全性、レビュー観点を通じて実装品質を学ぶ",
+      "category": "技術",
+      "icon": "🛠️",
+      "questionCount": 20,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "dev-process-skill-library/design-implementation.json",
+      "parentId": "dev-process-skill-library",
+      "group": "dev-process-skill-library-series",
+      "level": 2,
+      "order": 3
+    },
+    {
+      "id": "dev-process-verification-quality",
+      "name": "検証・品質",
+      "description": "不具合修正、テスト戦略、セキュリティ強化を通じて品質ゲートと検証判断を学ぶ",
+      "category": "技術",
+      "icon": "✅",
+      "questionCount": 16,
+      "difficulty": "intermediate",
+      "dataPath": "dev-process-skill-library/verification-quality.json",
+      "parentId": "dev-process-skill-library",
+      "group": "dev-process-skill-library-series",
+      "level": 2,
+      "order": 4
+    },
+    {
+      "id": "dev-process-operations-release",
+      "name": "運用・リリース",
+      "description": "リリース準備、性能調査、可観測性整備を通じて本番運用の実践判断を学ぶ",
+      "category": "技術",
+      "icon": "🚦",
+      "questionCount": 15,
+      "difficulty": "advanced",
+      "dataPath": "dev-process-skill-library/operations-release.json",
+      "parentId": "dev-process-skill-library",
+      "group": "dev-process-skill-library-series",
+      "level": 2,
+      "order": 5
+    },
+    {
+      "id": "dev-process-learning-improvement",
+      "name": "学習・改善",
+      "description": "ポストモーテム、ドキュメント同期、ノウハウ取り込みを通じて再発防止と組織学習の定着を学ぶ",
+      "category": "技術",
+      "icon": "🔄",
+      "questionCount": 14,
+      "difficulty": "advanced",
+      "dataPath": "dev-process-skill-library/learning-improvement.json",
+      "parentId": "dev-process-skill-library",
+      "group": "dev-process-skill-library-series",
+      "level": 2,
+      "order": 6
+    },
     {
       "id": "spa-quiz-app-docs",
       "name": "spa-quiz-app ドキュメント",
@@ -582,7 +653,16 @@
       "level": 1,
       "order": 1,
       "estimatedLearningTime": "60-90分",
-      "topics": ["LangChain", "RAG", "vLLM", "Ollama", "MCP", "評価", "マルチモーダル", "コード生成"]
+      "topics": [
+        "LangChain",
+        "RAG",
+        "vLLM",
+        "Ollama",
+        "MCP",
+        "評価",
+        "マルチモーダル",
+        "コード生成"
+      ]
     },
     {
       "id": "genai-oss-agent-orchestration",
@@ -598,7 +678,13 @@
       "level": 2,
       "order": 1,
       "estimatedLearningTime": "8-12分",
-      "topics": ["LangChain", "LangGraph", "AutoGen", "CrewAI", "Semantic Kernel"]
+      "topics": [
+        "LangChain",
+        "LangGraph",
+        "AutoGen",
+        "CrewAI",
+        "Semantic Kernel"
+      ]
     },
     {
       "id": "genai-oss-rag",
@@ -614,7 +700,15 @@
       "level": 2,
       "order": 2,
       "estimatedLearningTime": "10-15分",
-      "topics": ["LlamaIndex", "Haystack", "txtai", "RAGFlow", "PrivateGPT", "Quivr", "Onyx"]
+      "topics": [
+        "LlamaIndex",
+        "Haystack",
+        "txtai",
+        "RAGFlow",
+        "PrivateGPT",
+        "Quivr",
+        "Onyx"
+      ]
     },
     {
       "id": "genai-oss-inference",
@@ -630,7 +724,12 @@
       "level": 2,
       "order": 3,
       "estimatedLearningTime": "6-10分",
-      "topics": ["vLLM", "Ollama", "TGI", "llama.cpp"]
+      "topics": [
+        "vLLM",
+        "Ollama",
+        "TGI",
+        "llama.cpp"
+      ]
     },
     {
       "id": "genai-oss-ui",
@@ -646,7 +745,15 @@
       "level": 2,
       "order": 4,
       "estimatedLearningTime": "10-15分",
-      "topics": ["Open WebUI", "Dify", "Flowise", "LibreChat", "Chatbot UI", "LobeChat", "AnythingLLM"]
+      "topics": [
+        "Open WebUI",
+        "Dify",
+        "Flowise",
+        "LibreChat",
+        "Chatbot UI",
+        "LobeChat",
+        "AnythingLLM"
+      ]
     },
     {
       "id": "genai-oss-evaluation",
@@ -662,7 +769,12 @@
       "level": 2,
       "order": 5,
       "estimatedLearningTime": "6-10分",
-      "topics": ["promptfoo", "Ragas", "Langfuse", "Guardrails"]
+      "topics": [
+        "promptfoo",
+        "Ragas",
+        "Langfuse",
+        "Guardrails"
+      ]
     },
     {
       "id": "genai-oss-multimodal",
@@ -678,7 +790,15 @@
       "level": 2,
       "order": 6,
       "estimatedLearningTime": "10-15分",
-      "topics": ["Whisper", "Piper", "ComfyUI", "AUTOMATIC1111", "InvokeAI", "Fooocus", "Coqui TTS"]
+      "topics": [
+        "Whisper",
+        "Piper",
+        "ComfyUI",
+        "AUTOMATIC1111",
+        "InvokeAI",
+        "Fooocus",
+        "Coqui TTS"
+      ]
     },
     {
       "id": "genai-oss-visualization",
@@ -694,7 +814,10 @@
       "level": 2,
       "order": 7,
       "estimatedLearningTime": "3-5分",
-      "topics": ["Vega-Lite", "ECharts"]
+      "topics": [
+        "Vega-Lite",
+        "ECharts"
+      ]
     },
     {
       "id": "genai-oss-protocols",
@@ -710,7 +833,12 @@
       "level": 2,
       "order": 8,
       "estimatedLearningTime": "5-8分",
-      "topics": ["MCP", "MCP Servers", "JSON-RPC", "backend integration"]
+      "topics": [
+        "MCP",
+        "MCP Servers",
+        "JSON-RPC",
+        "backend integration"
+      ]
     },
     {
       "id": "genai-oss-code-generation",
@@ -726,7 +854,137 @@
       "level": 2,
       "order": 9,
       "estimatedLearningTime": "6-10分",
-      "topics": ["Aider", "Continue", "Tabby", "OpenHands"]
+      "topics": [
+        "Aider",
+        "Continue",
+        "Tabby",
+        "OpenHands"
+      ]
+    },
+    {
+      "id": "css-tutorial",
+      "name": "CSS Tutorial 総合シリーズ",
+      "description": "CSS Basics から Flexbox・Grid・レイアウト設計原則・実践演習までカテゴリ単位で学べる総合シリーズです。",
+      "category": "CSS",
+      "icon": "🎨",
+      "questionCount": 90,
+      "difficulty": "beginner to advanced",
+      "dataPath": "css-tutorial/metadata.json",
+      "parentId": null,
+      "group": "css-tutorial-series",
+      "level": 1,
+      "order": 1,
+      "estimatedLearningTime": "60-90分",
+      "topics": [
+        "css basics",
+        "flexbox",
+        "css grid",
+        "layout principles",
+        "real-world layout"
+      ]
+    },
+    {
+      "id": "css-tutorial-basics",
+      "name": "CSS Basics 基礎知識",
+      "description": "5教材 × 5問で、セレクタ・ボックスモデル・カスケード・display・positionの基礎を確認するセットです。",
+      "category": "CSS",
+      "icon": "📘",
+      "questionCount": 25,
+      "difficulty": "beginner",
+      "dataPath": "css-tutorial/basics.json",
+      "parentId": "css-tutorial",
+      "group": "css-tutorial-series",
+      "level": 2,
+      "order": 1,
+      "estimatedLearningTime": "15-20分",
+      "topics": [
+        "selectors",
+        "specificity",
+        "box model",
+        "cascade",
+        "positioning"
+      ]
+    },
+    {
+      "id": "css-tutorial-flexbox",
+      "name": "Flexbox レイアウト",
+      "description": "3教材 × 5問で、Flexコンテナ・Flexアイテム・実践演習を確認するセットです。",
+      "category": "CSS",
+      "icon": "↔️",
+      "questionCount": 15,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "css-tutorial/flexbox.json",
+      "parentId": "css-tutorial",
+      "group": "css-tutorial-series",
+      "level": 2,
+      "order": 2,
+      "estimatedLearningTime": "10-15分",
+      "topics": [
+        "flex container",
+        "flex items",
+        "layout exercises"
+      ]
+    },
+    {
+      "id": "css-tutorial-grid",
+      "name": "CSS Grid レイアウト",
+      "description": "3教材 × 5問で、Gridコンテナ・Gridアイテム・実践演習を確認するセットです。",
+      "category": "CSS",
+      "icon": "🔲",
+      "questionCount": 15,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "css-tutorial/grid.json",
+      "parentId": "css-tutorial",
+      "group": "css-tutorial-series",
+      "level": 2,
+      "order": 3,
+      "estimatedLearningTime": "10-15分",
+      "topics": [
+        "grid container",
+        "grid items",
+        "template areas"
+      ]
+    },
+    {
+      "id": "css-tutorial-layout-principles",
+      "name": "レイアウト設計原則",
+      "description": "4教材 × 5問で、高さ伝播、min-height:0、スクロール戦略、ベース+モディファイアを確認するセットです。",
+      "category": "CSS",
+      "icon": "📐",
+      "questionCount": 20,
+      "difficulty": "intermediate",
+      "dataPath": "css-tutorial/layout-principles.json",
+      "parentId": "css-tutorial",
+      "group": "css-tutorial-series",
+      "level": 2,
+      "order": 4,
+      "estimatedLearningTime": "12-18分",
+      "topics": [
+        "height propagation",
+        "min-height:0",
+        "overflow strategy",
+        "modifier pattern"
+      ]
+    },
+    {
+      "id": "css-tutorial-practical-layouts",
+      "name": "実践レイアウト演習",
+      "description": "3教材 × 5問で、ダッシュボード・チャットUI・管理画面の実装判断を確認するセットです。",
+      "category": "CSS",
+      "icon": "🧩",
+      "questionCount": 15,
+      "difficulty": "intermediate",
+      "dataPath": "css-tutorial/practical-layouts.json",
+      "parentId": "css-tutorial",
+      "group": "css-tutorial-series",
+      "level": 2,
+      "order": 5,
+      "estimatedLearningTime": "10-15分",
+      "topics": [
+        "dashboard",
+        "chat ui",
+        "admin panel"
+      ]
     }
   ]
 }

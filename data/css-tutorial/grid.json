@@ -1,0 +1,368 @@
+{
+  "id": "css-tutorial-grid",
+  "title": "CSS Grid レイアウト",
+  "description": "Gridコンテナ、Gridアイテム、演習パターンを通じて2次元レイアウト設計を確認する15問セット",
+  "difficulty": "beginner to intermediate",
+  "questions": [
+    {
+      "id": 1,
+      "question": "gridコンテナ設計 に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "grid-template-columns と rows を使って2次元構造を明示する"
+        },
+        {
+          "id": "B",
+          "text": "Gridは1次元配置しか扱えない"
+        },
+        {
+          "id": "C",
+          "text": "列定義はJavaScriptでしか行えない"
+        },
+        {
+          "id": "D",
+          "text": "display:grid だけで全レイアウトが自動最適化される"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Grid は行列を明示的に管理するのに適したレイアウト手法です。"
+    },
+    {
+      "id": 2,
+      "question": "gridコンテナ設計 を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gridは1次元配置しか扱えない"
+        },
+        {
+          "id": "B",
+          "text": "grid-template-columns と rows を使って2次元構造を明示する"
+        },
+        {
+          "id": "C",
+          "text": "列定義はJavaScriptでしか行えない"
+        },
+        {
+          "id": "D",
+          "text": "display:grid だけで全レイアウトが自動最適化される"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Grid は行列を明示的に管理するのに適したレイアウト手法です。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 3,
+      "question": "gridコンテナ設計 の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gridは1次元配置しか扱えない"
+        },
+        {
+          "id": "B",
+          "text": "列定義はJavaScriptでしか行えない"
+        },
+        {
+          "id": "C",
+          "text": "grid-template-columns と rows を使って2次元構造を明示する"
+        },
+        {
+          "id": "D",
+          "text": "display:grid だけで全レイアウトが自動最適化される"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「列定義はJavaScriptでしか行えない」はgridコンテナ設計における推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 4,
+      "question": "gridコンテナ設計 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gridは1次元配置しか扱えない"
+        },
+        {
+          "id": "B",
+          "text": "列定義はJavaScriptでしか行えない"
+        },
+        {
+          "id": "C",
+          "text": "display:grid だけで全レイアウトが自動最適化される"
+        },
+        {
+          "id": "D",
+          "text": "grid-template-columns と rows を使って2次元構造を明示する"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Grid は行列を明示的に管理するのに適したレイアウト手法です。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 5,
+      "question": "gridコンテナ設計 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "grid-template-columns と rows を使って2次元構造を明示する"
+        },
+        {
+          "id": "B",
+          "text": "Gridは1次元配置しか扱えない"
+        },
+        {
+          "id": "C",
+          "text": "列定義はJavaScriptでしか行えない"
+        },
+        {
+          "id": "D",
+          "text": "display:grid だけで全レイアウトが自動最適化される"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Grid は行列を明示的に管理するのに適したレイアウト手法です。 チーム開発では再利用性と予測可能性が重要です。"
+    },
+    {
+      "id": 6,
+      "question": "gridアイテム配置 に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gridアイテムは常に1セル固定で拡張できない"
+        },
+        {
+          "id": "B",
+          "text": "grid-column と grid-row で占有範囲を指定できる"
+        },
+        {
+          "id": "C",
+          "text": "span は Flexbox 専用記法である"
+        },
+        {
+          "id": "D",
+          "text": "配置指定すると自動配置は完全に無効になる"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "アイテム配置の制御でダッシュボードや管理画面の構造を表現できます。"
+    },
+    {
+      "id": 7,
+      "question": "gridアイテム配置 を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gridアイテムは常に1セル固定で拡張できない"
+        },
+        {
+          "id": "B",
+          "text": "span は Flexbox 専用記法である"
+        },
+        {
+          "id": "C",
+          "text": "grid-column と grid-row で占有範囲を指定できる"
+        },
+        {
+          "id": "D",
+          "text": "配置指定すると自動配置は完全に無効になる"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "アイテム配置の制御でダッシュボードや管理画面の構造を表現できます。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 8,
+      "question": "gridアイテム配置 の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gridアイテムは常に1セル固定で拡張できない"
+        },
+        {
+          "id": "B",
+          "text": "span は Flexbox 専用記法である"
+        },
+        {
+          "id": "C",
+          "text": "配置指定すると自動配置は完全に無効になる"
+        },
+        {
+          "id": "D",
+          "text": "grid-column と grid-row で占有範囲を指定できる"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「span は Flexbox 専用記法である」はgridアイテム配置における推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 9,
+      "question": "gridアイテム配置 がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "grid-column と grid-row で占有範囲を指定できる"
+        },
+        {
+          "id": "B",
+          "text": "Gridアイテムは常に1セル固定で拡張できない"
+        },
+        {
+          "id": "C",
+          "text": "span は Flexbox 専用記法である"
+        },
+        {
+          "id": "D",
+          "text": "配置指定すると自動配置は完全に無効になる"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "アイテム配置の制御でダッシュボードや管理画面の構造を表現できます。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 10,
+      "question": "gridアイテム配置 を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Gridアイテムは常に1セル固定で拡張できない"
+        },
+        {
+          "id": "B",
+          "text": "grid-column と grid-row で占有範囲を指定できる"
+        },
+        {
+          "id": "C",
+          "text": "span は Flexbox 専用記法である"
+        },
+        {
+          "id": "D",
+          "text": "配置指定すると自動配置は完全に無効になる"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "アイテム配置の制御でダッシュボードや管理画面の構造を表現できます。 チーム開発では再利用性と予測可能性が重要です。"
+    },
+    {
+      "id": 11,
+      "question": "Grid演習パターン に関する説明として最も適切なものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "template-areas はレスポンシブに使えない"
+        },
+        {
+          "id": "B",
+          "text": "名前付きエリアは1回しか使えない"
+        },
+        {
+          "id": "C",
+          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
+        },
+        {
+          "id": "D",
+          "text": "エリア定義には display:flex が必須である"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "template-areas は設計意図をコードに残しやすい手法です。"
+    },
+    {
+      "id": 12,
+      "question": "Grid演習パターン を実装する際の推奨アプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "template-areas はレスポンシブに使えない"
+        },
+        {
+          "id": "B",
+          "text": "名前付きエリアは1回しか使えない"
+        },
+        {
+          "id": "C",
+          "text": "エリア定義には display:flex が必須である"
+        },
+        {
+          "id": "D",
+          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
+        }
+      ],
+      "correctAnswer": "D",
+      "explanation": "template-areas は設計意図をコードに残しやすい手法です。 実装時は一貫したルールを保つことが重要です。"
+    },
+    {
+      "id": 13,
+      "question": "Grid演習パターン の観点で推奨されるアプローチはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
+        },
+        {
+          "id": "B",
+          "text": "template-areas はレスポンシブに使えない"
+        },
+        {
+          "id": "C",
+          "text": "名前付きエリアは1回しか使えない"
+        },
+        {
+          "id": "D",
+          "text": "エリア定義には display:flex が必須である"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「template-areas を使うと可読性の高いレイアウト定義ができる」はGrid演習パターンにおける推奨アプローチです。実装の安定性と保守性を高めます。"
+    },
+    {
+      "id": 14,
+      "question": "Grid演習パターン がうまく機能しない場合、最初に見直すべき点はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "template-areas はレスポンシブに使えない"
+        },
+        {
+          "id": "B",
+          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
+        },
+        {
+          "id": "C",
+          "text": "名前付きエリアは1回しか使えない"
+        },
+        {
+          "id": "D",
+          "text": "エリア定義には display:flex が必須である"
+        }
+      ],
+      "correctAnswer": "B",
+      "explanation": "template-areas は設計意図をコードに残しやすい手法です。 問題切り分けでは前提条件の確認が有効です。"
+    },
+    {
+      "id": 15,
+      "question": "Grid演習パターン を使ったレイアウトで保守性を高める選択はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "template-areas はレスポンシブに使えない"
+        },
+        {
+          "id": "B",
+          "text": "名前付きエリアは1回しか使えない"
+        },
+        {
+          "id": "C",
+          "text": "template-areas を使うと可読性の高いレイアウト定義ができる"
+        },
+        {
+          "id": "D",
+          "text": "エリア定義には display:flex が必須である"
+        }
+      ],
+      "correctAnswer": "C",
+      "explanation": "template-areas は設計意図をコードに残しやすい手法です。 チーム開発では再利用性と予測可能性が重要です。"
+    }
+  ]
+}
