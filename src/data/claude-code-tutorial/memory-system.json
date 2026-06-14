@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Claude Code のオートメモリが保存されるパスとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`~/.claude/memory/`" },
+        { "id": "B", "text": "`~/.claude/projects/<hash>/memory/`" },
+        { "id": "C", "text": "`.claude/cache/memory/`" },
+        { "id": "D", "text": "`~/.config/claude/sessions/`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "メモリは `~/.claude/projects/<hash>/memory/` にファイルとして保存されます。`<hash>` はプロジェクトディレクトリから生成されたハッシュ値です。このパスのファイルはセッションをまたいで保持され、直接 Markdown エディタで編集することもできます。"
+    },
+    {
+      "id": 2,
+      "question": "`MEMORY.md` インデックスファイルについて正しい説明はどれですか？",
+      "options": [
+        { "id": "A", "text": "すべてのメモリ内容を直接書き込む場所（CLAUDE.md と同じ役割）" },
+        { "id": "B", "text": "各メモリファイルへのポインタを持つインデックスで、200行以内が目安" },
+        { "id": "C", "text": "現在のセッション中のみ有効な一時的なメモリ" },
+        { "id": "D", "text": "git コミット時に自動的に更新されるファイル" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "MEMORY.md は各メモリファイルへのポインタ（インデックス）です。セッション開始時に必ず読み込まれるため、200行以内に収めるのが目安です。メモリ内容は個別のファイルに書き、MEMORY.md はそのファイルへの1行ポインタだけを持ちます。"
+    },
+    {
+      "id": 3,
+      "question": "メモリとして保存すべき情報として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "一時的なデバッグの結果や現在のエラーログ" },
+        { "id": "B", "text": "ユーザーの技術的背景や繰り返し出てきた要望" },
+        { "id": "C", "text": "git 履歴で追える変更内容" },
+        { "id": "D", "text": "汎用的なプログラミング言語の仕様" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "メモリとして保存すべきなのは「ユーザーの技術的背景」「繰り返し出てきた要望」「プロジェクトの方針・制約」「外部ツールのリンク」「確認済みのアプローチ」です。git 履歴で追える情報・一時的なデバッグ結果・汎用技術情報は保存不要です。"
+    },
+    {
+      "id": 4,
+      "question": "メモリファイルの `metadata.type` に設定できる値として正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "session / temporary / permanent / archive" },
+        { "id": "B", "text": "user / feedback / project / reference" },
+        { "id": "C", "text": "personal / team / global / system" },
+        { "id": "D", "text": "hot / warm / cold / frozen" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "メモリのタイプは user（ユーザーの役割・目標）・feedback（作業へのガイダンス）・project（プロジェクトの状況・方針）・reference（外部システムへのポインタ）の4種類です。タイプを正しく設定することで将来のセッションで適切に活用されます。"
+    },
+    {
+      "id": 5,
+      "question": "セッション開始時のメモリ読み込み順序として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "個別メモリ → MEMORY.md → CLAUDE.md" },
+        { "id": "B", "text": "CLAUDE.md → MEMORY.md → 関連する個別メモリ" },
+        { "id": "C", "text": "MEMORY.md → 個別メモリ → CLAUDE.md" },
+        { "id": "D", "text": "CLAUDE.md → 個別メモリ → MEMORY.md" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "セッション開始時は CLAUDE.md → MEMORY.md（インデックス）→ 関連する個別メモリ、の順で読み込まれます。CLAUDE.md でプロジェクトの基本ルールを把握し、MEMORY.md で保存されたメモリ一覧を確認し、必要な個別メモリを読み込みます。"
+    },
+    {
+      "id": 6,
+      "question": "メモリとして保存すべきでない情報として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "プロジェクトの方針・制約" },
+        { "id": "B", "text": "ユーザーの技術的背景" },
+        { "id": "C", "text": "現在の会話コンテキスト（今のセッションのみの情報）" },
+        { "id": "D", "text": "外部ツールのリンクとその目的" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "「現在の会話コンテキスト」は保存すべきでないメモリの代表例です。メモリは将来のセッションでも有効な情報を保存するためのものです。今のセッションだけに関係する情報や、実装の詳細（コードを見ればわかる情報）も保存不要です。"
+    },
+    {
+      "id": 7,
+      "question": "`/clear` コマンド実行後のメモリについて正しい説明はどれですか？",
+      "options": [
+        { "id": "A", "text": "すべてのメモリが削除されてリセットされる" },
+        { "id": "B", "text": "メモリはファイルに保存されているため引き継がれる" },
+        { "id": "C", "text": "CLAUDE.md のみが保持されてメモリは消える" },
+        { "id": "D", "text": "手動でバックアップした場合のみ保持される" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "メモリは `~/.claude/projects/<hash>/memory/` のファイルとして永続化されているため、`/clear` で会話履歴をクリアしても、新しいセッションを開始しても引き継がれます。これがメモリシステムの核心です。"
+    },
+    {
+      "id": 8,
+      "question": "メモリファイルのフロントマターに必要なフィールドとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`id`, `content`, `tags`" },
+        { "id": "B", "text": "`name`, `description`, `metadata.type`" },
+        { "id": "C", "text": "`version`, `author`, `created_at`" },
+        { "id": "D", "text": "`key`, `value`, `scope`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "メモリファイルのフロントマターには `name`（短いスラッグ）・`description`（1行の概要）・`metadata.type`（user/feedback/project/reference）が必要です。`description` はどのメモリを読み込むかの判断に使われます。"
+    },
+    {
+      "id": 9,
+      "question": "「フィードバック」タイプのメモリを書くときの推奨構造として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "タイトル → 概要 → 使用例" },
+        { "id": "B", "text": "ルール/事実 → **Why:** → **How to apply:**" },
+        { "id": "C", "text": "問題 → 原因 → 解決策" },
+        { "id": "D", "text": "Before → After → 注意点" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "フィードバック・プロジェクトタイプのメモリはルール/事実を先頭に書き、**Why:**（なぜそうなのか）と **How to apply:**（どう適用するか）を続けます。理由を書くことでエッジケースを自分で判断できるようになります。"
+    },
+    {
+      "id": 10,
+      "question": "メモリの有効期限に関する正しい説明はどれですか？",
+      "options": [
+        { "id": "A", "text": "メモリは30日で自動的に期限切れになり削除される" },
+        { "id": "B", "text": "コードやプロジェクトが変わっても自動更新されないため定期的な見直しが必要" },
+        { "id": "C", "text": "メモリは常に最新のコードと同期して自動更新される" },
+        { "id": "D", "text": "メモリファイルは読み取り専用のため Claude Code からは編集できない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "メモリは「書いたときに正しかった情報」です。コードやプロジェクトが変わっても自動更新されません。定期的に内容を見直し、古くなったメモリを削除・更新することが重要です。「メモリの内容を確認して現在の状況と合っているか確認して」とクロードに依頼できます。"
+    }
+  ]
+}

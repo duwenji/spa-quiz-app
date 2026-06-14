@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Claude Code の設計原則「エージェント的に動作する」の説明として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "チャット形式でのみ回答し、ファイル操作は行わない" },
+        { "id": "B", "text": "ファイルの読み書きやターミナルコマンドの実行を自律的に行う" },
+        { "id": "C", "text": "すべての操作でユーザーの承認を必要とし、自動実行はしない" },
+        { "id": "D", "text": "クラウドにのみ依存して動作し、ローカルファイルには触れない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Claude Code の「エージェント的に動作する」原則は、ファイルの読み書き・ターミナルコマンドの実行・外部 API の呼び出しなど、実際に作業を完遂するために必要なアクションを自律的に取ることを意味します。単なるチャットボットではなく、作業エージェントとして機能します。"
+    },
+    {
+      "id": 2,
+      "question": "Windows で Claude Code が主要シェルとして使用するのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Command Prompt（cmd.exe）" },
+        { "id": "B", "text": "Git Bash" },
+        { "id": "C", "text": "PowerShell 7+" },
+        { "id": "D", "text": "WSL（Windows Subsystem for Linux）" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Windows では PowerShell 7+ が主要シェルとして動作します。git・npm・docker などほぼすべての操作を PowerShell 経由で実行できます。Bash ツールは POSIX 系スクリプトを実行したい場合に補助的に使います（Git for Windows が必要）。"
+    },
+    {
+      "id": 3,
+      "question": "Claude Code の設計原則「人間の監督を前提とする」として正しい説明はどれですか？",
+      "options": [
+        { "id": "A", "text": "すべての操作が自動承認されて実行される" },
+        { "id": "B", "text": "破壊的な操作（ファイル削除・force push など）は事前に確認を求める" },
+        { "id": "C", "text": "ユーザーは操作を拒否できず、AIが最終意思決定者になる" },
+        { "id": "D", "text": "操作履歴をクラウドに送信して監督機関が確認する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「人間の監督を前提とする」原則では、ファイル削除や force push などの破壊的な操作は事前にユーザーへ確認を求めます。ユーザーが最終的な意思決定者であり、AIが単独で破壊的な操作を行うことはありません。"
+    },
+    {
+      "id": 4,
+      "question": "Claude Code がプロジェクト固有のルールや過去の文脈を記憶するためのファイルはどれですか？",
+      "options": [
+        { "id": "A", "text": "PROJECT.md" },
+        { "id": "B", "text": "CONFIG.json" },
+        { "id": "C", "text": "CLAUDE.md" },
+        { "id": "D", "text": "AGENT.yaml" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "CLAUDE.md はプロジェクト固有のルール・コーディング規約・よく使うコマンドなどを記述するファイルです。Claude Code はこのファイルを自動的に読み込み、プロジェクトに馴染んだ動作をします。/init コマンドで自動生成できます。"
+    },
+    {
+      "id": 5,
+      "question": "Claude Code のツール層に含まれるツールの正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "Read / Edit / Write / Bash / Glob / Grep" },
+        { "id": "B", "text": "Load / Save / Delete / Run / Search / Replace" },
+        { "id": "C", "text": "Open / Close / Execute / Terminal / Locate / Match" },
+        { "id": "D", "text": "Fetch / Push / Pull / Commit / Branch / Merge" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Claude Code のツール層には Read・Edit・Write・Bash・Glob・Grep が含まれます。これらのツールを通じてファイルシステムへのアクセスやシェルコマンドの実行を行います。"
+    },
+    {
+      "id": 6,
+      "question": "Claude Code と GitHub Copilot の比較として正しい説明はどれですか？",
+      "options": [
+        { "id": "A", "text": "GitHub Copilot にはフックシステムがあるが、Claude Code にはない" },
+        { "id": "B", "text": "Claude Code のみ MCP 対応があり、フック・スキルシステムも持つ" },
+        { "id": "C", "text": "両方ともスキルシステム（SKILL.md）をサポートしている" },
+        { "id": "D", "text": "GitHub Copilot はターミナル上で動作し、Claude Code は IDE 専用" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Claude Code は MCP 対応・フックシステム・スキルシステム・メモリ永続化など、GitHub Copilot にはない機能を持ちます。GitHub Copilot はスキルシステム・フック・メモリ永続化・MCP 対応がなく、CLI 非対応です（IDE 拡張のみ）。"
+    },
+    {
+      "id": 7,
+      "question": "Claude Code が利用できる環境として誤っているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "VS Code 拡張" },
+        { "id": "B", "text": "JetBrains プラグイン" },
+        { "id": "C", "text": "Eclipse プラグイン" },
+        { "id": "D", "text": "Desktop App（Mac / Windows）" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Claude Code は CLI・VS Code 拡張・JetBrains プラグイン・Desktop App（Mac/Windows）・Web（claude.ai/code）・iOS アプリで利用できます。Eclipse プラグインは公式には提供されていません。"
+    },
+    {
+      "id": 8,
+      "question": "Claude Code が得意なタスクとして最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "データベースのバックアップスケジュール管理" },
+        { "id": "B", "text": "ネットワークパケットの傍受と解析" },
+        { "id": "C", "text": "コードレビュー・リファクタリング・テスト生成" },
+        { "id": "D", "text": "UI デザインの自動ピクセル調整" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Claude Code が得意なタスクにはコード生成・リファクタリング・デバッグ・コードレビュー・テスト生成・ドキュメント作成・Git 操作などがあります。データベースのバックアップ管理やネットワーク傍受は Claude Code の主な用途ではありません。"
+    },
+    {
+      "id": 9,
+      "question": "Claude Code の npm パッケージ名として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "@claude/code" },
+        { "id": "B", "text": "@anthropic-ai/claude-code" },
+        { "id": "C", "text": "@anthropic/claude" },
+        { "id": "D", "text": "claude-cli" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Claude Code の npm パッケージ名は `@anthropic-ai/claude-code` です。`npm install -g @anthropic-ai/claude-code` でグローバルインストールできます。"
+    },
+    {
+      "id": 10,
+      "question": "Claude Code のアーキテクチャで「スキルシステム」が読み込む主なファイルはどれですか？",
+      "options": [
+        { "id": "A", "text": "CONFIG.yaml" },
+        { "id": "B", "text": "AGENT.md" },
+        { "id": "C", "text": "SKILL.md" },
+        { "id": "D", "text": "RULES.json" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "Claude Code のスキルシステムは SKILL.md ファイルを自動的に読み込みます。SKILL.md に手順・ルール・出力形式を記述することで、Claude Code に特定のタスクを実行させることができます。"
+    }
+  ]
+}

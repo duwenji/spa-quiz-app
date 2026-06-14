@@ -1,0 +1,74 @@
+{
+  "series": {
+    "id": "claude-code-tutorial",
+    "name": "Claude Code 実践チュートリアル 総合シリーズ",
+    "description": "Claude Code の基礎から発展まで、基礎・コア機能・スキル・フック・メモリ・MCP・応用の7カテゴリで体系的に学べる総合クイズシリーズです。",
+    "version": "1.0.0",
+    "totalQuestions": 68,
+    "sections": [
+      {
+        "id": "claude-code-fundamentals",
+        "track": "Fundamentals",
+        "order": 1,
+        "name": "基礎 | Claude Code とは",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["設計思想", "アーキテクチャ", "他ツール比較", "利用環境", "得意タスク"]
+      },
+      {
+        "id": "claude-code-core-features",
+        "track": "Core Features",
+        "order": 2,
+        "name": "コア機能 | スラッシュコマンド・操作",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["/init", "/compact", "/code-review", "/batch", "/effort", "/background"]
+      },
+      {
+        "id": "claude-code-skills",
+        "track": "Skills",
+        "order": 3,
+        "name": "スキルシステム | SKILL.md の使い方",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["SKILL.md", "プロジェクトスキル", "個人スキル", "自動読み込み", "Agent Skills"]
+      },
+      {
+        "id": "claude-code-hooks-automation",
+        "track": "Hooks & Automation",
+        "order": 4,
+        "name": "フック・自動化 | フックの種類と使い方",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["PreToolUse", "PostToolUse", "Stop", "Notification", "UserPromptSubmit", "matcher"]
+      },
+      {
+        "id": "claude-code-memory-system",
+        "track": "Memory System",
+        "order": 5,
+        "name": "メモリシステム | 永続的な記憶の管理",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["MEMORY.md", "メモリタイプ", "自動保存", "フロントマター", "ベストプラクティス"]
+      },
+      {
+        "id": "claude-code-mcp-agents",
+        "track": "MCP & Agents",
+        "order": 6,
+        "name": "MCP・エージェント | マルチエージェント活用",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["Agent SDK", "query()", "マルチエージェント", "Explore", "ワークツリー"]
+      },
+      {
+        "id": "claude-code-advanced",
+        "track": "Advanced",
+        "order": 7,
+        "name": "発展・応用 | CI/CD 統合とチームワークフロー",
+        "questionCount": 8,
+        "estimatedTime": "6-10分",
+        "keyTopics": ["GitHub Actions", "GitLab CI", "品質ゲート", "コスト管理"]
+      }
+    ]
+  }
+}
