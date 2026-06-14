@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "SKILL.md の `description` フィールドが特に重要な理由として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "スキルのバージョン管理に使われるから" },
+        { "id": "B", "text": "Claude Code がこのフィールドを見て今の作業にスキルが必要か判断するから" },
+        { "id": "C", "text": "GitHub Copilot との互換性のために必須のフィールドだから" },
+        { "id": "D", "text": "スキルの実行権限をこのフィールドで制御するから" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`description` フィールドは Claude Code の自動読み込み判断に使われます。会話の内容がこのフィールドにマッチすると、Claude Code が自動的にスキルを読み込んで実行します。具体的な説明を書くほど正確に判断されます。"
+    },
+    {
+      "id": 2,
+      "question": "プロジェクト固有のスキルを配置する正しいパスはどれですか？",
+      "options": [
+        { "id": "A", "text": "`~/.claude/skills/<name>/SKILL.md`" },
+        { "id": "B", "text": "`.claude/skills/<name>/SKILL.md`" },
+        { "id": "C", "text": "`public/skills/<name>/SKILL.md`" },
+        { "id": "D", "text": "`src/skills/<name>/SKILL.md`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "プロジェクト固有のスキルは `.claude/skills/<name>/SKILL.md` に配置します（先頭がドット）。git で管理することでチームメンバー全員が同じスキルを共有できます。個人用（全プロジェクト共通）は `~/.claude/skills/` に配置します。"
+    },
+    {
+      "id": 3,
+      "question": "スキルが自動読み込みされるタイミングとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "プロジェクトを開くたびに常に読み込まれる" },
+        { "id": "B", "text": "会話の内容がスキルの description にマッチしたとき" },
+        { "id": "C", "text": "ファイルを保存したタイミングで自動的に読み込まれる" },
+        { "id": "D", "text": "/reload コマンドを実行したときだけ読み込まれる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "スキルは会話の内容がスキルの `description` フィールドにマッチしたときに自動的に読み込まれます。また、`/<name>` のスラッシュコマンドで明示的に呼び出すこともできます。"
+    },
+    {
+      "id": 4,
+      "question": "個人用スキル（全プロジェクトに横断適用）を配置するパスとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`.claude/skills/`（プロジェクトルート）" },
+        { "id": "B", "text": "`~/.claude/skills/`（ホームディレクトリ）" },
+        { "id": "C", "text": "`~/skills/claude/`" },
+        { "id": "D", "text": "`~/.config/claude-code/skills/`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "個人用スキル（すべてのプロジェクトで使えるもの）は `~/.claude/skills/<name>/SKILL.md` に配置します。プロジェクト用（`.claude/skills/`）はそのプロジェクトのみ、個人用（`~/.claude/skills/`）は全プロジェクトに適用されます。"
+    },
+    {
+      "id": 5,
+      "question": "同じ SKILL.md を GitHub Copilot でも使えるようにする配置場所はどれですか？",
+      "options": [
+        { "id": "A", "text": "`.github/agents/<name>/SKILL.md`" },
+        { "id": "B", "text": "`.github/copilot/<name>/SKILL.md`" },
+        { "id": "C", "text": "`.github/skills/<name>/SKILL.md`" },
+        { "id": "D", "text": "`.copilot/skills/<name>/SKILL.md`" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "同じ SKILL.md を `.github/skills/<name>/SKILL.md` に配置すると GitHub Copilot でも使えます。Agent Skills オープンスタンダード（agentskills.io）に準拠したフォーマットであるため、Claude Code と GitHub Copilot の両方で共通して使えます。"
+    },
+    {
+      "id": 6,
+      "question": "インストール時に `~/.claude/skills/` に同梱される「バンドルスキル」の例として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "/git-push" },
+        { "id": "B", "text": "/skill-creator" },
+        { "id": "C", "text": "/code-formatter" },
+        { "id": "D", "text": "/unit-test-runner" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/skill-creator` はバンドルスキルの代表例で、スキルそのものを作るためのスキルです。Claude Code のインストール時に `~/.claude/skills/` に同梱されており、全プロジェクトで共通して利用できます。"
+    },
+    {
+      "id": 7,
+      "question": "SKILL.md の `name` フィールドの正しい役割はどれですか？",
+      "options": [
+        { "id": "A", "text": "スラッシュコマンドで呼び出すときの表示名として使われる" },
+        { "id": "B", "text": "スキルの識別子でディレクトリ名と一致させる" },
+        { "id": "C", "text": "スキルの実行コマンドを定義する" },
+        { "id": "D", "text": "スキルの優先度を数値で設定する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`name` フィールドはスキルの識別子で、配置ディレクトリ名と一致させます。例えば `code-review` ディレクトリなら `name: code-review` とします。スラッシュコマンドでの呼び出しは `/<name>` の形式です。"
+    },
+    {
+      "id": 8,
+      "question": "プロジェクトスキルの特徴として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "管理者権限を持つユーザーのみが使用できる" },
+        { "id": "B", "text": "git で管理してチームメンバー全員が同じスキルを共有できる" },
+        { "id": "C", "text": "クラウドのリモートサーバーにのみ保存される" },
+        { "id": "D", "text": "TypeScript または Python で記述する必要がある" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "プロジェクトスキルはリポジトリ内の `.claude/skills/` に配置するため、git で管理できます。git にコミットすることでチームメンバー全員が同じスキルを共有でき、プロジェクト固有のデプロイ手順やレビュー基準を統一できます。"
+    },
+    {
+      "id": 9,
+      "question": "Agent Skills オープンスタンダードの説明として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Anthropic が策定した非公開・クローズドの独自フォーマット" },
+        { "id": "B", "text": "Claude Code と GitHub Copilot の両方で使える共通フォーマット" },
+        { "id": "C", "text": "OpenAI が策定したエージェントスキル定義規格" },
+        { "id": "D", "text": "AWS が提供するクラウドエージェント定義システム" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Agent Skills オープンスタンダード（agentskills.io）は Claude Code と GitHub Copilot の両方で使える共通フォーマットです。同じ SKILL.md をどちらのツールでも使えるため、ツール間での移植性が高いです。"
+    },
+    {
+      "id": 10,
+      "question": "スキルをスラッシュコマンドとして呼び出す正しい方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "`skill run <name>` コマンドを使う" },
+        { "id": "B", "text": "`/.claude/skills/<name>` と入力する" },
+        { "id": "C", "text": "`/<name>` でスラッシュコマンドとして呼び出す" },
+        { "id": "D", "text": "`claude --skill <name>` オプションを使う" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "スキルは `/<name>` のスラッシュコマンドとして呼び出せます。例えば `code-review` スキルなら `/code-review` と入力します。スキルの description にマッチする会話をすることで自動読み込みもされます。"
+    }
+  ]
+}

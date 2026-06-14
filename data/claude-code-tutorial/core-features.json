@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "`/init` コマンドの主な用途はどれですか？",
+      "options": [
+        { "id": "A", "text": "会話履歴をクリアして新しいセッションを開始する" },
+        { "id": "B", "text": "プロジェクトを分析して CLAUDE.md を自動生成する" },
+        { "id": "C", "text": "Git リポジトリを初期化して最初のコミットを作成する" },
+        { "id": "D", "text": "Node.js プロジェクトの package.json を初期生成する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/init` はプロジェクトを分析して CLAUDE.md を自動生成するコマンドです。プロジェクト概要・技術スタック・よく使うコマンド・コーディング規約の推測が含まれます。プロジェクト初回セットアップ時に使います。"
+    },
+    {
+      "id": 2,
+      "question": "`/compact` コマンドの目的として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "ソースコードを圧縮・ミニファイする" },
+        { "id": "B", "text": "会話を要約してコンテキストウィンドウを節約する" },
+        { "id": "C", "text": "ファイルをまとめて ZIP アーカイブに圧縮する" },
+        { "id": "D", "text": "すべての変更をロールバックして元の状態に戻す" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/compact [instructions]` は会話を要約してコンテキストを節約するコマンドです。長い会話でコンテキストウィンドウが埋まりそうなときに使います。任意の指示（instructions）を渡して要約の方向性を制御することもできます。"
+    },
+    {
+      "id": 3,
+      "question": "`/code-review --fix` コマンドの動作として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "コードレビュー結果を外部ファイルに書き出す" },
+        { "id": "B", "text": "コードレビューを実行し、見つかった問題を自動修正する" },
+        { "id": "C", "text": "修正前の差分のみを表示して変更は加えない" },
+        { "id": "D", "text": "GitHub Pull Request を自動作成する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/code-review --fix` はコードレビューを実行し、見つかった問題を自動的に修正します。`--fix` オプションなしの `/code-review` はレビュー結果の表示のみで、実際の修正は行いません。"
+    },
+    {
+      "id": 4,
+      "question": "カスタムスラッシュコマンドを配置する正しいパスはどれですか？",
+      "options": [
+        { "id": "A", "text": "`~/.claude/commands/<name>/CMD.md`" },
+        { "id": "B", "text": "`.claude/plugins/<name>/PLUGIN.md`" },
+        { "id": "C", "text": "`.claude/skills/<name>/SKILL.md`" },
+        { "id": "D", "text": "`~/.config/claude/<name>/command.md`" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "`.claude/skills/<name>/SKILL.md` に配置すると `/<name>` のカスタムスラッシュコマンドとして使えます。例えば `.claude/skills/deploy-check/SKILL.md` は `/deploy-check` として呼び出せます。"
+    },
+    {
+      "id": 5,
+      "question": "`/batch` コマンドの説明として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Windows のバッチファイル（.bat）を実行する" },
+        { "id": "B", "text": "大規模変更を並列サブエージェントで実行する" },
+        { "id": "C", "text": "複数ファイルを一括削除する" },
+        { "id": "D", "text": "API リクエストをバッチ処理でまとめて送信する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/batch <instruction>` は大規模変更を並列サブエージェントで実行するコマンドです。多くのファイルに対する変更や、独立したタスクを並列で高速実行する際に使います。"
+    },
+    {
+      "id": 6,
+      "question": "`/effort` コマンドで設定できるレベルの正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "fast / normal / slow" },
+        { "id": "B", "text": "low / medium / high / xhigh / max" },
+        { "id": "C", "text": "quick / standard / thorough / deep / ultra" },
+        { "id": "D", "text": "1 / 2 / 3 / 4 / 5（数値指定）" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/effort` コマンドで設定できるレベルは low・medium・high・xhigh・max の5段階です。高いほど丁寧に処理しますが時間とトークンを多く使います。タスクの重要度に応じて使い分けます。"
+    },
+    {
+      "id": 7,
+      "question": "`/background` コマンドの説明として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Claude Code ウィンドウの背景色を変更する" },
+        { "id": "B", "text": "セッションをバックグラウンドに移行してターミナルを解放する" },
+        { "id": "C", "text": "バックグラウンドで動いているプロセスを強制終了する" },
+        { "id": "D", "text": "過去のセッションをアーカイブして保存する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/background [prompt]` はセッションをバックグラウンドに移行してターミナルを解放するコマンドです。長時間かかるタスクを実行しながら他の作業ができます。バックグラウンドタスクは `/tasks` で確認できます。"
+    },
+    {
+      "id": 8,
+      "question": "`/status` コマンドで確認できる情報として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "git のコミット履歴とブランチ状態" },
+        { "id": "B", "text": "バージョン・モデル・アカウント・接続状態" },
+        { "id": "C", "text": "インストールされているパッケージの一覧" },
+        { "id": "D", "text": "現在開いているファイルの一覧" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/status` コマンドではバージョン・使用中のモデル・アカウント情報・接続状態を確認できます。Claude Code のセットアップが正常かどうかを確認するときに便利です。"
+    },
+    {
+      "id": 9,
+      "question": "`/schedule` コマンドの用途として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "タスクの優先度とスケジュールを管理する" },
+        { "id": "B", "text": "ルーティン（定期実行タスク）を設定する" },
+        { "id": "C", "text": "会話のタイマーを設定して自動終了させる" },
+        { "id": "D", "text": "CI/CD パイプラインの実行スケジュールを設定する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/schedule [description]` はルーティン（定期実行タスク）を設定するコマンドです。「毎朝 9 時に PR のレビューを確認する」のような繰り返しタスクを自動化できます。"
+    },
+    {
+      "id": 10,
+      "question": "`/plan` コマンドの説明として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "プロジェクトの工数見積もりを自動計算する" },
+        { "id": "B", "text": "プランモードに入り、実装前に計画を立案・承認する" },
+        { "id": "C", "text": "実装計画を GitHub Issue として自動投稿する" },
+        { "id": "D", "text": "テスト計画書を Markdown ファイルとして生成する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`/plan [description]` はプランモードに入るコマンドです。プランモードでは実装前に計画を立案し、ユーザーの承認を得てから作業を開始します。大きな変更を行う前に方針を確認したいときに使います。"
+    }
+  ]
+}

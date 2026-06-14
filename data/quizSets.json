@@ -985,6 +985,185 @@
         "chat ui",
         "admin panel"
       ]
+    },
+    {
+      "id": "claude-code-tutorial",
+      "name": "Claude Code 実践チュートリアル 総合シリーズ",
+      "description": "Claude Code の基礎から発展まで、基礎・コア機能・スキル・フック・メモリ・MCP・応用の7カテゴリで体系的に学べる総合クイズシリーズです。",
+      "category": "Claude Code",
+      "icon": "🤖",
+      "questionCount": 68,
+      "difficulty": "beginner to advanced",
+      "dataPath": "claude-code-tutorial/metadata.json",
+      "parentId": null,
+      "group": "claude-code-tutorial-series",
+      "level": 1,
+      "order": 1,
+      "estimatedLearningTime": "60-90分",
+      "topics": [
+        "設計思想",
+        "スラッシュコマンド",
+        "スキルシステム",
+        "フック・自動化",
+        "メモリシステム",
+        "MCP・エージェント",
+        "CI/CD統合"
+      ]
+    },
+    {
+      "id": "claude-code-fundamentals",
+      "name": "基礎 | Claude Code とは",
+      "description": "Claude Code の設計思想・アーキテクチャ・他ツールとの比較・利用環境・得意タスクを学ぶ入門クイズです。",
+      "category": "Claude Code",
+      "icon": "📖",
+      "questionCount": 10,
+      "difficulty": "beginner",
+      "dataPath": "claude-code-tutorial/fundamentals.json",
+      "parentId": "claude-code-tutorial",
+      "group": "claude-code-tutorial-series",
+      "level": 2,
+      "order": 1,
+      "estimatedLearningTime": "8-12分",
+      "topics": [
+        "設計思想",
+        "アーキテクチャ",
+        "他ツール比較",
+        "利用環境",
+        "得意タスク"
+      ]
+    },
+    {
+      "id": "claude-code-core-features",
+      "name": "コア機能 | スラッシュコマンド・操作",
+      "description": "/init・/compact・/code-review・/batch・/effort・/background など主要コマンドの使い方を学ぶクイズです。",
+      "category": "Claude Code",
+      "icon": "⌨️",
+      "questionCount": 10,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "claude-code-tutorial/core-features.json",
+      "parentId": "claude-code-tutorial",
+      "group": "claude-code-tutorial-series",
+      "level": 2,
+      "order": 2,
+      "estimatedLearningTime": "8-12分",
+      "topics": [
+        "/init",
+        "/compact",
+        "/code-review",
+        "/batch",
+        "/effort",
+        "/background"
+      ]
+    },
+    {
+      "id": "claude-code-skills",
+      "name": "スキルシステム | SKILL.md の使い方",
+      "description": "SKILL.md の構造・自動読み込み・プロジェクトスキルと個人スキルの違い・GitHub Copilot との互換性を学ぶクイズです。",
+      "category": "Claude Code",
+      "icon": "🛠️",
+      "questionCount": 10,
+      "difficulty": "intermediate",
+      "dataPath": "claude-code-tutorial/skills.json",
+      "parentId": "claude-code-tutorial",
+      "group": "claude-code-tutorial-series",
+      "level": 2,
+      "order": 3,
+      "estimatedLearningTime": "8-12分",
+      "topics": [
+        "SKILL.md",
+        "プロジェクトスキル",
+        "個人スキル",
+        "自動読み込み",
+        "Agent Skills"
+      ]
+    },
+    {
+      "id": "claude-code-hooks-automation",
+      "name": "フック・自動化 | フックの種類と使い方",
+      "description": "PreToolUse・PostToolUse・Stop・Notification・UserPromptSubmit の5種類のフックと matcher 構文を学ぶクイズです。",
+      "category": "Claude Code",
+      "icon": "🔗",
+      "questionCount": 10,
+      "difficulty": "intermediate",
+      "dataPath": "claude-code-tutorial/hooks-automation.json",
+      "parentId": "claude-code-tutorial",
+      "group": "claude-code-tutorial-series",
+      "level": 2,
+      "order": 4,
+      "estimatedLearningTime": "8-12分",
+      "topics": [
+        "PreToolUse",
+        "PostToolUse",
+        "Stop",
+        "Notification",
+        "UserPromptSubmit",
+        "matcher"
+      ]
+    },
+    {
+      "id": "claude-code-memory-system",
+      "name": "メモリシステム | 永続的な記憶の管理",
+      "description": "MEMORY.md インデックス・メモリタイプ（user/feedback/project/reference）・保存ルール・フロントマター構造を学ぶクイズです。",
+      "category": "Claude Code",
+      "icon": "🧠",
+      "questionCount": 10,
+      "difficulty": "intermediate",
+      "dataPath": "claude-code-tutorial/memory-system.json",
+      "parentId": "claude-code-tutorial",
+      "group": "claude-code-tutorial-series",
+      "level": 2,
+      "order": 5,
+      "estimatedLearningTime": "8-12分",
+      "topics": [
+        "MEMORY.md",
+        "メモリタイプ",
+        "自動保存",
+        "フロントマター",
+        "ベストプラクティス"
+      ]
+    },
+    {
+      "id": "claude-code-mcp-agents",
+      "name": "MCP・エージェント | マルチエージェント活用",
+      "description": "Agent SDK の query()・マルチエージェントパターン・Explore エージェント・Git ワークツリー並列開発を学ぶクイズです。",
+      "category": "Claude Code",
+      "icon": "🤝",
+      "questionCount": 10,
+      "difficulty": "intermediate to advanced",
+      "dataPath": "claude-code-tutorial/mcp-agents.json",
+      "parentId": "claude-code-tutorial",
+      "group": "claude-code-tutorial-series",
+      "level": 2,
+      "order": 6,
+      "estimatedLearningTime": "8-12分",
+      "topics": [
+        "Agent SDK",
+        "query()",
+        "マルチエージェント",
+        "Explore",
+        "ワークツリー"
+      ]
+    },
+    {
+      "id": "claude-code-advanced",
+      "name": "発展・応用 | CI/CD 統合とチームワークフロー",
+      "description": "GitHub Actions・GitLab CI への統合・品質ゲート・コスト管理戦略を学ぶ発展クイズです。",
+      "category": "Claude Code",
+      "icon": "🚀",
+      "questionCount": 8,
+      "difficulty": "advanced",
+      "dataPath": "claude-code-tutorial/advanced.json",
+      "parentId": "claude-code-tutorial",
+      "group": "claude-code-tutorial-series",
+      "level": 2,
+      "order": 7,
+      "estimatedLearningTime": "6-10分",
+      "topics": [
+        "GitHub Actions",
+        "GitLab CI",
+        "品質ゲート",
+        "コスト管理"
+      ]
     }
   ]
 }

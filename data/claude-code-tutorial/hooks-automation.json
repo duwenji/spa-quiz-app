@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "`PreToolUse` フックが発火するタイミングとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "ツールが実行された直後" },
+        { "id": "B", "text": "ツールが実行される直前" },
+        { "id": "C", "text": "Claude Code がレスポンスを完了したとき" },
+        { "id": "D", "text": "ユーザーがメッセージを送信した直後" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`PreToolUse` フックはツールが実行される直前に発火します。`permissionDecision: \"deny\"` を含む JSON を stdout に出力することでツールの実行をブロックできます。危険なコマンド（rm -rf など）を検知して止める用途などに使います。"
+    },
+    {
+      "id": 2,
+      "question": "`PostToolUse` フックの典型的な使用例として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "rm -rf コマンドの実行をブロックする" },
+        { "id": "B", "text": "ファイル編集後に Prettier を自動実行する" },
+        { "id": "C", "text": "セッション開始時に環境変数を初期化する" },
+        { "id": "D", "text": "ユーザーの入力をログに記録する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`PostToolUse` フックはツールが実行された直後に発火します。Edit/Write ツールで `.tool_input.file_path` を取得し、そのファイルに対して Prettier を実行するなど、自動フォーマットやテスト実行に使います。"
+    },
+    {
+      "id": 3,
+      "question": "`Stop` フックが発火するタイミングとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "ツール実行がエラーになったとき" },
+        { "id": "B", "text": "ユーザーが /exit コマンドを実行したとき" },
+        { "id": "C", "text": "Claude Code がレスポンスを完了したとき（ターンが終わったとき）" },
+        { "id": "D", "text": "ネットワーク接続が切断されたとき" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "`Stop` フックは Claude Code がレスポンスを完了したとき（ターンが終わったとき）に発火します。完了通知音を鳴らしたり、Slack に通知を送ったりする用途に使います。"
+    },
+    {
+      "id": 4,
+      "question": "フックコマンドでツールへの入力データを受け取る方法として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "環境変数として自動設定される" },
+        { "id": "B", "text": "stdin から JSON として渡される" },
+        { "id": "C", "text": "コマンドライン引数として渡される" },
+        { "id": "D", "text": "設定ファイルから読み込む必要がある" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "フックコマンドはツールへの入力・出力データを stdin から JSON として受け取ります（環境変数ではありません）。`jq` を使って `cat | jq -r '.tool_input.command'` のように値を抽出します。"
+    },
+    {
+      "id": 5,
+      "question": "`PreToolUse` でツール実行をブロックする方法として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "exit code 0 を返す" },
+        { "id": "B", "text": "`permissionDecision: \"deny\"` を含む JSON を stdout に出力する" },
+        { "id": "C", "text": "`return false` を返す" },
+        { "id": "D", "text": "/block コマンドを実行する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`PreToolUse` でブロックするには、`hookSpecificOutput.permissionDecision: \"deny\"` を含む JSON を stdout に出力します。または exit code 2 と stderr メッセージでもブロックできます。exit code 0 や 1 ではブロックされません。"
+    },
+    {
+      "id": 6,
+      "question": "フックの `matcher` で「Edit または Write にマッチ」する正しい記法はどれですか？",
+      "options": [
+        { "id": "A", "text": "`\"Edit && Write\"`" },
+        { "id": "B", "text": "`\"Edit,Write\"`" },
+        { "id": "C", "text": "`\"Edit|Write\"`" },
+        { "id": "D", "text": "`\"Edit+Write\"`" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "matcher で複数のツールを指定するには `|` で区切ります。`\"Edit|Write\"` で Edit または Write にマッチします。英数字・`_`・`|` のみで構成されるパターンはパイプ区切りリストとして扱われます。"
+    },
+    {
+      "id": 7,
+      "question": "`UserPromptSubmit` フックの stdin に渡されるデータ形式として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`{\"text\": \"...\", \"user\": \"...\"}`" },
+        { "id": "B", "text": "`{\"prompt\": \"...\", \"permission_mode\": \"...\"}`" },
+        { "id": "C", "text": "`{\"message\": \"...\", \"timestamp\": \"...\"}`" },
+        { "id": "D", "text": "`{\"input\": \"...\", \"session_id\": \"...\"}`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`UserPromptSubmit` フックの stdin には `{\"prompt\": \"...\", \"permission_mode\": \"...\"}` の形式でデータが渡されます。`jq -r .prompt` でユーザーの入力テキストを取得できます。"
+    },
+    {
+      "id": 8,
+      "question": "`Notification` フックが発火する状況として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "監視中のファイルが変更されたとき" },
+        { "id": "B", "text": "新しいセッションが開始されたとき" },
+        { "id": "C", "text": "Claude Code が承認待ちやエラーなどの通知を発生させたとき" },
+        { "id": "D", "text": "Git のコミットが完了したとき" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "`Notification` フックは Claude Code が通知を発生させたとき（承認待ち・エラー等）に発火します。Mac の osascript でダイアログを表示したり、音を鳴らしたりして、ユーザーが離席中でも気づけるようにするのに使います。"
+    },
+    {
+      "id": 9,
+      "question": "フックの matcher で `\"Bash(git *)\"` が意味するものとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Git がインストール済みの場合にのみ実行するフック" },
+        { "id": "B", "text": "git で始まる Bash コマンドのみにマッチ" },
+        { "id": "C", "text": "git ディレクトリ内のファイル操作にマッチ" },
+        { "id": "D", "text": "GitHub API へのリクエストにマッチ" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`\"Bash(git *)\"` は git で始まる Bash コマンドのみにマッチするパターンです。英数字・`_`・`|` 以外の文字が含まれる場合は JavaScript 正規表現として解釈されます。`\"Bash(git push*)\"` なら `git push` で始まるコマンドのみにマッチします。"
+    },
+    {
+      "id": 10,
+      "question": "フックコマンド内で使えるパスプレースホルダー `${CLAUDE_PROJECT_DIR}` の内容として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "Claude Code のインストールディレクトリ" },
+        { "id": "B", "text": "プロジェクトルートの絶対パス" },
+        { "id": "C", "text": "ユーザーのホームディレクトリ" },
+        { "id": "D", "text": "現在実行中のスクリプトのパス" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`${CLAUDE_PROJECT_DIR}` はプロジェクトルートの絶対パスに展開されます。フックコマンド文字列内で使えるパスプレースホルダーで、スクリプトの配置場所を動的に参照するときに便利です。"
+    }
+  ]
+}

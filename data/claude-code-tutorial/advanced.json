@@ -1,0 +1,100 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "GitHub Actions で PR が作成・更新されたときに AI レビューを実行するトリガーとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`on: push`" },
+        { "id": "B", "text": "`on: pull_request: types: [opened, synchronize]`" },
+        { "id": "C", "text": "`on: merge_request: types: [created, updated]`" },
+        { "id": "D", "text": "`on: review: types: [requested, submitted]`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "GitHub Actions で PR 作成・更新時に実行するには `on: pull_request: types: [opened, synchronize]` を使います。`opened` は PR 作成時、`synchronize` は新しいコミットがプッシュされたときにトリガーされます。"
+    },
+    {
+      "id": 2,
+      "question": "CI/CD でのコスト管理として `maxTurns` の推奨値として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "1〜2" },
+        { "id": "B", "text": "3〜5" },
+        { "id": "C", "text": "20〜50" },
+        { "id": "D", "text": "100〜200" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "CI/CD での `maxTurns` は 3〜5 が推奨です。コストを抑えながら十分な処理を行えます。大規模な修正タスクには `maxTurns: 20` 程度が必要ですが、CI/CD ではコスト管理が重要なため、軽量な設定が推奨されます。"
+    },
+    {
+      "id": 3,
+      "question": "GitLab CI の設定ファイル名として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`.github/workflows/ci.yml`" },
+        { "id": "B", "text": "`.gitlab/ci.yml`" },
+        { "id": "C", "text": "`.gitlab-ci.yml`" },
+        { "id": "D", "text": "`gitlab-pipeline.yml`" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "GitLab CI の設定ファイル名は `.gitlab-ci.yml`（プロジェクトルートに配置）です。GitHub Actions が `.github/workflows/*.yml`（複数ファイル可）なのに対し、GitLab CI は1ファイルでパイプライン全体を定義します。"
+    },
+    {
+      "id": 4,
+      "question": "品質ゲートとしてセキュリティ問題を発見した際にジョブを失敗させる Node.js の方法として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`throw new Error(\"Security issue found\")`" },
+        { "id": "B", "text": "`process.exit(1)`" },
+        { "id": "C", "text": "`return false`" },
+        { "id": "D", "text": "`console.error(\"FAIL\")`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`process.exit(1)` で非ゼロの exit code を返すとジョブが失敗扱いになります。CI/CD では exit code でジョブの成否を判断します。`throw new Error()` もプロセスを終了させますが、`process.exit(1)` が明示的で推奨されます。"
+    },
+    {
+      "id": 5,
+      "question": "CI/CD でのコスト削減戦略として最も適切なのはどれですか？",
+      "options": [
+        { "id": "A", "text": "全ファイルを毎回スキャンして網羅性を高める" },
+        { "id": "B", "text": "軽量モデル（例: claude-haiku-4-5-20251001）を使用する" },
+        { "id": "C", "text": "maxTurns を無制限にして精度を上げる" },
+        { "id": "D", "text": "複数のリクエストをまとめて送信しない（個別処理する）" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "CI/CD でのコスト削減には「maxTurns を制限（3〜5）」「軽量モデル（claude-haiku）を使う」「変更ファイルのみ対象にする（diff のみ読む）」「キャッシュを活用する」の4つが有効です。"
+    },
+    {
+      "id": 6,
+      "question": "GitLab CI で `artifacts` を使う主な目的として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "実行中のジョブをキャンセルする" },
+        { "id": "B", "text": "レビュー結果ファイルを保存して次のジョブや後続ステージに引き継ぐ" },
+        { "id": "C", "text": "コンテナイメージをレジストリにキャッシュする" },
+        { "id": "D", "text": "API キーをパイプライン全体で安全に共有する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "GitLab CI の `artifacts` はジョブが生成したファイルを保存し、後続のジョブやステージに引き継ぐ機能です。`expire_in: 1 week` で保持期間を設定できます。レビューレポートをダウンロード可能にする用途にも使われます。"
+    },
+    {
+      "id": 7,
+      "question": "GitHub Actions でジョブの実行環境（ランナー）を指定するキーとして正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`environment:`" },
+        { "id": "B", "text": "`runner:`" },
+        { "id": "C", "text": "`runs-on:`" },
+        { "id": "D", "text": "`platform:`" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "GitHub Actions でランナー（実行環境）を指定するには `runs-on:` を使います。`runs-on: ubuntu-latest` で最新の Ubuntu ランナーで実行します。GitLab CI での対応は `image:` でDockerイメージを指定する形です。"
+    },
+    {
+      "id": 8,
+      "question": "GitLab CI でマージリクエスト（MR）作成・更新時のみジョブを実行するキーはどれですか？",
+      "options": [
+        { "id": "A", "text": "`when: merge_request`" },
+        { "id": "B", "text": "`triggers: merge_requests`" },
+        { "id": "C", "text": "`only: merge_requests`" },
+        { "id": "D", "text": "`on: merge_request:`" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "GitLab CI でマージリクエスト時のみ実行するには `only: merge_requests` を使います。GitHub Actions の `on: pull_request:` に相当します。GitLab の Merge Request は GitHub の Pull Request に対応しています。"
+    }
+  ]
+}
