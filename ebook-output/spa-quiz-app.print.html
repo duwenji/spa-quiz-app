@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2026-03-21" />
+  <meta name="keywords" content="React, TypeScript, SPA, Frontend, Quiz
+App, UI Design, GitHub Copilot" />
+  <meta name="description" content="React と TypeScript を使って、シングルページアプリケーションを設計・実装する流れを学ぶ 実践ガイドです。 クイズアプリを題材に、画面設計、状態管理、UI コンポーネント分割、 GitHub Copilot を活用した開発補助までを順序立てて扱います。" />
+  <title>SPA Quiz App Guide</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">body {font-family: "Yu Gothic UI", "Meiryo", "Hiragino Sans", "Noto Sans CJK JP", sans-serif;font-size: 1em;line-height: 1.75;margin: 0;padding: 0;color: #24292f;background: #ffffff;text-align: left;}h1 {font-size: 2em;font-weight: 700;margin: 1.4em 0 0.6em 0;page-break-before: always;page-break-after: avoid;text-align: left;padding-bottom: 0.35em;letter-spacing: -0.02em;border-bottom: 2px solid #d0d7de;color: #0f172a;}body > h1:first-of-type {margin-top: 0.3em;font-size: 2.35em;line-height: 1.2;color: #0969da;border-bottom: 3px solid #58a6ff;}h2 {font-size: 1.35em;font-weight: 700;margin: 1.1em 0 0.45em 0;page-break-after: avoid;border-bottom: 1px solid #d8dee4;padding-bottom: 0.25em;color: #1f2937;}body > h1:first-of-type + h2 {font-size: 1.18em;font-weight: 600;border-bottom: none;padding-bottom: 0;color: #57606a;margin-top: 0.2em;}h3 {font-size: 1.12em;font-weight: 700;margin: 1em 0 0.3em 0;page-break-after: avoid;color: #0969da;}h4, h5, h6 {font-size: 1em;font-weight: 700;margin: 0.8em 0 0.2em 0;page-break-after: avoid;color: #374151;}p {margin: 0.65em 0;text-indent: 0;}p.first-paragraph {text-indent: 0;}ul, ol {margin: 0.9em 0 1.1em 0;padding-left: 1.35em;}li {margin: 0.35em 0;text-indent: 0;}li p {text-indent: 0;margin: 0.2em 0;}table {width: 100%;border-collapse: collapse;margin: 1em 0;page-break-inside: avoid;border: 1px solid #d0d7de;font-size: 0.95em;}table caption {font-weight: 700;margin: 0.5em 0;color: #0f172a;}table thead {background-color: #f6f8fa;font-weight: 700;}table th {border: 1px solid #d0d7de;padding: 0.55em;text-align: left;color: #0f172a;}table td {border: 1px solid #d8dee4;padding: 0.55em;}table tr:nth-child(even) {background-color: #fbfdff;}code {font-family: "Consolas", "Courier New", monospace;font-size: 0.92em;background-color: #eef2ff;padding: 0.18em 0.38em;border-radius: 4px;color: #0a3069;}pre {background-color: #f8fafc;border: 1px solid #d0d7de;border-left: 4px solid #58a6ff;border-radius: 8px;overflow-x: auto;page-break-inside: avoid;padding: 1em 1.1em;margin: 1em 0;font-family: "Consolas", "Courier New", monospace;font-size: 0.92em;line-height: 1.68;text-align: left;color: #1f2937;}pre code {background-color: transparent;padding: 0;color: inherit;}blockquote {margin: 1em 0;padding: 0.75em 1em;border-left: 4px solid #58a6ff;background-color: #f6f8fa;color: #374151;font-style: normal;}blockquote p {text-indent: 0;margin: 0.35em 0;}hr {margin: 1.4em 0;border: none;border-top: 2px solid #d8e3f0;height: 0;page-break-after: avoid;}strong, b {font-weight: 700;color: #0f172a;}em, i {font-style: italic;}u, .underline {text-decoration: underline;}a {color: #0969da;text-decoration: none;}a:visited {color: #8250df;}img {max-width: 100%;height: auto;page-break-inside: avoid;margin: 1em auto;display: block;}dl {margin: 1em 0;}dt {font-weight: 700;margin: 0.5em 0 0.2em 0;}dd {margin: 0 0 0.5em 2em;text-indent: 0;}section, article {margin: 1em 0;}.toc,nav#TOC {page-break-after: auto;page-break-before: auto;font-size: 0.95em;}nav#TOC h1,nav#TOC h2,nav#TOC h3 {page-break-before: auto;page-break-after: avoid;}nav#TOC ol,nav#toc ol,.toc ol {list-style: none;padding-left: 1em;}.toc ul {list-style-type: none;padding-left: 0;margin: 0;}.toc li {margin: 0.25em 0;text-indent: 0;line-height: 1.3;}.toc li ul {margin-left: 0.8em;list-style-type: none;}.toc li a {color: #0066cc;text-decoration: none;}.toc li a:hover,.toc li a:focus {text-decoration: underline;}.toc.compact li {margin: 0.15em 0;font-size: 0.9em;}.toc.compact li ul {display: none;}.note, .warning, .info, .tip {margin: 1em 0;padding: 0.8em;border-left: 3px solid #0066cc;background-color: #f0f5ff;page-break-inside: avoid;}.note {border-left-color: #0066cc;}.warning {border-left-color: #ff8800;background-color: #fff8f0;}.info {border-left-color: #00aa00;background-color: #f0fff0;}.tip {border-left-color: #aa00aa;background-color: #f8f0ff;}.footnote {font-size: 0.9em;margin: 1em 0;}a.footnote-ref {font-size: 0.85em;vertical-align: super;}.page-break {display: block;height: 0;margin: 0;padding: 0;break-after: page;page-break-after: always;}@media (max-width: 600px) {body {font-size: 0.95em;}h1 {font-size: 1.5em;}h2 {font-size: 1.3em;}}@media print {a {color: inherit;text-decoration: none;}}</style>
+  <style type="text/css">@page {size: 6in 9in;margin: 0.625in 0.625in 0.65in 0.625in;}html {font-size: 11pt;}body {color: #1f2937;background: #ffffff;font-family: "Yu Gothic UI", "Meiryo", "Hiragino Sans", "Noto Sans CJK JP", sans-serif;line-height: 1.7;}a::after {content: none !important;}h1, h2, h3, h4, h5, h6 {break-after: avoid;color: #111827;letter-spacing: -0.01em;}h1 {page-break-before: always;border-bottom: 2px solid #d1d5db;padding-bottom: 0.25rem;font-size: 1.95rem;font-weight: 700;}body > h1:first-of-type {font-size: 2.3rem;line-height: 1.15;color: #0969da;border-bottom: 3px solid #58a6ff;}h2 {font-size: 1.25rem;font-weight: 600;color: #334155;}body > h1:first-of-type + h2 {border-bottom: none;margin-top: -0.15rem;padding-bottom: 0;color: #57606a;}p {text-indent: 0;orphans: 3;widows: 3;}blockquote {border-left: 4px solid #58a6ff;background: #f6f8fa;padding: 0.7rem 0.9rem;margin: 1rem 0;}pre, code {font-family: "Consolas", "Courier New", monospace;}code {background: #eef2ff;color: #0a3069;padding: 0.1rem 0.28rem;border-radius: 4px;}pre {white-space: pre-wrap;word-break: break-all;overflow-wrap: anywhere;overflow-x: hidden;max-width: 100%;box-sizing: border-box;border-radius: 8px;background: #f8fafc;color: #1f2937;border: 1px solid #d0d7de;border-left: 4px solid #58a6ff;padding: 0.9em 1em;font-size: 0.88em;line-height: 1.65;}img, svg, table, pre, blockquote, figure,p:has(> img:only-child) {break-inside: avoid;page-break-inside: avoid;}img,svg {display: block;max-width: 100%;max-height: 7.1in;height: auto;margin: 0.75rem auto;}figure {margin: 1.25rem 0;}table {border-collapse: collapse;overflow-wrap: break-word;word-break: break-word;}table th, table td {overflow-wrap: anywhere;word-break: break-all;max-width: 0;}table th {background: #f6f8fa;}h2 + figure,h3 + figure,h2 + p:has(> img:only-child),h3 + p:has(> img:only-child) {break-before: avoid-page;page-break-before: avoid;}.pdf-frontmatter-toc {page-break-after: always;}nav#TOC {page-break-before: always;page-break-after: always;}.page-break {display: block;height: 0;break-after: page;page-break-after: always;}</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">SPA Quiz App Guide</h1>
+<p class="subtitle">React + TypeScriptで学ぶSPA開発とクイズUI実装</p>
+<p class="date">2026-03-21</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#react-spa-選択問題アプリ" id="toc-react-spa-選択問題アプリ">React SPA 選択問題アプリ</a>
+<ul>
+<li><a href="#学習用クイズアプリ実践ガイド" id="toc-学習用クイズアプリ実践ガイド">学習用クイズアプリ実践ガイド</a></li>
+</ul></li>
+<li><a href="#クイズ受験マニュアル" id="toc-クイズ受験マニュアル">クイズ受験マニュアル</a>
+<ul>
+<li><a href="#目次" id="toc-目次">目次</a></li>
+<li><a href="#サイトへのアクセス" id="toc-サイトへのアクセス">1.
+サイトへのアクセス</a></li>
+<li><a href="#クイズの選び方" id="toc-クイズの選び方">2.
+クイズの選び方</a></li>
+<li><a href="#クイズを始める" id="toc-クイズを始める">3.
+クイズを始める</a></li>
+<li><a href="#問題への回答" id="toc-問題への回答">4.
+問題への回答</a></li>
+<li><a href="#ナビゲーション機能" id="toc-ナビゲーション機能">5.
+ナビゲーション機能</a></li>
+<li><a href="#学習統計とダウンロード" id="toc-学習統計とダウンロード">6.
+学習統計とダウンロード</a></li>
+<li><a href="#よくある質問" id="toc-よくある質問">7.
+よくある質問</a></li>
+</ul></li>
+<li><a href="#クイズサイト取り込みマニュアル" id="toc-クイズサイト取り込みマニュアル">クイズサイト取り込みマニュアル</a>
+<ul>
+<li><a href="#目次-1" id="toc-目次-1">目次</a></li>
+<li><a href="#はじめに" id="toc-はじめに">1. はじめに</a></li>
+<li><a href="#環境セットアップ" id="toc-環境セットアップ">2.
+環境セットアップ</a></li>
+<li><a href="#クイズデータの形式" id="toc-クイズデータの形式">3.
+クイズデータの形式</a></li>
+<li><a href="#クイズセットの作成手順" id="toc-クイズセットの作成手順">4.
+クイズセットの作成手順</a></li>
+<li><a href="#ai-を使った問題生成" id="toc-ai-を使った問題生成">5. AI
+を使った問題生成</a></li>
+<li><a href="#バリデーション" id="toc-バリデーション">6.
+バリデーション</a></li>
+<li><a href="#デプロイ" id="toc-デプロイ">7. デプロイ</a></li>
+<li><a href="#アーキテクチャ参考" id="toc-アーキテクチャ参考">8.
+アーキテクチャ参考</a></li>
+<li><a href="#トラブルシューティング" id="toc-トラブルシューティング">9.
+トラブルシューティング</a></li>
+</ul></li>
+<li><a href="#クイズデータ仕様書" id="toc-クイズデータ仕様書">クイズデータ仕様書</a>
+<ul>
+<li><a href="#目次-2" id="toc-目次-2">目次</a></li>
+<li><a href="#ファイル構成" id="toc-ファイル構成">1.
+ファイル構成</a></li>
+<li><a href="#問題ファイル仕様" id="toc-問題ファイル仕様">2.
+問題ファイル仕様</a></li>
+<li><a href="#メタデータ仕様" id="toc-メタデータ仕様">3.
+メタデータ仕様</a></li>
+<li><a href="#シリーズ階層構成" id="toc-シリーズ階層構成">4.
+シリーズ（階層）構成</a></li>
+<li><a href="#命名規則-1" id="toc-命名規則-1">5. 命名規則</a></li>
+<li><a href="#難易度ガイドライン" id="toc-難易度ガイドライン">6.
+難易度ガイドライン</a></li>
+<li><a href="#バリデーション-1" id="toc-バリデーション-1">7.
+バリデーション</a></li>
+<li><a href="#提出方法" id="toc-提出方法">8. 提出方法</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="react-spa-選択問題アプリ">React SPA 選択問題アプリ</h1>
+<h2 id="学習用クイズアプリ実践ガイド">学習用クイズアプリ実践ガイド</h2>
+<p>TypeScript + React + Vite + Tailwind CSS を用いた学習用クイズ SPA
+の実装・運用・教材作成フローをまとめたガイドです。</p>
+<blockquote>
+<p>💡 このアプリは https://duwenji.github.io/spa-quiz-app/
+で公開中です。関連トピックをクイズ形式で復習できます。</p>
+</blockquote>
+<ul>
+<li>著者: 杜 文吉</li>
+<li>対象: フロントエンド学習者 / React 開発者 / 教材作成者</li>
+<li>テーマ: <code>TypeScript</code> / <code>React</code> /
+<code>Vite</code> / <code>Tailwind CSS</code></li>
+</ul>
+<h3 id="この教材で学べること">この教材で学べること</h3>
+<ul>
+<li>クイズ受験者向けの利用ガイド</li>
+<li>クイズ作成者向けの取り込み・運用ガイド</li>
+<li>クイズデータ仕様と命名ルール</li>
+</ul>
+<h1 id="クイズ受験マニュアル">クイズ受験マニュアル</h1>
+<blockquote>
+<p><strong>対象:</strong>
+ブラウザでクイズサイトにアクセスして学習する方</p>
+</blockquote>
+<h2 id="目次">目次</h2>
+<ol type="1">
+<li><a href="#1-サイトへのアクセス">サイトへのアクセス</a></li>
+<li><a href="#2-クイズの選び方">クイズの選び方</a></li>
+<li><a href="#3-クイズを始める">クイズを始める</a></li>
+<li><a href="#4-問題への回答">問題への回答</a></li>
+<li><a href="#5-ナビゲーション機能">ナビゲーション機能</a></li>
+<li><a href="#6-学習統計とダウンロード">学習統計とダウンロード</a></li>
+<li><a href="#7-よくある質問">よくある質問</a></li>
+</ol>
+<hr />
+<h2 id="サイトへのアクセス">1. サイトへのアクセス</h2>
+<p>ブラウザで以下の URL を開いてください。</p>
+<pre><code>https://duwenji.github.io/spa-quiz-app/</code></pre>
+<p>アカウント登録や会員登録は不要です。ブラウザのみで利用できます。</p>
+<hr />
+<h2 id="クイズの選び方">2. クイズの選び方</h2>
+<p>サイトを開くと、利用可能なクイズセットの一覧が表示されます。</p>
+<h3 id="一覧の見方">一覧の見方</h3>
+<p>各カードには以下の情報が表示されます。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>アイコン</td>
+<td>クイズのカテゴリを表す絵文字</td>
+</tr>
+<tr>
+<td>タイトル</td>
+<td>クイズセットの名前</td>
+</tr>
+<tr>
+<td>説明</td>
+<td>学習できる内容の概要</td>
+</tr>
+<tr>
+<td>問題数</td>
+<td>収録されている問題の数</td>
+</tr>
+<tr>
+<td>難易度</td>
+<td>beginner / intermediate / advanced など</td>
+</tr>
+</tbody>
+</table>
+<h3 id="シリーズステップ形式のクイズ">シリーズ（ステップ）形式のクイズ</h3>
+<p>「クリーンアーキテクチャ完全ガイド」や「GitHub Copilot Agent &amp;
+Skills 総合シリーズ」「GitHub Copilot
+実務ワークフローシリーズ」など、複数のステップに分かれているクイズは、一覧画面で<strong>シリーズ見出し付きの個別ステップ</strong>として表示されます。</p>
+<p><strong>受験の際は表示されている個別のステップをそのまま選択してください。</strong></p>
+<hr />
+<h2 id="クイズを始める">3. クイズを始める</h2>
+<p>クイズカードをクリックすると、イントロ画面が表示されます。</p>
+<h3 id="イントロ画面で確認できること">イントロ画面で確認できること</h3>
+<ul>
+<li>クイズの正式名称</li>
+<li>学習内容の説明</li>
+<li>問題数を含むクイズ概要</li>
+</ul>
+<p>「<strong>クイズを始める</strong>」ボタンをクリックするとクイズが開始されます。</p>
+<p>「<strong>← 戻る</strong>」をクリックするとクイズ一覧に戻ります。</p>
+<hr />
+<h2 id="問題への回答">4. 問題への回答</h2>
+<h3 id="回答手順">回答手順</h3>
+<ol type="1">
+<li>問題文を読む</li>
+<li>A / B / C / D の選択肢のいずれかをクリックして選択する</li>
+<li>「<strong>確認する</strong>」ボタンをクリックする</li>
+</ol>
+<blockquote>
+<p><strong>注意:</strong>
+「確認する」をクリックしないと回答が記録されません。</p>
+</blockquote>
+<h3 id="結果フィードバック">結果フィードバック</h3>
+<p>回答を確定すると、その場で正誤が表示されます。</p>
+<ul>
+<li><strong>正解の場合:</strong> 緑色の表示と解説が表示されます</li>
+<li><strong>不正解の場合:</strong>
+赤色の表示・正解・解説が表示されます</li>
+</ul>
+<p>解説を読んで理解を深めてから、次の問題に進んでください。</p>
+<h3 id="プログレスバー">プログレスバー</h3>
+<p>画面上部のプログレスバーで、現在のクイズ全体の進捗（正解数・不正解数）を確認できます。</p>
+<hr />
+<h2 id="ナビゲーション機能">5. ナビゲーション機能</h2>
+<h3 id="前後移動">前後移動</h3>
+<ul>
+<li><strong>「次の問題」:</strong>
+次の問題に進む（回答確定後に使用可）</li>
+<li><strong>「前の問題」:</strong> 前の問題に戻る</li>
+</ul>
+<p>前の問題に戻った場合、以前の回答が自動的に復元されます。<br />
+<strong>回答済みの問題は変更できません。</strong></p>
+<h3 id="問題番号ジャンプ">問題番号ジャンプ</h3>
+<p>画面下部の問題番号リストをクリックすると、任意の問題に直接移動できます。</p>
+<table>
+<thead>
+<tr>
+<th>マーク</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ 緑</td>
+<td>正解した問題</td>
+</tr>
+<tr>
+<td>❌ 赤</td>
+<td>不正解だった問題</td>
+</tr>
+<tr>
+<td>⬜ グレー</td>
+<td>未回答の問題</td>
+</tr>
+<tr>
+<td>🔵 青枠</td>
+<td>現在表示中の問題</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="学習統計とダウンロード">6. 学習統計とダウンロード</h2>
+<p>クイズ中に1問以上回答すると、画面下部に「📊
+学習統計とダウンロード」パネルが表示されます。</p>
+<h3 id="表示される統計">表示される統計</h3>
+<table>
+<thead>
+<tr>
+<th>統計</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正解数</td>
+<td>正解した問題の数 / 回答した問題数</td>
+</tr>
+<tr>
+<td>正解率</td>
+<td>全回答に対する正解の割合（%）</td>
+</tr>
+<tr>
+<td>平均解答時間</td>
+<td>1問あたりの平均所要時間（秒）</td>
+</tr>
+<tr>
+<td>回答数</td>
+<td>回答済みの問題数</td>
+</tr>
+</tbody>
+</table>
+<p>初回回答日時・最終回答日時も確認できます。</p>
+<h3 id="データのダウンロード">データのダウンロード</h3>
+<p>「<strong>📥 JSON形式でダウンロード</strong>」<br />
+すべての回答記録をJSON形式のファイルとして保存します。プログラムでの分析に適しています。</p>
+<p>「<strong>📊 CSV形式でダウンロード</strong>」<br />
+回答記録をCSV形式で保存します。Excelや Google
+スプレッドシートで開けます。</p>
+<h3 id="ai分析copilot-chat">AI分析（Copilot Chat）</h3>
+<p>「<strong>📋
+AI分析用プロンプトをコピー</strong>」ボタンをクリックすると、学習データの分析を依頼するプロンプトがクリップボードにコピーされます。</p>
+<p>VS Code の Copilot
+Chat（<code>Ctrl+Shift+I</code>）を開いてプロンプトを貼り付けると、苦手分野の特定や学習アドバイスを得られます。</p>
+<h3 id="学習履歴のリセット">学習履歴のリセット</h3>
+<p>「<strong>🔄
+学習履歴をリセット</strong>」ボタンをクリックすると、現在のセッションの回答記録がすべて削除されます。</p>
+<blockquote>
+<p><strong>注意:</strong>
+リセットすると履歴を元に戻せません。必要に応じてダウンロードしてから実行してください。</p>
+</blockquote>
+<h3 id="学習履歴の保存場所">学習履歴の保存場所</h3>
+<p>学習履歴はブラウザの <strong>ローカルストレージ</strong>
+に自動保存されます。<br />
+同じブラウザ・同じデバイスで<strong>同じクイズセット</strong>を再度開くと、回答済み履歴が自動復元され、未回答の続きから再開できます。別のブラウザや別のデバイスには引き継がれません。</p>
+<hr />
+<h2 id="よくある質問">7. よくある質問</h2>
+<h3 id="q.-問題が表示されない-データが見つかりませんと表示される">Q.
+問題が表示されない / 「データが見つかりません」と表示される</h3>
+<p>「クイズ一覧に戻る」ボタンをクリックして別のクイズセットを選んでください。<br />
+問題が解消されない場合は、ブラウザのキャッシュをクリアしてください（<code>Ctrl+Shift+Delete</code>）。</p>
+<h3 id="q.-途中でブラウザを閉じると進捗は消えますか">Q.
+途中でブラウザを閉じると進捗は消えますか？</h3>
+<p><strong>回答済みの記録はローカルストレージに保存されます。</strong>
+同じブラウザ・同じデバイスで同じクイズセットを開き直すと、続きから再開できます。別のブラウザや別のデバイスへの引き継ぎはできません。長期保存したい場合は
+JSON または CSV でダウンロードしてください。</p>
+<h3 id="q.-回答を後から修正できますか">Q.
+回答を後から修正できますか？</h3>
+<p>回答を確定した問題は変更できません。問題番号からその問題を表示することはできますが、選択肢を変更することはできない仕様です。</p>
+<h3 id="q.-ページ表示が古いままに見える">Q.
+ページ表示が古いままに見える</h3>
+<p><code>Ctrl+Shift+R</code>（強制リロード）を試してください。<br />
+それでも改善しない場合はブラウザキャッシュのクリアをお試しください（<code>Ctrl+Shift+Delete</code>）。</p>
+<h3 id="q.-スマートフォンでも使えますか">Q.
+スマートフォンでも使えますか？</h3>
+<p>はい、レスポンシブデザインのため
+PC・タブレット・スマートフォンで利用できます。</p>
+<h1 id="クイズサイト取り込みマニュアル">クイズサイト取り込みマニュアル</h1>
+<blockquote>
+<p><strong>対象:</strong>
+クイズコンテンツを新規作成・追加してサイトに反映させる方</p>
+</blockquote>
+<blockquote>
+<p>📋 データ形式の詳細仕様は <strong><a href="../03-technical-specification/01-quiz-spec.md">クイズデータ仕様書</a></strong>
+を参照してください（開発環境なしで外部からコンテンツを提供する方向け）。</p>
+</blockquote>
+<h2 id="目次-1">目次</h2>
+<ol type="1">
+<li><a href="#1-はじめに">はじめに</a></li>
+<li><a href="#2-環境セットアップ">環境セットアップ</a></li>
+<li><a href="#3-クイズデータの形式">クイズデータの形式</a></li>
+<li><a href="#4-クイズセットの作成手順">クイズセットの作成手順</a></li>
+<li><a href="#5-ai-を使った問題生成">AI を使った問題生成</a></li>
+<li><a href="#6-バリデーション">バリデーション</a></li>
+<li><a href="#7-デプロイ">デプロイ</a></li>
+<li><a href="#8-アーキテクチャ参考">アーキテクチャ参考</a></li>
+<li><a href="#9-トラブルシューティング">トラブルシューティング</a></li>
+</ol>
+<hr />
+<h2 id="はじめに">1. はじめに</h2>
+<h3 id="取り込みの全体フロー">取り込みの全体フロー</h3>
+<pre><code>① src/data/ に問題 JSON ファイルを作成
+       ↓
+② src/data/quizSets.json にメタデータを登録
+       ↓
+③ 必要に応じて sync-data / build を実行
+       ↓
+④ バリデーション実行
+       ↓
+⑤ npm run build &amp;&amp; npm run deploy
+  ↓
+⑥ GitHub Pages に反映</code></pre>
+<h3 id="ファイルの配置ルール">ファイルの配置ルール</h3>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>場所</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>問題 JSON のソース</td>
+<td><code>src/data/&lt;カテゴリ&gt;/&lt;quiz-id&gt;.json</code></td>
+</tr>
+<tr>
+<td>メタデータ一覧のソース</td>
+<td><code>src/data/quizSets.json</code></td>
+</tr>
+<tr>
+<td>実行時に参照される公開データ</td>
+<td><code>public/data/</code></td>
+</tr>
+<tr>
+<td>JSON スキーマ</td>
+<td><code>public/schemas/</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>このリポジトリでは <strong><code>src/data/</code> が編集元</strong>
+です。<code>npm run build</code> 実行時に <code>npm run sync-data</code>
+が走り、<code>src/data/</code> の内容が <code>public/data/</code>
+にコピーされます。</p>
+</blockquote>
+<hr />
+<h2 id="環境セットアップ">2. 環境セットアップ</h2>
+<h3 id="必要なもの">必要なもの</h3>
+<ul>
+<li>Node.js v16 以上</li>
+<li>Git</li>
+<li>GitHub アカウント（デプロイする場合）</li>
+</ul>
+<h3 id="初回セットアップ">初回セットアップ</h3>
+<pre class="bash"><code># リポジトリをクローン
+git clone https://github.com/duwenji/spa-quiz-app.git
+cd spa-quiz-app
+
+# パッケージをインストール
+npm install
+
+# 開発サーバーを起動（http://localhost:5173）
+npm run dev</code></pre>
+<h3 id="主要コマンド">主要コマンド</h3>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>コマンド</th>
+<th>説明</th>
+<th>環境</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm run dev</code></td>
+<td>開発サーバー起動（HMR 有効）</td>
+<td>localhost:5173</td>
+</tr>
+<tr>
+<td><code>npm run sync-data</code></td>
+<td><code>src/data/</code> を <code>public/data/</code> にコピー</td>
+<td>ローカル確認前</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>本番ビルド → <code>dist/</code> を生成</td>
+<td>ローカル確認</td>
+</tr>
+<tr>
+<td><code>npm run preview</code></td>
+<td>ビルド済み <code>dist/</code> を確認</td>
+<td>localhost:4173</td>
+</tr>
+<tr>
+<td><code>npm run deploy</code></td>
+<td>ビルド + GitHub Pages へ公開</td>
+<td>本番</td>
+</tr>
+<tr>
+<td><code>npm run validate:metadata</code></td>
+<td><code>quizSets.json</code> を検証</td>
+<td>開発</td>
+</tr>
+<tr>
+<td><code>npm run validate:quiz</code></td>
+<td>設定済み glob に一致する問題 JSON を検証</td>
+<td>開発</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="クイズデータの形式">3. クイズデータの形式</h2>
+<h3 id="問題-json-ファイルquiz-id.json">3-1. 問題 JSON
+ファイル（<code>&lt;quiz-id&gt;.json</code>）</h3>
+<pre class="json"><code>{
+  &quot;questions&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;question&quot;: &quot;問題文をここに記述する&quot;,
+      &quot;options&quot;: [
+        { &quot;id&quot;: &quot;A&quot;, &quot;text&quot;: &quot;選択肢A&quot; },
+        { &quot;id&quot;: &quot;B&quot;, &quot;text&quot;: &quot;選択肢B&quot; },
+        { &quot;id&quot;: &quot;C&quot;, &quot;text&quot;: &quot;選択肢C&quot; },
+        { &quot;id&quot;: &quot;D&quot;, &quot;text&quot;: &quot;選択肢D&quot; }
+      ],
+      &quot;correctAnswer&quot;: &quot;A&quot;,
+      &quot;explanation&quot;: &quot;解説文。なぜAが正解なのかを詳しく説明する。&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;question&quot;: &quot;問題文をここに記述する&quot;,
+      &quot;options&quot;: [
+        { &quot;id&quot;: &quot;A&quot;, &quot;text&quot;: &quot;選択肢A&quot; },
+        { &quot;id&quot;: &quot;B&quot;, &quot;text&quot;: &quot;選択肢B&quot; },
+        { &quot;id&quot;: &quot;C&quot;, &quot;text&quot;: &quot;選択肢C&quot; },
+        { &quot;id&quot;: &quot;D&quot;, &quot;text&quot;: &quot;選択肢D&quot; }
+      ],
+      &quot;correctAnswer&quot;: &quot;B&quot;,
+      &quot;explanation&quot;: &quot;解説文。&quot;
+    }
+  ]
+}</code></pre>
+<h4 id="フィールド仕様">フィールド仕様</h4>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>number</td>
+<td>✅</td>
+<td>クイズ内で 1 から始まる連番</td>
+</tr>
+<tr>
+<td><code>question</code></td>
+<td>string</td>
+<td>✅</td>
+<td>問題文</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>array</td>
+<td>✅</td>
+<td>選択肢（A / B / C / D の 4 つ必須）</td>
+</tr>
+<tr>
+<td><code>options[].id</code></td>
+<td>string</td>
+<td>✅</td>
+<td><code>&quot;A&quot;</code> / <code>&quot;B&quot;</code> / <code>&quot;C&quot;</code> /
+<code>&quot;D&quot;</code> のいずれか</td>
+</tr>
+<tr>
+<td><code>options[].text</code></td>
+<td>string</td>
+<td>✅</td>
+<td>選択肢の本文</td>
+</tr>
+<tr>
+<td><code>correctAnswer</code></td>
+<td>string</td>
+<td>✅</td>
+<td>正解（<code>&quot;A&quot;</code> / <code>&quot;B&quot;</code> / <code>&quot;C&quot;</code> /
+<code>&quot;D&quot;</code>）</td>
+</tr>
+<tr>
+<td><code>explanation</code></td>
+<td>string</td>
+<td>✅</td>
+<td>解説（空文字禁止）</td>
+</tr>
+</tbody>
+</table>
+<h4 id="問題作成チェックリスト">問題作成チェックリスト</h4>
+<ul class="task-list">
+<li><label><input type="checkbox"></input><code>id</code> が 1
+から始まる連番になっている</label></li>
+<li><label><input type="checkbox"></input><code>options</code> が A / B / C /
+D の 4 つすべてある</label></li>
+<li><label><input type="checkbox"></input><code>correctAnswer</code> が
+<code>options</code> のいずれかと一致している</label></li>
+<li><label><input type="checkbox"></input><code>explanation</code>
+が空でない</label></li>
+<li><label><input type="checkbox"></input>すべての文字列フィールドが空でない</label></li>
+</ul>
+<h4 id="難易度の目安">難易度の目安</h4>
+<ul>
+<li><strong>beginner（15%）:</strong>
+用語の定義、基本コマンドの目的</li>
+<li><strong>intermediate（70%）:</strong>
+設定内容の理解、エラー解決</li>
+<li><strong>advanced（15%）:</strong>
+システム全体の把握、複合的な問題分析</li>
+</ul>
+<hr />
+<h3 id="メタデータquizsets.json">3-2.
+メタデータ（<code>quizSets.json</code>）</h3>
+<p><code>src/data/quizSets.json</code> に、問題 JSON
+ファイルの情報を登録します。</p>
+<pre class="json"><code>[
+  {
+    &quot;id&quot;: &quot;my-new-quiz&quot;,
+    &quot;name&quot;: &quot;新しいクイズセット&quot;,
+    &quot;description&quot;: &quot;このクイズで学べる内容の概要を50〜200文字で記述します。&quot;,
+    &quot;category&quot;: &quot;技術&quot;,
+    &quot;icon&quot;: &quot;💡&quot;,
+    &quot;questionCount&quot;: 20,
+    &quot;difficulty&quot;: &quot;intermediate&quot;,
+    &quot;dataPath&quot;: &quot;my-category/my-new-quiz.json&quot;,
+    &quot;parentId&quot;: null,
+    &quot;group&quot;: null,
+    &quot;level&quot;: 1,
+    &quot;order&quot;: 1
+  }
+]</code></pre>
+<h4 id="メタデータフィールド仕様">メタデータフィールド仕様</h4>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>型</th>
+<th>必須</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>✅</td>
+<td>一意の ID（kebab-case）例:
+<code>&quot;github-copilot-variables&quot;</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>✅</td>
+<td>クイズ一覧に表示される名前</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>✅</td>
+<td>学習内容の概要（50〜200 文字）</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>string</td>
+<td>✅</td>
+<td>カテゴリ名（例: <code>&quot;GitHub&quot;</code>,
+<code>&quot;アーキテクチャ&quot;</code>, <code>&quot;技術&quot;</code>）</td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td>string</td>
+<td>✅</td>
+<td>絵文字アイコン（例: <code>&quot;🤖&quot;</code>, <code>&quot;💻&quot;</code>,
+<code>&quot;📚&quot;</code>）</td>
+</tr>
+<tr>
+<td><code>questionCount</code></td>
+<td>number</td>
+<td>✅</td>
+<td>問題数（問題 JSON の実際の件数と一致させる）</td>
+</tr>
+<tr>
+<td><code>difficulty</code></td>
+<td>string</td>
+<td>✅</td>
+<td><code>&quot;beginner&quot;</code> / <code>&quot;intermediate&quot;</code> /
+<code>&quot;advanced&quot;</code> / <code>&quot;beginner to intermediate&quot;</code> /
+<code>&quot;beginner to advanced&quot;</code></td>
+</tr>
+<tr>
+<td><code>dataPath</code></td>
+<td>string</td>
+<td>✅</td>
+<td>実行時の <code>public/data/</code> からの相対パス。ソースは
+<code>src/data/</code> 側で管理する（例:
+<code>&quot;github-copilot/variables.json&quot;</code>）</td>
+</tr>
+<tr>
+<td><code>parentId</code></td>
+<td>string|null</td>
+<td>✅</td>
+<td>親クイズの ID（階層構造を持つ場合）/ 単体なら <code>null</code></td>
+</tr>
+<tr>
+<td><code>group</code></td>
+<td>string|null</td>
+<td>✅</td>
+<td>シリーズのグループ識別子 / 単体なら <code>null</code></td>
+</tr>
+<tr>
+<td><code>level</code></td>
+<td>number</td>
+<td>✅</td>
+<td><code>1</code> = 単体またはシリーズ親, <code>2</code> =
+シリーズの子</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>number</td>
+<td>✅</td>
+<td>グループ内の表示順</td>
+</tr>
+</tbody>
+</table>
+<h4 id="命名規則">命名規則</h4>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 35%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr>
+<th>対象</th>
+<th>規則</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>クイズ ID</td>
+<td>kebab-case（小文字・ハイフン）</td>
+<td><code>github-copilot-variables</code></td>
+</tr>
+<tr>
+<td>JSON ファイル名</td>
+<td>kebab-case.json</td>
+<td><code>github-copilot-variables.json</code></td>
+</tr>
+<tr>
+<td>フォルダ名</td>
+<td>小文字・ハイフン</td>
+<td><code>github-copilot/</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="階層構造シリーズ形式">3-3. 階層構造（シリーズ形式）</h3>
+<p>複数ステップからなるシリーズを作る場合：</p>
+<pre class="json"><code>[
+  {
+    &quot;id&quot;: &quot;my-series&quot;,
+    &quot;name&quot;: &quot;My Series（全体）&quot;,
+    &quot;description&quot;: &quot;シリーズ全体の概要&quot;,
+    &quot;category&quot;: &quot;技術&quot;,
+    &quot;icon&quot;: &quot;📚&quot;,
+    &quot;questionCount&quot;: 0,
+    &quot;difficulty&quot;: &quot;intermediate&quot;,
+    &quot;dataPath&quot;: &quot;&quot;,
+    &quot;parentId&quot;: null,
+    &quot;group&quot;: &quot;my-series&quot;,
+    &quot;level&quot;: 1,
+    &quot;order&quot;: 1
+  },
+  {
+    &quot;id&quot;: &quot;my-series-step1&quot;,
+    &quot;name&quot;: &quot;Step 1: 入門&quot;,
+    &quot;description&quot;: &quot;Step 1 の概要&quot;,
+    &quot;category&quot;: &quot;技術&quot;,
+    &quot;icon&quot;: &quot;📚&quot;,
+    &quot;questionCount&quot;: 15,
+    &quot;difficulty&quot;: &quot;beginner&quot;,
+    &quot;dataPath&quot;: &quot;my-category/my-series-step1.json&quot;,
+    &quot;parentId&quot;: &quot;my-series&quot;,
+    &quot;group&quot;: &quot;my-series&quot;,
+    &quot;level&quot;: 2,
+    &quot;order&quot;: 1
+  },
+  {
+    &quot;id&quot;: &quot;my-series-step2&quot;,
+    &quot;name&quot;: &quot;Step 2: 応用&quot;,
+    &quot;description&quot;: &quot;Step 2 の概要&quot;,
+    &quot;category&quot;: &quot;技術&quot;,
+    &quot;icon&quot;: &quot;📚&quot;,
+    &quot;questionCount&quot;: 20,
+    &quot;difficulty&quot;: &quot;intermediate&quot;,
+    &quot;dataPath&quot;: &quot;my-category/my-series-step2.json&quot;,
+    &quot;parentId&quot;: &quot;my-series&quot;,
+    &quot;group&quot;: &quot;my-series&quot;,
+    &quot;level&quot;: 2,
+    &quot;order&quot;: 2
+  }
+]</code></pre>
+<hr />
+<h2 id="クイズセットの作成手順">4. クイズセットの作成手順</h2>
+<h3 id="step-1-問題-json-ファイルを作成する">Step 1: 問題 JSON
+ファイルを作成する</h3>
+<ol type="1">
+<li><code>src/data/&lt;カテゴリフォルダ&gt;/</code>
+を作成する（フォルダがなければ）</li>
+<li><code>&lt;quiz-id&gt;.json</code> を作成し、<a href="#3-1-問題-json-ファイルquiz-idjson">フォーマット</a>
+に従って問題を記述する</li>
+</ol>
+<pre><code>src/
+  data/
+    my-category/           ← 新規フォルダ（必要に応じて）
+      my-new-quiz.json     ← 新規ファイル</code></pre>
+<h3 id="step-2-quizsets.json-にメタデータを追加する">Step 2:
+quizSets.json にメタデータを追加する</h3>
+<p><code>src/data/quizSets.json</code>
+を編集し、既存の配列末尾に新しいエントリを追加します。</p>
+<pre class="json"><code>{
+  &quot;id&quot;: &quot;my-new-quiz&quot;,
+  &quot;name&quot;: &quot;クイズのタイトル&quot;,
+  &quot;description&quot;: &quot;学習内容の概要（50〜200文字）&quot;,
+  &quot;category&quot;: &quot;技術&quot;,
+  &quot;icon&quot;: &quot;💡&quot;,
+  &quot;questionCount&quot;: 20,
+  &quot;difficulty&quot;: &quot;intermediate&quot;,
+  &quot;dataPath&quot;: &quot;my-category/my-new-quiz.json&quot;,
+  &quot;parentId&quot;: null,
+  &quot;group&quot;: null,
+  &quot;level&quot;: 1,
+  &quot;order&quot;: 1
+}</code></pre>
+<h3 id="step-3-バリデーションを実行する">Step 3:
+バリデーションを実行する</h3>
+<pre class="bash"><code># メタデータの検証
+npm run validate:metadata
+
+# 公開データを更新
+npm run sync-data
+
+# 問題 JSON の検証（単一ファイル指定）
+npm run validate:quiz -- src/data/my-category/my-new-quiz.json
+
+# 設定ファイルの questionGlobs に一致するファイルをまとめて検証
+npm run validate:quiz</code></pre>
+<p>複数ファイルをまとめて検証対象に含めるには、<code>.github/skills-config/quiz-generator/quiz-generator.config.json</code>
+の <code>questionGlobs</code> を更新してください。</p>
+<p>エラーが出た場合は <a href="#6-バリデーション">バリデーション</a>
+セクションを参照してください。</p>
+<h3 id="step-4-ローカルで動作確認する">Step 4:
+ローカルで動作確認する</h3>
+<pre class="bash"><code>npm run sync-data
+npm run dev</code></pre>
+<p><code>http://localhost:5173</code>
+を開き、追加したクイズが一覧に表示されることを確認します。</p>
+<h3 id="step-5-デプロイする">Step 5: デプロイする</h3>
+<p>動作確認後、<a href="#7-デプロイ">デプロイ</a>
+セクションの手順に従ってデプロイします。</p>
+<hr />
+<h2 id="ai-を使った問題生成">5. AI を使った問題生成</h2>
+<p>GitHub Copilot などの AI
+アシスタントを使うと、ドキュメントや教材から効率的に問題を生成できます。</p>
+<h3 id="プロンプト例">プロンプト例</h3>
+<p>以下のプロンプトをコピーして Copilot Chat に貼り付けてください。</p>
+<pre><code>以下のドキュメントをもとに、クイズ問題を20問作成してください。
+
+# 形式
+- JSON形式（questions 配列）
+- 各問題に id（連番）、question、4択の options（A/B/C/D）、correctAnswer、explanation を含める
+- 難易度: beginner 15%、intermediate 70%、advanced 15%
+- 解説は詳しく（なぜその選択肢が正答か）
+
+# 対象ドキュメント
+（ここにドキュメントの内容を貼り付ける）</code></pre>
+<h3 id="生成した問題の品質チェックポイント">生成した問題の品質チェックポイント</h3>
+<ul class="task-list">
+<li><label><input type="checkbox"></input>問題文が明確で曖昧さがない</label></li>
+<li><label><input type="checkbox"></input>不正解選択肢もそれぞれ意味のある内容になっている</label></li>
+<li><label><input type="checkbox"></input>正解が <code>options</code> 内の ID
+と一致している</label></li>
+<li><label><input type="checkbox"></input>解説がドキュメントの内容を正確に反映している</label></li>
+<li><label><input type="checkbox"></input><code>id</code> が 1
+からの連番になっている</label></li>
+</ul>
+<hr />
+<h2 id="バリデーション">6. バリデーション</h2>
+<h3 id="メタデータの検証">メタデータの検証</h3>
+<pre class="bash"><code>npm run validate:metadata</code></pre>
+<p><code>src/data/quizSets.json</code> を JSON
+スキーマ（<code>public/schemas/quizset-metadata-schema.json</code>）で検証します。</p>
+<h3 id="問題-json-の検証">問題 JSON の検証</h3>
+<pre class="bash"><code># 特定ファイルを検証
+npm run validate:quiz -- src/data/my-category/my-new-quiz.json
+
+# 設定ファイルの questionGlobs に一致する問題ファイルを検証
+npm run validate:quiz</code></pre>
+<p>複数ファイルを一括検証したい場合は、<code>.github/skills-config/quiz-generator/quiz-generator.config.json</code>
+の <code>questionGlobs</code> を更新してください。</p>
+<h3 id="主なエラーメッセージと対処法">主なエラーメッセージと対処法</h3>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>エラー</th>
+<th>原因</th>
+<th>対処</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;id&quot; is required</code></td>
+<td>id フィールドが未設定</td>
+<td>メタデータに id を追加</td>
+</tr>
+<tr>
+<td><code>&quot;options&quot; must have 4 items</code></td>
+<td>選択肢が 4 つない</td>
+<td>A/B/C/D をすべて追加</td>
+</tr>
+<tr>
+<td><code>&quot;correctAnswer&quot; must be one of A, B, C, D</code></td>
+<td>correctAnswer の値が不正</td>
+<td>大文字のA/B/C/Dに修正</td>
+</tr>
+<tr>
+<td><code>&quot;questionCount&quot; does not match actual count</code></td>
+<td>問題数と questionCount が不一致</td>
+<td>quizSets.json の questionCount を修正</td>
+</tr>
+<tr>
+<td><code>&quot;description&quot; must be 50-200 characters</code></td>
+<td>説明文が短すぎる or 長すぎる</td>
+<td>文字数を調整</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="デプロイ">7. デプロイ</h2>
+<h3 id="前提条件">前提条件</h3>
+<ul>
+<li>GitHub リポジトリへのプッシュ権限があること</li>
+<li>GitHub Pages の設定で <code>gh-pages</code>
+ブランチが選択されていること<br />
+（<code>Settings &gt; Pages &gt; Branch: gh-pages</code>）</li>
+</ul>
+<h3 id="デプロイ手順">デプロイ手順</h3>
+<pre class="bash"><code># 1. ローカルでビルドして確認
+npm run build
+npm run preview   # http://localhost:4173 で本番相当の動作を確認
+
+# 2. GitHub Pages にデプロイ
+npm run deploy</code></pre>
+<p><code>Published</code> と表示されれば成功です。</p>
+<h3 id="デプロイ後の確認">デプロイ後の確認</h3>
+<p>URL にアクセスして追加したクイズが表示されることを確認します。</p>
+<pre><code>https://duwenji.github.io/spa-quiz-app/</code></pre>
+<blockquote>
+<p><strong>反映タイミング:</strong> デプロイ後、GitHub Pages
+への反映には数分かかることがあります。</p>
+</blockquote>
+<h3 id="vite.config.ts-の-base-設定">vite.config.ts の base 設定</h3>
+<p>本番と開発でパスが異なる設定が自動的に適用されます。手動変更は不要です。</p>
+<pre class="ts"><code>// vite.config.ts（参考）
+base: process.env.NODE_ENV === &#39;production&#39; ? &#39;/spa-quiz-app/&#39; : &#39;/&#39;</code></pre>
+<hr />
+<h2 id="アーキテクチャ参考">8. アーキテクチャ参考</h2>
+<h3 id="データの流れ">データの流れ</h3>
+<pre><code>src/data/index.ts
+  └─ getAllQuizSets()      ← src/data/quizSets.json を読み込む
+  └─ getQuizSetQuestions() ← quizSet.dataPath を fetch して問題配列を返す
+
+src/data/
+  quizSets.json            ← 編集元のメタデータ一覧
+  github-copilot/
+    github-copilot-variables.json
+  clean-architecture/
+    step1-foundation.json
+    ...
+
+build / sync-data 実行後
+public/data/
+  ...                      ← 実行時に fetch される公開データ</code></pre>
+<h3 id="ビルド出力と-github-pages">ビルド出力と GitHub Pages</h3>
+<pre><code>npm run build
+  └─ dist/
+       index.html
+       assets/          ← JS / CSS バンドル
+       data/            ← public/data/ がそのままコピーされる
+       schemas/         ← public/schemas/ がそのままコピーされる</code></pre>
+<p><code>dist/</code> の内容が <code>gh-pages</code>
+ブランチにプッシュされ、GitHub Pages がホストします。</p>
+<hr />
+<h2 id="トラブルシューティング">9. トラブルシューティング</h2>
+<h3 id="ビルドエラー">ビルドエラー</h3>
+<h4 id="property-env-does-not-exist-on-type-importmeta"><code>Property &#39;env&#39; does not exist on type &#39;ImportMeta&#39;</code></h4>
+<p><code>tsconfig.json</code> に以下を追加してください。</p>
+<pre class="json"><code>{
+  &quot;compilerOptions&quot;: {
+    &quot;types&quot;: [&quot;vite/client&quot;]
+  }
+}</code></pre>
+<h4 id="module-not-found-srcdata"><code>Module not found: src/data/</code></h4>
+<p><code>public/data/</code> が存在しない場合に発生します。PowerShell
+で以下を実行して作成してください。</p>
+<pre class="powershell"><code>Copy-Item -Recurse src/data/ public/data/</code></pre>
+<hr />
+<h3 id="デプロイエラー">デプロイエラー</h3>
+<h4 id="npm-run-deploy-が失敗する"><code>npm run deploy</code>
+が失敗する</h4>
+<p>以下を確認してください。</p>
+<ol type="1">
+<li><p><code>gh-pages</code> パッケージがインストールされているか</p>
+<pre class="bash"><code>npm install gh-pages --save-dev</code></pre></li>
+<li><p>Git のユーザー設定がされているか</p>
+<pre class="bash"><code>git config --global user.email &quot;you@example.com&quot;
+git config --global user.name &quot;Your Name&quot;</code></pre></li>
+<li><p>GitHub 認証が完了しているか（SSH キーまたは Personal Access
+Token）</p></li>
+</ol>
+<h4 id="github-pages-に古いバージョンが表示される">GitHub Pages
+に古いバージョンが表示される</h4>
+<ul>
+<li>ブラウザキャッシュをクリア（<code>Ctrl+Shift+Delete</code>）してから再確認</li>
+<li>GitHub リポジトリの <code>gh-pages</code>
+ブランチのコミット日時を確認</li>
+<li>それでも解消しない場合は再度 <code>npm run deploy</code> を実行</li>
+</ul>
+<hr />
+<h3 id="データが表示されない">データが表示されない</h3>
+<h4 id="データが見つかりませんエラー">「データが見つかりません」エラー</h4>
+<ol type="1">
+<li><code>public/data/</code> に問題 JSON
+ファイルが存在するか確認する</li>
+<li><code>quizSets.json</code> の <code>dataPath</code>
+が実際のファイルパスと一致しているか確認する</li>
+<li>開発サーバーのブラウザコンソール（F12）でネットワークエラーを確認する</li>
+</ol>
+<h4 id="ローカル開発中に-404-エラーが出る">ローカル開発中に 404
+エラーが出る</h4>
+<p><code>public/</code> フォルダと <code>public/data/</code>
+サブフォルダが存在することを確認してください。</p>
+<pre class="bash"><code># フォルダ構成を確認
+Get-ChildItem public/data/ -Recurse</code></pre>
+<h1 id="クイズデータ仕様書">クイズデータ仕様書</h1>
+<blockquote>
+<p><strong>対象:</strong> 外部からクイズコンテンツを提供・取り込む方</p>
+</blockquote>
+<p>本ドキュメントは、spa-quiz-app
+に取り込む<strong>クイズデータの形式仕様</strong>を定義します。<br />
+開発環境がなくても、本仕様に従ったファイルを作成すれば取り込みを依頼できます。</p>
+<h2 id="目次-2">目次</h2>
+<ol type="1">
+<li><a href="#1-ファイル構成">ファイル構成</a></li>
+<li><a href="#2-問題ファイル仕様">問題ファイル仕様</a></li>
+<li><a href="#3-メタデータ仕様">メタデータ仕様</a></li>
+<li><a href="#4-シリーズ階層構成">シリーズ（階層）構成</a></li>
+<li><a href="#5-命名規則">命名規則</a></li>
+<li><a href="#6-難易度ガイドライン">難易度ガイドライン</a></li>
+<li><a href="#7-バリデーション">バリデーション</a></li>
+<li><a href="#8-提出方法">提出方法</a></li>
+</ol>
+<hr />
+<h2 id="ファイル構成">1. ファイル構成</h2>
+<p>外部から提供していただくファイルは <strong>2種類</strong> です。</p>
+<table>
+<thead>
+<tr>
+<th>ファイル</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;quiz-id&gt;.json</code></td>
+<td>問題データ（問題・選択肢・正解・解説）</td>
+</tr>
+<tr>
+<td>メタデータ情報</td>
+<td>クイズの名前・カテゴリ・難易度など</td>
+</tr>
+</tbody>
+</table>
+<p>メタデータは提出時に情報として記載いただければ、管理者側で
+<code>quizSets.json</code> に登録します。</p>
+<blockquote>
+<p>リポジトリ内では、管理者が <code>src/data/</code>
+を編集元として管理し、ビルド時に <code>public/data/</code>
+へコピーします。外部提供者は <strong>JSON
+ファイル本体とメタデータ情報</strong> を提出すれば十分です。</p>
+</blockquote>
+<h3 id="配置イメージ">配置イメージ</h3>
+<pre><code>提出物
+  &lt;quiz-id&gt;.json                        ← 提供いただくファイル
+  メタデータ情報                        ← Issue / PR 本文などで提出
+
+管理者側の配置
+  src/data/&lt;カテゴリ&gt;/&lt;quiz-id&gt;.json    ← 編集元
+  src/data/quizSets.json                ← 管理者が更新</code></pre>
+<p><strong>カテゴリ例:</strong> <code>github-copilot/</code>,
+<code>clean-architecture/</code>, <code>typescript/</code>,
+<code>aws/</code></p>
+<hr />
+<h2 id="問題ファイル仕様">2. 問題ファイル仕様</h2>
+<h3 id="ファイル全体の構造">2-1. ファイル全体の構造</h3>
+<pre class="json"><code>{
+  &quot;questions&quot;: [
+    { /* 問題オブジェクト 1 */ },
+    { /* 問題オブジェクト 2 */ }
+  ]
+}</code></pre>
+<p>トップレベルは <code>questions</code>
+キーを持つオブジェクトのみです。<br />
+追加のキーは<strong>禁止</strong>（<code>additionalProperties: false</code>）。</p>
+<hr />
+<h3 id="問題オブジェクト仕様">2-2. 問題オブジェクト仕様</h3>
+<pre class="json"><code>{
+  &quot;id&quot;: 1,
+  &quot;question&quot;: &quot;問題文をここに記述する&quot;,
+  &quot;options&quot;: [
+    { &quot;id&quot;: &quot;A&quot;, &quot;text&quot;: &quot;選択肢A&quot; },
+    { &quot;id&quot;: &quot;B&quot;, &quot;text&quot;: &quot;選択肢B&quot; },
+    { &quot;id&quot;: &quot;C&quot;, &quot;text&quot;: &quot;選択肢C&quot; },
+    { &quot;id&quot;: &quot;D&quot;, &quot;text&quot;: &quot;選択肢D&quot; }
+  ],
+  &quot;correctAnswer&quot;: &quot;B&quot;,
+  &quot;explanation&quot;: &quot;なぜBが正解なのかの詳しい解説をここに記述する。&quot;
+}</code></pre>
+<h4 id="フィールド定義">フィールド定義</h4>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>型</th>
+<th style="text-align: center;">必須</th>
+<th>制約</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>number</td>
+<td style="text-align: center;">✅</td>
+<td>1 以上の整数、クイズ内連番</td>
+<td>問題の番号（1, 2, 3…）</td>
+</tr>
+<tr>
+<td><code>question</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>空文字禁止</td>
+<td>問題文</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>array</td>
+<td style="text-align: center;">✅</td>
+<td>必ず 4 要素（A/B/C/D 全て）</td>
+<td>選択肢の配列</td>
+</tr>
+<tr>
+<td><code>options[].id</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td><code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, <code>&quot;C&quot;</code>,
+<code>&quot;D&quot;</code> のいずれか</td>
+<td>選択肢の識別子</td>
+</tr>
+<tr>
+<td><code>options[].text</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>空文字禁止</td>
+<td>選択肢の本文</td>
+</tr>
+<tr>
+<td><code>correctAnswer</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td><code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, <code>&quot;C&quot;</code>,
+<code>&quot;D&quot;</code> のいずれか</td>
+<td>正解の選択肢 ID</td>
+</tr>
+<tr>
+<td><code>explanation</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>空文字禁止</td>
+<td>正解の解説</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 各選択肢オブジェクトに指定できるプロパティは <code>id</code> と
+<code>text</code> のみです。追加プロパティは許可されません。</p>
+</blockquote>
+<hr />
+<h3 id="完全な記述例">2-3. 完全な記述例</h3>
+<pre class="json"><code>{
+  &quot;questions&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;question&quot;: &quot;GitHub Copilot でより正確なコード補完を得るために効果的なコメントの書き方はどれですか？&quot;,
+      &quot;options&quot;: [
+        { &quot;id&quot;: &quot;A&quot;, &quot;text&quot;: &quot;曖昧なコメント（例：「ユーザーを処理する」）&quot; },
+        { &quot;id&quot;: &quot;B&quot;, &quot;text&quot;: &quot;具体的なコメント（例：「最終ログインが30日以上前のユーザーを非アクティブとしてマークする」）&quot; },
+        { &quot;id&quot;: &quot;C&quot;, &quot;text&quot;: &quot;コメントなし&quot; },
+        { &quot;id&quot;: &quot;D&quot;, &quot;text&quot;: &quot;英語のコメントのみ&quot; }
+      ],
+      &quot;correctAnswer&quot;: &quot;B&quot;,
+      &quot;explanation&quot;: &quot;具体的なコメントを書くことで、Copilot はより正確なコードを提案できます。曖昧なコメントでは意図が伝わりにくく、不正確な提案になる可能性があります。問題の範囲・対象・処理内容を明示することが重要です。&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;question&quot;: &quot;JSON スキーマの `additionalProperties: false` が意味することは何ですか？&quot;,
+      &quot;options&quot;: [
+        { &quot;id&quot;: &quot;A&quot;, &quot;text&quot;: &quot;追加のプロパティを自由に加えられる&quot; },
+        { &quot;id&quot;: &quot;B&quot;, &quot;text&quot;: &quot;スキーマに定義されていないプロパティは許可されない&quot; },
+        { &quot;id&quot;: &quot;C&quot;, &quot;text&quot;: &quot;プロパティ数に上限がない&quot; },
+        { &quot;id&quot;: &quot;D&quot;, &quot;text&quot;: &quot;必須プロパティが存在しなくてよい&quot; }
+      ],
+      &quot;correctAnswer&quot;: &quot;B&quot;,
+      &quot;explanation&quot;: &quot;`additionalProperties: false` は、スキーマに定義されていないプロパティをオブジェクトに含めることを禁止します。これにより、データの形式を厳密に管理できます。&quot;
+    }
+  ]
+}</code></pre>
+<hr />
+<h2 id="メタデータ仕様">3. メタデータ仕様</h2>
+<p>取り込み依頼時に以下の情報を提供してください。内容を元に管理者が
+<code>quizSets.json</code> に登録します。</p>
+<h3 id="フィールド定義-1">3-1. フィールド定義</h3>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>型</th>
+<th style="text-align: center;">必須</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>一意の ID（kebab-case、英小文字・数字・ハイフンのみ）</td>
+<td><code>&quot;typescript-basics&quot;</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>クイズ一覧に表示される名前</td>
+<td><code>&quot;TypeScript 基礎&quot;</code></td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>学習内容の概要（1〜500 文字、50〜200 文字推奨）</td>
+<td><code>&quot;TypeScript の型システムと基本文法を学ぶクイズです&quot;</code></td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>カテゴリ名</td>
+<td><code>&quot;TypeScript&quot;</code>, <code>&quot;GitHub&quot;</code>,
+<code>&quot;AWS&quot;</code></td>
+</tr>
+<tr>
+<td><code>icon</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>絵文字または短いアイコン文字列</td>
+<td><code>&quot;📘&quot;</code>, <code>&quot;🤖&quot;</code>, <code>&quot;☁️&quot;</code></td>
+</tr>
+<tr>
+<td><code>questionCount</code></td>
+<td>number</td>
+<td style="text-align: center;">✅</td>
+<td>問題数（問題ファイルの実際の件数と一致させる）</td>
+<td><code>20</code></td>
+</tr>
+<tr>
+<td><code>difficulty</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>難易度（下記一覧から選択）</td>
+<td><code>&quot;intermediate&quot;</code></td>
+</tr>
+<tr>
+<td><code>dataPath</code></td>
+<td>string</td>
+<td style="text-align: center;">✅</td>
+<td>問題ファイルの保存場所（カテゴリ/ファイル名.json）</td>
+<td><code>&quot;typescript/typescript-basics.json&quot;</code></td>
+</tr>
+<tr>
+<td><code>parentId</code></td>
+<td>string|null</td>
+<td style="text-align: center;">✅</td>
+<td>シリーズ親の ID（単体なら <code>null</code>）</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>group</code></td>
+<td>string|null</td>
+<td style="text-align: center;">✅</td>
+<td>シリーズのグループ識別子（単体なら <code>null</code>）</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>level</code></td>
+<td>number</td>
+<td style="text-align: center;">✅</td>
+<td><code>1</code> = 単体またはシリーズ親、<code>2</code> =
+シリーズの子</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>number</td>
+<td style="text-align: center;">✅</td>
+<td>グループ内の表示順（1 から始まる正の整数）</td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>estimatedLearningTime</code></td>
+<td>string</td>
+<td style="text-align: center;">—</td>
+<td>推定学習時間（任意）</td>
+<td><code>&quot;10〜15 分&quot;</code></td>
+</tr>
+<tr>
+<td><code>topics</code></td>
+<td>string[]</td>
+<td style="text-align: center;">—</td>
+<td>学習トピック一覧（任意）</td>
+<td><code>[&quot;型注釈&quot;, &quot;インターフェース&quot;, &quot;ジェネリクス&quot;]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="difficulty-の選択肢">3-2. difficulty の選択肢</h3>
+<table>
+<thead>
+<tr>
+<th>値</th>
+<th>対象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;beginner&quot;</code></td>
+<td>用語の定義・基本概念の確認</td>
+</tr>
+<tr>
+<td><code>&quot;intermediate&quot;</code></td>
+<td>設定・構成・エラー解決の理解</td>
+</tr>
+<tr>
+<td><code>&quot;advanced&quot;</code></td>
+<td>システム全体の把握・複合的な分析</td>
+</tr>
+<tr>
+<td><code>&quot;beginner to intermediate&quot;</code></td>
+<td>初級〜中級の混在セット</td>
+</tr>
+<tr>
+<td><code>&quot;beginner to advanced&quot;</code></td>
+<td>初級〜上級の幅広いセット</td>
+</tr>
+</tbody>
+</table>
+<h3 id="メタデータ記述例単体セット">3-3.
+メタデータ記述例（単体セット）</h3>
+<pre class="json"><code>{
+  &quot;id&quot;: &quot;typescript-basics&quot;,
+  &quot;name&quot;: &quot;TypeScript 基礎&quot;,
+  &quot;description&quot;: &quot;TypeScript の型システム・インターフェース・ジェネリクスを中心に学ぶクイズです。JavaScript 経験者を対象としています。&quot;,
+  &quot;category&quot;: &quot;TypeScript&quot;,
+  &quot;icon&quot;: &quot;📘&quot;,
+  &quot;questionCount&quot;: 20,
+  &quot;difficulty&quot;: &quot;beginner to intermediate&quot;,
+  &quot;dataPath&quot;: &quot;typescript/typescript-basics.json&quot;,
+  &quot;parentId&quot;: null,
+  &quot;group&quot;: null,
+  &quot;level&quot;: 1,
+  &quot;order&quot;: 1
+}</code></pre>
+<hr />
+<h2 id="シリーズ階層構成">4. シリーズ（階層）構成</h2>
+<p>複数のステップに分かれるクイズシリーズを作成することができます。</p>
+<h3 id="構成ルール">4-1. 構成ルール</h3>
+<ul>
+<li><strong>親エントリ（<code>level: 1</code>）:</strong>
+シリーズ全体のラベルとして機能する。<code>dataPath</code> は
+<code>&quot;&quot;</code> または <code>null</code> にする</li>
+<li><strong>子エントリ（<code>level: 2</code>）:</strong>
+実際の問題ファイルを持つ。<code>parentId</code> に親の <code>id</code>
+を指定する</li>
+<li><code>group</code>
+フィールドで親・子を同一グループとして識別する（親・子で同じ値を設定）</li>
+</ul>
+<h3 id="シリーズのメタデータ例">4-2. シリーズのメタデータ例</h3>
+<pre class="json"><code>[
+  {
+    &quot;id&quot;: &quot;aws-solutions-architect&quot;,
+    &quot;name&quot;: &quot;AWS ソリューションアーキテクト&quot;,
+    &quot;description&quot;: &quot;AWS ソリューションアーキテクト試験対策シリーズ&quot;,
+    &quot;category&quot;: &quot;AWS&quot;,
+    &quot;icon&quot;: &quot;☁️&quot;,
+    &quot;questionCount&quot;: 0,
+    &quot;difficulty&quot;: &quot;intermediate&quot;,
+    &quot;dataPath&quot;: &quot;&quot;,
+    &quot;parentId&quot;: null,
+    &quot;group&quot;: &quot;aws-solutions-architect&quot;,
+    &quot;level&quot;: 1,
+    &quot;order&quot;: 1
+  },
+  {
+    &quot;id&quot;: &quot;aws-solutions-architect-step1&quot;,
+    &quot;name&quot;: &quot;Step 1: IAM とセキュリティ&quot;,
+    &quot;description&quot;: &quot;IAM ユーザー・ポリシー・ロールを中心にしたセキュリティの基礎&quot;,
+    &quot;category&quot;: &quot;AWS&quot;,
+    &quot;icon&quot;: &quot;☁️&quot;,
+    &quot;questionCount&quot;: 15,
+    &quot;difficulty&quot;: &quot;beginner to intermediate&quot;,
+    &quot;dataPath&quot;: &quot;aws/aws-solutions-architect-step1.json&quot;,
+    &quot;parentId&quot;: &quot;aws-solutions-architect&quot;,
+    &quot;group&quot;: &quot;aws-solutions-architect&quot;,
+    &quot;level&quot;: 2,
+    &quot;order&quot;: 1
+  },
+  {
+    &quot;id&quot;: &quot;aws-solutions-architect-step2&quot;,
+    &quot;name&quot;: &quot;Step 2: VPC とネットワーク&quot;,
+    &quot;description&quot;: &quot;VPC・サブネット・セキュリティグループ・ルーティングの理解&quot;,
+    &quot;category&quot;: &quot;AWS&quot;,
+    &quot;icon&quot;: &quot;☁️&quot;,
+    &quot;questionCount&quot;: 20,
+    &quot;difficulty&quot;: &quot;intermediate&quot;,
+    &quot;dataPath&quot;: &quot;aws/aws-solutions-architect-step2.json&quot;,
+    &quot;parentId&quot;: &quot;aws-solutions-architect&quot;,
+    &quot;group&quot;: &quot;aws-solutions-architect&quot;,
+    &quot;level&quot;: 2,
+    &quot;order&quot;: 2
+  }
+]</code></pre>
+<hr />
+<h2 id="命名規則-1">5. 命名規則</h2>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>対象</th>
+<th>ルール</th>
+<th>良い例</th>
+<th>悪い例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>クイズ ID</td>
+<td>英小文字・数字・ハイフンのみ（kebab-case）</td>
+<td><code>typescript-basics</code></td>
+<td><code>TypeScriptBasics</code>, <code>typescript_basics</code></td>
+</tr>
+<tr>
+<td>ファイル名</td>
+<td><code>&lt;quiz-id&gt;.json</code></td>
+<td><code>typescript-basics.json</code></td>
+<td><code>TypeScript Basics.json</code></td>
+</tr>
+<tr>
+<td>カテゴリフォルダ</td>
+<td>英小文字・ハイフン</td>
+<td><code>typescript/</code>, <code>github-copilot/</code></td>
+<td><code>TypeScript/</code>, <code>GitHub Copilot/</code></td>
+</tr>
+<tr>
+<td><code>options[].id</code></td>
+<td>大文字アルファベット 1 文字</td>
+<td><code>&quot;A&quot;</code>, <code>&quot;B&quot;</code>, <code>&quot;C&quot;</code>,
+<code>&quot;D&quot;</code></td>
+<td><code>&quot;a&quot;</code>, <code>&quot;1&quot;</code>, <code>&quot;Option1&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="難易度ガイドライン">6. 難易度ガイドライン</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 28%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr>
+<th>難易度</th>
+<th>推奨割合</th>
+<th>問題のタイプ例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>beginner</td>
+<td>約 15%</td>
+<td>用語の定義（「〇〇とは何ですか？」）、基本コマンドの目的</td>
+</tr>
+<tr>
+<td>intermediate</td>
+<td>約 70%</td>
+<td>設定の意味・エラーの解決方法・動作の違いを問う問題</td>
+</tr>
+<tr>
+<td>advanced</td>
+<td>約 15%</td>
+<td>システム全体の把握、複数概念の組み合わせ、トレードオフ分析</td>
+</tr>
+</tbody>
+</table>
+<h3 id="良い問題の条件">良い問題の条件</h3>
+<ul>
+<li>問題文が一意に解釈できる（曖昧さがない）</li>
+<li>不正解選択肢が「それらしく見えるが誤り」である（識別力がある）</li>
+<li>解説が「なぜ正解か」「なぜ他は誤りか」を具体的に説明している</li>
+<li>1 問で 1 つの概念・事実を問う（複合問題は上級向けのみ）</li>
+</ul>
+<hr />
+<h2 id="バリデーション-1">7. バリデーション</h2>
+<p>リポジトリをクローンした環境では、以下のコマンドで仕様への適合を検証できます。</p>
+<pre class="bash"><code># メタデータの検証（quizSets.json 全体）
+npm run validate:metadata
+
+# 問題ファイルの検証（単一ファイル指定）
+npm run validate:quiz -- src/data/&lt;カテゴリ&gt;/&lt;quiz-id&gt;.json
+
+# 問題ファイルの検証（設定ファイルの questionGlobs に一致するもの）
+npm run validate:quiz</code></pre>
+<blockquote>
+<p>単一ファイルはコマンド引数で直接指定できます。複数ファイルをまとめて検証対象に含めたい場合は、管理者側で
+<code>.github/skills-config/quiz-generator/quiz-generator.config.json</code>
+の <code>questionGlobs</code> を更新してください。</p>
+</blockquote>
+<h3 id="json-スキーマ">JSON スキーマ</h3>
+<p>スキーマファイルは以下に公開されています（参照のみ）。</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>スキーマ</th>
+<th>パス</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>問題オブジェクト</td>
+<td><code>public/schemas/question-schema.json</code></td>
+<td>各問題の形式検証</td>
+</tr>
+<tr>
+<td>問題ファイル全体</td>
+<td><code>public/schemas/question-set-schema.json</code></td>
+<td>ファイル全体の形式検証</td>
+</tr>
+<tr>
+<td>メタデータ</td>
+<td><code>public/schemas/quizset-metadata-schema.json</code></td>
+<td><code>quizSets.json</code> 各エントリの検証</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="提出方法">8. 提出方法</h2>
+<h3 id="option-a-github-pull-request推奨">Option A: GitHub Pull
+Request（推奨）</h3>
+<ol type="1">
+<li>リポジトリをフォーク: <a href="https://github.com/duwenji/spa-quiz-app">https://github.com/duwenji/spa-quiz-app</a></li>
+<li>フォーク先で問題 JSON ファイルを
+<code>src/data/&lt;カテゴリ&gt;/</code> に追加する</li>
+<li>Pull Request を作成し、本文にメタデータ情報（<a href="#3-1-フィールド定義">3-1 節</a> の全フィールド）を記載する</li>
+</ol>
+<h3 id="option-b-issue-での依頼">Option B: Issue での依頼</h3>
+<ol type="1">
+<li>GitHub Issues で新規 Issue を作成する</li>
+<li>問題 JSON の内容とメタデータ情報を Issue に記載する</li>
+<li>管理者が取り込みを行う</li>
+</ol>
+<h3 id="提出チェックリスト">提出チェックリスト</h3>
+<ul class="task-list">
+<li><label><input type="checkbox"></input>ファイル名が kebab-case
+になっている（例: <code>my-quiz.json</code>）</label></li>
+<li><label><input type="checkbox"></input><code>id</code> が 1
+から始まる連番になっている</label></li>
+<li><label><input type="checkbox"></input><code>options</code> が A / B / C /
+D の 4 つすべて含まれている</label></li>
+<li><label><input type="checkbox"></input><code>correctAnswer</code> が
+<code>options</code> のいずれかの <code>id</code>
+と一致している</label></li>
+<li><label><input type="checkbox"></input><code>explanation</code>
+が空でない</label></li>
+<li><label><input type="checkbox"></input><code>questionCount</code>（メタデータ）と問題ファイルの実際の問題数が一致している</label></li>
+<li><label><input type="checkbox"></input><code>description</code> が 50
+文字以上 200 文字以内（推奨）</label></li>
+<li><label><input type="checkbox"></input>ファイルが有効な
+JSON（構文エラーがない）</label></li>
+</ul>
+</body>
+</html>

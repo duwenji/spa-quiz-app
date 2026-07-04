@@ -1,0 +1,31 @@
+name: Feature request
+description: クイズアプリに追加したい機能やクイズセットを提案します
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 背景・課題
+      description: どんな学習体験上の課題を解決したいですか？
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案内容
+      description: 追加したい機能、クイズセット、UI改善など
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: 関連領域
+      options:
+        - クイズUI / 進捗表示
+        - クイズセット / 問題データ
+        - 状態管理
+        - デプロイ / ビルド運用
+        - 電子書籍（教材ガイド）出力
