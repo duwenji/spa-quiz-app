@@ -1,0 +1,364 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "カテゴリ03の前提として説明されている考え方はどれですか？",
+      "options": [
+        { "id": "A", "text": "LLM呼び出しは失敗する・重複する・遅い、という前提で設計する必要がある" },
+        { "id": "B", "text": "LLM呼び出しは常に成功しコストもかからない" },
+        { "id": "C", "text": "LLM呼び出しは一度成功すれば二度と失敗しない" },
+        { "id": "D", "text": "LLM呼び出しには例外処理が不要である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「LLM呼び出しは失敗する・重複する・遅い、という前提で設計する必要があります」と明記されています。"
+    },
+    {
+      "id": 2,
+      "question": "カテゴリ03の学習目標に含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "防御的パース＋フォールバックを実装できる" },
+        { "id": "B", "text": "キャッシュ層を設計できる" },
+        { "id": "C", "text": "LLM呼び出しをモック化してテストできる" },
+        { "id": "D", "text": "LLMのモデルを自前でファインチューニングできる" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "学習目標は防御的パース・タイムアウト/リトライ・キャッシュ層・バッチ化並列化・テストの5点で、ファインチューニングは含まれません。"
+    },
+    {
+      "id": 3,
+      "question": "カテゴリ03の5教材の順序として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "防御的パース→レート制限・タイムアウト→キャッシュ層→バッチ化・並列化→テスト" },
+        { "id": "B", "text": "テスト→キャッシュ層→防御的パース→バッチ化→レート制限" },
+        { "id": "C", "text": "バッチ化→テスト→防御的パース→キャッシュ層→レート制限" },
+        { "id": "D", "text": "順序は決まっていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材一覧の順序（01防御的パースとフォールバック設計、02レート制限・タイムアウト設計、03キャッシュ層の設計、04バッチ化・並列化、05LLM呼び出しのテスト）がそのまま学習順序です。"
+    },
+    {
+      "id": 4,
+      "question": "並列化はAnthropicのどのワークフローパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Parallelization" },
+        { "id": "B", "text": "Routing" },
+        { "id": "C", "text": "Evaluator-Optimizer" },
+        { "id": "D", "text": "Prompt Chaining" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「並列化は、Anthropicの Building Effective Agents が挙げる『Parallelization』パターンに対応します」と説明されています。"
+    },
+    {
+      "id": 5,
+      "question": "カテゴリ03の前後のカテゴリとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "前は02-io-contract-design、次は04-trust-and-safety-ux" },
+        { "id": "B", "text": "前は05-agentic-workflow-patterns、次は01-invocation-and-architecture" },
+        { "id": "C", "text": "前は06-real-world-case-study、次は02-io-contract-design" },
+        { "id": "D", "text": "カテゴリ03が最初のカテゴリである" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「[← 前へ: 02-io-contract-design] | [次へ: 04-trust-and-safety-ux →]」とナビゲーションに示されています。"
+    },
+    {
+      "id": 6,
+      "question": "`app/`のパース失敗時の挙動が持つパターン数はいくつですか？",
+      "options": [
+        { "id": "A", "text": "3パターン" },
+        { "id": "B", "text": "1パターン" },
+        { "id": "C", "text": "5パターン" },
+        { "id": "D", "text": "パターンは存在しない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`app/`には、パース失敗時の挙動が3パターンあります」と説明されています。"
+    },
+    {
+      "id": 7,
+      "question": "スクリーニング条件変換でパース失敗した場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "`st.error`表示 + 処理終了（実データに一切触れない）" },
+        { "id": "B", "text": "空の結果を返してそのまま処理を続ける" },
+        { "id": "C", "text": "全銘柄を無条件で表示する" },
+        { "id": "D", "text": "前回のキャッシュをそのまま使う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "表に「スクリーニング条件変換: `st.error`表示 + 処理終了（実データに一切触れない）」と示されています。"
+    },
+    {
+      "id": 8,
+      "question": "ニュースセンチメント判定でパース失敗した場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "空dict → 各銘柄`sentiment: None`扱い" },
+        { "id": "B", "text": "アプリを強制終了する" },
+        { "id": "C", "text": "全銘柄をポジティブと判定する" },
+        { "id": "D", "text": "ユーザーに再入力を求める" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "表に「ニュースセンチメント判定: 空dict → 各銘柄`sentiment: None`扱い」と示されています。"
+    },
+    {
+      "id": 9,
+      "question": "「条件変換」だけ処理を止める理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "誤った条件でユニバースを絞り込んでしまうとユーザーの意図と異なる銘柄が表示される実害が大きいため" },
+        { "id": "B", "text": "処理時間が最も長いから" },
+        { "id": "C", "text": "開発者の好みだから" },
+        { "id": "D", "text": "他の機能より複雑だから" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「『条件変換』は、誤った条件でユニバースを絞り込んでしまうとユーザーの意図と異なる銘柄が表示される実害が大きいため、処理そのものを止めます」と説明されています。"
+    },
+    {
+      "id": 10,
+      "question": "「コメント」機能が失敗時にプレースホルダー文字列で済ませる理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "あくまで表示上の付加情報であり、失敗しても他の情報の表示は継続すべきだから" },
+        { "id": "B", "text": "コメントは最も重要な情報だから" },
+        { "id": "C", "text": "コメント生成には時間がかからないから" },
+        { "id": "D", "text": "コメントはユーザーが必ず確認するものだから" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「『コメント』はあくまで表示上の付加情報であり、失敗しても他の情報（価格・fundamentals等）の表示は継続すべきなので、プレースホルダー文字列で済ませて処理を続けます」と説明されています。"
+    },
+    {
+      "id": 11,
+      "question": "`call_llm(prompt, timeout=120)`のtimeoutはどこに渡されますか？",
+      "options": [
+        { "id": "A", "text": "`subprocess.run`" },
+        { "id": "B", "text": "データベース接続" },
+        { "id": "C", "text": "HTTPリクエストヘッダー" },
+        { "id": "D", "text": "ログ出力設定" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`call_llm(prompt, timeout=120)`は`subprocess.run`に`timeout`を渡しています」と説明されています。"
+    },
+    {
+      "id": 12,
+      "question": "タイムアウトが必要な理由として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Streamlitのようなリクエスト応答型アプリで、応答なしのプロセスがユーザー操作をブロックし続けるのを防ぐため" },
+        { "id": "B", "text": "コストを増やすため" },
+        { "id": "C", "text": "LLMの精度を上げるため" },
+        { "id": "D", "text": "コード行数を減らすため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Streamlitのようなリクエスト応答型アプリでは、応答なしのプロセスがユーザー操作をブロックし続けます。タイムアウトを設定することで...処理が打ち切られることを保証できます」と説明されています。"
+    },
+    {
+      "id": 13,
+      "question": "リトライ対象とすべきでない「恒久的なエラー」の例はどれですか？",
+      "options": [
+        { "id": "A", "text": "認証エラー、CLI未検出（`ClaudeCLINotFoundError`）" },
+        { "id": "B", "text": "レート制限" },
+        { "id": "C", "text": "タイムアウト" },
+        { "id": "D", "text": "ネットワーク瞬断" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「恒久的なエラー（リトライ対象外）: 認証エラー、CLI未検出（`ClaudeCLINotFoundError`）。リトライしても解決しない」と説明されています。"
+    },
+    {
+      "id": 14,
+      "question": "指数バックオフの目的は何ですか？",
+      "options": [
+        { "id": "A", "text": "失敗のたびに待機時間を倍にすることで外部サービスへの負荷集中を避けること" },
+        { "id": "B", "text": "常に同じ間隔でリトライすること" },
+        { "id": "C", "text": "リトライ回数を無限にすること" },
+        { "id": "D", "text": "リトライを完全に禁止すること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「失敗のたびに待機時間を倍にすることで、外部サービスへの負荷集中を避けます」と説明されています。"
+    },
+    {
+      "id": 15,
+      "question": "`call_llm_with_retry`のサンプルコードで、`ClaudeCLINotFoundError`をリトライ対象外とする理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "リトライしても解決しないため" },
+        { "id": "B", "text": "リトライすると必ず成功するため" },
+        { "id": "C", "text": "`ClaudeCLINotFoundError`は存在しないため" },
+        { "id": "D", "text": "コストが最も高いため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "docstringに「`ClaudeCLINotFoundError`（CLI未検出）はリトライしても解決しないため対象外とし、そのまま呼び出し元に伝播させる」と説明されています。"
+    },
+    {
+      "id": 16,
+      "question": "日次ファイルキャッシュのキー構成はどれですか？",
+      "options": [
+        { "id": "A", "text": "「当日日付＋呼び出し元指定のキー文字列」で構成されるファイルパス" },
+        { "id": "B", "text": "ユーザーIDのみ" },
+        { "id": "C", "text": "ランダムなUUID" },
+        { "id": "D", "text": "リクエストヘッダーの内容全体" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「キャッシュキーは『当日日付＋呼び出し元指定のキー文字列』で構成されるファイルパス」と説明されています。"
+    },
+    {
+      "id": 17,
+      "question": "TTLベースではなく日付ベースのキャッシュを選ぶ利点は何ですか？",
+      "options": [
+        { "id": "A", "text": "ファイル名を見るだけで「いつのキャッシュか」が分かり、古いファイルの掃除もシンプルにできる" },
+        { "id": "B", "text": "TTLベースの方が常に高速だから" },
+        { "id": "C", "text": "日付ベースはキャッシュを一切使わないのと同じだから" },
+        { "id": "D", "text": "日付ベースはコストが高いから" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「日付ベースなら、ファイル名を見るだけで『いつのキャッシュか』が分かり、古いファイルの掃除も『今日以外の日付のファイルを消す』だけで済みます」と説明されています。"
+    },
+    {
+      "id": 18,
+      "question": "ユーザーが「キャッシュを無視して再生成する」チェックボックスをオンにした場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "`read_cache`自体を呼ばずに再計算する" },
+        { "id": "B", "text": "アプリを再起動する" },
+        { "id": "C", "text": "全てのキャッシュファイルを削除する" },
+        { "id": "D", "text": "何も起こらない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`read_cache`自体を呼ばずに再計算します」と説明されています。"
+    },
+    {
+      "id": 19,
+      "question": "「悪い例」として示されているキャッシュキーの問題点は何ですか？",
+      "options": [
+        { "id": "A", "text": "現在時刻（秒単位）を含めてしまい、実質キャッシュが一度もヒットしない" },
+        { "id": "B", "text": "ハッシュ値を使っている" },
+        { "id": "C", "text": "日付を含んでいる" },
+        { "id": "D", "text": "短すぎるキーを使っている" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「悪い例: キャッシュキーに現在時刻（秒単位）を含めてしまい、実質キャッシュが一度もヒットしない」と説明されています。"
+    },
+    {
+      "id": 20,
+      "question": "「良い例」のキャッシュキー設計はどれですか？",
+      "options": [
+        { "id": "A", "text": "保有銘柄の構成（ticker:shares:cost）のハッシュを使い、同一入力・同一日なら確実にヒットする" },
+        { "id": "B", "text": "常にランダムな値を使う" },
+        { "id": "C", "text": "ユーザーのIPアドレスを使う" },
+        { "id": "D", "text": "リクエストのタイムスタンプを使う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「良い例: キャッシュキーに『内容のハッシュ』を使い、同一入力・同一日なら確実にヒットする」と説明されています。"
+    },
+    {
+      "id": 21,
+      "question": "`map_concurrently`が対応するAnthropicのワークフローパターンはどれですか？",
+      "options": [
+        { "id": "A", "text": "Parallelization（sectioning）" },
+        { "id": "B", "text": "Routing" },
+        { "id": "C", "text": "Prompt Chaining" },
+        { "id": "D", "text": "Autonomous Agents" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`map_concurrently`による並列データ取得は、このパターン（Parallelization/sectioning）に相当します」と説明されています。"
+    },
+    {
+      "id": 22,
+      "question": "LLM呼び出しのバッチ化とデータ取得の並列化の関係として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "別の技術であり、両方を組み合わせて使うこともできる" },
+        { "id": "B", "text": "全く同じ技術で置き換え可能" },
+        { "id": "C", "text": "互いに排他的で同時に使えない" },
+        { "id": "D", "text": "並列化はバッチ化の下位互換にすぎない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「本教材の『複数の独立したタスクを同時実行する』並列化は別の技術です。両方を組み合わせて使うこともできます」と説明されています。"
+    },
+    {
+      "id": 23,
+      "question": "`map_concurrently`が1つの対象の処理で例外が発生した場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "その例外自体を結果として格納し、他の対象の処理を止めない" },
+        { "id": "B", "text": "全体の処理を即座に停止する" },
+        { "id": "C", "text": "例外を無視して何も記録しない" },
+        { "id": "D", "text": "アプリ全体をクラッシュさせる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「1つの対象の処理で例外が発生しても、その例外自体を結果として格納し、他の対象の処理を止めません」と説明されています。"
+    },
+    {
+      "id": 24,
+      "question": "Streamlit特有の注意点として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "ワーカースレッドに`ScriptRunContext`が引き継がれないため、`add_script_run_ctx`で明示的に伝播させる必要がある" },
+        { "id": "B", "text": "Streamlitはマルチスレッドを一切サポートしない" },
+        { "id": "C", "text": "Streamlitでは並列処理が常に自動的に行われる" },
+        { "id": "D", "text": "Streamlitはキャッシュを一切使えない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「ワーカースレッドには呼び出し元の`ScriptRunContext`が引き継がれないため...`map_concurrently`は`add_script_run_ctx`でこれを明示的に伝播させています」と説明されています。"
+    },
+    {
+      "id": 25,
+      "question": "呼び出し元が失敗した対象を判定する方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "`isinstance(result, Exception)`で判定する" },
+        { "id": "B", "text": "戻り値が`None`かどうかで判定する" },
+        { "id": "C", "text": "HTTPステータスコードで判定する" },
+        { "id": "D", "text": "判定方法は用意されていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「呼び出し元は`isinstance(result, Exception)`で判定し、失敗した対象だけをスキップできます」と説明されています。"
+    },
+    {
+      "id": 26,
+      "question": "LLM呼び出しのテストで実際にCLIやAPIを呼び出すことの問題点は何ですか？",
+      "options": [
+        { "id": "A", "text": "応答が決定的ではなく、テストが遅く不安定になる" },
+        { "id": "B", "text": "テストコストが常にゼロになる" },
+        { "id": "C", "text": "常に同じ結果が返るためテストの意味がない" },
+        { "id": "D", "text": "実行速度が常に最速になる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「LLMの応答は決定的ではなく、実際にCLIやAPIを呼び出すテストは遅く不安定です」と説明されています。"
+    },
+    {
+      "id": 27,
+      "question": "`monkeypatch`はpytestのどの仕組みによって提供されますか？",
+      "options": [
+        { "id": "A", "text": "fixture" },
+        { "id": "B", "text": "デコレータのみ" },
+        { "id": "C", "text": "コマンドラインオプション" },
+        { "id": "D", "text": "環境変数" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「これはpytestのfixtureという仕組みによるものです」と説明されています。"
+    },
+    {
+      "id": 28,
+      "question": "`call_llm`をモック化する際に差し替える2箇所はどれですか？",
+      "options": [
+        { "id": "A", "text": "`shutil.which`（CLIパスの解決）と`subprocess.run`（実際の実行）" },
+        { "id": "B", "text": "データベース接続とネットワークソケット" },
+        { "id": "C", "text": "UIコンポーネントとCSS" },
+        { "id": "D", "text": "ログファイルと設定ファイル" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`shutil.which`（CLIパスの解決）と`subprocess.run`（実際の実行）の2箇所だけを差し替えれば、CLIやネットワークに一切触れずにテストできます」と説明されています。"
+    },
+    {
+      "id": 29,
+      "question": "リクエスト内容とレスポンス内容のログ出力方針として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "リクエスト内容は成功時のみログに出し、失敗時のレスポンス内容はログに出さない" },
+        { "id": "B", "text": "常に両方をログに出す" },
+        { "id": "C", "text": "常に両方ともログに出さない" },
+        { "id": "D", "text": "失敗時のみリクエストとレスポンスの両方をログに出す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「リクエスト内容は成功時のみログに出し、失敗時のレスポンス内容はログに出さない設計になっています」と説明されています。"
+    },
+    {
+      "id": 30,
+      "question": "`call_llm=default_call_llm`という引数デフォルトパターンがテストに寄与する点は何ですか？",
+      "options": [
+        { "id": "A", "text": "テスト側がフェイク関数を注入でき、サブプロセスレベルのモックすら不要になる" },
+        { "id": "B", "text": "常に本物のCLIを呼び出す必要が生じる" },
+        { "id": "C", "text": "テストコードの量が増える" },
+        { "id": "D", "text": "デフォルト値を変更できなくなる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「テスト側はフェイク関数を注入でき、`test_llm_client.py`のようなサブプロセスレベルのモックすら不要になります」と説明されています。"
+    }
+  ]
+}

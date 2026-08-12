@@ -1,0 +1,424 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "このアプリのLLM呼び出し方式として既定で採用されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "OpenAI Chat Completions APIを直接呼び出す" },
+        { "id": "B", "text": "ログイン済みのClaude Code CLI（`claude -p`）をサブプロセスとして実行する" },
+        { "id": "C", "text": "AWS Bedrock経由でモデルを呼び出す" },
+        { "id": "D", "text": "ブラウザ拡張機能経由でLLMにアクセスする" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「LLM呼び出しは既定でAPIキーを直接使わず、ログイン済みの Claude Code CLI（`claude -p`）をサブプロセスとして実行する方式を採る」と説明されています。"
+    },
+    {
+      "id": 2,
+      "question": "app.pyの役割として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "全タブの描画ロジックをすべて直接実装する" },
+        { "id": "B", "text": "起動処理とタブ生成のみを担い、各タブの描画はapp_tabs/配下のモジュールに分割される" },
+        { "id": "C", "text": "データベースのスキーマ定義のみを行う" },
+        { "id": "D", "text": "LLMのプロンプトテンプレートをすべて保持する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「`app.py` は起動処理とタブ生成のみを担い、各タブの描画は `app_tabs/` 配下のモジュールに分割」と説明されています。"
+    },
+    {
+      "id": 3,
+      "question": "UI描画に使われている技術要素として正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "st.tabsによるタブ切替 + st.dialogの銘柄詳細モーダル" },
+        { "id": "B", "text": "React + Reduxによるタブ管理" },
+        { "id": "C", "text": "Flaskのテンプレートエンジン" },
+        { "id": "D", "text": "Django Admin" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Streamlit（`st.tabs` による7タブ切替...+ `st.dialog` の銘柄詳細モーダル」と説明されています。"
+    },
+    {
+      "id": 4,
+      "question": "チャート描画に使われているライブラリはどれですか？",
+      "options": [
+        { "id": "A", "text": "Altair（ローソク足・出来高チャート等）とMermaid（業種間ネットワーク図）" },
+        { "id": "B", "text": "Matplotlib単体" },
+        { "id": "C", "text": "Plotly単体" },
+        { "id": "D", "text": "D3.js単体" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Altair（`st.altair_chart`。ローソク足＋出来高チャート...）/ Mermaid（業種間ネットワーク図。CDN読み込みの`mermaid.js`...）」と説明されています。"
+    },
+    {
+      "id": 5,
+      "question": "並列処理に使われている仕組みは何ですか？",
+      "options": [
+        { "id": "A", "text": "concurrent.futures.ThreadPoolExecutor（common/concurrency.pyのmap_concurrently、最大8並列）" },
+        { "id": "B", "text": "multiprocessing.Pool" },
+        { "id": "C", "text": "asyncio単体" },
+        { "id": "D", "text": "Celeryタスクキュー" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`concurrent.futures.ThreadPoolExecutor`（`common/concurrency.py`の`map_concurrently`、最大8並列）」と説明されています。"
+    },
+    {
+      "id": 6,
+      "question": "ポートフォリオレビューのキャッシュキーはどのように生成されますか？",
+      "options": [
+        { "id": "A", "text": "\"portfolio-review-\" + 保有銘柄のticker:shares:costを連結したSHA256の先頭12文字" },
+        { "id": "B", "text": "ユーザーIDのみ" },
+        { "id": "C", "text": "現在時刻のタイムスタンプ" },
+        { "id": "D", "text": "ランダムなUUID" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「cache_key = \"portfolio-review-\" + sha256(ticker:shares:cost の連結)[:12]」と説明されています。"
+    },
+    {
+      "id": 7,
+      "question": "ポートフォリオレビューにおけるニュースセンチメントのバッチ判定はどのように行われますか？",
+      "options": [
+        { "id": "A", "text": "全保有銘柄のニュース見出しを1つのプロンプトにまとめ、1回のLLM呼び出しでJSON形式のセンチメントを取得する" },
+        { "id": "B", "text": "銘柄ごとに個別にLLMを呼び出す" },
+        { "id": "C", "text": "LLMを使わず固定ルールで判定する" },
+        { "id": "D", "text": "ユーザーが手動で入力する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「全保有銘柄のニュース見出しを1つのプロンプトにまとめ、1回のLLM呼び出しでJSON形式のセンチメントを取得する」と説明されています（サブプロセス起動オーバーヘッド対策）。"
+    },
+    {
+      "id": 8,
+      "question": "スクリーニングタブで使用可能なfieldとして限定されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "per / pbr / dividend_yield_pct / sector" },
+        { "id": "B", "text": "全てのyfinance項目" },
+        { "id": "C", "text": "銘柄コードのみ" },
+        { "id": "D", "text": "per / eps / roa / roe" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`build_screening_prompt` は使用可能なfieldを `per` / `pbr` / `dividend_yield_pct` / `sector`（業種）の4つに限定する」と説明されています。"
+    },
+    {
+      "id": 9,
+      "question": "スクリーニングのフィルタ適用時に`field`がDataFrameの列に存在しない、または`operator`が許可された演算子でない場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "その条件だけを無視して次の条件に進む（フィルタ全体を失敗させない）" },
+        { "id": "B", "text": "処理全体を停止してエラーを表示する" },
+        { "id": "C", "text": "アプリがクラッシュする" },
+        { "id": "D", "text": "全銘柄を結果として返す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`field` がDataFrameの列に存在しない、または `operator` が...のいずれでもない場合はその条件だけを無視して次の条件に進む（フィルタ全体を失敗させない防御的実装）」と説明されています。"
+    },
+    {
+      "id": 10,
+      "question": "バックテストで各戦略のポジションを1日シフトする理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "ルックアヘッドバイアスを回避するため（シグナル翌日約定とする）" },
+        { "id": "B", "text": "処理速度を上げるため" },
+        { "id": "C", "text": "データ量を削減するため" },
+        { "id": "D", "text": "日本語表示に対応するため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「各戦略は当日のシグナルに基づき `position`（0/1）を算出し、1日シフトして翌日約定とする（ルックアヘッドバイアス回避）」と説明されています。"
+    },
+    {
+      "id": 11,
+      "question": "バックテスト結果のAI解説がPrompt Chainingで行われる際の構成はどれですか？",
+      "options": [
+        { "id": "A", "text": "Step1で結果解説、Step2で改善提案という2段階で生成する" },
+        { "id": "B", "text": "1回のプロンプトで全てを生成する" },
+        { "id": "C", "text": "ユーザーが手動で入力する" },
+        { "id": "D", "text": "事前に用意された固定文言を表示するだけ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「AI解説の生成（Prompt Chaining: 2ステップ）」として、Step1（`build_backtest_prompt`）で結果解説、Step2（`build_improvement_prompt`）で改善提案を生成すると説明されています。"
+    },
+    {
+      "id": 12,
+      "question": "一括バックテストの対象銘柄はどのように決定されますか？",
+      "options": [
+        { "id": "A", "text": "company_profilesの全登録ティッカーと現在の保有銘柄ティッカーの和集合" },
+        { "id": "B", "text": "company_profilesの全登録ティッカーのみ" },
+        { "id": "C", "text": "保有銘柄のみ" },
+        { "id": "D", "text": "ユーザーが1件ずつ手動指定" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`load_all_company_profiles()` が返す `company_profiles` の全登録ティッカーと現在の保有銘柄ティッカーの和集合を対象にする」と説明されています。"
+    },
+    {
+      "id": 13,
+      "question": "一括バックテストでAIコメントが生成される対象はどれですか？",
+      "options": [
+        { "id": "A", "text": "ランキング上位5件のみ" },
+        { "id": "B", "text": "全銘柄" },
+        { "id": "C", "text": "下位5件のみ" },
+        { "id": "D", "text": "コメントは生成されない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「AIコメントは上位5件のみ: 全銘柄ではなく上位5件だけをまとめて1回のプロンプトでコメント生成する（コスト・待ち時間対策）」と説明されています。"
+    },
+    {
+      "id": 14,
+      "question": "セクターローテーションタブの分析対象（sector_universe）はどう決定されますか？",
+      "options": [
+        { "id": "A", "text": "company_profilesのうちsector_jp（東証17業種区分）が設定された全ticker" },
+        { "id": "B", "text": "固定の228銘柄のみ" },
+        { "id": "C", "text": "ユーザーが毎回すべて手入力する" },
+        { "id": "D", "text": "保有銘柄のみ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「分析対象の `sector_universe` は `company_profiles` のうち `sector_jp` が設定されている（`None`でない）全ティッカーで、固定228銘柄という制約は無くなっている」と説明されています。"
+    },
+    {
+      "id": 15,
+      "question": "ネットワーク図でコヒーレンス閾値を満たすペアが0件の場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "「十分な確信度を持つ関係が見つかりませんでした。閾値を下げてみてください。」と案内する" },
+        { "id": "B", "text": "アプリがクラッシュする" },
+        { "id": "C", "text": "ランダムなペアを表示する" },
+        { "id": "D", "text": "前回のキャッシュを無条件に表示する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「フィルタ後にエッジが0件になった場合は `None` を返し、UI側は『十分な確信度を持つ関係が見つかりませんでした。閾値を下げてみてください。』と案内する」と説明されています。"
+    },
+    {
+      "id": 16,
+      "question": "銘柄詳細ダイアログのキャッシュキーの特徴は何ですか？",
+      "options": [
+        { "id": "A", "text": "ハッシュ化せず\"stock-detail-<ticker>\"というティッカーそのままのキーを使う" },
+        { "id": "B", "text": "他機能と同じくSHA256ハッシュを使う" },
+        { "id": "C", "text": "キャッシュを一切使わない" },
+        { "id": "D", "text": "ユーザーIDをキーに含める" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「他機能と異なり `\"stock-detail-\" + ticker` というハッシュ化しないキーを使う」と説明されています。"
+    },
+    {
+      "id": 17,
+      "question": "銘柄詳細ダイアログには他機能と異なり存在しない要素は何ですか？",
+      "options": [
+        { "id": "A", "text": "「キャッシュを無視して再生成する」チェックボックス" },
+        { "id": "B", "text": "PER/PBRの表示" },
+        { "id": "C", "text": "ローソク足チャート" },
+        { "id": "D", "text": "免責事項の表示" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「『キャッシュを無視して再生成する』チェックボックスは存在しない（他4つのキャッシュ利用機能と異なる点）」と説明されています。"
+    },
+    {
+      "id": 18,
+      "question": "AI戦略ビルダーで確定候補の戦略JSONが確認前に通されるものは何ですか？",
+      "options": [
+        { "id": "A", "text": "Evaluator-Optimizerパターンによる自動評価・改善ループ" },
+        { "id": "B", "text": "外部のコードレビューサービス" },
+        { "id": "C", "text": "別のLLMプロバイダによる二重チェック" },
+        { "id": "D", "text": "何も通されず即座にDBへ保存される" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「確定候補は人間の目に触れる前に自動評価・改善ループを1往復通す」と説明されています。"
+    },
+    {
+      "id": 19,
+      "question": "AI戦略ビルダーの戦略steps（関数チェーン）で使われる関数レジストリはどれですか？",
+      "options": [
+        { "id": "A", "text": "strategy_builder/pipeline_functions.py::PIPELINE_FUNCTIONS" },
+        { "id": "B", "text": "app_tabs/shared.py" },
+        { "id": "C", "text": "db/models.py" },
+        { "id": "D", "text": "common/cache.py" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「戦略のスキーマは、`strategy_builder/pipeline_functions.py::PIPELINE_FUNCTIONS`...から選んだ関数を順に並べた...`steps`」と説明されています。"
+    },
+    {
+      "id": 20,
+      "question": "AI質問箱が質問を分類するカテゴリはいくつありますか？",
+      "options": [
+        { "id": "A", "text": "3カテゴリ" },
+        { "id": "B", "text": "5カテゴリ（fundamental/technical/news/portfolio/general）" },
+        { "id": "C", "text": "10カテゴリ" },
+        { "id": "D", "text": "カテゴリ分類は行わない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「自由記述の投資質問を5カテゴリ（fundamental/technical/news/portfolio/general）に分類し」と説明されています。"
+    },
+    {
+      "id": 21,
+      "question": "AI質問箱が他の多くの機能と異なる点は何ですか？",
+      "options": [
+        { "id": "A", "text": "日次ファイルキャッシュを使わず、質問のたびに毎回LLMを呼び出す" },
+        { "id": "B", "text": "LLMを一切使わない" },
+        { "id": "C", "text": "管理者のみが利用できる" },
+        { "id": "D", "text": "確認ステップを必ず挟む" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「日次ファイルキャッシュも使わず、質問のたびに毎回LLMを呼び出す（他機能と異なりキャッシュ層の対象外）」と説明されています。"
+    },
+    {
+      "id": 22,
+      "question": "管理者タブが表示される条件は何ですか？",
+      "options": [
+        { "id": "A", "text": "`is_admin=True`のユーザーにのみ表示される" },
+        { "id": "B", "text": "全ユーザーに表示される" },
+        { "id": "C", "text": "有料プランのユーザーのみ" },
+        { "id": "D", "text": "初回ログイン時のみ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`is_admin=True` のユーザーにのみ `app.py` が8番目のタブとして表示する」と説明されています。"
+    },
+    {
+      "id": 23,
+      "question": "管理者タブの性質として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "LLMを一切呼び出さず、DBに対するCRUD操作のみで完結する" },
+        { "id": "B", "text": "LLMを多用してレポートを自動生成する" },
+        { "id": "C", "text": "外部APIとの連携のみを行う" },
+        { "id": "D", "text": "バックテストの実行専用機能である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「LLMを一切呼び出さず、DBに対するCRUD操作のみで完結する管理機能」と説明されています。"
+    },
+    {
+      "id": 24,
+      "question": "`call_llm`関数がどのLLMプロバイダに振り分けるかを決める設定はどこにありますか？",
+      "options": [
+        { "id": "A", "text": "`.streamlit/secrets.toml`の`llm_provider`設定" },
+        { "id": "B", "text": "環境変数のみ" },
+        { "id": "C", "text": "コマンドライン引数" },
+        { "id": "D", "text": "データベースのテーブル" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`call_llm(prompt, timeout=120)` は `.streamlit/secrets.toml` の `llm_provider` 設定...に応じて `_call_claude_cli()` / `_call_openai()` に振り分ける」と説明されています。"
+    },
+    {
+      "id": 25,
+      "question": "Windows環境で`_call_claude_cli()`がargvではなくstdin経由でプロンプトを渡す理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "npmの.cmdシムに解決されバッチ引数展開でダブルクォート入りのJSONプロンプトが壊れるため" },
+        { "id": "B", "text": "stdinの方が常に高速なため" },
+        { "id": "C", "text": "Windowsではargvが使えない仕様のため" },
+        { "id": "D", "text": "セキュリティ上の理由でargvが禁止されているため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Windowsでは `claude` がnpmの `.cmd` シムに解決されバッチ引数展開でダブルクォート入りのJSONプロンプトが壊れるため、あえてargvではなくstdin経由にしている」と説明されています。"
+    },
+    {
+      "id": 26,
+      "question": "ニュースセンチメント等、複数対象に対する処理で採用されている方針はどれですか？",
+      "options": [
+        { "id": "A", "text": "個別呼び出しではなく必ず1回のプロンプトにまとめてバッチ処理する" },
+        { "id": "B", "text": "対象ごとに毎回個別にLLMを呼び出す" },
+        { "id": "C", "text": "処理をすべて非同期キューに投げる" },
+        { "id": "D", "text": "バッチ処理は一切行わない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「複数対象に対する処理...は個別呼び出しではなく必ず1回のプロンプトにまとめてバッチ処理する（サブプロセス起動オーバーヘッドの削減）」と説明されています。"
+    },
+    {
+      "id": 27,
+      "question": "セッション内メモリキャッシュ（st.cache_data）のTTLはどのように統一されていますか？",
+      "options": [
+        { "id": "A", "text": "短め（60秒）に統一されている" },
+        { "id": "B", "text": "24時間" },
+        { "id": "C", "text": "無期限" },
+        { "id": "D", "text": "キャッシュを使わない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「この層はDBへの問い合わせすら同一セッション内の連続rerunで繰り返さないための前段の薄いキャッシュという位置づけであり、TTLは短め（60秒）に統一されている」と説明されています。"
+    },
+    {
+      "id": 28,
+      "question": "日次ファイルキャッシュのキー文字列の例外として挙げられているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "銘柄詳細情報のみ`stock-detail-<ticker>`という非ハッシュのキーを使う" },
+        { "id": "B", "text": "全てのキーが常にハッシュ化される" },
+        { "id": "C", "text": "ユーザー名をそのままキーにする" },
+        { "id": "D", "text": "キーは常に固定値である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「キー文字列は基本的にSHA256ハッシュの先頭12桁だが、銘柄詳細情報のみ例外で `stock-detail-<ticker>` という非ハッシュのキーを使う」と説明されています。"
+    },
+    {
+      "id": 29,
+      "question": "`company_profiles`テーブルの位置づけとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "旧UNIVERSE/UNIVERSE_NAMES/SECTOR_MAPに代わる銘柄一覧の単一の情報源" },
+        { "id": "B", "text": "キャッシュ専用の一時テーブル" },
+        { "id": "C", "text": "ユーザーごとの個人設定テーブル" },
+        { "id": "D", "text": "LLM呼び出しログを保存するテーブル" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「旧`screening/universe.py`（`UNIVERSE`/`UNIVERSE_NAMES`）・`screening/sectors.py`（`SECTOR_MAP`）に代わる、アプリが分析対象とする銘柄一覧の単一の情報源」と説明されています。"
+    },
+    {
+      "id": 30,
+      "question": "yfinanceのレート制限（YFRateLimitError）への対処方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "30秒→60秒→120秒のバックオフで自動リトライする" },
+        { "id": "B", "text": "即座にエラーを返しリトライしない" },
+        { "id": "C", "text": "別のAPIプロバイダに自動切り替えする" },
+        { "id": "D", "text": "ユーザーに手動リトライを促す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`_call_with_rate_limit_retry`が全yfinance呼び出し...を30秒→60秒→120秒のバックオフで自動リトライし」と説明されています。"
+    },
+    {
+      "id": 31,
+      "question": "免責事項が表示される箇所として説明されていないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "ポートフォリオレビューの本文冒頭と末尾" },
+        { "id": "B", "text": "サイドバー" },
+        { "id": "C", "text": "銘柄詳細ダイアログの末尾" },
+        { "id": "D", "text": "アプリのソースコードコメント内のみ" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "「`DISCLAIMER_NOTICE` をサイドバーに常時表示するほか、ポートフォリオレビュー・バックテスト解説の本文冒頭と末尾...銘柄詳細ダイアログの末尾に必ず挿入する」と説明されており、ソースコードコメントのみへの記載とはされていません。"
+    },
+    {
+      "id": 32,
+      "question": "テスト方針として説明されている内容はどれですか？",
+      "options": [
+        { "id": "A", "text": "yfinance呼び出し・call_llm（サブプロセス）は各テストでモック化する" },
+        { "id": "B", "text": "全てのテストで実際のLLM APIを呼び出す" },
+        { "id": "C", "text": "UIのE2Eテストのみで純粋関数のテストは行わない" },
+        { "id": "D", "text": "テストは一切実施していない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「yfinance呼び出し・`call_llm`（サブプロセス）は各テストでモック化し、外部通信やCLI起動なしに検証する」と説明されています。"
+    },
+    {
+      "id": 33,
+      "question": "未実装・将来課題として挙げられているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "MCPサーバー経由でのデータ取得への置き換え" },
+        { "id": "B", "text": "Streamlitの完全な廃止" },
+        { "id": "C", "text": "ユーザー認証機能の廃止" },
+        { "id": "D", "text": "データベースの完全撤廃" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「6. 未実装・将来課題」に「MCPサーバー経由でのデータ取得への置き換え」が挙げられています。"
+    },
+    {
+      "id": 34,
+      "question": "レポートの配信について、未実装・将来課題として挙げられているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "レポートのメール/Slack自動送信" },
+        { "id": "B", "text": "レポートの紙媒体印刷機能" },
+        { "id": "C", "text": "レポートのブロックチェーン保存" },
+        { "id": "D", "text": "レポートの音声読み上げ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「6. 未実装・将来課題」に「レポートのメール/Slack自動送信」が挙げられています。"
+    },
+    {
+      "id": 35,
+      "question": "`scripts/import_all_listed_tickers.py`の運用について説明されている課題は何ですか？",
+      "options": [
+        { "id": "A", "text": "定期更新バッチ（update_market_data.py）には含まれず、手動実行が前提で、新規上場・廃止銘柄の反映が自動化されていない" },
+        { "id": "B", "text": "毎日自動的にスケジューラで実行されている" },
+        { "id": "C", "text": "実行するとデータベース全体が初期化される" },
+        { "id": "D", "text": "JPX以外のデータソースを使用している" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`scripts/import_all_listed_tickers.py`...は`scripts/update_market_data.py`の定期更新バッチには含まれず、手動実行...が前提。新規上場・上場廃止銘柄の反映、および業種分類（`sector_jp`）の追随は定期自動照合の仕組みが無く手作業運用となる」と説明されています。"
+    }
+  ]
+}

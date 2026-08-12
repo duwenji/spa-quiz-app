@@ -1,0 +1,17 @@
+{
+  "series": {
+    "id": "ai-stock-investing-tutorial",
+    "name": "AI株式投資リサーチ教材 総合シリーズ",
+    "description": "AI活用の株式投資リサーチ教材を、基礎・プロンプト設計・データAPI連携・分析エージェント・ポートフォリオ管理・実践例の6カテゴリで横断的に学べる総合クイズシリーズです。",
+    "version": "1.0.0",
+    "totalQuestions": 155,
+    "sections": [
+      { "id": "ai-stock-fundamentals", "track": "Fundamentals", "order": 1, "name": "基礎 | LLMと株式投資リサーチ", "questionCount": 25, "estimatedTime": "15-20分", "keyTopics": ["LLM基礎", "ハルシネーション対策", "データ鮮度", "法務・倫理"] },
+      { "id": "ai-stock-prompt-patterns", "track": "Prompt Patterns", "order": 2, "name": "プロンプト設計 | 決算・ニュース・スクリーニング・レポート", "questionCount": 25, "estimatedTime": "15-20分", "keyTopics": ["決算サマリー", "ニュースセンチメント", "銘柄スクリーニング", "レポート生成"] },
+      { "id": "ai-stock-data-api", "track": "Data & API", "order": 3, "name": "データAPI連携 | 株価取得とLLM連携", "questionCount": 25, "estimatedTime": "15-20分", "keyTopics": ["株価API", "LLM API連携", "構造化出力", "レート制限・コスト"] },
+      { "id": "ai-stock-analysis-agents", "track": "Analysis Agents", "order": 4, "name": "分析エージェント | ファンダメンタルズ・テクニカル・ニュース", "questionCount": 25, "estimatedTime": "15-20分", "keyTopics": ["ファンダメンタルズ分析", "テクニカル分析", "ニュースリサーチ", "MCPサーバー"] },
+      { "id": "ai-stock-portfolio-management", "track": "Portfolio Management", "order": 5, "name": "ポートフォリオ管理 | 分析・リスク・バックテスト", "questionCount": 30, "estimatedTime": "18-24分", "keyTopics": ["ポートフォリオ分析", "リスク評価", "バックテスト自動化", "リード・ラグ相関", "ウェーブレット分析"] },
+      { "id": "ai-stock-real-world-examples", "track": "Real-World Examples", "order": 6, "name": "実践例 | ツール実装パターン", "questionCount": 25, "estimatedTime": "15-20分", "keyTopics": ["デイリーレポート", "スクリーニングダッシュボード", "ポートフォリオアドバイザー", "戦略ビルダー"] }
+    ]
+  }
+}
