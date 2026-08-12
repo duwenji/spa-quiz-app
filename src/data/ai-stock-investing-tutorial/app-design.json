@@ -34,7 +34,7 @@
         { "id": "D", "text": "Django Admin" }
       ],
       "correctAnswer": "A",
-      "explanation": "「Streamlit（`st.tabs` による7タブ切替...+ `st.dialog` の銘柄詳細モーダル」と説明されています。"
+      "explanation": "「Streamlit（`st.tabs` による7タブ切替 + `st.dialog` の銘柄詳細モーダル）」と説明されています。"
     },
     {
       "id": 4,
@@ -46,7 +46,7 @@
         { "id": "D", "text": "D3.js単体" }
       ],
       "correctAnswer": "A",
-      "explanation": "「Altair（`st.altair_chart`。ローソク足＋出来高チャート...）/ Mermaid（業種間ネットワーク図。CDN読み込みの`mermaid.js`...）」と説明されています。"
+      "explanation": "「Altair（`st.altair_chart`。ローソク足＋出来高チャート等）/ Mermaid（業種間ネットワーク図。CDN読み込みの`mermaid.js`を使用）」と説明されています。"
     },
     {
       "id": 5,
@@ -106,7 +106,7 @@
         { "id": "D", "text": "全銘柄を結果として返す" }
       ],
       "correctAnswer": "A",
-      "explanation": "「`field` がDataFrameの列に存在しない、または `operator` が...のいずれでもない場合はその条件だけを無視して次の条件に進む（フィルタ全体を失敗させない防御的実装）」と説明されています。"
+      "explanation": "「`field` がDataFrameの列に存在しない、または `operator` が許可された演算子のいずれでもない場合は、その条件だけを無視して次の条件に進みます（フィルタ全体を失敗させない防御的実装）」と説明されています。"
     },
     {
       "id": 10,
@@ -226,7 +226,7 @@
         { "id": "D", "text": "common/cache.py" }
       ],
       "correctAnswer": "A",
-      "explanation": "「戦略のスキーマは、`strategy_builder/pipeline_functions.py::PIPELINE_FUNCTIONS`...から選んだ関数を順に並べた...`steps`」と説明されています。"
+      "explanation": "「戦略のスキーマは、`strategy_builder/pipeline_functions.py::PIPELINE_FUNCTIONS`から選んだ関数を順に並べた`steps`（関数チェーン型パイプライン）の1種類のみ」と説明されています。"
     },
     {
       "id": 20,
@@ -286,7 +286,7 @@
         { "id": "D", "text": "データベースのテーブル" }
       ],
       "correctAnswer": "A",
-      "explanation": "「`call_llm(prompt, timeout=120)` は `.streamlit/secrets.toml` の `llm_provider` 設定...に応じて `_call_claude_cli()` / `_call_openai()` に振り分ける」と説明されています。"
+      "explanation": "「`call_llm(prompt, timeout=120)` は `.streamlit/secrets.toml` の `llm_provider` 設定に応じて `_call_claude_cli()` / `_call_openai()` に振り分ける」と説明されています。"
     },
     {
       "id": 25,
@@ -310,7 +310,7 @@
         { "id": "D", "text": "バッチ処理は一切行わない" }
       ],
       "correctAnswer": "A",
-      "explanation": "「複数対象に対する処理...は個別呼び出しではなく必ず1回のプロンプトにまとめてバッチ処理する（サブプロセス起動オーバーヘッドの削減）」と説明されています。"
+      "explanation": "「複数対象に対する処理は、個別呼び出しではなく必ず1回のプロンプトにまとめてバッチ処理する（サブプロセス起動オーバーヘッドの削減）」と説明されています。"
     },
     {
       "id": 27,
@@ -358,7 +358,7 @@
         { "id": "D", "text": "ユーザーに手動リトライを促す" }
       ],
       "correctAnswer": "A",
-      "explanation": "「`_call_with_rate_limit_retry`が全yfinance呼び出し...を30秒→60秒→120秒のバックオフで自動リトライし」と説明されています。"
+      "explanation": "「`_call_with_rate_limit_retry`が全yfinance呼び出しを30秒→60秒→120秒のバックオフで自動リトライする」と説明されています。それでも解消しない場合は例外が呼び出し元へ伝播します。"
     },
     {
       "id": 31,
@@ -370,7 +370,7 @@
         { "id": "D", "text": "アプリのソースコードコメント内のみ" }
       ],
       "correctAnswer": "D",
-      "explanation": "「`DISCLAIMER_NOTICE` をサイドバーに常時表示するほか、ポートフォリオレビュー・バックテスト解説の本文冒頭と末尾...銘柄詳細ダイアログの末尾に必ず挿入する」と説明されており、ソースコードコメントのみへの記載とはされていません。"
+      "explanation": "「`DISCLAIMER_NOTICE` をサイドバーに常時表示するほか、ポートフォリオレビュー・バックテスト解説の本文冒頭と末尾、銘柄詳細ダイアログの末尾に必ず挿入する」と説明されています。ソースコードコメントのみへの記載とはされていません。"
     },
     {
       "id": 32,
@@ -388,7 +388,7 @@
       "id": 33,
       "question": "未実装・将来課題として挙げられているものはどれですか？",
       "options": [
-        { "id": "A", "text": "MCPサーバー経由でのデータ取得への置き換え" },
+        { "id": "A", "text": "MCP（Model Context Protocol）サーバー経由でのデータ取得への置き換え" },
         { "id": "B", "text": "Streamlitの完全な廃止" },
         { "id": "C", "text": "ユーザー認証機能の廃止" },
         { "id": "D", "text": "データベースの完全撤廃" }
