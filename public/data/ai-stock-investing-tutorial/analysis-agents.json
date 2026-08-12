@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "カテゴリ04で構築する最終的な成果物として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "単発のプロンプト呼び出しのみ" },
+        { "id": "B", "text": "株式データをMCPサーバーとして公開し、任意のMCP対応AIクライアントから呼び出せる形にする" },
+        { "id": "C", "text": "決算短信のPDF変換ツール" },
+        { "id": "D", "text": "株価チャートの画像生成ツール" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「最終的には、株式データをMCP（Model Context Protocol）サーバーとして公開し、任意のMCP対応AIクライアントから呼び出せる形にします」と説明されています。"
+    },
+    {
+      "id": 2,
+      "question": "エージェントが実行する複数ステップの処理に含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "yfinanceなどで実データを取得する" },
+        { "id": "B", "text": "取得データをもとにプロンプトを組み立てる" },
+        { "id": "C", "text": "call_llm/構造化出力パターンでLLMに推論させる" },
+        { "id": "D", "text": "LLMのモデル自体を再学習する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "エージェントの処理は「実データ取得→プロンプト組み立て→LLM推論→結果を構造化データとして返す/集計」の4ステップであり、モデルの再学習は含まれません。"
+    },
+    {
+      "id": 3,
+      "question": "カテゴリ04の教材はどの順序で進めることが推奨されていますか？",
+      "options": [
+        { "id": "A", "text": "04→01の順" },
+        { "id": "B", "text": "01→04の順" },
+        { "id": "C", "text": "順不同" },
+        { "id": "D", "text": "03から始める" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「01 → 04 の順に進めることを推奨します」と明記されています。"
+    },
+    {
+      "id": 4,
+      "question": "カテゴリ04の成果物はどこで利用されるとされていますか？",
+      "options": [
+        { "id": "A", "text": "05. Portfolio Managementでのポートフォリオ横断分析" },
+        { "id": "B", "text": "01. Fundamentalsの復習" },
+        { "id": "C", "text": "02. Prompt Patternsの演習のみ" },
+        { "id": "D", "text": "どこにも利用されない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「本カテゴリの成果物は、05. Portfolio Managementでのポートフォリオ横断分析にも利用します」と説明されています。"
+    },
+    {
+      "id": 5,
+      "question": "カテゴリ04が土台として使うものはどれですか？",
+      "options": [
+        { "id": "A", "text": "03. Data & APIで学んだyfinanceデータ取得・call_llm・構造化出力パターン" },
+        { "id": "B", "text": "02. Prompt Patternsのみ" },
+        { "id": "C", "text": "06. Real World Examplesの実装" },
+        { "id": "D", "text": "05. Portfolio Managementのバックテスト機能" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「03. Data & API で学んだ `yfinance` によるデータ取得、`call_llm` によるLLM API連携、構造化出力パターンを土台として使います」と説明されています。"
+    },
+    {
+      "id": 6,
+      "question": "ファンダメンタル分析エージェントが判定の根拠とする情報はどれですか？",
+      "options": [
+        { "id": "A", "text": "LLMの学習時点の記憶" },
+        { "id": "B", "text": "プロンプトに含めた取得済みの実データのみ" },
+        { "id": "C", "text": "インターネット検索結果" },
+        { "id": "D", "text": "過去の株価チャート画像" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「その数値のみを根拠にLLMへ判定させるプログラムです」「記憶にある企業情報や一般知識で数値を補完しないでください」と説明されています。"
+    },
+    {
+      "id": 7,
+      "question": "`analyze_fundamentals`関数の戻り値`verdict`が取りうる値はどれですか？",
+      "options": [
+        { "id": "A", "text": "\"割安\" / \"妥当\" / \"割高\"" },
+        { "id": "B", "text": "\"buy\" / \"sell\" / \"hold\"" },
+        { "id": "C", "text": "数値スコア（0-100）" },
+        { "id": "D", "text": "\"positive\" / \"negative\" / \"neutral\"" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`FUNDAMENTAL_TOOL_SCHEMA`で`\"verdict\": {\"enum\": [\"割安\", \"妥当\", \"割高\"]}`と定義されています。"
+    },
+    {
+      "id": 8,
+      "question": "PERやPBRの判定で重要とされている比較対象は何ですか？",
+      "options": [
+        { "id": "A", "text": "過去5年間の自社平均のみ" },
+        { "id": "B", "text": "セクター平均" },
+        { "id": "C", "text": "為替レート" },
+        { "id": "D", "text": "米国市場全体の平均" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「PERやPBRは絶対値だけでなく、セクター平均との比較が重要です」と説明されています。"
+    },
+    {
+      "id": 9,
+      "question": "エージェントが守るべき原則に含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "データ根拠の明示" },
+        { "id": "B", "text": "記憶からの補完禁止" },
+        { "id": "C", "text": "比較基準の明示" },
+        { "id": "D", "text": "できるだけ多くのモデルで多数決を取る" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "4原則はデータ根拠の明示・記憶からの補完禁止・比較基準の明示・構造化出力の強制であり、複数モデルによる多数決は含まれません。"
+    },
+    {
+      "id": 10,
+      "question": "構造化出力を強制するために使われている仕組みは何ですか？",
+      "options": [
+        { "id": "A", "text": "tool_use（FUNDAMENTAL_TOOL_SCHEMA）" },
+        { "id": "B", "text": "自由文でJSON形式を頼むだけ" },
+        { "id": "C", "text": "正規表現によるパース" },
+        { "id": "D", "text": "CSVファイルへの出力" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「構造化出力の強制: 自由文ではなくtool_useで判定結果を固定フォーマット化する」と説明され、`FUNDAMENTAL_TOOL_SCHEMA`が使われています。"
+    },
+    {
+      "id": 11,
+      "question": "テクニカル指標の計算をLLMではなくPython側（pandas）で行う理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "LLMはトークン単位でテキストを生成するモデルであり、桁数の多い数値の四則演算や統計計算を苦手とするため" },
+        { "id": "B", "text": "Pythonの方が処理速度が常に速いため" },
+        { "id": "C", "text": "LLMはpandasライブラリを使えないため" },
+        { "id": "D", "text": "LLM APIのコストが高すぎるため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「LLMはトークン単位でテキストを生成するモデルであり、桁数の多い数値の四則演算や統計計算を苦手とします」と説明されています。"
+    },
+    {
+      "id": 12,
+      "question": "テクニカル指標の4つのカテゴリーに含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "トレンド系" },
+        { "id": "B", "text": "オシレーター系" },
+        { "id": "C", "text": "ボラティリティ系" },
+        { "id": "D", "text": "ファンダメンタル系" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "4カテゴリーはトレンド系・オシレーター系・ボラティリティ系・出来高系であり、ファンダメンタル系は含まれません。"
+    },
+    {
+      "id": 13,
+      "question": "ゴールデンクロスの定義として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "短期線が長期線を下から上に抜けること" },
+        { "id": "B", "text": "短期線が長期線を上から下に抜けること" },
+        { "id": "C", "text": "RSIが70を超えること" },
+        { "id": "D", "text": "出来高が急増すること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「ゴールデンクロス: 短期線が長期線を下から上に抜けること」と定義されています。"
+    },
+    {
+      "id": 14,
+      "question": "RSIが70以上の場合の一般的な解釈はどれですか？",
+      "options": [
+        { "id": "A", "text": "売られすぎ" },
+        { "id": "B", "text": "買われすぎ" },
+        { "id": "C", "text": "トレンドなし" },
+        { "id": "D", "text": "出来高不足" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「70以上: 買われすぎ、30以下: 売られすぎ」と説明されています。"
+    },
+    {
+      "id": 15,
+      "question": "ADXの値が25以上の場合に示唆されることはどれですか？",
+      "options": [
+        { "id": "A", "text": "強いトレンドが存在する" },
+        { "id": "B", "text": "レンジ相場である" },
+        { "id": "C", "text": "出来高が減少している" },
+        { "id": "D", "text": "ボラティリティがゼロである" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「25以上: 強いトレンド、20未満: レンジ相場」と説明されています。"
+    },
+    {
+      "id": 16,
+      "question": "ニュースリサーチエージェントの処理フローの順序として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "記事取得→個別分析→集計→サマリ生成" },
+        { "id": "B", "text": "集計→記事取得→個別分析→サマリ生成" },
+        { "id": "C", "text": "サマリ生成→記事取得→集計→個別分析" },
+        { "id": "D", "text": "個別分析→サマリ生成→記事取得→集計" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "処理フローの表で「1. 記事取得→2. 個別分析→3. 集計→4. サマリ生成」の順序が示されています。"
+    },
+    {
+      "id": 17,
+      "question": "「悪い例」として指摘されている手法はどれですか？",
+      "options": [
+        { "id": "A", "text": "記事を1件ずつセンチメント判定する" },
+        { "id": "B", "text": "記事12件の見出しと本文をすべて1つのプロンプトに詰め込み、一度に全体のセンチメントを尋ねる" },
+        { "id": "C", "text": "記事取得をプレースホルダー関数にする" },
+        { "id": "D", "text": "集計結果をJSON形式で返す" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「記事12件の見出しと本文をすべて1つのプロンプトに詰め込み、『全体のセンチメントを教えてください』と一度に依頼する」ことが悪い例として挙げられています。"
+    },
+    {
+      "id": 18,
+      "question": "「良い例」の手法が持つ利点は何ですか？",
+      "options": [
+        { "id": "A", "text": "各記事の判定根拠が個別に検証可能で、記事数が増えても集計処理は線形にスケールする" },
+        { "id": "B", "text": "プロンプトを1回だけ呼び出せば済む" },
+        { "id": "C", "text": "APIコストが常にゼロになる" },
+        { "id": "D", "text": "記事本文を読む必要がなくなる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「各記事の判定根拠が個別に検証可能で、記事数が増えても集計処理は線形にスケールする」と説明されています。"
+    },
+    {
+      "id": 19,
+      "question": "`fetch_recent_news`関数が教材内でプレースホルダーとされている理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "実装が複雑すぎて解説できないため" },
+        { "id": "B", "text": "ニュースAPIとの連携部分は本教材の範囲外のため" },
+        { "id": "C", "text": "LLMが自動的に実装するため" },
+        { "id": "D", "text": "セキュリティ上の理由で公開できないため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「API連携部分は本教材の範囲外のため、ここではインターフェースのみ示します」と説明されています。"
+    },
+    {
+      "id": 20,
+      "question": "`analyze_news_sentiment`の戻り値に含まれる`counts`の内容はどれですか？",
+      "options": [
+        { "id": "A", "text": "positive/negative/neutralそれぞれの件数" },
+        { "id": "B", "text": "記事の文字数" },
+        { "id": "C", "text": "APIの呼び出し回数" },
+        { "id": "D", "text": "トークン消費量" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "実行結果例で`\"counts\": { \"positive\": 5, \"negative\": 3, \"neutral\": 4 }`のように件数が示されています。"
+    },
+    {
+      "id": 21,
+      "question": "MCP（Model Context Protocol）の役割として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "AIクライアントが外部ツールを発見・呼び出すための標準プロトコル" },
+        { "id": "B", "text": "株価データを暗号化する仕組み" },
+        { "id": "C", "text": "LLMのファインチューニング手法" },
+        { "id": "D", "text": "HTTPの代替となる新しい通信規格" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「MCP（Model Context Protocol）は、AIクライアントが外部ツールを発見・呼び出すための標準プロトコルです」と定義されています。"
+    },
+    {
+      "id": 22,
+      "question": "MCPサーバーを使う利点として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "AI製品ごとに個別の連携コードを書く必要がなくなる" },
+        { "id": "B", "text": "APIコストが必ず下がる" },
+        { "id": "C", "text": "LLMの推論速度が上がる" },
+        { "id": "D", "text": "トークン数の制限がなくなる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「AI製品ごとに個別の連携コードを書く必要がなくなる点が利点です」と説明されています。"
+    },
+    {
+      "id": 23,
+      "question": "`@mcp.tool()`デコレータの役割は何ですか？",
+      "options": [
+        { "id": "A", "text": "関数をMCPツールとして公開する" },
+        { "id": "B", "text": "関数を非同期化する" },
+        { "id": "C", "text": "関数の実行時間を計測する" },
+        { "id": "D", "text": "関数の戻り値をキャッシュする" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`@mcp.tool()`: 関数をMCPツールとして公開するデコレータ」と説明されています。"
+    },
+    {
+      "id": 24,
+      "question": "関数のdocstringがMCPサーバーにおいて果たす役割は何ですか？",
+      "options": [
+        { "id": "A", "text": "クライアントLLMに渡されるツールの説明文になる" },
+        { "id": "B", "text": "単なるコメントで実行に影響しない" },
+        { "id": "C", "text": "テストコードとして実行される" },
+        { "id": "D", "text": "ログファイルに出力される" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「関数のdocstring: クライアントLLMに渡されるツールの説明文になる」と説明されています。"
+    },
+    {
+      "id": 25,
+      "question": "「悪い例」として挙げられているツール設計はどれですか？",
+      "options": [
+        { "id": "A", "text": "get_stock_price(ticker)とget_fundamentals(ticker)を別々の単機能ツールとして定義する" },
+        { "id": "B", "text": "get_stock_data(ticker, mode)のような1つの万能ツールを作り、modeで機能を切り替える" },
+        { "id": "C", "text": "ツールを複数のファイルに分割する" },
+        { "id": "D", "text": "型ヒントを付与する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「get_stock_data(ticker, mode) のような1つの万能ツールを作り、modeに\"price\"/\"fundamentals\"/\"news\"を渡して切り替える」ことが悪い例として挙げられ、引数の意味が曖昧になるとされています。"
+    }
+  ]
+}

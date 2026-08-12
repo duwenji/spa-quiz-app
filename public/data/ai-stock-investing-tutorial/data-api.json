@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "カテゴリ03の4教材が組み立てる1つのパイプラインの構成要素の順序として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "株価API取得→LLM API呼び出し→構造化出力→レート制限・コスト管理" },
+        { "id": "B", "text": "LLM API呼び出し→株価API取得→レート制限・コスト管理→構造化出力" },
+        { "id": "C", "text": "構造化出力→株価API取得→LLM API呼び出し→レート制限・コスト管理" },
+        { "id": "D", "text": "レート制限・コスト管理→構造化出力→LLM API呼び出し→株価API取得" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材一覧の順序（01株価API取得、02LLM API呼び出し、03構造化出力、04レート制限・コスト管理）がそのままパイプラインの構成要素の順序です。"
+    },
+    {
+      "id": 2,
+      "question": "02で定義される `call_llm(prompt: str) -> str` はどこで使われますか？",
+      "options": [
+        { "id": "A", "text": "このカテゴリの02教材のみで完結し、以降は使われない" },
+        { "id": "B", "text": "03の構造化出力、04のバックオフラッパー、04-analysis-agentsの各エージェントで共通して使われる" },
+        { "id": "C", "text": "01-fundamentalsでのみ使われる" },
+        { "id": "D", "text": "02-prompt-patternsでのみ使われる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「02で定義する `call_llm(prompt: str) -> str` は、以降の教材（03の構造化出力、04のバックオフラッパー、04-analysis-agentsの各エージェント）で共通して使われる基本関数です」と説明されています。"
+    },
+    {
+      "id": 3,
+      "question": "教材内でAPIキーをどのように示すべきとされていますか？",
+      "options": [
+        { "id": "A", "text": "プレースホルダー（YOUR_API_KEY）と環境変数読み込みのコードで示す" },
+        { "id": "B", "text": "実際のキーをソースコードに直接書き込んで示す" },
+        { "id": "C", "text": "APIキーは不要なので示さない" },
+        { "id": "D", "text": "コメントアウトして残す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「すべてのAPIキーはプレースホルダー（`YOUR_API_KEY`）と環境変数読み込みのコードで示します。実際のキーをソースコードに直接書き込まないでください」と明記されています。"
+    },
+    {
+      "id": 4,
+      "question": "カテゴリ03の学習目標に含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "yfinanceを使って株価・財務データをPythonで取得できる" },
+        { "id": "B", "text": "Claude APIとOpenAI APIをPythonから呼び出し、応答を取得できる" },
+        { "id": "C", "text": "自由文ではなく構造化出力で解析可能な結果を得られる" },
+        { "id": "D", "text": "LLMをファインチューニングしてカスタムモデルを作成できる" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "学習目標は株価取得・LLM API呼び出し・構造化出力・コスト/レート制限管理の4点で、ファインチューニングは含まれません。"
+    },
+    {
+      "id": 5,
+      "question": "教材の推奨される学習順序はどれですか？",
+      "options": [
+        { "id": "A", "text": "04→01の順" },
+        { "id": "B", "text": "01→04の順" },
+        { "id": "C", "text": "順不同" },
+        { "id": "D", "text": "03から始める" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「01 → 04 の順に進めることを推奨します」と明記されています。"
+    },
+    {
+      "id": 6,
+      "question": "東京証券取引所の銘柄をyfinanceで指定する際のティッカー記法はどれですか？",
+      "options": [
+        { "id": "A", "text": "サフィックスなし（例: 7203）" },
+        { "id": "B", "text": "`.T`サフィックス（例: 7203.T）" },
+        { "id": "C", "text": "`.JP`サフィックス" },
+        { "id": "D", "text": "`.TSE`サフィックス" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「東京証券取引所: `.T`サフィックス、例 `7203.T`（トヨタ自動車）」と表で示されています。"
+    },
+    {
+      "id": 7,
+      "question": "`history()`メソッドの`period`パラメータの説明として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "足の間隔を指定する" },
+        { "id": "B", "text": "取得期間を指定する" },
+        { "id": "C", "text": "APIキーを指定する" },
+        { "id": "D", "text": "出力フォーマットを指定する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`period`は「取得期間」を指定するパラメータで、足の間隔は`interval`パラメータが担います。"
+    },
+    {
+      "id": 8,
+      "question": "`.info`の`dividendYield`フィールドの値の意味として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "小数で表され、0.03は3%を意味する" },
+        { "id": "B", "text": "パーセント表記の整数値" },
+        { "id": "C", "text": "常に0〜100の範囲の整数" },
+        { "id": "D", "text": "円建ての配当金額そのもの" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「dividendYield: 配当利回り（小数、`0.03` は3%を意味する）」と説明されています。"
+    },
+    {
+      "id": 9,
+      "question": "「悪い例」のコードで発生しうる問題はどれですか？",
+      "options": [
+        { "id": "A", "text": "`.info`のキーに直接アクセスし、`KeyError`や`TypeError`が発生する可能性がある" },
+        { "id": "B", "text": "yfinanceのインストールに失敗する" },
+        { "id": "C", "text": "常に正しい値が返る" },
+        { "id": "D", "text": "ネットワークに接続できない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`.info` のキーに直接アクセスすると、銘柄によっては`KeyError`が発生したり、値が`None`のまま演算に使われて`TypeError`になります」と説明されています。"
+    },
+    {
+      "id": 10,
+      "question": "「良い例」のコードが採用している防御的な書き方はどれですか？",
+      "options": [
+        { "id": "A", "text": "`.get()`でデフォルト値を指定し、使用前に`None`チェックを行う" },
+        { "id": "B", "text": "`try/except`を使わずそのままアクセスする" },
+        { "id": "C", "text": "値を常に文字列にキャストする" },
+        { "id": "D", "text": "`.info`辞書を使わずAPIを再実装する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`.get()`でデフォルト値を指定し、演算前に`None`チェックを入れることで、欠損データによるクラッシュを防ぎます」と説明されています。"
+    },
+    {
+      "id": 11,
+      "question": "AnthropicのAPIで応答テキストを取り出す方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "`response.choices[0].message.content`" },
+        { "id": "B", "text": "`response.content[0].text`" },
+        { "id": "C", "text": "`response.output_text`" },
+        { "id": "D", "text": "`response.data[0].text`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "比較表で「応答テキストの取り出し: Anthropic `response.content[0].text`」と示されています。`response.choices[0].message.content`はOpenAI側の取り出し方です。"
+    },
+    {
+      "id": 12,
+      "question": "OpenAIとAnthropicのAPIキー環境変数の慣例として正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "Anthropic: `ANTHROPIC_API_KEY`, OpenAI: `OPENAI_API_KEY`" },
+        { "id": "B", "text": "Anthropic: `CLAUDE_KEY`, OpenAI: `GPT_KEY`" },
+        { "id": "C", "text": "両方とも`API_KEY`という共通名を使う" },
+        { "id": "D", "text": "Anthropic: `OPENAI_API_KEY`, OpenAI: `ANTHROPIC_API_KEY`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "比較表で「APIキー環境変数（慣例）: Anthropic `ANTHROPIC_API_KEY`, OpenAI `OPENAI_API_KEY`」と示されています。"
+    },
+    {
+      "id": 13,
+      "question": "「悪い例」のコードで指摘されている問題は何ですか？",
+      "options": [
+        { "id": "A", "text": "APIキーをソースコードに直接書き込み、ログにも出力してしまっている" },
+        { "id": "B", "text": "モデル名を指定していない" },
+        { "id": "C", "text": "メッセージ形式が間違っている" },
+        { "id": "D", "text": "max_tokensを指定しすぎている" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「APIキーをソースコードに直接書き込み、確認のためログにも出力してしまっています。この状態でGitにコミットすると、キーが漏えいします」と説明されています。"
+    },
+    {
+      "id": 14,
+      "question": "Anthropic APIで`max_tokens`パラメータの扱いとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "必須パラメータである" },
+        { "id": "B", "text": "省略可能で、省略時はモデル既定値が使われる" },
+        { "id": "C", "text": "常に無視される" },
+        { "id": "D", "text": "文字列で指定する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "比較表で「`max_tokens`: Anthropic 必須パラメータ、OpenAI 省略可能（省略時はモデル既定値）」と示されています。"
+    },
+    {
+      "id": 15,
+      "question": "`call_llm(prompt: str) -> str` は今後どの教材で共通利用されますか？",
+      "options": [
+        { "id": "A", "text": "03-structured-output.md、04-rate-limit-and-cost.md、04-analysis-agentsの各エージェント" },
+        { "id": "B", "text": "01-fundamentalsのみ" },
+        { "id": "C", "text": "02-prompt-patternsのみ" },
+        { "id": "D", "text": "どの教材でも再利用されない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「次の03-structured-output.md、04-rate-limit-and-cost.md、さらに04-analysis-agentsの各エージェントでも共通して使われます」と説明されています。"
+    },
+    {
+      "id": 16,
+      "question": "自由文で「JSON形式で出力してください」と指示するだけの実装に起こりうる問題は何ですか？",
+      "options": [
+        { "id": "A", "text": "Markdownのコードフェンスや前置き文章が混ざり`json.loads()`が例外を投げることがある" },
+        { "id": "B", "text": "常に完全なJSONが返る" },
+        { "id": "C", "text": "APIコストが必ず下がる" },
+        { "id": "D", "text": "レスポンス速度が必ず上がる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Markdownのコードフェンス（```json ... ```）や前置きの文章が混ざることがあり、`json.loads()` が例外を投げる原因になります」と説明されています。"
+    },
+    {
+      "id": 17,
+      "question": "Anthropicで出力形式をAPIレベルで強制する仕組みは何ですか？",
+      "options": [
+        { "id": "A", "text": "Tool use（`tools`と`tool_choice`）" },
+        { "id": "B", "text": "`response_format`パラメータ" },
+        { "id": "C", "text": "`max_tokens`の調整" },
+        { "id": "D", "text": "システムプロンプトの長さ制限" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Anthropicでの実現方法: `tools` + `tool_choice`で特定ツールの呼び出しを強制」と説明されています。`response_format`はOpenAI側の方式です。"
+    },
+    {
+      "id": 18,
+      "question": "`SENTIMENT_TOOL`のinput_schemaで必須（required）とされているフィールドはどれですか？",
+      "options": [
+        { "id": "A", "text": "sentiment, confidence, reason" },
+        { "id": "B", "text": "ticker, date, price" },
+        { "id": "C", "text": "title, summary" },
+        { "id": "D", "text": "article_url" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`\"required\": [\"sentiment\", \"confidence\", \"reason\"]`と定義されています。"
+    },
+    {
+      "id": 19,
+      "question": "`analyze_sentiment` 関数がツールの実行結果を取得する方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "`response.content` から `type == \"tool_use\"` のブロックを探し、`block.input` を使う" },
+        { "id": "B", "text": "`response.text` をそのまま`json.loads()`する" },
+        { "id": "C", "text": "HTTPレスポンスヘッダーから取得する" },
+        { "id": "D", "text": "標準出力をパースする" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「レスポンスの `content` から `type == \"tool_use\"` のブロックを探す」「`block.input` に、スキーマ通りの辞書が入っている」と説明されています。"
+    },
+    {
+      "id": 20,
+      "question": "OpenAIで構造化出力を強制する方法として教材で示されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "`response_format={\"type\": \"json_schema\", ...}`" },
+        { "id": "B", "text": "`tools`と`tool_choice`" },
+        { "id": "C", "text": "`stream=True`" },
+        { "id": "D", "text": "`temperature=0`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「OpenAIでの実現方法: `response_format={\"type\": \"json_schema\", ...}`」と説明されています。"
+    },
+    {
+      "id": 21,
+      "question": "日本語プロンプトのトークン消費の目安として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "1〜2文字で1トークンになることが多く、英語よりトークン数が増えやすい" },
+        { "id": "B", "text": "英語よりトークン効率が良い" },
+        { "id": "C", "text": "常に4文字で1トークン" },
+        { "id": "D", "text": "トークン数は文字数と無関係" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「日本語: 1〜2文字で1トークンになることが多い」「同じ内容でも英語よりトークン数が増えやすい」と説明されています。"
+    },
+    {
+      "id": 22,
+      "question": "コスト削減のテクニックとして挙げられていないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "バッチ処理でAPI呼び出し回数を削減する" },
+        { "id": "B", "text": "プロンプトを簡潔にする" },
+        { "id": "C", "text": "同一入力の結果をキャッシュして再利用する" },
+        { "id": "D", "text": "モデルのバージョンを常に最新の最も高性能なものに固定する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "挙げられているテクニックはバッチ処理・プロンプト簡潔化・キャッシュ・`max_tokens`の調整の4つで、最新最高性能モデルへの固定は含まれません。"
+    },
+    {
+      "id": 23,
+      "question": "`call_llm_with_backoff` 関数が採用している再試行方式はどれですか？",
+      "options": [
+        { "id": "A", "text": "一定間隔での固定リトライ" },
+        { "id": "B", "text": "指数バックオフ（試行のたびに待機時間を指数的に増やす）" },
+        { "id": "C", "text": "即座に無限リトライ" },
+        { "id": "D", "text": "リトライを一切行わない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「レート制限エラー時に指数バックオフで再試行するラッパー」であり、`delay = base_delay * (2**attempt) + ...`のように待機時間を指数的に増やしています。"
+    },
+    {
+      "id": 24,
+      "question": "「悪い例」のコードの問題点はどれですか？",
+      "options": [
+        { "id": "A", "text": "数百銘柄を1件ずつ問い合わせ、再試行もキャッシュもない" },
+        { "id": "B", "text": "バッチ処理を過剰に使っている" },
+        { "id": "C", "text": "キャッシュを使いすぎている" },
+        { "id": "D", "text": "レート制限を完全に無視できる設計になっている" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「数百銘柄をループで1件ずつ問い合わせており、再試行もキャッシュもありません」と指摘されています。"
+    },
+    {
+      "id": 25,
+      "question": "「良い例」の`analyze_batch`関数が採用している工夫はどれですか？",
+      "options": [
+        { "id": "A", "text": "複数銘柄をまとめて1回のプロンプトに含め、キャッシュとバックオフ付き呼び出しを併用する" },
+        { "id": "B", "text": "銘柄ごとに個別のAPIキーを使う" },
+        { "id": "C", "text": "すべての銘柄を毎回問い合わせ直す" },
+        { "id": "D", "text": "キャッシュを使わずバックオフのみ行う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「複数銘柄をまとめて1回のプロンプトに含め、キャッシュとバックオフ付きの呼び出しを併用しています」と説明されています。"
+    }
+  ]
+}
