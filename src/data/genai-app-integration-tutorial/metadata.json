@@ -1,0 +1,17 @@
+{
+  "series": {
+    "id": "genai-app-integration-tutorial",
+    "name": "生成AIアプリ統合 実践ガイド 総合シリーズ",
+    "description": "生成AIをアプリに統合する実践ガイドを、呼び出し設計・IOコントラクト・信頼性とコスト・信頼と安全性UX・エージェント型ワークフロー・実例の6カテゴリで横断的に学べる総合クイズシリーズです。",
+    "version": "1.0.0",
+    "totalQuestions": 150,
+    "sections": [
+      { "id": "genai-invocation-architecture", "track": "Invocation & Architecture", "order": 1, "name": "呼び出し設計 | Augmented LLMとIO境界", "questionCount": 20, "estimatedTime": "12-16分", "keyTopics": ["Augmented LLM", "API/SDK", "CLIサブプロセス", "システムプロンプト", "IO境界"] },
+      { "id": "genai-io-contract-design", "track": "I/O Contract Design", "order": 2, "name": "IOコントラクト設計 | 構造化出力とプロンプト設計", "questionCount": 25, "estimatedTime": "15-20分", "keyTopics": ["JSON契約", "単発/バッチプロンプト", "プロンプト範囲", "マルチターン対話"] },
+      { "id": "genai-reliability-and-cost", "track": "Reliability & Cost", "order": 3, "name": "信頼性とコスト | パース・レート制限・キャッシュ", "questionCount": 30, "estimatedTime": "18-24分", "keyTopics": ["防御的パース", "レート制限", "キャッシュ戦略", "バッチ処理", "テスト手法"] },
+      { "id": "genai-trust-and-safety-ux", "track": "Trust & Safety UX", "order": 4, "name": "信頼と安全性UX | 検証・ガードレール", "questionCount": 25, "estimatedTime": "15-20分", "keyTopics": ["検証チェックポイント", "事実と意見の分離", "ガードレール", "プロンプトインジェクション対策"] },
+      { "id": "genai-agentic-workflow-patterns", "track": "Agentic Workflow Patterns", "order": 5, "name": "エージェント型ワークフロー | チェイニング・ルーティング・自律エージェント", "questionCount": 30, "estimatedTime": "18-24分", "keyTopics": ["プロンプトチェイニング", "ルーティング", "オーケストレーター・ワーカー", "評価者・最適化", "自律型エージェント"] },
+      { "id": "genai-real-world-case-study", "track": "Real-World Case Study", "order": 6, "name": "実例 | ケーススタディと運用チェックリスト", "questionCount": 20, "estimatedTime": "12-16分", "keyTopics": ["ケーススタディ", "適用演習", "運用チェックリスト"] }
+    ]
+  }
+}
