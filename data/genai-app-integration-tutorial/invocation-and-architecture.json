@@ -88,13 +88,13 @@
       "id": 8,
       "question": "ai-stock-investing-tutorialの`app/`のLLM活用方式として説明されているものはどれですか？",
       "options": [
-        { "id": "A", "text": "すべて「1回のAugmented LLM呼び出し」で構成されている" },
+        { "id": "A", "text": "生成AI活用11箇所のうち8箇所は「1回のAugmented LLM呼び出し」、残る3箇所はワークフローパターンへ発展している" },
         { "id": "B", "text": "すべて自律的なエージェントとして実装されている" },
-        { "id": "C", "text": "Orchestrator-Workersパターンを多用している" },
+        { "id": "C", "text": "すべての機能でOrchestrator-Workersパターンを使っている" },
         { "id": "D", "text": "LLMを一切使用していない" }
       ],
       "correctAnswer": "A",
-      "explanation": "「`app/`は、生成AIを9箇所で活用していますが、すべて『1回のAugmented LLM呼び出し』です」と説明されています。"
+      "explanation": "「`app/`は、生成AIを11箇所で活用しています。このうち8箇所は『1回（またはバッチ）のAugmented LLM呼び出し』で、ワークフローの中でも最も単純な形にとどまっています。残る3箇所（バックテスト解説・AI協調型戦略対話・AI投資質問箱）は、Prompt Chaining/Orchestrator-Workers/Evaluator-Optimizer/Routingパターンへ発展しています」と説明されています。エージェント（実行中にLLM自身が次の行動を決める構成）は`app/`のどの機能でも使われていません。"
     },
     {
       "id": 9,
@@ -148,13 +148,13 @@
       "id": 13,
       "question": "`ai-stock-investing-tutorial`の完成版アプリ（app/）が採用している方式はどれですか？",
       "options": [
-        { "id": "A", "text": "CLIサブプロセス方式" },
-        { "id": "B", "text": "SDK方式のみ" },
+        { "id": "A", "text": "現在の設定はSDK方式（OpenAI）、`llm_provider`設定でCLIサブプロセス方式にも切り替えられる" },
+        { "id": "B", "text": "CLIサブプロセス方式のみで、切り替えはできない" },
         { "id": "C", "text": "どちらも使わずWeb UIを直接叩く方式" },
         { "id": "D", "text": "gRPC方式" }
       ],
       "correctAnswer": "A",
-      "explanation": "「完成版アプリ`app/`はCLIサブプロセス方式を採用しています」と説明されています。"
+      "explanation": "`llm_client.py`の`call_llm`は`llm_provider`設定（`.streamlit/secrets.toml`）により`_call_claude_cli`（CLIサブプロセス方式）と`_call_openai`（SDK方式）を切り替える構造になっており、現在の設定はSDK方式（`\"openai\"`）です。`llm_provider`未設定時のコード側フォールバック既定値はCLIサブプロセス方式（`\"claude_cli\"`）のままです。"
     },
     {
       "id": 14,
