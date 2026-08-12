@@ -1,0 +1,244 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "カテゴリ01で最初に扱う設計判断は何ですか？",
+      "options": [
+        { "id": "A", "text": "データベースのスキーマ設計" },
+        { "id": "B", "text": "LLMをどう呼び出すか" },
+        { "id": "C", "text": "UIのカラーテーマ" },
+        { "id": "D", "text": "テストフレームワークの選定" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「アプリに生成AI機能を組み込む最初の設計判断は、『LLMをどう呼び出すか』です」と説明されています。"
+    },
+    {
+      "id": 2,
+      "question": "カテゴリ01の学習目標に含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Augmented LLMという基本単位を説明できる" },
+        { "id": "B", "text": "API直叩き/SDK方式とCLIサブプロセス方式を比較し選定基準を説明できる" },
+        { "id": "C", "text": "システムプロンプトによる出力制御と認証・鍵管理の設計判断を説明できる" },
+        { "id": "D", "text": "LLMのモデルアーキテクチャの内部構造を数式で導出できる" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "学習目標はAugmented LLM・方式比較・システムプロンプトと認証設計の3点であり、モデル内部構造の数式導出は含まれません。"
+    },
+    {
+      "id": 3,
+      "question": "「Augmented LLM」という呼称はどこで使われているものですか？",
+      "options": [
+        { "id": "A", "text": "Anthropicの「Building Effective Agents」" },
+        { "id": "B", "text": "OpenAIの公式ドキュメント" },
+        { "id": "C", "text": "Google Cloudの設計ガイド" },
+        { "id": "D", "text": "本教材の独自造語" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「『Augmented LLM』は、Anthropicの Building Effective Agents で使われている呼称です」と説明されています。"
+    },
+    {
+      "id": 4,
+      "question": "カテゴリ01の3教材の順序として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Augmented LLMの基本単位→SDK方式vsCLIサブプロセス方式→システムプロンプトと入出力の境界" },
+        { "id": "B", "text": "システムプロンプト→SDK方式→Augmented LLM" },
+        { "id": "C", "text": "SDK方式→Augmented LLM→システムプロンプト" },
+        { "id": "D", "text": "順序は決まっていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材一覧の順序（01 Augmented LLM、02 SDK方式vsCLIサブプロセス方式、03 システムプロンプトと入出力の境界）がそのまま学習順序です。"
+    },
+    {
+      "id": 5,
+      "question": "カテゴリ01の次に進むカテゴリはどれですか？",
+      "options": [
+        { "id": "A", "text": "02-io-contract-design" },
+        { "id": "B", "text": "03-reliability-and-cost" },
+        { "id": "C", "text": "05-agentic-workflow-patterns" },
+        { "id": "D", "text": "06-real-world-case-study" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「[次へ: 02-io-contract-design →]」とナビゲーションに示されています。"
+    },
+    {
+      "id": 6,
+      "question": "Augmented LLMの定義として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "検索・ツール・メモリなどで拡張したLLM呼び出しの基本単位" },
+        { "id": "B", "text": "複数のLLMを並列実行する仕組み" },
+        { "id": "C", "text": "ファインチューニング済みのLLMのこと" },
+        { "id": "D", "text": "LLMをホスティングするクラウドサービス" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Augmented LLMとは検索（retrieval）・ツール（tools）・メモリ（memory）などで拡張したLLM呼び出しの基本単位です」と定義されています。"
+    },
+    {
+      "id": 7,
+      "question": "ワークフローとエージェントの違いとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "ワークフローはあらかじめ決めたコード経路をたどり、エージェントは実行中に次の行動をLLM自身が決める" },
+        { "id": "B", "text": "両者は全く同じ意味である" },
+        { "id": "C", "text": "ワークフローはエージェントより常に複雑である" },
+        { "id": "D", "text": "エージェントは常にコストが低い" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「ワークフロー: あらかじめ決めたコード経路をたどる」「エージェント: 実行中に次の行動をLLM自身が決める」と対比されています。"
+    },
+    {
+      "id": 8,
+      "question": "ai-stock-investing-tutorialの`app/`のLLM活用方式として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "すべて「1回のAugmented LLM呼び出し」で構成されている" },
+        { "id": "B", "text": "すべて自律的なエージェントとして実装されている" },
+        { "id": "C", "text": "Orchestrator-Workersパターンを多用している" },
+        { "id": "D", "text": "LLMを一切使用していない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`app/`は、生成AIを9箇所で活用していますが、すべて『1回のAugmented LLM呼び出し』です」と説明されています。"
+    },
+    {
+      "id": 9,
+      "question": "Anthropicが掲げる原則として紹介されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "まず単純な構成から始め、効果が実証された場合のみ複雑さを足す" },
+        { "id": "B", "text": "常に最も複雑なエージェント構成を採用する" },
+        { "id": "C", "text": "LLM呼び出しは必ず並列化する" },
+        { "id": "D", "text": "すべての機能にツール呼び出しを組み込む" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Anthropicが原則として掲げる『まず単純な構成から始め、効果が実証された場合のみ複雑さを足す』を体現した設計です」と説明されています。"
+    },
+    {
+      "id": 10,
+      "question": "`call_llm`関数が`app/`内で果たす役割は何ですか？",
+      "options": [
+        { "id": "A", "text": "app/内すべての生成AI機能が呼び出す唯一の入口" },
+        { "id": "B", "text": "データベース接続専用の関数" },
+        { "id": "C", "text": "UIのレイアウトを決定する関数" },
+        { "id": "D", "text": "ユーザー認証を行う関数" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「この`call_llm`が、`app/`内すべての生成AI機能が呼び出す唯一の入口です」と説明されています。"
+    },
+    {
+      "id": 11,
+      "question": "SDK + APIキー方式の認証方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "`ANTHROPIC_API_KEY`などを環境変数で管理する" },
+        { "id": "B", "text": "ログイン済みCLIセッションに委譲する" },
+        { "id": "C", "text": "認証は不要である" },
+        { "id": "D", "text": "データベースにパスワードを保存する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "比較表で「認証: SDK + APIキー方式は`ANTHROPIC_API_KEY`などを環境変数で管理」と示されています。"
+    },
+    {
+      "id": 12,
+      "question": "CLIサブプロセス方式が向いているとされるケースはどれですか？",
+      "options": [
+        { "id": "A", "text": "個人利用ツール、開発者本人のログイン済み環境で動かす場合" },
+        { "id": "B", "text": "サーバー環境で複数ユーザーに提供する場合" },
+        { "id": "C", "text": "レート制御を自前で細かく持ちたい場合" },
+        { "id": "D", "text": "SDKパッケージを使いたい場合" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "比較表で「向いているケース: CLIサブプロセス方式は個人利用ツール、開発者本人のログイン済み環境で動かす場合」と示されています。"
+    },
+    {
+      "id": 13,
+      "question": "`ai-stock-investing-tutorial`の完成版アプリ（app/）が採用している方式はどれですか？",
+      "options": [
+        { "id": "A", "text": "CLIサブプロセス方式" },
+        { "id": "B", "text": "SDK方式のみ" },
+        { "id": "C", "text": "どちらも使わずWeb UIを直接叩く方式" },
+        { "id": "D", "text": "gRPC方式" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「完成版アプリ`app/`はCLIサブプロセス方式を採用しています」と説明されています。"
+    },
+    {
+      "id": 14,
+      "question": "`_resolve_claude_executable`関数の役割は何ですか？",
+      "options": [
+        { "id": "A", "text": "`claude`実行ファイルのパスを解決し、未インストール時は分かりやすい例外に変換する" },
+        { "id": "B", "text": "LLMのレスポンスをパースする" },
+        { "id": "C", "text": "データベース接続を確立する" },
+        { "id": "D", "text": "プロンプトの文字数を数える" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "docstringに「`claude`実行ファイルのパスを解決する。未インストール時は分かりやすい例外に変換する」と説明されています。"
+    },
+    {
+      "id": 15,
+      "question": "教材が両方式についてどう評価していますか？",
+      "options": [
+        { "id": "A", "text": "どちらも正しい実装であり、優劣ではなく方式の違いである" },
+        { "id": "B", "text": "SDK方式が常に優れている" },
+        { "id": "C", "text": "CLIサブプロセス方式が常に優れている" },
+        { "id": "D", "text": "どちらも非推奨である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「どちらも正しい実装であり、優劣ではなく方式の違いです」と明記されています。"
+    },
+    {
+      "id": 16,
+      "question": "`app/`で使われているシステムプロンプトの役割は何ですか？",
+      "options": [
+        { "id": "A", "text": "常に守ってほしい振る舞いをLLMに伝え、指示外の余計な発言をさせないことで出力形式を制御しやすくする" },
+        { "id": "B", "text": "LLMのモデルバージョンを指定する" },
+        { "id": "C", "text": "APIキーを埋め込む" },
+        { "id": "D", "text": "データベース接続文字列を渡す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「システムプロンプトは、ユーザープロンプトとは別に『常に守ってほしい振る舞い』をLLMに伝える仕組みです」「指示外の余計な発言をさせないことで、出力形式をアプリ側で制御しやすくしています」と説明されています。"
+    },
+    {
+      "id": 17,
+      "question": "`app/`がプロンプトを引数（argv）ではなく標準入力（stdin）経由で渡す理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "Windowsで`claude`コマンドがnpmの.cmdシムに解決され、引数展開処理がダブルクォートを含む文字列を壊してしまうため" },
+        { "id": "B", "text": "stdinの方が常に高速なため" },
+        { "id": "C", "text": "argvには文字数制限が全くないため" },
+        { "id": "D", "text": "セキュリティ上stdinのみが許可されているため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`claude`コマンドはnpmの`.cmd`シムに解決されるため、バッチファイルの引数展開処理がダブルクォートを含む文字列（JSON形式のプロンプト）を壊してしまいます。stdin経由ならこの問題を回避できます」と説明されています。"
+    },
+    {
+      "id": 18,
+      "question": "`ClaudeCLINotFoundError`が発生する条件はどれですか？",
+      "options": [
+        { "id": "A", "text": "`shutil.which(\"claude\")`が`None`を返す場合" },
+        { "id": "B", "text": "サブプロセスの終了コードが非0の場合" },
+        { "id": "C", "text": "LLMの応答が空文字の場合" },
+        { "id": "D", "text": "ネットワークがタイムアウトした場合" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "例外設計の表で「`ClaudeCLINotFoundError`: `shutil.which(\"claude\")`が`None`」と示されています。"
+    },
+    {
+      "id": 19,
+      "question": "`ClaudeCLIError`と`ClaudeCLINotFoundError`を分ける理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "呼び出し元が「そもそもCLIが無い」のか「CLIはあるが実行に失敗した」のかを区別できるようにするため" },
+        { "id": "B", "text": "エラーメッセージの文字数を短くするため" },
+        { "id": "C", "text": "どちらも同じ処理をするため区別に意味はない" },
+        { "id": "D", "text": "Pythonの文法上、例外は必ず2種類以上必要なため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「2種類に分けることで、呼び出し元は『そもそもCLIが無い』のか『CLIはあるが実行に失敗した』のかを区別できます」と説明されています。"
+    },
+    {
+      "id": 20,
+      "question": "`check_claude_cli_available()`が呼ばれるタイミングとして説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "アプリの起動時" },
+        { "id": "B", "text": "各機能の呼び出し直前のみ" },
+        { "id": "C", "text": "ユーザーがログアウトするとき" },
+        { "id": "D", "text": "データベースの初期化後にのみ一度だけ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Claude CLIが利用できない環境ではLLM機能が動作しないため、起動時点でチェックしてアプリを止める」というコードコメントとともに、起動時チェックとして示されています。"
+    }
+  ]
+}
