@@ -22,7 +22,7 @@
         { "id": "D", "text": "11箇所中10箇所" }
       ],
       "correctAnswer": "A",
-      "explanation": "「`app/`の生成AI活用11箇所のうち3箇所（バックテスト解説・AI質問箱・AI戦略ビルダーの確定フロー）は、本章で扱うPrompt Chaining/Routing/Evaluator-Optimizerパターンをそれぞれ実際に採用しています」と説明されています。"
+      "explanation": "「`app/`の生成AI活用11箇所のうち3箇所（バックテスト解説・AI質問箱・AI戦略ビルダーの確定フロー）は、本章で扱うPrompt Chaining/Routing/Evaluator-Optimizerパターンをそれぞれ実際に採用しています」と説明されています（AI戦略ビルダーの確定フローはさらにOrchestrator-Workersも同時に採用しており、使われているパターン自体は4つです）。"
     },
     {
       "id": 3,
@@ -40,13 +40,13 @@
       "id": 4,
       "question": "05章の5パターンの中で、`app/`に実装例が無く汎用サンプルコードで解説されるものはどれですか？",
       "options": [
-        { "id": "A", "text": "Orchestrator-WorkersとAutonomous Agents" },
+        { "id": "A", "text": "Autonomous Agentsのみ" },
         { "id": "B", "text": "Prompt ChainingとRouting" },
         { "id": "C", "text": "Evaluator-OptimizerとRouting" },
         { "id": "D", "text": "すべて実装例がある" }
       ],
       "correctAnswer": "A",
-      "explanation": "「Orchestrator-WorkersとAutonomous Agentsの2教材は`app/`に実装例が無いため汎用サンプルコードで解説します」と説明されています。"
+      "explanation": "「Prompt Chaining/Routing/Orchestrator-Workers/Evaluator-Optimizerの4教材は`app/`の実ソースコードを引用して解説し、Autonomous Agentsの1教材のみ`app/`に実装例が無いため汎用サンプルコードで解説します」と説明されています。"
     },
     {
       "id": 5,
@@ -218,15 +218,15 @@
     },
     {
       "id": 19,
-      "question": "`plan_subtasks`関数がJSONパースに失敗した場合のフォールバックはどれですか？",
+      "question": "`app/`のAI戦略ビルダーで、`run_pipeline`が未知の`function`名や実行時例外を持つステップに遭遇した場合の挙動はどれですか？",
       "options": [
-        { "id": "A", "text": "全ワーカーを実行する" },
-        { "id": "B", "text": "何も実行しない" },
-        { "id": "C", "text": "アプリを停止する" },
-        { "id": "D", "text": "ランダムに1つのワーカーを選ぶ" }
+        { "id": "A", "text": "そのステップだけスキップして理由をtraceに記録し、残りのステップの処理を継続する" },
+        { "id": "B", "text": "パイプライン全体を即座に停止する" },
+        { "id": "C", "text": "アプリ全体がクラッシュする" },
+        { "id": "D", "text": "そのステップをランダムな別の関数に置き換えて実行する" }
       ],
       "correctAnswer": "A",
-      "explanation": "「分解に失敗した場合は全ワーカーを実行するフォールバックとする」とコードコメントに説明されています。"
+      "explanation": "「未知のfunction名や例外を送出したステップはスキップし、トレースに理由を記録して処理を継続する（既存apply_filtersと同じ『壊れたLLM出力で全体を落とさない』方針）」と説明されています。"
     },
     {
       "id": 20,
