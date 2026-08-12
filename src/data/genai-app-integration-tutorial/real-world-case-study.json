@@ -88,13 +88,13 @@
       "id": 8,
       "question": "全11箇所に共通する01章（呼び出し方式）の設計は何ですか？",
       "options": [
-        { "id": "A", "text": "すべてCLIサブプロセス方式（llm_client.call_llm）を経由する" },
-        { "id": "B", "text": "すべて異なるAPIプロバイダを使う" },
+        { "id": "A", "text": "すべて同一の入口関数`llm_client.call_llm`を経由し、`llm_provider`設定（現在はSDK方式）を11箇所共通で切り替える" },
+        { "id": "B", "text": "機能ごとに異なるAPIプロバイダをハードコードしている" },
         { "id": "C", "text": "呼び出し方式は機能ごとにバラバラである" },
-        { "id": "D", "text": "SDK方式のみを使う" }
+        { "id": "D", "text": "CLIサブプロセス方式のみを使い、切り替えはできない" }
       ],
       "correctAnswer": "A",
-      "explanation": "「01章（呼び出し方式）: すべてCLIサブプロセス方式（`llm_client.call_llm`）を経由する」と説明されています。"
+      "explanation": "「01章（呼び出し方式）: すべて同一の入口関数`llm_client.call_llm`を経由する。`llm_provider`設定（`.streamlit/secrets.toml`）によりCLIサブプロセス方式とSDK方式（OpenAI）を切り替えられ、現在の設定はSDK方式（`\"openai\"`）。切り替えは11箇所共通のグローバル設定であり、機能ごとに方式が異なることはない」と説明されています。コード側のフォールバック既定値（`llm_provider`未設定時）はCLIサブプロセス方式のままです。"
     },
     {
       "id": 9,
