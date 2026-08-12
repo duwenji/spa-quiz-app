@@ -98,27 +98,27 @@
     },
     {
       "id": 9,
-      "question": "05章のパターンのうち、`app/`で実際に使われている3つはどれですか？",
+      "question": "05章のパターンのうち、`app/`で実際に使われている4つはどれですか？",
       "options": [
-        { "id": "A", "text": "Prompt Chaining（バックテスト解説）・Routing（AI投資質問箱）・Evaluator-Optimizer（AI協調型戦略対話）" },
+        { "id": "A", "text": "Prompt Chaining（バックテスト解説）・Routing（AI投資質問箱）・Orchestrator-Workers（AI協調型戦略対話、steps選定）・Evaluator-Optimizer（AI協調型戦略対話、確定候補の評価・改善）" },
         { "id": "B", "text": "Orchestrator-WorkersとAutonomous Agentsの2つのみ" },
         { "id": "C", "text": "すべての5パターンが使われている" },
         { "id": "D", "text": "どのパターンも使われていない" }
       ],
       "correctAnswer": "A",
-      "explanation": "「Prompt Chaining（5番目: バックテスト解説）・Routing（11番目: AI投資質問箱）・Evaluator-Optimizer（10番目: AI協調型戦略対話）の3つは`app/`で実際に使われています」と説明されています。"
+      "explanation": "「Prompt Chaining（5番目: バックテスト解説）・Routing（11番目: AI投資質問箱）・Orchestrator-Workers（10番目: AI協調型戦略対話、steps選定）・Evaluator-Optimizer（10番目: AI協調型戦略対話、確定候補の評価・改善）の4つは`app/`で実際に使われています」と説明されています。10番目の機能はOrchestrator-WorkersとEvaluator-Optimizerが1つのフロー内の異なる局面で組み合わさっています。"
     },
     {
       "id": 10,
-      "question": "Orchestrator-WorkersとAutonomous Agentsが`app/`のどの機能でも使われていない理由は何ですか？",
+      "question": "残るAutonomous Agentsが`app/`のどの機能でも使われていない理由、およびAI協調型戦略対話のOrchestrator-WorkersがAutonomous Agentsと区別される点は何ですか？",
       "options": [
-        { "id": "A", "text": "中央LLMによる動的なサブタスク委譲や自律的な複数ステップの意思決定が必要になるほど複雑なオープンエンドの意思決定を要求しないため" },
+        { "id": "A", "text": "自律的な複数ステップの意思決定が必要になるほど複雑なオープンエンドの意思決定を`app/`は要求しない。AI協調型戦略対話ではワーカー選定こそLLMが動的に行うが、選定後の実行自体はrun_pipelineが決定的に処理する点でAutonomous Agentsとは異なる" },
         { "id": "B", "text": "これらのパターンが技術的に実装不可能なため" },
         { "id": "C", "text": "コストが常に高すぎるため" },
         { "id": "D", "text": "Anthropicが禁止しているため" }
       ],
       "correctAnswer": "A",
-      "explanation": "「中央LLMによる動的なサブタスク委譲...や自律的な複数ステップの意思決定...が必要になるほど、`app/`の各機能は複雑なオープンエンドの意思決定を要求しないためです」と説明されています。"
+      "explanation": "「自律的な複数ステップの意思決定（終了条件や次の行動をLLM自身が都度判断し続ける設計）が必要になるほど、`app/`の各機能は複雑なオープンエンドの意思決定を要求しないためです。AI協調型戦略対話のOrchestrator-Workersも、ワーカーの選定はLLMが動的に行いますが、選定後の実行自体は`run_pipeline`が決定的に処理する点でAutonomous Agentsとは一線を画します」と説明されています。"
     },
     {
       "id": 11,
