@@ -1,0 +1,364 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "カテゴリ05で扱うテーマは何ですか？",
+      "options": [
+        { "id": "A", "text": "複数のLLM呼び出しをどう組み合わせるかというアーキテクチャ選択肢" },
+        { "id": "B", "text": "データベースの正規化" },
+        { "id": "C", "text": "CSSのグリッドレイアウト" },
+        { "id": "D", "text": "LLMのモデル選定基準のみ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「『複数のLLM呼び出しをどう組み合わせるか』という、単一呼び出し（01〜04章）の先にあるアーキテクチャ選択肢を学びます」と説明されています。"
+    },
+    {
+      "id": 2,
+      "question": "`app/`の生成AI活用のうち、本章で扱うパターンを実際に採用している箇所はいくつですか？",
+      "options": [
+        { "id": "A", "text": "11箇所中3箇所（バックテスト解説・AI質問箱・AI戦略ビルダーの確定フロー）" },
+        { "id": "B", "text": "11箇所すべて" },
+        { "id": "C", "text": "0箇所" },
+        { "id": "D", "text": "11箇所中10箇所" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`app/`の生成AI活用11箇所のうち3箇所（バックテスト解説・AI質問箱・AI戦略ビルダーの確定フロー）は、本章で扱うPrompt Chaining/Routing/Evaluator-Optimizerパターンをそれぞれ実際に採用しています」と説明されています。"
+    },
+    {
+      "id": 3,
+      "question": "残る8箇所が単純なAugmented LLM呼び出しのままである理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "用途が単一銘柄・単一レポート単位の考察生成にとどまり、ワークフロー/エージェントの複雑さを必要としないため" },
+        { "id": "B", "text": "実装する時間が無かったため" },
+        { "id": "C", "text": "コストが高すぎるため" },
+        { "id": "D", "text": "LLMがワークフローに対応していないため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「用途が単一銘柄・単一レポート単位の考察生成にとどまる機能では、Anthropicが推奨する『まず単純な構成から始める』原則のとおり、ワークフロー/エージェントの複雑さを必要としないためです」と説明されています。"
+    },
+    {
+      "id": 4,
+      "question": "05章の5パターンの中で、`app/`に実装例が無く汎用サンプルコードで解説されるものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Orchestrator-WorkersとAutonomous Agents" },
+        { "id": "B", "text": "Prompt ChainingとRouting" },
+        { "id": "C", "text": "Evaluator-OptimizerとRouting" },
+        { "id": "D", "text": "すべて実装例がある" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Orchestrator-WorkersとAutonomous Agentsの2教材は`app/`に実装例が無いため汎用サンプルコードで解説します」と説明されています。"
+    },
+    {
+      "id": 5,
+      "question": "Anthropicの6パターンのうち、05章で対象外とされているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Parallelization（03章で既に扱っているため）" },
+        { "id": "B", "text": "Routing" },
+        { "id": "C", "text": "Prompt Chaining" },
+        { "id": "D", "text": "Evaluator-Optimizer" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「同記事が挙げる6パターンのうちParallelizationは既に03章で扱っているため、本章では対象外とします」と説明されています。"
+    },
+    {
+      "id": 6,
+      "question": "Prompt Chainingの定義として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "タスクを固定の逐次ステップに分解し、各LLM呼び出しが前段の出力を処理する" },
+        { "id": "B", "text": "複数のLLMをランダムな順序で呼び出す" },
+        { "id": "C", "text": "1回のLLM呼び出しで全てのタスクを完結させる" },
+        { "id": "D", "text": "LLM呼び出しを一切行わない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「タスクを固定の逐次ステップに分解し、各LLM呼び出しが前段の出力を処理します」と定義されています。"
+    },
+    {
+      "id": 7,
+      "question": "Prompt Chainingが向いているケースはどれですか？",
+      "options": [
+        { "id": "A", "text": "精度がレイテンシより重要で、タスクが明確な固定順序のサブタスクに分解できる場合" },
+        { "id": "B", "text": "レイテンシが精度より常に重要な場合" },
+        { "id": "C", "text": "タスクを分解できない単純な場合" },
+        { "id": "D", "text": "LLM呼び出しを避けたい場合" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「精度がレイテンシより重要で、タスクが明確な固定順序のサブタスクに分解できる場合に向いています」と説明されています。"
+    },
+    {
+      "id": 8,
+      "question": "`app/`のバックテスト解説機能でStep1（結果解説）が空文字を返した場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "Step2（改善提案）に進まず、エラーメッセージをそのまま返す" },
+        { "id": "B", "text": "Step2を実行してから空文字を返す" },
+        { "id": "C", "text": "アプリ全体をクラッシュさせる" },
+        { "id": "D", "text": "無限にリトライする" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Step1（結果解説）が空文字を返した場合はStep2（改善提案）に進まず、エラーメッセージをそのまま返します」と説明されています。"
+    },
+    {
+      "id": 9,
+      "question": "Step2（改善提案）が空文字の場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "改善提案セクションだけを省略してStep1の結果を返す" },
+        { "id": "B", "text": "Step1の結果も破棄する" },
+        { "id": "C", "text": "アプリを停止する" },
+        { "id": "D", "text": "Step1をもう一度実行する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Step2が空文字の場合はStep1の結果自体には価値があるため、改善提案セクションだけを省略してStep1の結果を返します」と説明されています。"
+    },
+    {
+      "id": 10,
+      "question": "gateがStep1とStep2で対称に置かれていない理由として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "両ステップの成果物としての価値が異なるため" },
+        { "id": "B", "text": "コードを短くするため" },
+        { "id": "C", "text": "バグのため意図せずそうなっている" },
+        { "id": "D", "text": "gateは常に対称であるべきなので誤りである" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「gateは両ステップに対称に置くとは限らない、という設計判断の例です」と説明されており、演習課題でも両ステップの成果物としての価値の違いを問うています。"
+    },
+    {
+      "id": 11,
+      "question": "Routingの定義として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "入力を分類し、専用のフォローアップタスクに振り分ける" },
+        { "id": "B", "text": "全ての入力を同じ処理で扱う" },
+        { "id": "C", "text": "LLMを呼び出さずにルールベースで処理する" },
+        { "id": "D", "text": "入力を暗号化する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「入力を分類し、専用のフォローアップタスクに振り分けます」と定義されています。"
+    },
+    {
+      "id": 12,
+      "question": "AI質問箱が質問を分類するカテゴリはどれですか？",
+      "options": [
+        { "id": "A", "text": "fundamental, technical, news, portfolio, general" },
+        { "id": "B", "text": "positive, negative, neutral" },
+        { "id": "C", "text": "buy, sell, hold" },
+        { "id": "D", "text": "urgent, normal, low" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「ユーザーの自由記述の投資質問を『ファンダメンタル』『テクニカル』『ニュース』『ポートフォリオ全体』『一般』の5カテゴリに分類し」と説明され、`_CATEGORIES`にfundamental/technical/news/portfolio/generalが定義されています。"
+    },
+    {
+      "id": 13,
+      "question": "`classify_question`関数が未知のラベルや空応答を受け取った場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "安全側の\"general\"にフォールバックする" },
+        { "id": "B", "text": "例外を送出してアプリを停止する" },
+        { "id": "C", "text": "ランダムなカテゴリを選ぶ" },
+        { "id": "D", "text": "質問を無視する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「未知のラベルや空応答は安全側の\"general\"にフォールバックする」とコードコメントに説明されています。"
+    },
+    {
+      "id": 14,
+      "question": "個別銘柄向けカテゴリに分類されたが銘柄コードが未入力の場合の挙動はどれですか？",
+      "options": [
+        { "id": "A", "text": "`general`に読み替え、案内文を表示する" },
+        { "id": "B", "text": "エラーで処理を停止する" },
+        { "id": "C", "text": "デフォルトの銘柄コードを自動入力する" },
+        { "id": "D", "text": "質問をそのまま無視する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「個別銘柄向けカテゴリ（fundamental/technical/news）に分類されたが銘柄コードが未入力の場合は`general`に読み替える」と説明されています。"
+    },
+    {
+      "id": 15,
+      "question": "Routingにおいて、分類のみを担当する層と、実際の分岐実行を担当する層の役割分担はどれですか？",
+      "options": [
+        { "id": "A", "text": "分類はプロンプト層（qa_routing.py）、事実データ取得と分岐実行はタブ層（qa_tab.py）" },
+        { "id": "B", "text": "分類も実行もすべてプロンプト層が行う" },
+        { "id": "C", "text": "分類も実行もすべてタブ層が行う" },
+        { "id": "D", "text": "役割分担は存在しない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「分類のみをプロンプト層（`prompt_patterns/qa_routing.py`）に切り出し、事実データの取得と実際の分岐実行はタブ層（`app_tabs/qa_tab.py`）が担うという役割分担」と説明されています。"
+    },
+    {
+      "id": 16,
+      "question": "Orchestrator-Workersの定義として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "中央LLMがタスクを動的に分解し、ワーカーLLMに委譲して結果を統合する" },
+        { "id": "B", "text": "全てのワーカーが独立して動作し中央の制御がない" },
+        { "id": "C", "text": "1つのLLM呼び出しのみで完結する" },
+        { "id": "D", "text": "ワーカー同士が互いに通信し合う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「中央LLMがタスクを動的に分解し、ワーカーLLMに委譲して結果を統合します」と定義されています。"
+    },
+    {
+      "id": 17,
+      "question": "RoutingとOrchestrator-Workersの違いは何ですか？",
+      "options": [
+        { "id": "A", "text": "Routingは1つの経路を選ぶだけだが、Orchestrator-Workersは複数のワーカーを組み合わせて呼び出せる（0個も複数も選べる）" },
+        { "id": "B", "text": "両者は全く同じ仕組みである" },
+        { "id": "C", "text": "Orchestrator-Workersは常に1つのワーカーしか使えない" },
+        { "id": "D", "text": "Routingは複数の経路を同時に選べる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Routingは入力ごとに1つの経路を選ぶだけですが、Orchestrator-Workersは複数のワーカーを組み合わせて呼び出せます（0個も複数も選べます）」と説明されています。"
+    },
+    {
+      "id": 18,
+      "question": "OpenAI Agents SDKの「Handoff」とOrchestrator-Workersの違いは何ですか？",
+      "options": [
+        { "id": "A", "text": "Handoffは会話の主導権そのものを譲り渡すが、Orchestrator-Workersは中央が主導権を保ったままワーカーを呼び出す" },
+        { "id": "B", "text": "両者は全く同じ概念である" },
+        { "id": "C", "text": "Handoffは常に単一エージェントのみで完結する" },
+        { "id": "D", "text": "Orchestrator-Workersはワーカーを一切使わない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Handoffはピアエージェント間で会話の主導権そのものを譲り渡します...一方Orchestrator-Workersは、中央が主導権を保ったままワーカーを呼び出し、結果を統合します」と説明されています。"
+    },
+    {
+      "id": 19,
+      "question": "`plan_subtasks`関数がJSONパースに失敗した場合のフォールバックはどれですか？",
+      "options": [
+        { "id": "A", "text": "全ワーカーを実行する" },
+        { "id": "B", "text": "何も実行しない" },
+        { "id": "C", "text": "アプリを停止する" },
+        { "id": "D", "text": "ランダムに1つのワーカーを選ぶ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「分解に失敗した場合は全ワーカーを実行するフォールバックとする」とコードコメントに説明されています。"
+    },
+    {
+      "id": 20,
+      "question": "Orchestrator-Workersが向いているとされるケースはどれですか？",
+      "options": [
+        { "id": "A", "text": "事前にサブタスクを予測できない複雑な問題" },
+        { "id": "B", "text": "サブタスクが常に固定で予測可能な単純な問題" },
+        { "id": "C", "text": "LLMを一切使わない問題" },
+        { "id": "D", "text": "サブタスクが1つしかない問題" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「事前にサブタスクを予測できない複雑な問題に向きます」と説明されています。"
+    },
+    {
+      "id": 21,
+      "question": "Evaluator-Optimizerの定義として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "1つのLLMが生成し、別のLLM呼び出しが評価・フィードバックするループ" },
+        { "id": "B", "text": "1回のLLM呼び出しで完結する" },
+        { "id": "C", "text": "評価を一切行わない" },
+        { "id": "D", "text": "LLMを使わずルールベースで評価する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「1つのLLMが生成し、別のLLM呼び出しが評価・フィードバックするループです」と定義されています。"
+    },
+    {
+      "id": 22,
+      "question": "`run_evaluation_loop`の終了条件として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "合格判定（`pass: true`）での早期終了、または最大試行回数での打ち切り" },
+        { "id": "B", "text": "常に固定10回実行する" },
+        { "id": "C", "text": "終了条件は存在せず無限に実行される" },
+        { "id": "D", "text": "ユーザーが手動で停止するまで実行される" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「合格判定（`pass: true`）で早期終了、または最大試行回数（`max_iterations`）で打ち切り、無限ループを防ぎます」と説明されています。"
+    },
+    {
+      "id": 23,
+      "question": "最後の評価イテレーションの後に行われる最適化は何ですか？",
+      "options": [
+        { "id": "A", "text": "改善案を生成しない（無駄なcall_llm呼び出しをしない）" },
+        { "id": "B", "text": "必ずもう一度改善案を生成する" },
+        { "id": "C", "text": "評価をスキップする" },
+        { "id": "D", "text": "ユーザーに確認を求める" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「最後の評価イテレーションの後には改善案を生成しない（無駄な`call_llm`呼び出しをしない）という追加の最適化も入れています」と説明されています。"
+    },
+    {
+      "id": 24,
+      "question": "`evaluate_strategy`がJSONパースに失敗、または`pass`キーが欠落した場合の扱いはどれですか？",
+      "options": [
+        { "id": "A", "text": "安全側に倒し、不合格として扱う" },
+        { "id": "B", "text": "合格として扱う" },
+        { "id": "C", "text": "例外を送出してアプリを停止する" },
+        { "id": "D", "text": "前回の評価結果をそのまま使う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「評価自体が失敗した場合（パース不可・pass欠落）は安全側に倒し、不合格として扱う」とコードコメントに説明されています。"
+    },
+    {
+      "id": 25,
+      "question": "AI戦略ビルダーのEvaluator-Optimizerと04-01章のVerificationパターンとの関係はどれですか？",
+      "options": [
+        { "id": "A", "text": "評価・改善ループそのものはUIに依存しない純粋関数として切り出され、最終確認は必ず人間（Verificationパターン）に委ねる" },
+        { "id": "B", "text": "Evaluator-OptimizerがVerificationパターンを完全に置き換える" },
+        { "id": "C", "text": "両者は互いに排他的で組み合わせられない" },
+        { "id": "D", "text": "Verificationパターンは使われていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「04-01章のVerificationパターン（人間による最終確認）と組み合わせて使われている点が特徴です（自動改善はするが、最終判断は必ず人間に委ねる）」と説明されています。"
+    },
+    {
+      "id": 26,
+      "question": "自律エージェントの定義として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "LLMが環境からのフィードバックに基づき、ツールをループで使用する" },
+        { "id": "B", "text": "あらかじめ決めたコード経路のみをたどる" },
+        { "id": "C", "text": "ツールを一切使わない" },
+        { "id": "D", "text": "常に1回の呼び出しで完結する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「LLMが環境からのフィードバックに基づき、ツールをループで使用します」と定義されています。"
+    },
+    {
+      "id": 27,
+      "question": "ワークフローと自律エージェントの違いは何ですか？",
+      "options": [
+        { "id": "A", "text": "ワークフローは「次に何を呼ぶか」がコードで決まっているが、自律エージェントは「次に何をするか」をLLMの応答自体が決める" },
+        { "id": "B", "text": "両者は全く同じ仕組みである" },
+        { "id": "C", "text": "ワークフローは常に自律エージェントより複雑である" },
+        { "id": "D", "text": "自律エージェントは常にコストが低い" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「ワークフロー...は『次に何を呼ぶか』がコードで決まっていますが、自律エージェントは『次に何をするか』をLLMの応答自体が決めます」と説明されています。"
+    },
+    {
+      "id": 28,
+      "question": "Anthropicが推奨する原則として本教材で再確認されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "まず単純な構成（ワークフロー）から始め、効果が実証された場合のみ自律エージェントの複雑さを足す" },
+        { "id": "B", "text": "常に自律エージェントから始めるべきである" },
+        { "id": "C", "text": "ワークフローは非推奨である" },
+        { "id": "D", "text": "複雑さは常に避けるべきである" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「『まず単純な構成（ワークフロー）から始め、効果が実証された場合のみ自律エージェントの複雑さを足す』」と説明されています。"
+    },
+    {
+      "id": 29,
+      "question": "サンプルコードの`run_agent_loop`が無限ループを防ぐために用意している終了条件はどれですか？",
+      "options": [
+        { "id": "A", "text": "`max_steps`による上限、および`\"finish\"`という明示的な終了アクション" },
+        { "id": "B", "text": "タイムアウトのみ" },
+        { "id": "C", "text": "終了条件は用意されていない" },
+        { "id": "D", "text": "ユーザーの手動操作のみ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`max_steps`による上限、および`\"finish\"`という明示的な終了アクションの両方を用意し、無限ループを防ぎます」と説明されています。"
+    },
+    {
+      "id": 30,
+      "question": "`app/`が自律エージェントを採用していない理由として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "用途がシンプルなAugmented LLM呼び出しで十分なため" },
+        { "id": "B", "text": "自律エージェントの実装がAnthropicで禁止されているため" },
+        { "id": "C", "text": "コストが常に自律エージェントの方が安いため" },
+        { "id": "D", "text": "自律エージェントは技術的に実装不可能なため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`app/`が採用していない理由（01章と接続）は、用途がシンプルなAugmented LLM呼び出しで十分なためです」と説明されています。"
+    }
+  ]
+}
