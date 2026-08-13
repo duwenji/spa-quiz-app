@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "07章が対応するShape of AIの4カテゴリはどれですか？",
+      "options": [
+        { "id": "A", "text": "Wayfinders / Prompt Actions / Tuners / Identifiers" },
+        { "id": "B", "text": "Governors / Trust Builders" },
+        { "id": "C", "text": "Prompt Chaining / Routing / Orchestrator-Workers" },
+        { "id": "D", "text": "API直叩き / SDK / CLIサブプロセス" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Shape of AIの6カテゴリのうち、04章が扱うGovernors/Trust Builders（信頼・安全性）を除く4カテゴリ（Wayfinders / Prompt Actions / Tuners / Identifiers、計37パターン）に対応します」と説明されています。"
+    },
+    {
+      "id": 2,
+      "question": "07章の学習目標に含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "AIの存在をUI上で識別可能にする表現（命名・トーン等）を設計できる" },
+        { "id": "B", "text": "初回プロンプト体験（テンプレート・提案）の空白キャンバス対策を設計できる" },
+        { "id": "C", "text": "フィルタ・保存済みプリセット・モデル選択によるプロンプト調整UXを設計できる" },
+        { "id": "D", "text": "プロンプトインジェクション対策（列挙値制約・ホワイトリスト化）を実装できる" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "プロンプトインジェクション対策は04章の学習目標であり、07章の学習目標には含まれません。"
+    },
+    {
+      "id": 3,
+      "question": "Shape of AIのGovernors/Trust Buildersはどの章で扱われますか？",
+      "options": [
+        { "id": "A", "text": "04-trust-and-safety-ux" },
+        { "id": "B", "text": "07-ai-product-ux-patterns" },
+        { "id": "C", "text": "05-agentic-workflow-patterns" },
+        { "id": "D", "text": "扱われていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Shape of AIのGovernors/Trust Buildersは04-trust-and-safety-uxで扱います」と説明されています。"
+    },
+    {
+      "id": 4,
+      "question": "07章は何教材で構成されていますか？",
+      "options": [
+        { "id": "A", "text": "4教材（オンボーディングと導線／プロンプト操作アクション／調整とコンテキスト制御／AIの識別とブランディング）" },
+        { "id": "B", "text": "6教材" },
+        { "id": "C", "text": "2教材" },
+        { "id": "D", "text": "1教材のみ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "教材一覧に「オンボーディングと導線」「プロンプト操作アクション」「調整とコンテキスト制御」「AIの識別とブランディング」の4教材が挙げられています。"
+    },
+    {
+      "id": 5,
+      "question": "07章の末尾ナビゲーションとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "前へ: 06-real-world-case-study（次へのリンクは無い、最終カテゴリ）" },
+        { "id": "B", "text": "前へ: 01-invocation-and-architecture" },
+        { "id": "C", "text": "次へ: 04-trust-and-safety-ux" },
+        { "id": "D", "text": "前後どちらのリンクも無い" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「[← 前へ: 06-real-world-case-study]」のみが末尾に置かれ、07章が最終カテゴリであるため次へのリンクはありません。"
+    },
+    {
+      "id": 6,
+      "question": "「オンボーディングと導線」教材が扱うWayfindersカテゴリのパターン数はいくつですか？",
+      "options": [
+        { "id": "A", "text": "8パターン" },
+        { "id": "B", "text": "14パターン" },
+        { "id": "C", "text": "5パターン" },
+        { "id": "D", "text": "3パターン" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Wayfindersカテゴリ8パターン（Gallery, Follow up, Initial CTA, Nudges, Prompt details, Randomize, Suggestions, Templates）を…扱います」と説明されています。"
+    },
+    {
+      "id": 7,
+      "question": "AI戦略ビルダーの`_TEMPLATES`辞書はどのパターンの実装例ですか？",
+      "options": [
+        { "id": "A", "text": "Templates" },
+        { "id": "B", "text": "Randomize" },
+        { "id": "C", "text": "Gallery" },
+        { "id": "D", "text": "Nudges" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「投資アイデア入力欄は、あらかじめ用意した[Templates]（テンプレートボタン）…を用意し」と説明されており、`_TEMPLATES`辞書がその実装です。"
+    },
+    {
+      "id": 8,
+      "question": "業種ローテーション分析からの提案機能は、どのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Suggestions" },
+        { "id": "B", "text": "Watermark" },
+        { "id": "C", "text": "Model management" },
+        { "id": "D", "text": "Incognito Mode" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「その日の値上がり銘柄から動的に生成する[Suggestions]（提案）」と説明されています。"
+    },
+    {
+      "id": 9,
+      "question": "投資アイデア入力欄（プレースホルダー付きの大きなst.text_area）はどのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Initial CTA" },
+        { "id": "B", "text": "Chained action" },
+        { "id": "C", "text": "Filters" },
+        { "id": "D", "text": "Avatar" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「投資アイデア入力欄自体は、プレースホルダー付きの大きな`st.text_area`（[Initial CTA]）です」と説明されています。"
+    },
+    {
+      "id": 10,
+      "question": "AIが曖昧なアイデアに対して財務指標や閾値を具体化する質問・提案を返す設計は、どのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Follow up" },
+        { "id": "B", "text": "Regenerate" },
+        { "id": "C", "text": "Restyle" },
+        { "id": "D", "text": "Color" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「AIは曖昧なアイデアに対してすぐ確定させず、財務指標や閾値を具体化する質問・提案を返します。これは[Follow up]…に対応します」と説明されています。"
+    },
+    {
+      "id": 11,
+      "question": "AI質問箱の自由記述入力（`qa_tab.py`）は、どのPrompt Actionsパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Open input" },
+        { "id": "B", "text": "Inpainting" },
+        { "id": "C", "text": "Madlibs" },
+        { "id": "D", "text": "Restructure" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "対応表で「Open input | AI質問箱の自由記述入力（`qa_tab.py`）」と示されています。"
+    },
+    {
+      "id": 12,
+      "question": "戦略ビルダーの対話継続（`st.chat_input`で追加発言）は、どのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Chained action" },
+        { "id": "B", "text": "Describe" },
+        { "id": "C", "text": "Watermark" },
+        { "id": "D", "text": "Preset styles" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "対応表で「Chained action | 戦略ビルダーの対話継続（`st.chat_input`で追加発言）」と示されています。"
+    },
+    {
+      "id": 13,
+      "question": "`build_improvement_prompt`がExpandパターンに対応するのはなぜですか？",
+      "options": [
+        { "id": "A", "text": "Step1（結果解説）の出力を入力として受け取り、追加で検討すべき観点を生成させる2段階目のプロンプトだから" },
+        { "id": "B", "text": "全く新しいプロンプトを一から生成するから" },
+        { "id": "C", "text": "ユーザーの入力を要約するだけだから" },
+        { "id": "D", "text": "画像を生成するプロンプトだから" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Step1（結果解説）の出力を入力として受け取り、追加で検討すべき観点を生成させる2段階目のプロンプト（Prompt Chaining）」と説明されており、既存出力を入力として使う点がExpandに対応します。"
+    },
+    {
+      "id": 14,
+      "question": "ポートフォリオの事実データから観察事項を箇条書きに整理する処理は、どのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Synthesis" },
+        { "id": "B", "text": "Inpainting" },
+        { "id": "C", "text": "Auto-fill" },
+        { "id": "D", "text": "Voice and tone" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "対応表で「Synthesis | ポートフォリオの事実データから観察事項を箇条書きに整理」と示されています。"
+    },
+    {
+      "id": 15,
+      "question": "`app/`に実装が無いとされるPrompt Actionsパターンに含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Open input" },
+        { "id": "B", "text": "Describe" },
+        { "id": "C", "text": "Inpainting" },
+        { "id": "D", "text": "Madlibs" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Open inputは`app/`のAI質問箱で実装されているパターンです。Describe・Inpainting・Madlibsは実装が無く汎用サンプルコードで解説されています。"
+    },
+    {
+      "id": 16,
+      "question": "AIが解釈した絞り込み条件を`st.json`で確認してから適用する設計は、どのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Filters" },
+        { "id": "B", "text": "Personality" },
+        { "id": "C", "text": "Draft mode" },
+        { "id": "D", "text": "Branches" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "対応表で「Filters | AIが解釈した絞り込み条件をst.jsonで確認してから適用」と示されています。"
+    },
+    {
+      "id": 17,
+      "question": "ユーザーが確定した戦略条件をDBに保存し再利用する`save_strategy`/`load_strategies`は、どのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Saved styles" },
+        { "id": "B", "text": "Watermark" },
+        { "id": "C", "text": "Consent" },
+        { "id": "D", "text": "Gallery" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "対応表で「Saved styles | ユーザーが確定した戦略条件をDBに保存し再利用」と示されています。"
+    },
+    {
+      "id": 18,
+      "question": "`llm_provider`設定でClaude CLI/OpenAI APIを切り替える仕組みは、どのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Model management" },
+        { "id": "B", "text": "Attachments" },
+        { "id": "C", "text": "Prompt enhancer" },
+        { "id": "D", "text": "Iconography" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "対応表で「Model management | `llm_provider`設定でClaude CLI/OpenAI APIを切り替え」と示されています。"
+    },
+    {
+      "id": 19,
+      "question": "AI質問箱が質問カテゴリに応じて株価・ニュース等の外部データをプロンプトに接続する仕組みは、どのパターンに対応しますか？",
+      "options": [
+        { "id": "A", "text": "Connectors" },
+        { "id": "B", "text": "Regenerate" },
+        { "id": "C", "text": "Restyle" },
+        { "id": "D", "text": "Name" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "対応表で「Connectors | 質問カテゴリに応じて外部データ（株価・ニュース）をプロンプトに接続」と示されています。"
+    },
+    {
+      "id": 20,
+      "question": "`app/`に実装が無いとされるTunersパターンの組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "Attachments, Modes, Preset styles, Prompt enhancer, Voice and tone" },
+        { "id": "B", "text": "Filters, Parameters, Connectors" },
+        { "id": "C", "text": "Saved styles, Model management" },
+        { "id": "D", "text": "すべてのTunersパターンに実装がある" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Attachments…Modes…Preset styles…Prompt enhancer…Voice and toneは、`app/`に該当する実装がありません」と説明されています。"
+    },
+    {
+      "id": 21,
+      "question": "Identifiersカテゴリの5パターンはどれですか？",
+      "options": [
+        { "id": "A", "text": "Avatar, Color, Iconography, Name, Personality" },
+        { "id": "B", "text": "Filters, Parameters, Modes, Attachments, Connectors" },
+        { "id": "C", "text": "Templates, Suggestions, Gallery, Nudges, Randomize" },
+        { "id": "D", "text": "Verification, Sample response, Caveat, Disclosure, Watermark" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Identifiersカテゴリ5パターン（Avatar, Color, Iconography, Name, Personality）を扱います」と説明されています。"
+    },
+    {
+      "id": 22,
+      "question": "`st.chat_message`がIdentifiersパターンの拡張ポイントとされる理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "`role`に`\"assistant\"`を渡すと既定のアイコンが使われるが、`avatar`引数は指定されておらずAI独自の識別要素が未カスタマイズのため" },
+        { "id": "B", "text": "`st.chat_message`自体がIdentifiersパターンの正式な実装だから" },
+        { "id": "C", "text": "ユーザーの発言にのみ使われる関数だから" },
+        { "id": "D", "text": "データベースへの保存機能を持つから" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`app/`では`avatar`引数を指定しておらず、AI独自のAvatarやNameはカスタマイズされていません。この`st.chat_message`呼び出しが、Identifiersパターンを追加する場合の拡張ポイントです」と説明されています。"
+    },
+    {
+      "id": 23,
+      "question": "`app/`にIdentifiers（5パターン）の実装が無いのはなぜですか？",
+      "options": [
+        { "id": "A", "text": "いずれもブランディングとしての実装がされていないため" },
+        { "id": "B", "text": "Streamlitがアバター機能を提供していないため" },
+        { "id": "C", "text": "セキュリティ上の理由で禁止されているため" },
+        { "id": "D", "text": "5パターンのうち1つだけ実装されている" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「いずれも`app/`にブランディングとしての実装がありません。本教材のサンプルコードは`app/`に実装例が無いため、汎用サンプルコードで解説します」と説明されています。"
+    },
+    {
+      "id": 24,
+      "question": "「AIの識別とブランディング」教材は07章の中で何番目の教材ですか？",
+      "options": [
+        { "id": "A", "text": "07章の最終教材（4番目）" },
+        { "id": "B", "text": "07章の最初の教材（1番目）" },
+        { "id": "C", "text": "06章の最終教材" },
+        { "id": "D", "text": "独立したカテゴリである" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「07章の最終教材（4番目）です」と説明されています。"
+    },
+    {
+      "id": 25,
+      "question": "汎用サンプルコードで示されている`_AI_AVATAR = \"📊\"`は、どのパターンの解説例ですか？",
+      "options": [
+        { "id": "A", "text": "Avatar / Iconography相当の絵文字アイコン" },
+        { "id": "B", "text": "Color相当の背景色設定" },
+        { "id": "C", "text": "Personality相当の口調設定" },
+        { "id": "D", "text": "Model management相当のプロバイダ切替" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "コード中のコメントで「# Identifiers: Avatar/Iconography相当の絵文字アイコン」と明示されています。"
+    }
+  ]
+}

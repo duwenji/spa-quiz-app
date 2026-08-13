@@ -1296,18 +1296,18 @@
     {
       "id": "genai-app-integration-tutorial",
       "name": "生成AIアプリ統合 実践ガイド 総合シリーズ",
-      "description": "生成AIをアプリに統合する実践ガイドを、呼び出し設計・IOコントラクト・信頼性とコスト・信頼と安全性UX・エージェント型ワークフロー・実例の6カテゴリで横断的に学べる総合クイズシリーズです。",
+      "description": "生成AIをアプリに統合する実践ガイドを、呼び出し設計・IOコントラクト・信頼性とコスト・信頼と安全性UX・エージェント型ワークフロー・実例・AIプロダクトUXパターンの7カテゴリで横断的に学べる総合クイズシリーズです。",
       "category": "生成AIアプリ統合",
       "icon": "🧩",
-      "questionCount": 150,
+      "questionCount": 185,
       "difficulty": "beginner to advanced",
       "dataPath": null,
       "parentId": null,
       "group": "genai-app-integration-tutorial-series",
       "level": 1,
       "order": 1,
-      "estimatedLearningTime": "90-120分",
-      "topics": ["Augmented LLM", "IOコントラクト", "信頼性とコスト", "信頼と安全性UX", "エージェント型ワークフロー", "実例"]
+      "estimatedLearningTime": "111-148分",
+      "topics": ["Augmented LLM", "IOコントラクト", "信頼性とコスト", "信頼と安全性UX", "エージェント型ワークフロー", "実例", "AIプロダクトUXパターン"]
     },
     {
       "id": "genai-invocation-architecture",
@@ -1359,19 +1359,19 @@
     },
     {
       "id": "genai-trust-and-safety-ux",
-      "name": "信頼と安全性UX | 検証・ガードレール",
-      "description": "5教材×5問で、検証チェックポイント、事実と意見の分離、ガードレールと免責事項、プロンプトインジェクション対策を確認するセットです。",
+      "name": "信頼と安全性UX | 検証・ガードレール・透明性・記憶とプライバシー",
+      "description": "7教材×5問で、検証チェックポイント、事実と意見の分離、ガードレールと免責事項、プロンプトインジェクション対策、実行計画・処理経過の開示、記憶・プライバシー・来歴を確認するセットです。",
       "category": "生成AIアプリ統合",
       "icon": "🤝",
-      "questionCount": 25,
+      "questionCount": 35,
       "difficulty": "intermediate",
       "dataPath": "genai-app-integration-tutorial/trust-and-safety-ux.json",
       "parentId": "genai-app-integration-tutorial",
       "group": "genai-app-integration-tutorial-series",
       "level": 2,
       "order": 4,
-      "estimatedLearningTime": "15-20分",
-      "topics": ["検証チェックポイント", "事実と意見の分離", "ガードレール", "プロンプトインジェクション対策"]
+      "estimatedLearningTime": "21-28分",
+      "topics": ["検証チェックポイント", "事実と意見の分離", "ガードレール", "プロンプトインジェクション対策", "実行計画・処理経過の開示", "Footprints/Memory"]
     },
     {
       "id": "genai-agentic-workflow-patterns",
@@ -1404,6 +1404,22 @@
       "order": 6,
       "estimatedLearningTime": "12-16分",
       "topics": ["ケーススタディ", "適用演習", "運用チェックリスト"]
+    },
+    {
+      "id": "genai-ai-product-ux-patterns",
+      "name": "AIプロダクトUXパターン | 導線・操作・調整・識別（Shape of AI準拠）",
+      "description": "5教材×5問で、初回プロンプト体験の導線、プロンプト操作アクション、調整とコンテキスト制御、AIの識別とブランディングを確認するセットです。",
+      "category": "生成AIアプリ統合",
+      "icon": "🎨",
+      "questionCount": 25,
+      "difficulty": "beginner to intermediate",
+      "dataPath": "genai-app-integration-tutorial/ai-product-ux-patterns.json",
+      "parentId": "genai-app-integration-tutorial",
+      "group": "genai-app-integration-tutorial-series",
+      "level": 2,
+      "order": 7,
+      "estimatedLearningTime": "15-20分",
+      "topics": ["Wayfinders", "Prompt Actions", "Tuners", "Identifiers", "Shape of AI"]
     }
   ]
 }
