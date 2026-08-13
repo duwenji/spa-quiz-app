@@ -299,6 +299,126 @@
       ],
       "correctAnswer": "A",
       "explanation": "「dual-LLMパターン（計画立案と実行を別モデル・別コンテキストに分離する）や型付きツール呼び出しは、より厳格な防御として研究・実務記事で挙げられています」と説明されています。ただし、本教材群のスコープでは実装しません。"
+    },
+    {
+      "id": 26,
+      "question": "「透明性と制御」教材が、Governorsの9パターンを整理する3つの局面はどれですか？",
+      "options": [
+        { "id": "A", "text": "実行前・実行中・実行後" },
+        { "id": "B", "text": "開発環境・テスト環境・本番環境" },
+        { "id": "C", "text": "入力側・処理側・出力側" },
+        { "id": "D", "text": "初級・中級・上級" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Governorsカテゴリのうち、確認ステップ（Verification）以外の9パターン…を、『実行前』『実行中』『実行後』の3局面に整理して扱います」と説明されています。"
+    },
+    {
+      "id": 27,
+      "question": "「実行中」の局面に分類されるパターンはどれですか？",
+      "options": [
+        { "id": "A", "text": "Controls, Stream of Thought, Branches" },
+        { "id": "B", "text": "Action plan, Cost estimates, Draft mode" },
+        { "id": "C", "text": "Citations, References, Variations" },
+        { "id": "D", "text": "Verification, Sample response" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "整理表で「実行中 | Controls, Stream of Thought, Branches | 実行中に制御・思考過程・分岐履歴を見せる」と説明されています。"
+    },
+    {
+      "id": 28,
+      "question": "`app/`のパイプライン実行トレース表示が、Shape of AIのStream of Thoughtの定義とどう異なりますか？",
+      "options": [
+        { "id": "A", "text": "Shape of AIの定義は「実行中のリアルタイム開示」だが、`app/`の実装は「実行後の事後報告」である" },
+        { "id": "B", "text": "全く同じ実装である" },
+        { "id": "C", "text": "`app/`の方がリアルタイム性が高い" },
+        { "id": "D", "text": "Stream of Thoughtとは無関係である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Shape of AIの定義が『実行中のリアルタイム開示』を指すのに対し、`app/`の実装は『実行後の事後報告』である点が異なります」と説明されています。"
+    },
+    {
+      "id": 29,
+      "question": "「AIによる自動改善を行いました」というキャプション表示は、何の例として説明されていますか？",
+      "options": [
+        { "id": "A", "text": "実行後にプロセスの一部を開示する例" },
+        { "id": "B", "text": "実行前にコストを見積もる例" },
+        { "id": "C", "text": "ユーザーの同意を取得する例" },
+        { "id": "D", "text": "AIの記憶を消去する例" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「評価・改善ループ…が『AIによる自動改善を行いました』というキャプションと評価フィードバックを表示する箇所も、実行後にプロセスの一部を開示する例です」と説明されています。"
+    },
+    {
+      "id": 30,
+      "question": "Action plan・Cost estimates・Draft modeに`app/`の実装例が無い理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "パイプライン実行が「ボタンを押すと即座に全ステップを実行する」設計のため" },
+        { "id": "B", "text": "これらのパターンが技術的に実装不可能だから" },
+        { "id": "C", "text": "コストが発生しない機能だから" },
+        { "id": "D", "text": "ユーザーが望んでいないから" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`app/`のパイプライン実行が『ボタンを押すと即座に全ステップを実行する』設計のため、実装例がありません」と説明されています。"
+    },
+    {
+      "id": 31,
+      "question": "`log_ai_generation`がFootprintsパターンの実装例とされる理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "入力した事実情報（facts）とAIの応答（ai_output）を分離してDBに記録し、session_id単位で追跡可能にしているため" },
+        { "id": "B", "text": "AIの応答を暗号化しているため" },
+        { "id": "C", "text": "ユーザーの個人情報を収集しているため" },
+        { "id": "D", "text": "LLMの応答速度を計測しているため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`log_ai_generation`は、LLM呼び出しごとに入力した事実情報（`facts`）とAIの応答（`ai_output`）を分離してDBに記録し、`session_id`単位で一連のやり取りを追跡可能にしています。これはFootprintsの実装例です」と説明されています。"
+    },
+    {
+      "id": 32,
+      "question": "FootprintsとMemoryの違いとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Footprintsは「後から追跡できる記録」、Memoryは「AIが次回以降のやり取りに使う記憶」" },
+        { "id": "B", "text": "FootprintsとMemoryは全く同じ概念である" },
+        { "id": "C", "text": "Footprintsは記憶、Memoryは記録である（本文の説明と逆）" },
+        { "id": "D", "text": "どちらもユーザーには一切見えない仕組みである" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Footprintsが『後から追跡できる記録』であるのに対し、Memoryは『AIが次回以降のやり取りに使う記憶』を指します」と説明されています。"
+    },
+    {
+      "id": 33,
+      "question": "`app/`にMemoryパターンの実装例が無い理由は何ですか？",
+      "options": [
+        { "id": "A", "text": "`log_ai_generation`はあくまで監査ログであり、記録した内容を次回のプロンプトに自動的に読み込んで使う仕組みが無いため" },
+        { "id": "B", "text": "DBにデータを保存する機能自体が無いため" },
+        { "id": "C", "text": "ユーザーがログインしていないため" },
+        { "id": "D", "text": "Memoryパターンが最も簡単に実装できるため、あえて省略した" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「`app/`の`log_ai_generation`はあくまで監査ログであり、記録した`facts`/`ai_output`を次回のプロンプトに自動的に読み込んで使う仕組みはありません」と説明されています。"
+    },
+    {
+      "id": 34,
+      "question": "`app/`に実装が無いと説明されているTrust Buildersパターンの組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "Consent, Data ownership, Incognito Mode, Watermark" },
+        { "id": "B", "text": "Verification, Sample response" },
+        { "id": "C", "text": "Caveat, Disclosure" },
+        { "id": "D", "text": "Action plan, Controls" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「Consent…Data ownership…Incognito Mode…Watermark…は、`app/`に該当する実装がありません」と説明されています（Caveat/Disclosureは03教材で実装例あり）。"
+    },
+    {
+      "id": 35,
+      "question": "「記憶・プライバシー・来歴」教材は04章の中で何番目・何教材目にあたりますか？",
+      "options": [
+        { "id": "A", "text": "04章の最終教材（6番目）" },
+        { "id": "B", "text": "04章の最初の教材（1番目）" },
+        { "id": "C", "text": "05章の最初の教材" },
+        { "id": "D", "text": "独立したカテゴリであり04章には属さない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「本教材は04章の最終教材（6番目）です」と説明されています。"
     }
   ]
 }
