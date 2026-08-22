@@ -167,6 +167,66 @@
       ],
       "correctAnswer": "A",
       "explanation": "known-how-ingestion の完了条件は、承認ポイントを通過し、成果物草案が反映可能な形式でそろい、機密区分と操作種別が明記されていることです。"
+    },
+    {
+      "id": 15,
+      "question": "known-how-ingestion の構造として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Intake→Structuring→Codification→Publishing→Improvement Loop の5段階、承認ポイントは2箇所、承認主体は『ユーザ』" },
+        { "id": "B", "text": "他の全Skillと同じ Phase1-4・段階1-14・ゲート3つの標準形" },
+        { "id": "C", "text": "承認ポイントは1箇所のみで、承認主体は開発マネージャー" },
+        { "id": "D", "text": "段階は7つあり、承認ポイントは4箇所" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "known-how-ingestion は ddd-ai-responsibility と並ぶ2つの構造例外の一つで、標準の Phase1-4/段階1-14/ゲート3つに従わず、Intake→Structuring→Codification→Publishing→Improvement Loop の5段階・承認ポイント2箇所という独自構造を持ちます。承認主体は開発者限定ではなく『ユーザ』（誰でもノウハウを持ち込める前提）です。"
+    },
+    {
+      "id": 16,
+      "question": "known-how-ingestion の操作種別と判定基準で、『削除』の判定条件に含まれる具体的な日数はどれですか？",
+      "options": [
+        { "id": "A", "text": "90日未参照" },
+        { "id": "B", "text": "7日未参照" },
+        { "id": "C", "text": "365日未参照" },
+        { "id": "D", "text": "日数は定められていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "操作種別と判定基準の表では、『削除』の判定条件は『陳腐化・重複・90日未参照』と明記されています。"
+    },
+    {
+      "id": 17,
+      "question": "既存の2つのSkillが同一の問題領域を扱っていて内容が重複している場合、known-how-ingestion の操作種別としてどれを適用すべきですか？",
+      "options": [
+        { "id": "A", "text": "新規生成" },
+        { "id": "B", "text": "マージ" },
+        { "id": "C", "text": "既存改善" },
+        { "id": "D", "text": "削除" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "操作種別と判定基準の表では、『マージ』の判定条件は『複数 Skill が同一問題を扱っている』であり、出力先は統合後 Skill フォルダです。"
+    },
+    {
+      "id": 18,
+      "question": "学習・改善カテゴリの各Skillと文書IDプレフィックスの組み合わせとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "incident-postmortem → PMR、documentation-sync → DOC" },
+        { "id": "B", "text": "incident-postmortem → PM、documentation-sync → DS" },
+        { "id": "C", "text": "incident-postmortem → INC、documentation-sync → DOC" },
+        { "id": "D", "text": "incident-postmortem → PMR、documentation-sync → DSY" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "トレーサビリティID規約では、incident-postmortem（ポストモーテム報告書）は `PMR`、documentation-sync（ドキュメント更新計画書）は `DOC` です。`PM` はグロッサリで『プロジェクトマネージャー』として既に使われているため、ポストモーテム報告書には代わりに `PMR` が使われます。"
+    },
+    {
+      "id": 19,
+      "question": "documentation-sync が『直前』の関係として密接に連続して使われることが多いスキルはどれですか？",
+      "options": [
+        { "id": "A", "text": "feature-implementation-unified（機能実装直後に連続して使うことが多い）" },
+        { "id": "B", "text": "known-how-ingestion" },
+        { "id": "C", "text": "release-readiness" },
+        { "id": "D", "text": "security-hardening" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "documentation-sync の『前提スキル / 次のステップ（教育）』では、前提はなく実装変更後のどのタイミングでも使えるとしつつ、『直前』の関係として feature-implementation-unified（機能実装直後に連続して使うことが多い）が挙げられています。"
     }
   ]
 }
