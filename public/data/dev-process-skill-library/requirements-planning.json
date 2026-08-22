@@ -167,6 +167,18 @@
       ],
       "correctAnswer": "A",
       "explanation": "SKILL.md の『前提スキル / 次のステップ（教育）』では、requirements-refinement は開発の出発点であり前提スキルを持たず、次のステップとしてデータ設計が必要なときは data-model-design-unified、API 先行設計が必要なときは api-contract-design へ進むとされています。"
+    },
+    {
+      "id": 15,
+      "question": "shared-references/diagram-catalog-guide.md のマッピング表で、要件・計画フェーズの『要件優先度マトリクス』に対応する図の種類はどれですか？",
+      "options": [
+        { "id": "A", "text": "quadrantChart" },
+        { "id": "B", "text": "sequenceDiagram" },
+        { "id": "C", "text": "classDiagram" },
+        { "id": "D", "text": "gitGraph" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "マッピング表には『要件優先度マトリクス | quadrantChart | 影響度×工数の2軸』と記載されています。業務フロー図は flowchart、ユースケース図は非対応（flowchart で代替）とされています。"
     }
   ]
 }

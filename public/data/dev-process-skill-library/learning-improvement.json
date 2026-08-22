@@ -227,6 +227,18 @@
       ],
       "correctAnswer": "A",
       "explanation": "documentation-sync の『前提スキル / 次のステップ（教育）』では、前提はなく実装変更後のどのタイミングでも使えるとしつつ、『直前』の関係として feature-implementation-unified（機能実装直後に連続して使うことが多い）が挙げられています。"
+    },
+    {
+      "id": 20,
+      "question": "shared-references/diagram-catalog-guide.md のマッピング表で、学習・改善フェーズ（incident-postmortem）の成果物に対応する図として挙げられている組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "障害対応フロー = flowchart、時系列の俯瞰 = timeline" },
+        { "id": "B", "text": "障害対応フロー = erDiagram、時系列の俯瞰 = classDiagram" },
+        { "id": "C", "text": "障害対応フロー = gitGraph、時系列の俯瞰 = gantt" },
+        { "id": "D", "text": "どちらも非対応" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "マッピング表には『障害対応フロー・タイムライン | flowchart / timeline | 時系列の俯瞰には timeline（実験的機能）』と記載されています。"
     }
   ]
 }

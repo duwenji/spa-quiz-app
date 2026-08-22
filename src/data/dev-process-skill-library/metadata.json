@@ -7,7 +7,7 @@
     "version": "1.0.0",
     "license": "MIT",
     "language": "ja",
-    "totalQuestions": 131,
+    "totalQuestions": 138,
     "estimatedDuration": "7-8 hours",
     "difficultyProgression": "progressive",
     "sections": [
@@ -32,7 +32,7 @@
         "order": 2,
         "name": "要件・計画",
         "description": "要件明確化、受入条件、非機能要件、スコープ境界の整理を学ぶ",
-        "questionCount": 14,
+        "questionCount": 15,
         "difficulty": "beginner",
         "estimatedTime": "25-35 minutes",
         "keyTopics": [
@@ -48,7 +48,7 @@
         "order": 3,
         "name": "設計・実装",
         "description": "方式案比較、データモデル、ADR、API 契約、コードレビュー、安全な実装変更を学ぶ",
-        "questionCount": 26,
+        "questionCount": 29,
         "difficulty": "beginner-intermediate",
         "estimatedTime": "50-70 minutes",
         "keyTopics": [
@@ -64,7 +64,7 @@
         "order": 4,
         "name": "検証・品質",
         "description": "テスト戦略、不具合修正、セキュリティ観点、品質ゲートを学ぶ",
-        "questionCount": 21,
+        "questionCount": 22,
         "difficulty": "intermediate",
         "estimatedTime": "40-55 minutes",
         "keyTopics": [
@@ -80,7 +80,7 @@
         "order": 5,
         "name": "運用・リリース",
         "description": "本番投入判断、監視、性能調査、ロールバック計画を学ぶ",
-        "questionCount": 19,
+        "questionCount": 20,
         "difficulty": "advanced",
         "estimatedTime": "40-60 minutes",
         "keyTopics": [
@@ -96,7 +96,7 @@
         "order": 6,
         "name": "学習・改善",
         "description": "ポストモーテム、ドキュメント同期、ノウハウ取り込み、組織学習の継続改善を学ぶ",
-        "questionCount": 19,
+        "questionCount": 20,
         "difficulty": "advanced",
         "estimatedTime": "35-50 minutes",
         "keyTopics": [

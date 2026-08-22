@@ -311,6 +311,42 @@
       ],
       "correctAnswer": "A",
       "explanation": "api-contract-design の『このスキルが解く問題（教育）』では、『API は「約束」。変えるコストが大きいため、設計段階に最大の思考を投資する』と説明されています。実装後の変更は利用者との契約違反になり得ます。"
+    },
+    {
+      "id": 27,
+      "question": "feature-implementation-unified の段階5（方式案フロー生成）で、複数コンポーネント間の時系列のやり取りが主眼となる場合に生成すべきと追記された図はどれですか？",
+      "options": [
+        { "id": "A", "text": "erDiagram（データの構造・関連を表現）" },
+        { "id": "B", "text": "シーケンス図（sequenceDiagram）" },
+        { "id": "C", "text": "quadrantChart（優先度マトリクス）" },
+        { "id": "D", "text": "gitGraph（ブランチ戦略）" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "段階5の説明には『AI が方式候補ごとのフロー図（複数コンポーネント間のやり取りが主眼の場合はシーケンス図）を生成』と追記されており、単一処理の分岐にはフロー図、複数コンポーネント間の時系列のやり取りにはシーケンス図を使い分けます。"
+    },
+    {
+      "id": 28,
+      "question": "api-contract-design の入力リファレンスに追加された、API 呼び出し順序を可視化するための参照ファイルはどれですか？",
+      "options": [
+        { "id": "A", "text": "erd-best-practices.md" },
+        { "id": "B", "text": "sequence-diagram-best-practices.md" },
+        { "id": "C", "text": "investigation-checklist.md" },
+        { "id": "D", "text": "testcase-template.md" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "入力リファレンスに『シーケンス図作成ガイド（呼び出し順序の可視化）: sequence-diagram-best-practices.md』が追加されており、成果物文書テンプレート（api-contract-document-template.md）にも『呼び出しシーケンス（任意）』節が追加されています。"
+    },
+    {
+      "id": 29,
+      "question": "shared-references/diagram-catalog-guide.md が示す Mermaid と Graphviz の使い分け基準として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "コンポーネント数が少なくシンプルなら Mermaid、外部連携やクラスタが多く自動レイアウトが崩れやすい場合は Graphviz" },
+        { "id": "B", "text": "常に Mermaid を優先し、Graphviz は使わない" },
+        { "id": "C", "text": "常に Graphviz を優先し、Mermaid は使わない" },
+        { "id": "D", "text": "図の種類によらずどちらを使っても結果は変わらない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "diagram-catalog-guide.md の『Mermaid vs Graphviz の判断基準』では、コンポーネント数が少なくシンプルなら Mermaid で十分、外部連携・階層・クラスタが多く自動レイアウトが崩れやすい場合は Graphviz DOT のクラスタ機能を使うとされています。"
     }
   ]
 }

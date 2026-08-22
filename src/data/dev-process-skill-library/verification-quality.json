@@ -251,6 +251,18 @@
       ],
       "correctAnswer": "A",
       "explanation": "security-hardening の『前提スキル / 次のステップ（教育）』では、前提が requirements-refinement、API設計時のセキュリティ確認としてセットで使うのが api-contract-design、リリース前の最終確認として次に release-readiness が挙げられています。"
+    },
+    {
+      "id": 22,
+      "question": "shared-references/diagram-catalog-guide.md のマッピング表で、検証・品質フェーズの『テストケース分岐図』と『テストスケジュール』に対応する図の組み合わせとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "テストケース分岐図 = flowchart、テストスケジュール = gantt" },
+        { "id": "B", "text": "テストケース分岐図 = gantt、テストスケジュール = flowchart" },
+        { "id": "C", "text": "両方とも sequenceDiagram" },
+        { "id": "D", "text": "両方とも非対応" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "マッピング表には『テストケース分岐図 | flowchart | デシジョンテーブルの条件組み合わせを可視化』『テストスケジュール | gantt | タスクの依存関係・期間を時系列で共有』と記載されています。"
     }
   ]
 }

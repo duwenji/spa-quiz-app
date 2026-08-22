@@ -227,6 +227,18 @@
       ],
       "correctAnswer": "A",
       "explanation": "実行前の自己確認では、『目標値が定量的に決まっている（例: 95パーセンタイルで200ms以下）』がチェック項目として示されています。計測しない最適化は勘に頼ることになります。"
+    },
+    {
+      "id": 20,
+      "question": "shared-references/diagram-catalog-guide.md のマッピング表で、運用・リリースフェーズの『ブランチ戦略図』に対応する図の種類はどれですか？",
+      "options": [
+        { "id": "A", "text": "gitGraph" },
+        { "id": "B", "text": "erDiagram" },
+        { "id": "C", "text": "classDiagram" },
+        { "id": "D", "text": "quadrantChart" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "マッピング表には『ブランチ戦略図 | gitGraph | ブランチの分岐・マージ・リリースタグを可視化』と記載されています。インフラ構成図はシンプルな冗長構成なら Mermaid の architecture-beta、複雑な場合は Graphviz DOT が推奨されています。"
     }
   ]
 }
