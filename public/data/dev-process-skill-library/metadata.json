@@ -2,13 +2,13 @@
   "series": {
     "id": "dev-process-skill-library",
     "name": "開発プロセス標準化 Skill ライブラリ",
-    "description": "要件定義から設計・実装、検証、運用、改善、導入運用までの標準プロセスを段階的に学べる包括的なクイズシリーズ。GitHub Copilot 活用を支える補完教材としても活用できます。",
+    "description": "要件定義から設計・実装、検証、運用、改善、開発方法論、導入運用までの標準プロセスを段階的に学べる包括的なクイズシリーズ。GitHub Copilot 活用を支える補完教材としても活用できます。",
     "author": "GitHub Copilot Team",
     "version": "1.0.0",
     "license": "MIT",
     "language": "ja",
-    "totalQuestions": 87,
-    "estimatedDuration": "5-6 hours",
+    "totalQuestions": 131,
+    "estimatedDuration": "7-8 hours",
     "difficultyProgression": "progressive",
     "sections": [
       {
@@ -16,7 +16,7 @@
         "order": 1,
         "name": "概論・運用導入",
         "description": "対象読者、Skill 選択、承認フロー、証跡管理、KPI など全体運用の基礎を学ぶ",
-        "questionCount": 12,
+        "questionCount": 18,
         "difficulty": "beginner",
         "estimatedTime": "25-35 minutes",
         "keyTopics": [
@@ -32,7 +32,7 @@
         "order": 2,
         "name": "要件・計画",
         "description": "要件明確化、受入条件、非機能要件、スコープ境界の整理を学ぶ",
-        "questionCount": 10,
+        "questionCount": 14,
         "difficulty": "beginner",
         "estimatedTime": "25-35 minutes",
         "keyTopics": [
@@ -48,7 +48,7 @@
         "order": 3,
         "name": "設計・実装",
         "description": "方式案比較、データモデル、ADR、API 契約、コードレビュー、安全な実装変更を学ぶ",
-        "questionCount": 20,
+        "questionCount": 26,
         "difficulty": "beginner-intermediate",
         "estimatedTime": "50-70 minutes",
         "keyTopics": [
@@ -64,7 +64,7 @@
         "order": 4,
         "name": "検証・品質",
         "description": "テスト戦略、不具合修正、セキュリティ観点、品質ゲートを学ぶ",
-        "questionCount": 16,
+        "questionCount": 21,
         "difficulty": "intermediate",
         "estimatedTime": "40-55 minutes",
         "keyTopics": [
@@ -80,7 +80,7 @@
         "order": 5,
         "name": "運用・リリース",
         "description": "本番投入判断、監視、性能調査、ロールバック計画を学ぶ",
-        "questionCount": 15,
+        "questionCount": 19,
         "difficulty": "advanced",
         "estimatedTime": "40-60 minutes",
         "keyTopics": [
@@ -96,7 +96,7 @@
         "order": 6,
         "name": "学習・改善",
         "description": "ポストモーテム、ドキュメント同期、ノウハウ取り込み、組織学習の継続改善を学ぶ",
-        "questionCount": 14,
+        "questionCount": 19,
         "difficulty": "advanced",
         "estimatedTime": "35-50 minutes",
         "keyTopics": [
@@ -105,6 +105,22 @@
           "共有準備",
           "ドキュメント同期",
           "ノウハウ取り込み"
+        ]
+      },
+      {
+        "id": "development-method",
+        "order": 7,
+        "name": "開発方法論（DDD×AI責任分担）",
+        "description": "ドメイン駆動設計の各フェーズでAIと人がどちらを判断するかを学ぶ",
+        "questionCount": 14,
+        "difficulty": "advanced",
+        "estimatedTime": "35-45 minutes",
+        "keyTopics": [
+          "DDDフェーズ別AI/human分担",
+          "ユビキタス言語",
+          "バウンデッドコンテキスト",
+          "構造例外",
+          "ドメインイベント"
         ]
       }
     ]
