@@ -179,6 +179,66 @@
       ],
       "correctAnswer": "A",
       "explanation": "運用・リリースでは、投入条件と監視、ロールバック、例外、周知がそろい、承認記録がある状態が完了に近いです。"
+    },
+    {
+      "id": 16,
+      "question": "運用・リリースカテゴリの各Skillと文書IDプレフィックスの組み合わせとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "release-readiness → REL、performance-investigation → PERF、observability-and-ops-readiness → OPS" },
+        { "id": "B", "text": "release-readiness → RLS、performance-investigation → PERF、observability-and-ops-readiness → OBS" },
+        { "id": "C", "text": "release-readiness → REL、performance-investigation → PI、observability-and-ops-readiness → OPS" },
+        { "id": "D", "text": "release-readiness → REL、performance-investigation → PERF、observability-and-ops-readiness → OP" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "トレーサビリティID規約では、release-readiness は REL、performance-investigation は PERF、observability-and-ops-readiness は OPS です。B・C・D はいずれかのプレフィックスが誤っています。"
+    },
+    {
+      "id": 17,
+      "question": "release-readiness の前提スキルとして正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "test-strategy-unified と observability-and-ops-readiness の両方" },
+        { "id": "B", "text": "requirements-refinement のみ" },
+        { "id": "C", "text": "known-how-ingestion のみ" },
+        { "id": "D", "text": "前提スキルはない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "release-readiness は他の多くのSkillと異なり、前提として test-strategy-unified と observability-and-ops-readiness の両方を明記しています。どちらか一方だけでは前提を満たしません。"
+    },
+    {
+      "id": 18,
+      "question": "observability-and-ops-readiness の『実行前の自己確認』に含まれる、アラート設計に関する認識として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "アラートの誤報が多いと運用が崩壊すると理解している（閾値設計の重要性）" },
+        { "id": "B", "text": "アラートは多ければ多いほど安全である" },
+        { "id": "C", "text": "アラートの閾値は運用開始後に一度決めれば見直し不要である" },
+        { "id": "D", "text": "アラートより初動手順の方が重要なので閾値設計は不要である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "実行前の自己確認では、『アラートの誤報が多いと運用が崩壊すると理解している（閾値設計の重要性）』が開発者向けチェック項目として挙げられています。誤報が多いアラートは形骸化し、初動を遅らせます。"
+    },
+    {
+      "id": 19,
+      "question": "performance-investigation の『実行前の自己確認』で示されている、定量的な目標値の例として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "95パーセンタイルで200ms以下" },
+        { "id": "B", "text": "だいたい速くなればよい" },
+        { "id": "C", "text": "他社サービスより速いこと" },
+        { "id": "D", "text": "目標値は決めなくてもよい" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "実行前の自己確認では、『目標値が定量的に決まっている（例: 95パーセンタイルで200ms以下）』がチェック項目として示されています。計測しない最適化は勘に頼ることになります。"
+    },
+    {
+      "id": 20,
+      "question": "shared-references/diagram-catalog-guide.md のマッピング表で、運用・リリースフェーズの『ブランチ戦略図』に対応する図の種類はどれですか？",
+      "options": [
+        { "id": "A", "text": "gitGraph" },
+        { "id": "B", "text": "erDiagram" },
+        { "id": "C", "text": "classDiagram" },
+        { "id": "D", "text": "quadrantChart" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "マッピング表には『ブランチ戦略図 | gitGraph | ブランチの分岐・マージ・リリースタグを可視化』と記載されています。インフラ構成図はシンプルな冗長構成なら Mermaid の architecture-beta、複雑な場合は Graphviz DOT が推奨されています。"
     }
   ]
 }

@@ -119,6 +119,66 @@
       ],
       "correctAnswer": "A",
       "explanation": "段階13では、実装着手に必要な判断材料がそろっていることが求められます。矛盾や依存、前提、スコープ外の整理が不十分なままでは確定承認に適しません。"
+    },
+    {
+      "id": 11,
+      "question": "requirements-refinement の完了条件に含まれる、成果物文書に関する要件として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "成果物文書が requirements-definition-document-template.md の必須章（文書情報／目的・背景／対応元ID／方針・決定事項／未決事項・リスク／関連ドキュメント）を満たしていること" },
+        { "id": "B", "text": "成果物文書は SKILL.md と同一ファイルにまとめること" },
+        { "id": "C", "text": "成果物文書は承認後にすぐ削除してよいこと" },
+        { "id": "D", "text": "成果物文書は AI が単独で承認できること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "完了条件には、段階7/11/13のゲート通過やログ記録に加えて、成果物文書が requirements-definition-document-template.md の必須章を満たしていることが含まれます。文書は SKILL.md とは別ファイルで管理され、承認は開発者が行います。"
+    },
+    {
+      "id": 12,
+      "question": "requirements-refinement Skill の成果物文書が使用する文書IDプレフィックスとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "DES" },
+        { "id": "B", "text": "REQ" },
+        { "id": "C", "text": "ADR" },
+        { "id": "D", "text": "DM" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "トレーサビリティID規約（shared-references/traceability-id-convention.md）により、requirements-refinement の成果物文書（要件定義書）は `REQ-xxx` を使用します。DES は feature-implementation-unified、ADR は architecture-decision-record、DM は data-model-design-unified のプレフィックスです。"
+    },
+    {
+      "id": 13,
+      "question": "requirements-refinement の strict モードの特徴と用途として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "論点、依存、非機能要件まで広く詰める。監査対象や複数部門にまたがる案件向け" },
+        { "id": "B", "text": "必須受入条件とスコープ境界だけに絞る。小規模案件や緊急改修向け" },
+        { "id": "C", "text": "実装判断に必要な論点を過不足なく詰める。標準的な案件向け（推奨モード）" },
+        { "id": "D", "text": "承認ゲートを省略して最速で進める" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "実行モード表では、strict は論点・依存・非機能要件まで広く詰め、監査対象や複数部門案件に向くとされています。B は speed モード、C は推奨モードである balance の説明です。承認ゲートを省略するモードは存在しません。"
+    },
+    {
+      "id": 14,
+      "question": "requirements-refinement の前提スキルと次のステップとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "前提スキルはなく（開発の出発点）、データ設計が必要なら data-model-design-unified、API 先行設計が必要なら api-contract-design へ進む" },
+        { "id": "B", "text": "前提は release-readiness、次は known-how-ingestion" },
+        { "id": "C", "text": "前提は architecture-decision-record、次は security-hardening" },
+        { "id": "D", "text": "前提も次のステップも定義されていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "SKILL.md の『前提スキル / 次のステップ（教育）』では、requirements-refinement は開発の出発点であり前提スキルを持たず、次のステップとしてデータ設計が必要なときは data-model-design-unified、API 先行設計が必要なときは api-contract-design へ進むとされています。"
+    },
+    {
+      "id": 15,
+      "question": "shared-references/diagram-catalog-guide.md のマッピング表で、要件・計画フェーズの『要件優先度マトリクス』に対応する図の種類はどれですか？",
+      "options": [
+        { "id": "A", "text": "quadrantChart" },
+        { "id": "B", "text": "sequenceDiagram" },
+        { "id": "C", "text": "classDiagram" },
+        { "id": "D", "text": "gitGraph" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "マッピング表には『要件優先度マトリクス | quadrantChart | 影響度×工数の2軸』と記載されています。業務フロー図は flowchart、ユースケース図は非対応（flowchart で代替）とされています。"
     }
   ]
 }

@@ -1,0 +1,172 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "ddd-ai-responsibility が解こうとしている問題として最も適切なものはどれですか？",
+      "options": [
+        { "id": "A", "text": "DDD の各フェーズで AI の役割が不明確だと、ドメインエキスパートの判断が AI に丸投げされてしまうこと" },
+        { "id": "B", "text": "AI が DDD のすべてのフェーズで最終判断を下すべきだという合意がないこと" },
+        { "id": "C", "text": "ユビキタス言語を AI が決定できないという制約そのもの" },
+        { "id": "D", "text": "DDD のフェーズ数が多すぎて実行に時間がかかること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "『このスキルが解く問題』では、DDD の各フェーズで AI の役割が不明確だとドメインエキスパートの判断が AI に丸投げされること、AI への依頼を『たたき台生成』に限定しないと AI の仮説がモデルに固定されてしまうことが課題として示されています。"
+    },
+    {
+      "id": 2,
+      "question": "ddd-ai-responsibility の前提スキルと『セットで使う』スキルの組み合わせとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "前提: requirements-refinement／セットで使う: data-model-design-unified（モデル設計フェーズ）と feature-implementation-unified（実装フェーズ）" },
+        { "id": "B", "text": "前提: release-readiness／セットで使う: incident-postmortem" },
+        { "id": "C", "text": "前提: known-how-ingestion／セットで使う: documentation-sync" },
+        { "id": "D", "text": "前提もセットで使うスキルもない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "SKILL.md の『前提スキル / 次のステップ（教育）』では、前提は requirements-refinement、セットで使うスキルとしてモデル設計フェーズで data-model-design-unified、実装フェーズで feature-implementation-unified が挙げられています。"
+    },
+    {
+      "id": 3,
+      "question": "ddd-ai-responsibility が示す DDD の6フェーズの正しい順序はどれですか？",
+      "options": [
+        { "id": "A", "text": "要件定義・ドメイン理解 → モデリング → 設計 → 実装 → テスト・品質 → 運用・進化" },
+        { "id": "B", "text": "モデリング → 要件定義・ドメイン理解 → 実装 → 設計 → 運用・進化 → テスト・品質" },
+        { "id": "C", "text": "設計 → 実装 → 要件定義・ドメイン理解 → モデリング → テスト・品質 → 運用・進化" },
+        { "id": "D", "text": "要件定義・ドメイン理解 → 設計 → モデリング → 実装 → 運用・進化 → テスト・品質" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "『対応の流れ（高レベル）』では、要件定義・ドメイン理解、モデリング、設計、実装、テスト・品質、運用・進化の順で進むと定義されています。"
+    },
+    {
+      "id": 4,
+      "question": "Phase 1（要件定義・ドメイン理解）で『人が決めるべきこと』として明記されていないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "業務の本質・価値の定義" },
+        { "id": "B", "text": "採用する要件・捨てる要件" },
+        { "id": "C", "text": "Ubiquitous Language（共通言語）の最終決定" },
+        { "id": "D", "text": "業務用語の整理・一覧化" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "業務用語の整理・一覧化は runbook.md の『AI に任せられること（Phase 1）』に含まれる作業です。『人が決めるべきこと（Phase 1）』は、業務の本質・価値の定義、コア業務／補助業務の切り分け、採用する要件・捨てる要件、業務制約の優先順位、Ubiquitous Language の最終決定の5つです。"
+    },
+    {
+      "id": 5,
+      "question": "Phase 2（モデリング）で AI が提示できるものとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "エンティティ候補、値オブジェクト候補、集約候補、バウンデッドコンテキスト候補（根拠と迷う点も含めて）" },
+        { "id": "B", "text": "Bounded Context の最終的な境界確定" },
+        { "id": "C", "text": "ドメインルールの最終的な所属先決定" },
+        { "id": "D", "text": "モデルが業務を正しく説明できているかの最終確認" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "runbook.md の『AI に任せられること（Phase 2）』では、名詞抽出によるエンティティ候補出しやクラス図のたたき台生成などが挙げられています。B・C・D はいずれも『人が決めるべきこと（Phase 2）』に分類されています。"
+    },
+    {
+      "id": 6,
+      "question": "Phase 3（設計）のゲート条件として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "モデル意図と設計方針が矛盾していないこと" },
+        { "id": "B", "text": "実装が完了していること" },
+        { "id": "C", "text": "テストカバレッジが100%であること" },
+        { "id": "D", "text": "API のバージョンが確定していること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "SKILL.md の Phase 3（設計）のゲート条件は『モデル意図と設計方針が矛盾していないこと』です。実装完了やテストカバレッジは後続フェーズの話であり、このゲートの条件ではありません。"
+    },
+    {
+      "id": 7,
+      "question": "Phase 4（実装）で AI に任せられることとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "CRUD や定型処理の実装、リファクタリング案の提示、コメント・説明文の自動生成" },
+        { "id": "B", "text": "ドメインルールの配置場所の最終決定" },
+        { "id": "C", "text": "リファクタ適用可否の判断" },
+        { "id": "D", "text": "業務的な意味・背景の補足の最終判断" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "runbook.md の『AI に任せられること（Phase 4）』では、CRUD や定型処理の実装、リファクタリング案の提示、コメント・説明文の自動生成が挙げられています。B・C・D はいずれも『人が決めるべきこと（Phase 4）』です。"
+    },
+    {
+      "id": 8,
+      "question": "Phase 5（テスト・品質）で『人が決めるべきこと』として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "守るべき重要ロジックの優先順位、再発防止に効く観点の反映、実運用を踏まえた重大度判断" },
+        { "id": "B", "text": "UT 網羅テストケースの生成" },
+        { "id": "C", "text": "IT/ST シナリオ案の洗い出し" },
+        { "id": "D", "text": "異常系・境界値パターンの列挙" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "B・C・D は runbook.md の『AI に任せられること（Phase 5）』に分類される作業です。『人が決めるべきこと（Phase 5）』は、重要ロジックの優先順位、再発防止に効く観点の反映、実運用を踏まえた重大度判断です。ゲート条件は『重要ロジックの検証漏れがないこと』です。"
+    },
+    {
+      "id": 9,
+      "question": "Phase 6（運用・進化）のゲート条件として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "短期対処と中長期改善が切り分けられていること" },
+        { "id": "B", "text": "全ての障害がゼロになっていること" },
+        { "id": "C", "text": "AI が根本原因を確定していること" },
+        { "id": "D", "text": "ドメインモデルを毎回必ず変更すること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "SKILL.md の Phase 6（運用・進化）のゲート条件は『短期対処と中長期改善が切り分けられていること』です。根本原因の解釈やモデル変更の是非は人が決めるべきことであり、AI が確定するものではありません。"
+    },
+    {
+      "id": 10,
+      "question": "runbook.md の『判定基準一覧』表で、全6フェーズの『確認者』欄に共通して記載されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "人" },
+        { "id": "B", "text": "AI" },
+        { "id": "C", "text": "承認者は各フェーズで異なり、AI が担当するフェーズもある" },
+        { "id": "D", "text": "確認者は記載されていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "判定基準一覧表では、要件整理からモデリング、設計、実装、テスト、運用・進化まで全6フェーズの確認者が一貫して『人』と記載されています。AI が最終確認を担うフェーズはありません。"
+    },
+    {
+      "id": 11,
+      "question": "runbook.md の用語リストで『業務ルールの整合性を保つためのエンティティと値オブジェクトのまとまり』を表す用語はどれですか？",
+      "options": [
+        { "id": "A", "text": "集約" },
+        { "id": "B", "text": "リポジトリ" },
+        { "id": "C", "text": "ファクトリ" },
+        { "id": "D", "text": "バウンデッドコンテキスト" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "主要用語リストでは、集約は『一貫性を保つためのエンティティと値オブジェクトのまとまり』と定義されています。リポジトリは永続化・取得の仕組み、ファクトリは複雑な生成処理を担うオブジェクト、バウンデッドコンテキストは用語やモデルの意味が一貫する境界です。"
+    },
+    {
+      "id": 12,
+      "question": "ddd-ai-responsibility の構造上の位置づけとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Phase1-4/段階1-14/ゲート3つの標準形に従わない構造例外であり、sub-skills や assets を持たず runbook.md に内容を集約している" },
+        { "id": "B", "text": "他の15スキルと同じく Phase1-4・段階1-14・ゲート3つの標準形に従う" },
+        { "id": "C", "text": "sub-skills 配下に phase1〜phase4 のファイルを持つ" },
+        { "id": "D", "text": "assets 配下にログテンプレートを持つ標準的な構成である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "PATTERN-SELECTION-GUIDE.md の『パターン外: 構造例外』では、ddd-ai-responsibility は単一の実行フロー・ゲート・成果物を持たない参照ガイドであり、sub-skills/assets を持たず runbook.md に内容を集約すると説明されています。known-how-ingestion と並ぶ2つの構造例外の一つです。"
+    },
+    {
+      "id": 13,
+      "question": "ddd-ai-responsibility 自体の成果物文書の扱いとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "本Skill単体の成果物文書は持たず、実行結果は architecture-decision-record や data-model-design-unified、feature-implementation-unified など前提/セットで使うスキルの成果物文書に反映する" },
+        { "id": "B", "text": "ddd-design-document-template.md という専用テンプレートを持つ" },
+        { "id": "C", "text": "成果物文書は不要で、実行ログにも何も残さない" },
+        { "id": "D", "text": "成果物文書は runbook.md そのものを毎回上書きする" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "SKILL.md の入力リファレンスでは、『本Skill単体の成果物文書は持たない。実行結果は前提/セットで使うスキル（architecture-decision-record, data-model-design-unified, feature-implementation-unified 等）の成果物文書に反映する』と明記されています。"
+    },
+    {
+      "id": 14,
+      "question": "ddd-ai-responsibility の完了条件として正しくないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "対象フェーズで AI への依頼文と人の確認観点が揃っている" },
+        { "id": "B", "text": "AI 出力を採用するかどうかの判断理由が説明できる" },
+        { "id": "C", "text": "ドメイン意味、境界、責任の所在が曖昧なまま次フェーズへ進まない" },
+        { "id": "D", "text": "AI がドメインモデルの妥当性を自己承認していること" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "完了条件は、AI への依頼文と人の確認観点が揃っていること、AI 出力採否の判断理由が説明できること、ドメイン意味・境界・責任の所在が曖昧なまま次フェーズへ進まないことの3点です。AI がモデルの妥当性を自己承認することは、このSkillの前提（判断は人が行う）と矛盾します。"
+    }
+  ]
+}

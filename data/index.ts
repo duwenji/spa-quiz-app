@@ -60,18 +60,32 @@ const loadQuizSetQuestions = async (dataPath: string): Promise<Question[]> => {
 
         // データ形式の変換（JSONの形式をQuestion型に合わせる）
         const transformedQuestions: Question[] = questions.map((q: any) => {
-          // optionsにidフィールドがない場合は追加
-          const transformedOptions = (q.options || []).map((opt: any, index: number) => ({
-            id: ['A', 'B', 'C', 'D'][index] as 'A' | 'B' | 'C' | 'D',
+          const letters: Array<'A' | 'B' | 'C' | 'D'> = ['A', 'B', 'C', 'D'];
+          const rawOptions = q.options || [];
+
+          // 元データ上の正解インデックスを特定（不正な値はA=0にフォールバック）
+          const originalCorrectIndex =
+            q.correctAnswer && letters.includes(q.correctAnswer)
+              ? letters.indexOf(q.correctAnswer)
+              : 0;
+
+          // 選択肢の並びをシャッフルし、正解がAに偏らないようにする
+          const shuffled = rawOptions.map((opt: any, index: number) => ({
             text: opt.text || '',
+            isCorrect: index === originalCorrectIndex,
+          }));
+          for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+          }
+
+          const transformedOptions = shuffled.map((opt: { text: string; isCorrect: boolean }, index: number) => ({
+            id: letters[index],
+            text: opt.text,
           }));
 
-          // correctAnswer フィールドを直接使用
-          let correctAnswer: 'A' | 'B' | 'C' | 'D' = 'A'; // デフォルト値
-          
-          if (q.correctAnswer && ['A', 'B', 'C', 'D'].includes(q.correctAnswer)) {
-            correctAnswer = q.correctAnswer as 'A' | 'B' | 'C' | 'D';
-          }
+          const correctIndex = shuffled.findIndex((opt: { isCorrect: boolean }) => opt.isCorrect);
+          const correctAnswer: 'A' | 'B' | 'C' | 'D' = letters[correctIndex >= 0 ? correctIndex : 0];
 
           return {
             id: q.id || 0,

@@ -191,6 +191,78 @@
       ],
       "correctAnswer": "A",
       "explanation": "このカテゴリでは、戦略と実行準備、残余リスク、承認根拠までそろっていることが重要です。単発のテスト成功だけでは不十分です。"
+    },
+    {
+      "id": 17,
+      "question": "検証・品質カテゴリの各Skillと文書IDプレフィックスの組み合わせとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "defect-repair-unified → DEF、security-hardening → SEC、test-strategy-unified → TS" },
+        { "id": "B", "text": "defect-repair-unified → BUG、security-hardening → SECU、test-strategy-unified → TEST" },
+        { "id": "C", "text": "defect-repair-unified → DEF、security-hardening → SH、test-strategy-unified → TST" },
+        { "id": "D", "text": "defect-repair-unified → DR、security-hardening → SEC、test-strategy-unified → TS" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "トレーサビリティID規約では、defect-repair-unified は DEF、security-hardening は SEC、test-strategy-unified は TS です。B・C・D はいずれかのプレフィックスが誤っています。"
+    },
+    {
+      "id": 18,
+      "question": "security-hardening の『対象外・非対象』として明記されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "侵入テストや脆弱性診断の実施自体は本Skillの範囲外である" },
+        { "id": "B", "text": "秘密情報はログに残してよい" },
+        { "id": "C", "text": "セキュリティポリシーの最終承認はAIが行う" },
+        { "id": "D", "text": "認証と認可の区別は不要である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "SKILL.md の対象外・非対象では、侵入テストや脆弱性診断の実施自体は本Skillの範囲外、セキュリティポリシーの最終承認は開発者または責任者が行う、秘密情報をログに残さないと明記されています。"
+    },
+    {
+      "id": 19,
+      "question": "defect-repair-unified の Phase 1 完了時に最低限必要な出力として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "調査報告書、処理フロー図（Mermaid形式）、3案以上の対応案（メリット/デメリット付き）" },
+        { "id": "B", "text": "実装済みのソースコード差分のみ" },
+        { "id": "C", "text": "承認済みの最終レポートのみ" },
+        { "id": "D", "text": "テスト結果レポートのみ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "『各Phase完了時の最小必須出力』では、Phase 1 完了時に調査報告書（原因、検出ログ、該当ファイル／行番号）、Mermaid形式の処理フロー図、3案以上の対応案が必要とされています。"
+    },
+    {
+      "id": 20,
+      "question": "security-hardening で受容した残余リスクを記録する際に必ず残すべきものはどれですか？",
+      "options": [
+        { "id": "A", "text": "期限と再確認条件" },
+        { "id": "B", "text": "担当者の個人的な感想" },
+        { "id": "C", "text": "対策コストの見積もりだけ" },
+        { "id": "D", "text": "何も残さなくてよい（受容した時点で完了）" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "記録・証跡の運用ルールでは、『受容した残余リスクは期限と再確認条件を残す』と明記されています。受容して終わりにはできません。"
+    },
+    {
+      "id": 21,
+      "question": "security-hardening の前提・セットで使う・次のスキルの組み合わせとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "前提: requirements-refinement／セットで使う: api-contract-design／次: release-readiness" },
+        { "id": "B", "text": "前提: release-readiness／次: requirements-refinement" },
+        { "id": "C", "text": "前提: known-how-ingestion／次: documentation-sync" },
+        { "id": "D", "text": "前提もセットで使うスキルもない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "security-hardening の『前提スキル / 次のステップ（教育）』では、前提が requirements-refinement、API設計時のセキュリティ確認としてセットで使うのが api-contract-design、リリース前の最終確認として次に release-readiness が挙げられています。"
+    },
+    {
+      "id": 22,
+      "question": "shared-references/diagram-catalog-guide.md のマッピング表で、検証・品質フェーズの『テストケース分岐図』と『テストスケジュール』に対応する図の組み合わせとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "テストケース分岐図 = flowchart、テストスケジュール = gantt" },
+        { "id": "B", "text": "テストケース分岐図 = gantt、テストスケジュール = flowchart" },
+        { "id": "C", "text": "両方とも sequenceDiagram" },
+        { "id": "D", "text": "両方とも非対応" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "マッピング表には『テストケース分岐図 | flowchart | デシジョンテーブルの条件組み合わせを可視化』『テストスケジュール | gantt | タスクの依存関係・期間を時系列で共有』と記載されています。"
     }
   ]
 }
