@@ -1,0 +1,424 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "本章の冒頭で挙げられている、Linuxのコンテナネットワークの基礎となる3つの要素の組み合わせはどれか。",
+      "options": [
+        { "id": "A", "text": "network namespace / bridge / veth pair" },
+        { "id": "B", "text": "namespace / overlayネットワーク / macvlan" },
+        { "id": "C", "text": "VPC / サブネット / ルートテーブル" },
+        { "id": "D", "text": "コンテナ / イメージ / ボリューム" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「この章で学ぶこと」に、Linuxのnetwork namespace / bridge / veth pairというコンテナネットワークの基礎が明記されている。これら3つの組み合わせでDockerのコンテナネットワークが成り立つと01章でも説明されている。"
+    },
+    {
+      "id": 2,
+      "question": "本章で扱われるWindows・WSL2・Dockerの4層構造に含まれないものはどれか。",
+      "options": [
+        { "id": "A", "text": "Windowsホスト" },
+        { "id": "B", "text": "WSL2 VM" },
+        { "id": "C", "text": "Docker Engine" },
+        { "id": "D", "text": "クラウドプロバイダのロードバランサー" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "本章の4層構造は「Windows・WSL2 VM・Docker Engine・コンテナ」の4つであり、クラウドのロードバランサーは登場しない。この4層構造は02-layered-architecture.mdで詳しく解説されている。"
+    },
+    {
+      "id": 3,
+      "question": "README.mdの演習案にある `sudo iptables -t nat -L DOCKER -n` を実行する目的は何か。",
+      "options": [
+        { "id": "A", "text": "-pオプションで作られたDNATルールを確認するため" },
+        { "id": "B", "text": "bridgeのMACアドレスを確認するため" },
+        { "id": "C", "text": "組み込みDNSサーバーの設定を確認するため" },
+        { "id": "D", "text": "コンテナのCPU使用率を確認するため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "05-port-publishing-path.mdで説明されている通り、このコマンドは-pオプションによって自動追加されるDNAT（Destination NAT）ルールを確認するためのものである。"
+    },
+    {
+      "id": 4,
+      "question": "`.wslconfig`で`networkingMode=mirrored`に切り替えた後、設定を反映させるためにWindows側で実行する必要があるコマンドはどれか。",
+      "options": [
+        { "id": "A", "text": "wsl --shutdown" },
+        { "id": "B", "text": "docker restart" },
+        { "id": "C", "text": "wsl --update" },
+        { "id": "D", "text": "ipconfig /flushdns" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの演習案および03-wsl2-network-modes.mdに記載の通り、`.wslconfig`で`networkingMode=mirrored`を設定した後は`wsl --shutdown`を実行してVMを再作成させることで新しい設定が反映される。"
+    },
+    {
+      "id": 5,
+      "question": "README.mdの「成功判定」として挙げられている内容はどれか。",
+      "options": [
+        { "id": "A", "text": "4層構造の図を見ずに説明でき、「Windowsから繋がらない」トラブルでどの層から確認すべきか即座に判断できる" },
+        { "id": "B", "text": "Dockerfileを最適化して書けるようになる" },
+        { "id": "C", "text": "Kubernetesクラスタを構築できる" },
+        { "id": "D", "text": "WSL2を新規インストールできる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「成功判定」には、4層構造の図を見ずに説明できること、および「Windowsから繋がらない」トラブルに対してどの層から確認すべきか即座に判断できることが挙げられている。"
+    },
+    {
+      "id": 6,
+      "question": "01章で説明されているnetwork namespaceの正しい説明はどれか。",
+      "options": [
+        { "id": "A", "text": "プロセスごとにネットワークインターフェース・ルーティングテーブル・iptablesルール・ポート番号空間を独立して持てるLinuxカーネルの機能" },
+        { "id": "B", "text": "複数の物理ホストを接続する物理スイッチ" },
+        { "id": "C", "text": "Dockerイメージのレイヤー構造を管理する仕組み" },
+        { "id": "D", "text": "WindowsとWSL2の間を橋渡しする仮想アダプタ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01-container-network-concepts.mdに、network namespaceは「プロセスごとにネットワークインターフェース・ルーティングテーブル・iptablesルール・ポート番号の空間を独立して持てるようにするLinuxカーネルの機能」と説明されている。"
+    },
+    {
+      "id": 7,
+      "question": "01章でbridgeの正体として説明されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "Linuxカーネルが提供する仮想的なL2スイッチ（イーサネットスイッチ）" },
+        { "id": "B", "text": "L3ルーター" },
+        { "id": "C", "text": "DNSサーバー" },
+        { "id": "D", "text": "ファイアウォールルールの集合" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書では「bridgeは、Linuxカーネルが提供する仮想的なL2スイッチ（イーサネットスイッチ）です」と明記されている。物理的なネットワークスイッチと同様に複数のインターフェースを1つのセグメントとして繋ぐ。"
+    },
+    {
+      "id": 8,
+      "question": "veth pairの役割についての正しい説明はどれか。",
+      "options": [
+        { "id": "A", "text": "network namespaceとbridgeを繋ぐ、必ずペアで動作する仮想的な1本のケーブルのようなインターフェース" },
+        { "id": "B", "text": "複数のbridgeを1つに統合する仕組み" },
+        { "id": "C", "text": "コンテナイメージのレイヤーを圧縮する仕組み" },
+        { "id": "D", "text": "Windows側のvEthernetアダプタと同一のもの" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "veth pairは必ず2つのインターフェースがペアで動作し、一方をコンテナのnetwork namespace内に、もう一方をホスト側のbridgeに接続することで、1本のケーブルで直結されているかのように通信させる仮想デバイスである。"
+    },
+    {
+      "id": 9,
+      "question": "ホスト（WSL2 VM）側で`ip link show | grep veth`を実行すると何が確認できるか。",
+      "options": [
+        { "id": "A", "text": "コンテナの数だけ存在するveth pairの片割れ" },
+        { "id": "B", "text": "Windows側のネットワークアダプタ一覧" },
+        { "id": "C", "text": "Dockerイメージのレイヤー一覧" },
+        { "id": "D", "text": "iptablesのDNATルール一覧" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書には「ホスト（WSL2 VM）側で以下を実行すると、コンテナの数だけveth pairの片割れが見えます」とあり、コンテナごとに作られるveth pairのホスト側インターフェースが確認できる。"
+    },
+    {
+      "id": 10,
+      "question": "01章でまとめられている、コンテナ同士の通信に関する正しい説明はどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナ同士は直接繋がっているわけではなく、必ずbridgeを経由する" },
+        { "id": "B", "text": "コンテナ同士はveth pairで直接接続され、bridgeを経由しない" },
+        { "id": "C", "text": "コンテナ同士はWindows側のvEthernetアダプタを経由する" },
+        { "id": "D", "text": "コンテナ同士はiptablesのDNATルールを介してのみ通信する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「コンテナ同士は直接繋がっているわけではなく、必ずbridgeを経由します。veth pairは『コンテナのeth0』と『bridge側のポート』をつなぐ1本の仮想ケーブルです」と明記されている。"
+    },
+    {
+      "id": 11,
+      "question": "02章の4層構造における②に当たるのはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL2 VM（Hyper-V軽量VM、独自Linuxカーネル）" },
+        { "id": "B", "text": "Windowsホスト" },
+        { "id": "C", "text": "WSL2内のDocker Engine" },
+        { "id": "D", "text": "コンテナ（network namespace）" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02-layered-architecture.mdの図と表で、①Windowsホスト、②WSL2 VM、③WSL2内のDocker Engine、④コンテナという順に4層が定義されており、②はWSL2 VMである。"
+    },
+    {
+      "id": 12,
+      "question": "02章で強調されている、Docker Engineに関する重要なポイントはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker EngineはWSL2 VMの中の1アプリケーションに過ぎず、Windowsを知らないし直接操作する権限も持たない" },
+        { "id": "B", "text": "Docker EngineはWindowsのネットワークを直接操作できる" },
+        { "id": "C", "text": "コンテナはWindowsホスト上で直接動作している" },
+        { "id": "D", "text": "WSL2 VMはDocker Engineの一部として動作する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「③のDocker Engineは②のWSL2 VM（1つのLinuxマシン）の中の1アプリケーションに過ぎない」「Docker自体は『Windowsを知らない』し、『Windowsのネットワークを直接操作する権限も持たない』」と明記されている。"
+    },
+    {
+      "id": 13,
+      "question": "「Windows側からコンテナに繋がる」という体験を実現しているのは何か、02章の説明に基づいて選べ。",
+      "options": [
+        { "id": "A", "text": "①と②の間、つまりWSL自体が提供する橋渡しの仕組み" },
+        { "id": "B", "text": "Docker Engine自体が持つWindows連携機能" },
+        { "id": "C", "text": "コンテナ内のDNSサーバー" },
+        { "id": "D", "text": "ユーザー定義bridgeのIPAM機能" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書には「『Windows側からコンテナに繋がる』という体験を実現しているのは、Dockerではなく①と②の間、つまりWSL自体が提供する橋渡しの仕組みです」と明確に書かれている。"
+    },
+    {
+      "id": 14,
+      "question": "02章の表で、①Windowsホストで動いているものとして挙げられているのはどれか。",
+      "options": [
+        { "id": "A", "text": "ブラウザ・DBクライアントなどのアプリケーションと`vEthernet (WSL)`アダプタ" },
+        { "id": "B", "text": "dockerd（Dockerデーモン）" },
+        { "id": "C", "text": "network namespace上で動くアプリプロセス" },
+        { "id": "D", "text": "docker0ブリッジ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "表の①Windowsホストの行には「ブラウザ、DBクライアントなど、開発者が直接触るアプリケーション。`vEthernet (WSL)`という仮想ネットワークアダプタもここにある」と記載されている。"
+    },
+    {
+      "id": 15,
+      "question": "02章で「Windows側からlocalhost:8080に繋がらない」トラブルの原因として挙げられていないものはどれか。",
+      "options": [
+        { "id": "A", "text": "④コンテナ自体が起動していない、またはクラッシュしている" },
+        { "id": "B", "text": "③Docker Engineのポート公開設定（-pオプション）が間違っている" },
+        { "id": "C", "text": "②WSL2 VM自体が古いネットワーク状態のまま残っている" },
+        { "id": "D", "text": "クラウド側のDNSサーバーがダウンしている" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "文書が挙げる原因は①〜④の4層それぞれの問題（コンテナ未起動、ポート公開設定ミス、WSL2 VMの古い状態、Windows側のvEthernetアダプタや他ソフトの競合）であり、クラウド側のDNSサーバーへの言及はない。"
+    },
+    {
+      "id": 16,
+      "question": "WSL2の既定のネットワーク方式はどれか。",
+      "options": [
+        { "id": "A", "text": "NAT（Network Address Translation）モード" },
+        { "id": "B", "text": "mirrored networking mode" },
+        { "id": "C", "text": "ブリッジモード" },
+        { "id": "D", "text": "ホストオンリーモード" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03-wsl2-network-modes.mdの冒頭に「①Windowsホストと②WSL2 VMの間は、既定ではNAT（Network Address Translation）モードで繋がっています」と説明されている。"
+    },
+    {
+      "id": 17,
+      "question": "WSL2 VMのIPアドレス（`eth0`）について、文書の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`wsl --shutdown`でWSLを再起動するたびに変わる可能性があり、固定IPとして扱ってはいけない" },
+        { "id": "B", "text": "一度割り当てられると永久に固定される" },
+        { "id": "C", "text": "ディストロごとに異なるIPアドレスが割り当てられる" },
+        { "id": "D", "text": "Windowsホストと常に同じIPアドレスになる（既定のNATモードでも）" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書には「このIPアドレス（例: 172.20.144.5）は、WSLを再起動する（wsl --shutdownする）たびに変わる可能性があります。固定IPとして扱ってはいけません」と警告されている。"
+    },
+    {
+      "id": 18,
+      "question": "localhostフォワーディングの仕組みとして正しい説明はどれか。",
+      "options": [
+        { "id": "A", "text": "Windows側でlocalhost（または127.0.0.1）宛にアクセスすると、自動的にWSL2 VM内の同じポート番号に転送してくれる機能" },
+        { "id": "B", "text": "WSL2側からWindows側のブラウザを自動起動する機能" },
+        { "id": "C", "text": "DockerコンテナのIPアドレスを固定する機能" },
+        { "id": "D", "text": "複数ディストロのIPアドレスを1つに統合する機能" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「Windows側でlocalhost（または127.0.0.1）宛にアクセスすると、WSLの仕組みが自動的にそれをWSL2 VM内の同じポート番号に転送してくれます」と説明されている。"
+    },
+    {
+      "id": 19,
+      "question": "mirrored networking modeの主な導入目的として文書が挙げているものはどれか。",
+      "options": [
+        { "id": "A", "text": "企業VPN環境での接続性改善" },
+        { "id": "B", "text": "コンテナの起動速度向上" },
+        { "id": "C", "text": "ディスクI/O性能の向上" },
+        { "id": "D", "text": "複数ディストロ間のポート競合の解消" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書には「主な導入目的は、企業VPN環境での接続性改善です」とあり、NATモードがVPNクライアントの仮想アダプタと競合する問題をmirrored modeが構造的に解決すると説明されている。"
+    },
+    {
+      "id": 20,
+      "question": "複数ディストロ間でのIP・ポート共有について、03章の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Ubuntu・Debianなど複数のディストロは共通の1つのWSL2 VMを共有しており、eth0のIPアドレスとポート番号の名前空間もVM全体で1つ共有される" },
+        { "id": "B", "text": "ディストロごとに独立したeth0のIPアドレスが割り当てられる" },
+        { "id": "C", "text": "ディストロごとに独立したポート番号空間を持つため、同じポート番号を同時に使っても競合しない" },
+        { "id": "D", "text": "mirrored modeに切り替えた場合のみIPアドレスが共有される" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「ここで確認したeth0のIPアドレスは、特定のディストロにではなく、そのVM全体に対して1つ割り当てられているもの」「複数ディストロで同時に同じポート番号をlistenすることはできません」と説明されている。"
+    },
+    {
+      "id": 21,
+      "question": "docker0ブリッジについて、04章の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Engineインストール時に既定のbridgeネットワークの実体として自動的に作られる、WSL2 VM内の通常のLinuxネットワークインターフェース" },
+        { "id": "B", "text": "Windows側に作られる仮想ネットワークアダプタ" },
+        { "id": "C", "text": "コンテナ内部にのみ存在する仮想インターフェース" },
+        { "id": "D", "text": "ユーザー定義ネットワークを作るたびに新たに複数作られるもの" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「Docker Engineをインストールすると、既定のbridgeネットワークの実体としてdocker0という名前の仮想ブリッジが自動的に作られます。これはWSL2 VM（②の層）の中に存在する、通常のLinuxネットワークインターフェースです」とある。"
+    },
+    {
+      "id": 22,
+      "question": "既定のbridge（docker0）とユーザー定義bridgeの決定的な違いは何か。",
+      "options": [
+        { "id": "A", "text": "ユーザー定義bridgeにはDocker Engine内蔵のDNS機能が有効でコンテナ名による名前解決ができるが、既定bridgeではできない" },
+        { "id": "B", "text": "既定bridgeの方がより多くのIPアドレスを割り当てられる" },
+        { "id": "C", "text": "ユーザー定義bridgeはWindows側にのみ作られる" },
+        { "id": "D", "text": "既定bridgeの方がveth pairの本数が多い" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書には「既定のbridge（docker0）に接続したコンテナ同士は、IPアドレスでは通信できますが、コンテナ名による名前解決ができません」「ユーザー定義bridgeには、Docker Engine内蔵のDNS機能が有効になっており、コンテナ名で名前解決できます」とある。"
+    },
+    {
+      "id": 23,
+      "question": "コンテナ内の`/etc/resolv.conf`に設定される`nameserver 127.0.0.11`が指すものは何か。",
+      "options": [
+        { "id": "A", "text": "Docker Engineがコンテナごとに用意する組み込みDNSサーバー（embedded DNS server）のアドレス" },
+        { "id": "B", "text": "Windows側のvEthernet (WSL)アダプタのアドレス" },
+        { "id": "C", "text": "docker0ブリッジのゲートウェイアドレス" },
+        { "id": "D", "text": "WSL2 VMのeth0のアドレス" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「127.0.0.11は、Docker Engineがコンテナごとに用意する組み込みDNSサーバー（embedded DNS server）のアドレスです」と明記されており、コンテナ名の解決要求はまずここに問い合わせられる。"
+    },
+    {
+      "id": 24,
+      "question": "`docker network inspect`の出力に含まれる`IPAM.Config`が示す情報は何か。",
+      "options": [
+        { "id": "A", "text": "そのネットワークに割り当てられたサブネットとゲートウェイ" },
+        { "id": "B", "text": "コンテナのCPU使用率" },
+        { "id": "C", "text": "組み込みDNSサーバーのキャッシュ内容" },
+        { "id": "D", "text": "veth pairの本数" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書の解説に「IPAM.Config — このネットワークに割り当てられたサブネットとゲートウェイ」と明記されている。"
+    },
+    {
+      "id": 25,
+      "question": "`br-`から始まるインターフェースの命名規則と対応関係について、04章の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`br-<ネットワークIDの先頭12桁>`という命名で、コンテナ1つにつき1つではなくユーザー定義ネットワーク1つにつき1つ作られる" },
+        { "id": "B", "text": "コンテナ1つにつき1つ作られる" },
+        { "id": "C", "text": "ディストロ1つにつき1つ作られる" },
+        { "id": "D", "text": "Windowsホストのアダプタ名と同じ名前が付けられる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「br-は『コンテナ1つにつき1つ』ではなく『ユーザー定義ネットワーク1つにつき1つ』です。命名規則はbr-<ネットワークIDの先頭12桁>」と明記されている。"
+    },
+    {
+      "id": 26,
+      "question": "`docker run -p 8080:80`のように-pオプションを指定した場合、Docker Engineが自動的にiptablesへ追加するルールの種類はどれか。",
+      "options": [
+        { "id": "A", "text": "DNAT（Destination NAT）ルール" },
+        { "id": "B", "text": "SNAT（Source NAT）ルール" },
+        { "id": "C", "text": "MASQUERADEルール" },
+        { "id": "D", "text": "DROPルール" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "05-port-publishing-path.mdに「Docker Engineは-p 8080:80を指定すると、WSL2 VMのiptablesに、8080番ポート宛のパケットをコンテナのIP:80番に転送するDNAT（Destination NAT）ルールを自動的に追加します」とある。"
+    },
+    {
+      "id": 27,
+      "question": "Windowsブラウザからコンテナまでパケットが辿る経路の正しい順序はどれか。",
+      "options": [
+        { "id": "A", "text": "Windowsブラウザ → vEthernet (WSL) → WSL2 VM → iptables (DNAT) → コンテナ" },
+        { "id": "B", "text": "Windowsブラウザ → コンテナ → iptables → WSL2 VM" },
+        { "id": "C", "text": "コンテナ → iptables → vEthernet (WSL) → Windowsブラウザ" },
+        { "id": "D", "text": "WSL2 VM → Windowsブラウザ → vEthernet (WSL) → コンテナ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書のシーケンス図と説明の通り、Windowsブラウザ→vEthernet (WSL)→WSL2 VM→iptables (DNAT)→コンテナという順でパケットが転送され、レスポンスが逆順で返る。"
+    },
+    {
+      "id": 28,
+      "question": "05章の確認コマンド一覧で、③Docker Engineの層を確認するために使われているコマンドはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker ps` でSTATUSが`Up`か確認する" },
+        { "id": "B", "text": "`curl http://localhost:8080`（PowerShellまたはブラウザ）" },
+        { "id": "C", "text": "`docker exec web curl http://localhost:80`" },
+        { "id": "D", "text": "`sudo iptables -t nat -L DOCKER -n`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "表の③Docker Engineの行には確認コマンドとして「docker ps でSTATUSがUpか確認」、期待する結果として「コンテナが起動中である」が記載されている。"
+    },
+    {
+      "id": 29,
+      "question": "05章の演習によれば、`docker rm -f web`でコンテナを削除した直後に`sudo iptables -t nat -L DOCKER -n`を実行するとどうなるか。",
+      "options": [
+        { "id": "A", "text": "追加されていたDNATルールが自動的に消えている" },
+        { "id": "B", "text": "DNATルールはそのまま残り続ける" },
+        { "id": "C", "text": "新しいDNATルールが追加される" },
+        { "id": "D", "text": "iptablesコマンド自体がエラーになる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "演習の手順4に「docker rm -fでコンテナを削除した直後にもう一度sudo iptables -t nat -L DOCKER -nを実行し、DNATルールが自動的に消えていることを確認する」とあり、コンテナ削除に連動してルールが消えることを確認する内容になっている。"
+    },
+    {
+      "id": 30,
+      "question": "05章の確認コマンド表によれば、①Windowsでの確認が失敗し②WSL2 VM内での確認が成功する場合、考えられる原因は何か。",
+      "options": [
+        { "id": "A", "text": "localhostフォワーディングか`vEthernet (WSL)`アダプタの問題" },
+        { "id": "B", "text": "コンテナ内のnginxプロセスがクラッシュしている" },
+        { "id": "C", "text": "iptablesのDNATルールが欠けている" },
+        { "id": "D", "text": "docker0ブリッジのサブネット設定が間違っている" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "表の「①→②」の行に「①が失敗し②が成功する場合、localhostフォワーディングかvEthernetアダプタの問題」と明記されている。②が成功しているので③④コンテナ側は正常であり、①と②の間、すなわちWindows-WSL2間の橋渡しに問題がある。"
+    },
+    {
+      "id": 31,
+      "question": "06章の典型パターン1（コンテナは起動しているのにWindowsから繋がらない）の切り分け手順で、最初に確認すべきものは何か。",
+      "options": [
+        { "id": "A", "text": "`docker ps` で対象コンテナのSTATUSを確認する" },
+        { "id": "B", "text": "`sudo iptables -t nat -L DOCKER -n`" },
+        { "id": "C", "text": "`.wslconfig`の設定内容" },
+        { "id": "D", "text": "Windows側のVPN接続状態" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "パターン1の手順1は「docker ps で対象コンテナのSTATUSを確認する。Upになっていない場合は④の問題」であり、まずコンテナが起動しているかどうかから確認を始める。"
+    },
+    {
+      "id": 32,
+      "question": "06章の典型パターン2（WSL再起動後に繋がらなくなった）で、多くの場合の原因として挙げられているのはどれか。",
+      "options": [
+        { "id": "A", "text": "Dockerデーモンが自動起動しておらず、`sudo service docker start`の再実行が必要なこと" },
+        { "id": "B", "text": "WSL2 VMのIPアドレスが変わったことでlocalhostでのアクセスができなくなること" },
+        { "id": "C", "text": "docker0ブリッジ自体が削除されてしまうこと" },
+        { "id": "D", "text": "コンテナイメージが破損すること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「むしろ多くの場合、原因はDockerデーモンが自動起動していないことです」「docker psがCannot connect to the Docker daemonというエラーを返す場合は、この可能性が高いです」とある。IPアドレス変化自体はlocalhostフォワーディングがある限りアクセスに影響しないとも明記されている。"
+    },
+    {
+      "id": 33,
+      "question": "06章の典型パターン3（企業VPN接続中にWSLからインターネットに出られない）への対処として、有効な場合があると挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "mirroredネットワークモードへの切り替え" },
+        { "id": "B", "text": "docker0ブリッジの再作成" },
+        { "id": "C", "text": "`docker network create`でユーザー定義bridgeを作成すること" },
+        { "id": "D", "text": "`wsl --shutdown`のみを実行すること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「03-wsl2-network-modes.mdで紹介したmirroredネットワークモードへの切り替えが有効な場合があります」と記載されている。ただし社内プロキシ証明書自体が原因のケースもあると補足されている。"
+    },
+    {
+      "id": 34,
+      "question": "06章の典型パターン4（コンテナ同士が名前解決できない）の解決策として挙げられているのはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker network create`でユーザー定義bridgeを作り、コンテナを接続し直す" },
+        { "id": "B", "text": "mirroredモードに切り替える" },
+        { "id": "C", "text": "`wsl --shutdown`を実行する" },
+        { "id": "D", "text": "`.wslconfig`のnetworkingModeを変更する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「既定bridgeを使っている場合は、docker network createでユーザー定義bridgeを作り、コンテナを接続し直すことで解決します」と明記されている。既定のdocker0には組み込みDNSが設定されないことが04章で説明されている。"
+    },
+    {
+      "id": 35,
+      "question": "06章の典型パターン5（複数ディストロで同じポートが競合する）の切り分けに使うコマンドとして挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "`sudo ss -tulpn | grep <port>`" },
+        { "id": "B", "text": "`docker network inspect`" },
+        { "id": "C", "text": "`ip link show type bridge`" },
+        { "id": "D", "text": "`wsl --shutdown`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「sudo ss -tulpn | grep <port>をそれぞれのディストロで確認し、どちらが専有しているかを特定します」とあり、複数ディストロ間のポート競合を切り分けるための具体的なコマンドとして示されている。"
+    }
+  ]
+}

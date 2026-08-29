@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "08章「Security and Enterprise Network」の学習範囲として、READMEに明記されて『いない』ものはどれか。",
+      "options": [
+        { "id": "A", "text": "企業プロキシ・社内CA証明書への対応" },
+        { "id": "B", "text": "rootless Dockerの背景と制約" },
+        { "id": "C", "text": "Kubernetesクラスタの構築手順" },
+        { "id": "D", "text": "Secret管理の基本と実務での推奨アプローチ" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "READMEの「この章で学ぶこと」には、企業プロキシ・社内CA証明書対応、rootless Dockerの背景と制約、Secret管理、Docker Desktopライセンスの4項目が挙げられているが、Kubernetesクラスタの構築は本章の範囲に含まれていない。"
+    },
+    {
+      "id": 2,
+      "question": "READMEの「学習目標」に挙げられているプロキシ設定に関する到達目標として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL・apt・dockerdそれぞれのプロキシ設定を実施できる" },
+        { "id": "B", "text": "クラウドのロードバランサでプロキシを構成できる" },
+        { "id": "C", "text": "Windows側のレジストリでプロキシを一括設定できる" },
+        { "id": "D", "text": "VPNクライアントのルーティング設定ができる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "READMEの学習目標には「WSL・apt・dockerdそれぞれのプロキシ設定を実施できる」と明記されており、これが本章前半（01章）で扱われる内容の到達目標となっている。"
+    },
+    {
+      "id": 3,
+      "question": "READMEの「演習案」に挙げられているシークレット管理の実践方法はどれか。",
+      "options": [
+        { "id": "A", "text": "クラウドのシークレットマネージャに全て移行する" },
+        { "id": "B", "text": "`.env`ファイルと`.gitignore`でシークレットを管理する" },
+        { "id": "C", "text": "パスワードをdocker-compose.ymlに直接記述する" },
+        { "id": "D", "text": "Docker Swarmを導入してdocker secretのみを使う" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "README「演習案」の2番目に「`.env`ファイルと`.gitignore`でシークレットを管理する」とあり、これが本章で扱う具体的な演習内容として挙げられている。"
+    },
+    {
+      "id": 4,
+      "question": "READMEの「成功判定」に挙げられている達成基準として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Desktopの操作をGUIで完全に習得している" },
+        { "id": "B", "text": "企業ネットワーク環境特有の設定を一通り説明できる" },
+        { "id": "C", "text": "Kubernetesのマニフェストを作成できる" },
+        { "id": "D", "text": "全てのコンテナをrootless modeで運用している" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "READMEの「成功判定」には「企業ネットワーク環境特有の設定を一通り説明できる」「シークレットをリポジトリに含めないための具体的な手順を実践できる」の2点が挙げられており、Bが該当する。"
+    },
+    {
+      "id": 5,
+      "question": "READMEによると、08章の学習を終えた後に進む次章はどれか。",
+      "options": [
+        { "id": "A", "text": "02-environment-setup" },
+        { "id": "B", "text": "07-troubleshooting" },
+        { "id": "C", "text": "09-capstone-project" },
+        { "id": "D", "text": "01-proxy-and-certificates（本章内の再学習）" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "READMEの「次章へ」には`../09-capstone-project/README.md`へのリンクが示されており、08章の後は09-capstone-projectに進む構成になっている。"
+    },
+    {
+      "id": 6,
+      "question": "`/etc/environment`にプロキシ設定を追記しても、`sudo apt install`のようなコマンドではプロキシが効かない理由として、01章で説明されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "aptはネットワーク設定を一切参照しない仕組みになっているため" },
+        { "id": "B", "text": "sudoが既定で環境変数をリセットしてからコマンドを実行するため（`Defaults env_reset`）" },
+        { "id": "C", "text": "`/etc/environment`はWindows側のファイルであり、WSLからは参照できないため" },
+        { "id": "D", "text": "aptはroot以外のユーザーでしか実行できないため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、sudoは`/etc/sudoers`の`Defaults env_reset`により既定で環境変数をリセットしてからコマンドを実行するため、`/etc/environment`で設定した`http_proxy`がsudo経由のコマンドには反映されないと説明されている。これは`LD_PRELOAD`等を悪用した権限昇格を防ぐためのセキュリティ設計である。"
+    },
+    {
+      "id": 7,
+      "question": "apt自体にプロキシを反映させるために、01章で示されている正しい設定方法はどれか。",
+      "options": [
+        { "id": "A", "text": "`~/.bashrc`に`export http_proxy`を追記するだけでよい" },
+        { "id": "B", "text": "`/etc/apt/apt.conf.d/proxy.conf`に`Acquire::http::Proxy`を記述する" },
+        { "id": "C", "text": "`/etc/sudoers`を全面的に書き換えて環境変数を常に保持させる" },
+        { "id": "D", "text": "Windows側の設定アプリでシステム全体のプロキシを変更する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、`Acquire::http::Proxy`はapt本体が読み込む設定であり、sudo経由かどうかに関わらず常に適用されるため、`/etc/apt/apt.conf.d/proxy.conf`に直接書き込む方法が示されている。`sudoers`全体を変更する方法もあるが、影響範囲が広いためapt専用ファイルで完結させる方が安全とされている。"
+    },
+    {
+      "id": 8,
+      "question": "`dockerd`自体がイメージをpullする際にプロキシを経由させたい場合、01章で示されている設定方法はどれか。",
+      "options": [
+        { "id": "A", "text": "`docker pull`コマンドに毎回`--proxy`オプションを付与する" },
+        { "id": "B", "text": "`/etc/systemd/system/docker.service.d/http-proxy.conf`にsystemdのdrop-in設定を作成し、`daemon-reload`と`docker`の再起動を行う" },
+        { "id": "C", "text": "`docker-compose.yml`の`environment`にプロキシURLを直接書く" },
+        { "id": "D", "text": "Dockerfileの`ENV`にプロキシを直接設定する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、`/etc/systemd/system/docker.service.d/http-proxy.conf`に`HTTP_PROXY`等を設定するsystemdのdrop-in設定を作成し、`sudo systemctl daemon-reload`と`sudo systemctl restart docker`で反映させる方法が示されている。"
+    },
+    {
+      "id": 9,
+      "question": "01章では、プロキシの認証情報をDockerfile内に直接`ENV`で書き込んではいけない理由として何を挙げているか。",
+      "options": [
+        { "id": "A", "text": "Dockerfileの構文として`ENV`はプロキシ用途には使えないため" },
+        { "id": "B", "text": "ビルド後のイメージレイヤに認証情報が残り、イメージを配布した相手に漏洩するリスクがあるため" },
+        { "id": "C", "text": "`ENV`はビルド時のみ有効で実行時には反映されないため" },
+        { "id": "D", "text": "Docker Hubへのpushが自動的に拒否されるため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、Dockerfileに認証情報を直接`ENV`で書き込むと、ビルド後のイメージレイヤに認証情報が残ってしまい、イメージを配布した相手に漏洩するリスクがあると説明されている。また`--build-arg`も既定ではレイヤ履歴に残る点に注意し、認証情報を含む場合はBuildKitの`--secret`機能の利用が推奨されている。"
+    },
+    {
+      "id": 10,
+      "question": "社内CA証明書をコンテナ内でも使えるようにするために、01章で説明されている正しい手順はどれか。",
+      "options": [
+        { "id": "A", "text": "WSL側で`update-ca-certificates`を実行すれば、コンテナ側にも自動的に反映される" },
+        { "id": "B", "text": "Dockerfile側で`COPY company-ca.crt`と`RUN update-ca-certificates`を明示的に記述する必要がある" },
+        { "id": "C", "text": "コンテナはホストとファイルシステムを共有するため、追加設定は不要である" },
+        { "id": "D", "text": "証明書はDocker Engineが自動的に全コンテナへ配布する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、WSL側とコンテナ側は別々のファイルシステムを持つため、WSL側に証明書を入れただけでは不十分であり、Dockerfile内で`COPY company-ca.crt /usr/local/share/ca-certificates/`と`RUN update-ca-certificates`を明示的に記述してビルド時にコピーする必要があると説明されている。"
+    },
+    {
+      "id": 11,
+      "question": "02章によると、rootless modeとはどのような仕組みか。",
+      "options": [
+        { "id": "A", "text": "コンテナ内のプロセスのみをroot権限で動作させる仕組み" },
+        { "id": "B", "text": "`dockerd`自体が一般ユーザー権限で動作し、root権限を必要としない仕組み" },
+        { "id": "C", "text": "Docker Desktopでのみ利用できるroot権限昇格の仕組み" },
+        { "id": "D", "text": "sudoを使わずにdockerグループへ自動的に所属させる仕組み" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では「rootless modeでは、`dockerd`自体が一般ユーザー権限で動作し、root権限を必要としません」と説明されており、これによりdockerグループ所属がroot相当になるという既定インストールの構図を回避できる。"
+    },
+    {
+      "id": 12,
+      "question": "02章では、既定（root権限で動く）Docker Engineにおいて「dockerグループ所属＝root相当」となる理由をどう説明しているか。",
+      "options": [
+        { "id": "A", "text": "dockerグループのユーザーは自動的にsudoersファイルへ追加されるため" },
+        { "id": "B", "text": "`dockerd`自体がroot権限で動作しており、`docker`コマンドを実行できることは`dockerd`にホストの任意のマウントやroot実行を指示できることと等価であるため" },
+        { "id": "C", "text": "Docker EngineがWindows側の管理者権限を自動的に借用する仕様のため" },
+        { "id": "D", "text": "コンテナ内のrootユーザーが常にホストのrootと同一のユーザーIDを持つため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、`dockerd`自体がroot権限で動作しているため、`docker`コマンドを実行できること自体が`dockerd`にホストの任意のマウント・root実行を指示できることと等価であり、その結果`docker`グループへの所属が実質的にroot権限そのものと等価になると説明されている。"
+    },
+    {
+      "id": 13,
+      "question": "02章で示された`docker run -it -v /:/hostroot ubuntu bash`という例が具体的に示しているリスクは何か。",
+      "options": [
+        { "id": "A", "text": "コンテナが起動できずエラーになること" },
+        { "id": "B", "text": "sudoを一度も使わずに、通常は`sudo`が無いと読めない`/etc/shadow`のようなホスト側ファイルにコンテナ内から読み書きできてしまうこと" },
+        { "id": "C", "text": "ホストのネットワーク設定が自動的に初期化されてしまうこと" },
+        { "id": "D", "text": "コンテナ内のファイルがホストから一切参照できなくなること" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、ホストのルートディレクトリ全体をコンテナ内の`/hostroot`にbind mountすると、コンテナ内のプロセスがroot権限で動いているため、`sudo`を一度も使っていないにもかかわらず`/etc/shadow`のような通常は`sudo`なしでは読めないファイルにアクセスできてしまう例が示されている。"
+    },
+    {
+      "id": 14,
+      "question": "02章で挙げられているrootless modeの制約として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナの起動が一切できない" },
+        { "id": "B", "text": "1024番未満の特権ポートへの直接bindができない場合がある" },
+        { "id": "C", "text": "イメージのpullが一切できない" },
+        { "id": "D", "text": "docker-composeが利用できない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文の「rootless modeの制約」には、1024番未満の特権ポートへの直接bindができない場合がある（回避策として`slirp4netns`のポートフォワーディングや`CAP_NET_BIND_SERVICE`の付与がある）ことや、一部のネットワーク・ストレージドライバに制約があることが挙げられている。"
+    },
+    {
+      "id": 15,
+      "question": "02章では、本教材におけるrootless modeの位置づけをどのように説明しているか。",
+      "options": [
+        { "id": "A", "text": "本教材の全ての章はrootless modeの導入を前提としている" },
+        { "id": "B", "text": "rootless modeは実務で必須ではなく、セキュリティ要件が特に厳しい環境向けの選択肢である" },
+        { "id": "C", "text": "rootless modeはDocker Desktopでしか利用できない機能である" },
+        { "id": "D", "text": "rootless modeは非推奨であり、将来的に廃止予定である" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「rootless modeは実務で必須というわけではなく、セキュリティ要件が特に厳しい環境向けの選択肢です」とあり、本教材のこれまでの章はすべて既定（root権限の`dockerd`）のインストールを前提にしていると説明されている。導入前には自組織のポリシーで実際に要求されているか確認することが推奨されている。"
+    },
+    {
+      "id": 16,
+      "question": "03章では、`docker-compose.yml`に直接パスワードを書き込んだ場合のリスクとして何を挙げているか。",
+      "options": [
+        { "id": "A", "text": "`docker inspect <container>`で環境変数の値が平文のまま見えてしまう" },
+        { "id": "B", "text": "docker-compose自体が起動しなくなる" },
+        { "id": "C", "text": "パスワードが自動的に暗号化されるため問題は生じない" },
+        { "id": "D", "text": "コンテナのビルド速度が著しく低下する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文では、`docker-compose.yml`に直接パスワードを書くと、`docker inspect <container>`で環境変数の値が平文のまま見えることや、`docker history <image>`にビルド時の値が残る場合があること、Gitにコミットすると履歴からも消せなくなることがリスクとして挙げられている。"
+    },
+    {
+      "id": 17,
+      "question": "03章で説明されている`.env`ファイルとDocker Composeの関係、および取り扱い上の注意として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`.env`ファイルは明示的に`docker-compose --env-file`を指定しない限り読み込まれない" },
+        { "id": "B", "text": "Docker Composeは同じディレクトリの`.env`ファイルを自動的に読み込むため、`.env`は必ず`.gitignore`に追加してリポジトリにコミットしないようにする" },
+        { "id": "C", "text": "`.env`ファイルはdocker-compose.ymlの`${VAR}`構文とは無関係である" },
+        { "id": "D", "text": "`.env`ファイルはコンテナ起動後にのみ読み込まれる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、Docker Composeは同じディレクトリに`.env`ファイルがあれば自動的に読み込み、`docker-compose.yml`内で`${POSTGRES_PASSWORD}`のように参照できると説明されている。ただし`.env`ファイルは必ず`.gitignore`に追加し、リポジトリにコミットしないよう注意喚起されている。"
+    },
+    {
+      "id": 18,
+      "question": "03章で紹介されているDocker Secrets（Swarm機能）について、本教材での位置づけとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "本教材の全演習で必須の機能として詳しく扱われている" },
+        { "id": "B", "text": "Swarmモード専用の仕組みであり、本教材ではSwarm自体を扱わないため深入りせず、クラスタ運用を検討する段階の選択肢として位置づけられている" },
+        { "id": "C", "text": "Docker Secretsは`.env`ファイルの完全な代替として、単一ホスト運用でも即座に導入すべきとされている" },
+        { "id": "D", "text": "Docker Secretsを使うにはDocker Desktopのライセンスが別途必要である" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、`docker secret`はSwarmモード専用の仕組みであり、より安全にシークレットを渡せるものの、本教材ではSwarmモード自体を扱わないため深入りせず、単一ホスト運用を超えてクラスタ運用を検討する段階になったら選択肢に入る、という位置づけだけ述べるにとどめている。"
+    },
+    {
+      "id": 19,
+      "question": "03章で述べられている、実務（本番環境やCI/CD環境）でのシークレット管理の推奨アプローチはどれか。",
+      "options": [
+        { "id": "A", "text": "`.env`ファイルをそのまま本番環境のリポジトリにコミットして共有する" },
+        { "id": "B", "text": "クラウドプロバイダのシークレットマネージャやCI/CDプラットフォームの暗号化されたシークレット機能を使い、リポジトリには一切平文のシークレットを置かない" },
+        { "id": "C", "text": "パスワードをDockerfileの`ENV`に直接埋め込んでビルドする" },
+        { "id": "D", "text": "全ての環境で`.env`ファイルによる管理に統一する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、`.env`ファイルによる管理はローカル開発環境に留め、本番環境やCI/CD環境ではクラウドプロバイダのシークレットマネージャやCI/CDプラットフォームのシークレット機能（暗号化された環境変数など）を使い、リポジトリには一切平文のシークレットを置かないことが推奨されている。"
+    },
+    {
+      "id": 20,
+      "question": "03章の章末チェックリストの内容と整合する記述はどれか。",
+      "options": [
+        { "id": "A", "text": "環境変数に直接シークレットを書くリスクを説明できることが到達目標の一つである" },
+        { "id": "B", "text": "Kubernetesのsecretリソースを作成できることが到達目標である" },
+        { "id": "C", "text": "rootless modeを導入できることが到達目標である" },
+        { "id": "D", "text": "Docker Desktopのライセンス条件を暗記することが到達目標である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03章の章末チェックリストには「環境変数に直接シークレットを書くリスクを説明できる」「`.env`ファイルと`.gitignore`の組み合わせを実践できた」「実務ではリポジトリに平文シークレットを置かない方針を理解している」の3点が挙げられており、Aが該当する。"
+    },
+    {
+      "id": 21,
+      "question": "04章によると、Docker Desktopが無料で利用できるケースとして挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "従業員数が一定規模を超える全ての企業" },
+        { "id": "B", "text": "個人利用・小規模事業者・教育機関・非商用のオープンソースプロジェクト" },
+        { "id": "C", "text": "年間売上高が一定基準を超える企業のみ" },
+        { "id": "D", "text": "Docker Business契約を結んでいる企業のみ" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では「Docker Desktopは、個人利用・小規模事業者・教育機関・非商用のオープンソースプロジェクトでは無料で利用できますが、一定規模以上の企業では有償サブスクリプション（Docker Business等）の契約が必要になります」と説明されている。"
+    },
+    {
+      "id": 22,
+      "question": "04章で述べられている、Docker Desktopの有償サブスクリプションが必要になる目安として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "使用しているOSがWindowsかどうか" },
+        { "id": "B", "text": "従業員数や年間売上高が基準になることが一般的である" },
+        { "id": "C", "text": "コンテナの起動回数が一定数を超えるかどうか" },
+        { "id": "D", "text": "WSL2を利用しているかどうか" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「一定規模以上の企業（従業員数や年間売上高が基準になることが一般的である）では有償サブスクリプション（Docker Business等）の契約が必要になります」とあり、Bが該当する。ただし具体的な金額や適用条件はDocker社の方針変更により随時更新されるため、公式サイトでの確認が必要と注意喚起されている。"
+    },
+    {
+      "id": 23,
+      "question": "04章で再確認されている、本教材がDocker Desktopではなく「WSL内へのDocker Engine直接インストール」を主軸に選んだ理由として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker EngineはOSSでありライセンス費用が発生しないこと、また内部の仕組みが見える学習効果があること" },
+        { "id": "B", "text": "Docker Desktopは技術的にWSL2上では一切動作しないため" },
+        { "id": "C", "text": "Docker Engineの方が常にビルド速度が高速であるため" },
+        { "id": "D", "text": "Docker DesktopはLinuxコンテナをサポートしていないため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文では、本教材がDocker Engine直接導入を選んだ理由として「Docker Engine自体はOSSであり、ライセンス費用が発生しない」ことと「内部の仕組み（Dockerデーモンの起動、ネットワーク構成など）が見える学習効果がある」ことの2点が挙げられている。"
+    },
+    {
+      "id": 24,
+      "question": "04章によると、会社で既にDocker Desktopのライセンス契約済みで導入されている環境がある場合、本教材の内容との関係はどうなるか。",
+      "options": [
+        { "id": "A", "text": "本教材の内容はDocker Desktop環境では一切通用しない" },
+        { "id": "B", "text": "`docker`コマンド自体は同じであり、本教材で学んだ内容（イメージ・コンテナ操作、ネットワーク、Compose、トラブルシューティング）はDocker Desktop環境でもそのまま活用できる" },
+        { "id": "C", "text": "Docker Desktop環境ではdocker-composeが使えないため別途学習し直す必要がある" },
+        { "id": "D", "text": "Docker Desktop環境に切り替えるには全てのイメージを再ビルドする必要がある" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では、既にライセンス契約済みでDocker Desktopが会社で導入されている環境であれば、それを使うこと自体には何の問題もなく、`docker`コマンド自体は同じであり、本教材で学んだ内容はDocker Desktop環境でもそのまま活用できると説明されている。異なるのはリソース設定やWSL統合の操作画面がGUIになっている点だけである。"
+    },
+    {
+      "id": 25,
+      "question": "04章では、Docker Desktopのライセンス条件を実務で導入検討する際にどうすべきと述べているか。",
+      "options": [
+        { "id": "A", "text": "本教材に記載された金額や条件をそのまま最終判断の根拠にしてよい" },
+        { "id": "B", "text": "具体的な金額や適用条件はDocker社の方針変更により随時更新されるため、必ずDocker公式サイトの最新情報を確認する" },
+        { "id": "C", "text": "ライセンス条件の確認は不要であり、常に無料で利用できる" },
+        { "id": "D", "text": "ライセンス条件はWSLのバージョンによって決まる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「具体的な金額や適用条件はDocker社の方針変更により随時更新されるため、実務で導入を検討する際は必ずDocker公式サイトの最新情報を確認してください。本教材はライセンス条件の詳細を保証するものではありません」と明記されている。"
+    }
+  ]
+}

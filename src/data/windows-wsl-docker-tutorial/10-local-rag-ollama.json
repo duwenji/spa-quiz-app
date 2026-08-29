@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "この章（10章）で学ぶ内容として明記されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "Kubernetesを使ったAnythingLLMのスケーリング" },
+        { "id": "B", "text": "AnythingLLM + OllamaによるローカルRAG環境の全体構成とGPU passthrough" },
+        { "id": "C", "text": "クラウドGPUインスタンスの料金比較" },
+        { "id": "D", "text": "AnythingLLMのソースコードのビルド方法" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "README.mdの「この章で学ぶこと」には、AnythingLLM + OllamaによるローカルRAG環境の全体構成とGPU passthroughが明記されています。KubernetesでのスケーリングやクラウドGPUの料金比較、ソースビルドは扱われていません。"
+    },
+    {
+      "id": 2,
+      "question": "README.mdの「演習案」に挙げられている手順の順序として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "日本語ドキュメントを取り込む → docker-composeを起動する → モデルをpullする" },
+        { "id": "B", "text": "GPU passthroughを設定する → コンテナランタイムを自作する → モデルをpullする" },
+        { "id": "C", "text": "AnythingLLMをソースからビルドする → Ollamaをpullする → docker-composeを書く" },
+        { "id": "D", "text": "docker-composeでOllama + AnythingLLMを起動する → qwen3-embeddingとqwen3をpullしAnythingLLMに設定する → 日本語ドキュメントを取り込み質問応答を検証する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "README.mdの演習案は、(1)docker-composeでの起動、(2)qwen3-embeddingとqwen3のpullとAnythingLLMへの設定、(3)日本語ドキュメントの取り込みと質問応答の検証、という順序で構成されています。"
+    },
+    {
+      "id": 3,
+      "question": "README.mdの「成功判定」は、どのファイルの章末チェックリストを基準としているか。",
+      "options": [
+        { "id": "A", "text": "03-rag-workspace-and-verification.md" },
+        { "id": "B", "text": "01-architecture-and-compose-setup.md" },
+        { "id": "C", "text": "02-selecting-japanese-models.md" },
+        { "id": "D", "text": "04-container-runtime-internals.md" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「成功判定」には「03-rag-workspace-and-verification.md の章末チェックリストの全項目にチェックが付けられる」と明記されており、03ファイルが基準になっています。"
+    },
+    {
+      "id": 4,
+      "question": "README.mdに記載された本章の「学習目標」に含まれないものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL2 + Docker EngineでAnythingLLMとOllamaを連携させて起動できる" },
+        { "id": "B", "text": "用途とハードウェアに応じてEmbedding/LLMモデルを選定できる" },
+        { "id": "C", "text": "AnythingLLMのプラグイン開発方法を習得する" },
+        { "id": "D", "text": "AnythingLLMでRAGワークスペースを作成し、日本語ドキュメントに対する質問応答を検証できる" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "README.mdの学習目標には起動・モデル選定・ワークスペース作成と検証の3点が挙げられていますが、プラグイン開発については記載がありません。"
+    },
+    {
+      "id": 5,
+      "question": "この章で「発展」的な内容として位置づけられているのはどれか。",
+      "options": [
+        { "id": "A", "text": "Windows Subsystem for AndroidとのRAG連携" },
+        { "id": "B", "text": "`dockerd`/`containerd`/`runc`によるコンテナランタイムの内部構造" },
+        { "id": "C", "text": "AnythingLLMのマルチテナント認証設定" },
+        { "id": "D", "text": "Kubernetes上でのOllamaのオートスケーリング" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "README.mdの「この章で学ぶこと」には「（発展）`dockerd`/`containerd`/`runc`によるコンテナランタイムの内部構造」と明記されており、04ファイルで扱われる発展内容です。"
+    },
+    {
+      "id": 6,
+      "question": "AnythingLLMとOllamaの役割分担についての説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "AnythingLLMがLLM推論を行い、Ollamaはドキュメント管理のみを担当する" },
+        { "id": "B", "text": "両者はどちらも同じ推論処理を独立して行い、結果を比較する" },
+        { "id": "C", "text": "OllamaはChat UIを提供し、AnythingLLMはGPUドライバの管理のみを行う" },
+        { "id": "D", "text": "Ollamaが「LLM推論エンジン」、AnythingLLMが「RAGオーケストレーション + Chat UI」を担当し、AnythingLLM自体は推論を行わない" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "01ファイルには「Ollamaは『LLM推論エンジン』、AnythingLLMは『RAGオーケストレーション + Chat UI』という役割分担」で「AnythingLLM自体は推論を行わず、Ollamaのapiにhttpでリクエストを投げるだけ」と説明されています。"
+    },
+    {
+      "id": 7,
+      "question": "`docker-compose.yml`の`OLLAMA_BASE_PATH`に`http://ollama:11434`のように**サービス名**を指定する理由として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Composeが作るユーザー定義bridgeネットワーク上ではサービス名がそのままホスト名として名前解決されるため" },
+        { "id": "B", "text": "Ollamaのコンテナ名は起動のたびにランダムに変わるため、固定のサービス名を使わないと接続できない" },
+        { "id": "C", "text": "サービス名を使うとGPU passthroughが自動的に有効になるため" },
+        { "id": "D", "text": "localhostでは別コンテナへの通信ができないため、代わりにサービス名をIPアドレスとして使う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルには「06章で学んだ通り、Composeが作るユーザー定義bridgeネットワーク上ではサービス名がそのままホスト名として名前解決される」ため、コンテナ名ではなくサービス名`ollama`を指定すると説明されています。"
+    },
+    {
+      "id": 8,
+      "question": "WSL2上のDocker Desktop/Docker EngineにおけるNVIDIA GPU対応の制約として本文に記載されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "GPUは常に個別のUUIDを指定して1枚ずつ割り当てる必要がある" },
+        { "id": "B", "text": "WSL2ではGPU passthrough自体がサポートされていない" },
+        { "id": "C", "text": "`--gpus all`相当（`count: all`）のみサポートされ、GPUを個別のindexやUUIDで指定することはできない" },
+        { "id": "D", "text": "複数GPU環境では自動的に最も高性能なGPUのみが選択される" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "01ファイルには「WSL2上のDocker Desktop/Docker EngineでのNVIDIA GPU対応は`--gpus all`相当（`count: all`）のみサポートされており、GPUを個別のindexやUUIDで指定することはできません」と明記されています。"
+    },
+    {
+      "id": 9,
+      "question": "`ollama_data`と`anythingllm_storage`という2つのnamed volumeに永続化される内容の組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`ollama_data`にはAnythingLLMのChat UI設定、`anythingllm_storage`にはOllamaのモデルファイル" },
+        { "id": "B", "text": "`ollama_data`にはモデルファイル、`anythingllm_storage`にはAnythingLLM側の設定・ベクトルDB・取り込んだドキュメント" },
+        { "id": "C", "text": "両方のvolumeに同じ内容が複製されて保存される" },
+        { "id": "D", "text": "`ollama_data`にはGPUドライバ、`anythingllm_storage`にはモデルファイル" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "01ファイルには「モデルファイル（数GB〜十数GB）は`ollama_data`に、AnythingLLM側の設定・ベクトルDB・取り込んだドキュメントは`anythingllm_storage`に永続化されます」と説明されています。"
+    },
+    {
+      "id": 10,
+      "question": "GPU passthroughを有効にするための手順として01ファイルに記載されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "Windows側で`nvidia-smi`をアンインストールしてからdocker composeを再起動する" },
+        { "id": "B", "text": "AnythingLLMの管理画面からGPUモードを有効化するだけでよい" },
+        { "id": "C", "text": "`ollama pull --gpu`コマンドでGPU対応版のモデルを取得する" },
+        { "id": "D", "text": "`sudo nvidia-ctk runtime configure --runtime=docker`を実行しDockerを再起動した上で、`docker-compose.yml`の`ollama`サービスに`deploy.resources.reservations.devices`でGPU予約を追加する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "01ファイルでは、`nvidia-ctk runtime configure --runtime=docker`の実行とDocker再起動、そして`docker-compose.yml`へのGPU予約（`deploy.resources.reservations.devices`）追加という手順が示されています。"
+    },
+    {
+      "id": 11,
+      "question": "RAGにおけるEmbeddingモデルとチャット用LLMモデルの役割の違いとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Embeddingモデルはドキュメントと質問を数値ベクトルに変換し類似度検索に使い、チャット用LLMモデルは検索結果を踏まえて回答文を生成する" },
+        { "id": "B", "text": "Embeddingモデルが回答文を生成し、チャット用LLMモデルが検索を行う" },
+        { "id": "C", "text": "両モデルは同じ処理を行うため、どちらか一方だけあればよい" },
+        { "id": "D", "text": "EmbeddingモデルはGPUなしでは動作せず、チャット用LLMモデルはCPUのみで動作する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02ファイルには「Embeddingモデル：ドキュメントとユーザーの質問を数値ベクトルに変換し、意味的な類似度検索に使う」「チャット用LLMモデル：検索で見つかった関連ドキュメントを踏まえて、実際に回答文を生成する」と説明されています。"
+    },
+    {
+      "id": 12,
+      "question": "`bge-m3`について02ファイルで説明されている内容として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Ollama公式ライブラリに含まれる推奨Embeddingモデルである" },
+        { "id": "B", "text": "Google製の軽量Embeddingモデルで、低スペック環境向けである" },
+        { "id": "C", "text": "多言語RAGでよく紹介されるが、Ollama公式ライブラリには存在しない（`bge-large`のみ存在する）" },
+        { "id": "D", "text": "チャット用LLMモデルであり、Embeddingには使用できない" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "02ファイルには「`bge-m3`は多言語RAGでよく紹介されますが、Ollama公式ライブラリには存在しません（`bge-large`のみ）」とあり、そのため`qwen3-embedding`を第一候補とすることが推奨されています。"
+    },
+    {
+      "id": 13,
+      "question": "8〜16GB VRAM環境向けに02ファイルの表で推奨されているチャット用LLMモデルはどれか。",
+      "options": [
+        { "id": "A", "text": "embeddinggemma" },
+        { "id": "B", "text": "Qwen 3（`qwen3:8b`）" },
+        { "id": "C", "text": "Gemma 3（`gemma3:4b`）" },
+        { "id": "D", "text": "Qwen 3（`qwen3:14b`）" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "02ファイルの表では、8〜16GB VRAM向けに「Qwen 3（推奨）」として`qwen3:8b`が挙げられ、「ローカル日本語性能で高い評価」とされています。`qwen3:14b`は16GB以上向け、`gemma3:4b`はGPUなし/8GB前後向けです。"
+    },
+    {
+      "id": 14,
+      "question": "Llama-3.1-Swallow 8B instructやELYZA-japanese-Llama-3 8Bのようなモデルを導入する際に、02ファイルが注意を促している点は何か。",
+      "options": [
+        { "id": "A", "text": "これらのモデルはOllamaでは一切利用できない" },
+        { "id": "B", "text": "これらのモデルはEmbedding専用であり、チャットには使用できない" },
+        { "id": "C", "text": "GPUがなければpullすらできない" },
+        { "id": "D", "text": "個人・コミュニティの名前空間で公開されているため、配布元のREADMEでライセンス条件（商用利用可否）とベースモデルの出所を確認すべき" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "02ファイルには「Swallow・ELYZA系は個人・コミュニティの名前空間（`schroneko/...`、`dsasai/...`）で公開されているモデルで、Ollama公式が管理しているものではありません」とあり、ライセンス条件とベースモデルの出所を確認するよう促しています。"
+    },
+    {
+      "id": 15,
+      "question": "pull済みのモデルを実際にAnythingLLMで使用するために必要な手順として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker-compose.yml`の環境変数は初期値として使われるだけなので、pull後にAnythingLLMの管理画面（LLM Preference / Embedding Preference）でモデル名を選び直す必要がある" },
+        { "id": "B", "text": "`docker-compose.yml`の環境変数を設定すれば、AnythingLLM側で追加設定は一切不要である" },
+        { "id": "C", "text": "モデルをpullすると自動的にAnythingLLMが再起動し、最新のモデルが選択される" },
+        { "id": "D", "text": "AnythingLLMの管理画面ではEmbedding Preferenceのみ設定でき、LLM Preferenceは`docker-compose.yml`でしか変更できない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02ファイルには「`docker-compose.yml`で設定した環境変数は初期値として使われるだけなので、pull後にUI側でモデル名を選び直す必要があります」と説明されています。"
+    },
+    {
+      "id": 16,
+      "question": "AnythingLLMにおける「ワークスペース」の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "GPUリソースを割り当てる単位" },
+        { "id": "B", "text": "Dockerコンテナそのものを指す用語" },
+        { "id": "C", "text": "ドキュメントと会話履歴を単位ごとに管理する仕組み" },
+        { "id": "D", "text": "Ollamaのモデルファイルを保存するディレクトリ" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "03ファイルには「AnythingLLMでは『ワークスペース』単位でドキュメントと会話履歴を管理します」と説明されています。"
+    },
+    {
+      "id": 17,
+      "question": "ドキュメントアップロード後にAnythingLLMが自動的に実行する処理の流れ（03ファイルのシーケンス図）として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "ドキュメント全体を1つのベクトルに変換 → チャット用LLMに送信" },
+        { "id": "B", "text": "チャンク分割 → 各チャンクをOllama（Embedding）に送りベクトル化 → ベクトルと原文チャンクを内蔵ベクトルDBに保存" },
+        { "id": "C", "text": "チャンク分割 → チャット用LLMで直接回答を生成 → 結果をベクトルDBに保存" },
+        { "id": "D", "text": "ドキュメントをそのままOllamaのモデルファイルとして保存" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "03ファイルのシーケンス図では、AnythingLLMがドキュメントをチャンク分割し、各チャンクをOllama（Embedding）に送ってベクトル化してもらい、返ってきたベクトルと原文チャンクを内蔵ベクトルDBに保存する流れが示されています。"
+    },
+    {
+      "id": 18,
+      "question": "RAGが実際に機能しているかを検証する方法として03ファイルが推奨しているものはどれか。",
+      "options": [
+        { "id": "A", "text": "モデルの一般知識で答えられる質問をして、正答率を測定する" },
+        { "id": "B", "text": "ドキュメントを一切アップロードせずに質問し、エラーが出ないことを確認する" },
+        { "id": "C", "text": "`docker compose logs`だけを見て検証する" },
+        { "id": "D", "text": "アップロードしたドキュメントにしか書かれていない内容を質問し、回答に引用（citations）が表示されるかを確認する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "03ファイルには「アップロードしたドキュメントにしか書かれていない内容を質問することで確認します」「『Show citations』的な表示（参照元チャンクの引用）が出ていれば…確認できます」とあり、一般知識で答えられる質問ではRAGの効果が区別できないと説明されています。"
+    },
+    {
+      "id": 19,
+      "question": "日本語RAGでチャンクサイズに関して03ファイルが指摘している問題点はどれか。",
+      "options": [
+        { "id": "A", "text": "AnythingLLMの既定のチャンク分割は文字数ベースの単純な分割で、日本語の文区切り（句点など）を特別扱いしないため、長い技術文書で文の途中でチャンクが切れることがある" },
+        { "id": "B", "text": "日本語ドキュメントはチャンク分割自体がサポートされていない" },
+        { "id": "C", "text": "チャンクサイズは固定値で変更できない" },
+        { "id": "D", "text": "チャンクサイズを大きくするほど常に精度が向上する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03ファイルには「AnythingLLMの既定のチャンク分割は文字数ベースの単純な分割で、日本語の文区切り（句点など）を特別扱いしません」「長い技術文書では、文の途中でチャンクが切れて意味が分断されることがあります」と説明されています。"
+    },
+    {
+      "id": 20,
+      "question": "Embedding Preferenceのモデルを変更した場合に必要な対応として03ファイルが述べているものはどれか。",
+      "options": [
+        { "id": "A", "text": "何もしなくても自動的に既存ベクトルが新モデル用に変換される" },
+        { "id": "B", "text": "チャット用LLMモデルも同時に変更しなければならない" },
+        { "id": "C", "text": "既存のベクトルと新しい質問のベクトルが別モデルの出力になり検索精度が落ちるため、ドキュメントを再取り込み（re-embed）する" },
+        { "id": "D", "text": "ワークスペースを削除して作り直す以外に方法はない" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "03ファイルには「一度ドキュメントを取り込んだ後にEmbedding Preferenceのモデルを変更すると、既存のベクトルと新しい質問のベクトルが別モデルの出力になり、検索精度が大きく落ちます。モデルを変更した場合はドキュメントを再取り込み（re-embed）してください」と説明されています。"
+    },
+    {
+      "id": 21,
+      "question": "`dockerd`・`containerd`・`runc`の三層構造における役割分担として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`dockerd`が直接namespacesとcgroupsを操作し、`containerd`と`runc`は補助的なログ収集のみを行う" },
+        { "id": "B", "text": "`containerd`はイメージのpullやコンテナのライフサイクル管理を行うが実際にnamespacesを作る低レベル処理はせず、`runc`がLinuxカーネルのsyscallを叩いて実際にコンテナを作る" },
+        { "id": "C", "text": "`runc`がイメージのpullを担当し、`containerd`がsyscallレベルの処理を担当する" },
+        { "id": "D", "text": "三者は同じ処理を並行して行い、結果を多数決で決定する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "04ファイルの表には、高レベルランタイムである`containerd`は「イメージのpull・保存、コンテナのライフサイクル管理…実際にnamespacesを作る低レベルの処理はしない」、低レベルランタイムである`runc`は「実際にLinuxカーネルのsyscallを叩いてコンテナを作る」と説明されています。"
+    },
+    {
+      "id": 22,
+      "question": "`runc`が実際に行う処理として04ファイルに記載されている内容はどれか。",
+      "options": [
+        { "id": "A", "text": "Dockerイメージのレイヤーをネットワーク経由でダウンロードする" },
+        { "id": "B", "text": "コンテナのログをJSON形式でホストに転送する" },
+        { "id": "C", "text": "gRPCで`dockerd`と直接通信し、イメージの署名を検証する" },
+        { "id": "D", "text": "`clone()`/`unshare()`に`CLONE_NEWPID`等のフラグを渡してnamespacesを作成し、cgroupsを設定した上で`pivot_root`でファイルシステムを切り替え、最後に`execve()`でコンテナ内プロセスを実行する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "04ファイルには、`runc`が`config.json`を読み込み、`clone()`/`unshare()`でnamespacesを作成し、cgroups設定、`pivot_root`によるファイルシステム切り替え、capabilities/seccompの適用を経て`execve()`でPID 1を実行する、という手順が示されています。"
+    },
+    {
+      "id": 23,
+      "question": "`runc`自身がコンテナ起動後すぐにプロセスとして終了するにもかかわらず、コンテナ本体が道連れで落ちない理由として04ファイルが説明しているものはどれか。",
+      "options": [
+        { "id": "A", "text": "`containerd-shim`という常駐プロセスが親として生き残り、コンテナプロセスを見守り続けるため" },
+        { "id": "B", "text": "`runc`は実際には終了しておらず、バックグラウンドで動き続けているため" },
+        { "id": "C", "text": "Linuxカーネルがコンテナプロセスを自動的にrootプロセスの子として引き継ぐため" },
+        { "id": "D", "text": "`dockerd`が定期的にポーリングしてコンテナの生存を確認しているため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "04ファイルには「`runc`が死んでもコンテナ本体が道連れで落ちないよう、`containerd-shim`という常駐プロセスが親として生き残り、コンテナプロセスを見守り続ける構造になっています」と説明されています。"
+    },
+    {
+      "id": 24,
+      "question": "`nvidia-container-runtime`の位置づけについて04ファイルが説明している内容として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`runc`を完全に置き換え、`runc`自体は不要になる" },
+        { "id": "B", "text": "`containerd`を経由せず、`dockerd`から直接カーネルのsyscallを呼び出す" },
+        { "id": "C", "text": "`runc`を置き換えるのではなく、config.jsonにNVIDIA関連の設定（デバイスノードやドライバライブラリのマウント設定）を注入してから`runc`に渡す「ラップするシム」である" },
+        { "id": "D", "text": "GPUを使わないコンテナに対しても常に呼び出される" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "04ファイルには「`nvidia-container-runtime`は、`runc`を置き換えるのではなく、`runc`をラップするシムです」とあり、GPU指定がある場合にconfig.jsonへNVIDIA関連の設定を注入してから`runc`に渡す仕組みが説明されています。GPUを使わないコンテナには通常`runc`が直接呼ばれます。"
+    },
+    {
+      "id": 25,
+      "question": "`config.json`について04ファイルの説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Ollamaのモデルダウンロード先を指定する設定ファイルである" },
+        { "id": "B", "text": "rootfsの場所・環境変数・実行コマンド・必要なnamespaces種別などを記述したOCI仕様のファイルで、`runc`がこれを読み込んでコンテナを作成する" },
+        { "id": "C", "text": "AnythingLLMのUI設定を保存するJSONファイルである" },
+        { "id": "D", "text": "Windows側のDockerドライバ設定を記述するファイルである" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "04ファイルには、`runc`が実際にやっていることの1番目として「`config.json`（rootfsの場所・環境変数・実行コマンド・必要なnamespaces種別などを記述したOCI仕様のファイル）を読み込む」と説明されています。"
+    }
+  ]
+}

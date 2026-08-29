@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "02章「Environment Setup」の「この章で学ぶこと」に含まれていないものはどれか。",
+      "options": [
+        { "id": "A", "text": "`wsl --install`によるWSL2環境の構築" },
+        { "id": "B", "text": "WSL内へのDocker Engine直接インストール手順" },
+        { "id": "C", "text": "VS Code Remote-WSL / Dev Containers拡張のセットアップ" },
+        { "id": "D", "text": "Docker Composeを使ったマルチコンテナアプリのデプロイ手順" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "README.mdの「この章で学ぶこと」には、WSL2構築、Docker Engine直接インストール、VS Code Remote-WSL/Dev Containers拡張、Docker Desktopとの比較コラムの4点が挙げられており、マルチコンテナアプリのデプロイは含まれていません。"
+    },
+    {
+      "id": 2,
+      "question": "02章の「成功判定」として本文に記載されている内容はどれか。",
+      "options": [
+        { "id": "A", "text": "`sudo`なしで`docker`コマンドが実行でき、WSL再起動後もDockerデーモンが自動起動する" },
+        { "id": "B", "text": "Docker Desktopがインストールされている" },
+        { "id": "C", "text": "VS Codeの拡張機能がすべてWindows側にインストールされている" },
+        { "id": "D", "text": "`.wslconfig`にメモリ制限が設定されていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「成功判定」には「`sudo`なしで`docker`コマンドが実行でき、WSL再起動後もDockerデーモンが自動起動する」ことと「Docker Desktop環境との違いを人に説明できる」ことが挙げられています。"
+    },
+    {
+      "id": 3,
+      "question": "02章の「演習案」として挙げられている内容はどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Engineをインストールし`docker run hello-world`が成功することを確認する" },
+        { "id": "B", "text": "Docker Desktopをアンインストールする" },
+        { "id": "C", "text": "Kubernetesクラスタを構築する" },
+        { "id": "D", "text": "WSL1からWSL2へ手動でファイルを移行する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの演習案には、Docker Engineインストールと`docker run hello-world`成功確認、VS CodeのRemote-WSL拡張でWSL内フォルダを開ける確認、Docker DesktopとWSL+Docker Engine直接導入の比較表を自分の言葉で説明する、の3点が挙げられています。"
+    },
+    {
+      "id": 4,
+      "question": "02章の学習を終えた後、次に進む章として案内されているのはどれか。",
+      "options": [
+        { "id": "A", "text": "01-wsl-and-docker-basics" },
+        { "id": "B", "text": "03-docker-core-operations" },
+        { "id": "C", "text": "05-dev-workflow-and-file-sharing" },
+        { "id": "D", "text": "07-operations-and-troubleshooting" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "README.mdの「次章へ」には、`../03-docker-core-operations/README.md`へのリンクが記載されています。"
+    },
+    {
+      "id": 5,
+      "question": "02章の学習目標にある「Docker Desktop環境に配属された場合でも設定箇所を読み替えられる」という項目の意図として最も適切なものはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Desktop環境では02章の知識は一切役に立たない" },
+        { "id": "B", "text": "Docker Desktopに配属されても、WSL+Docker Engine直接導入で学んだ設定の考え方を対応する画面に読み替えて適用できる" },
+        { "id": "C", "text": "本教材ではDocker Desktopを一切扱わないため対策は不要である" },
+        { "id": "D", "text": "Docker Desktop環境では`sudo`なしで`docker`コマンドを使うことはできない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "04章の比較コラムで、`docker`コマンド自体は共通であり、`.wslconfig`によるリソース管理はDocker Desktopの「設定」→「Resources」画面に相当するなど、本教材の知識をDocker Desktop環境に読み替えられることが説明されています。"
+    },
+    {
+      "id": 6,
+      "question": "WSL2環境を構築するために、管理者権限のPowerShellで実行するコマンドはどれか。",
+      "options": [
+        { "id": "A", "text": "`wsl --install`" },
+        { "id": "B", "text": "`docker --install`" },
+        { "id": "C", "text": "`wsl --setup`" },
+        { "id": "D", "text": "`apt-get install wsl`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01-install-wsl.mdでは、PowerShellを管理者権限で開き`wsl --install`を実行することでWSLのインストールが行えると説明されています。"
+    },
+    {
+      "id": 7,
+      "question": "`wsl --install`の実行によって自動的に行われる処理として、本文に記載されていないものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSLの有効化" },
+        { "id": "B", "text": "Linuxカーネルの最新化" },
+        { "id": "C", "text": "既定ディストロ（Ubuntu）のインストール" },
+        { "id": "D", "text": "Docker Engineのインストール" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "本文では「WSLの有効化・Linuxカーネルの最新化・既定ディストロ（Ubuntu）のインストールまで自動的に行われます」と説明されており、Docker Engineのインストールは02-install-docker-engine.mdで別途行う手順です。"
+    },
+    {
+      "id": 8,
+      "question": "`wsl -l -v`を実行した結果、`VERSION`列が`2`になっていない場合に実行すべきコマンドはどれか。",
+      "options": [
+        { "id": "A", "text": "`wsl --set-version Ubuntu 2`" },
+        { "id": "B", "text": "`wsl --install -d Ubuntu-22.04`" },
+        { "id": "C", "text": "`wsl --shutdown`" },
+        { "id": "D", "text": "`wsl -l -o`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「`VERSION`列が`2`になっていない場合は、以下のコマンドで明示的にバージョンを切り替えます」として`wsl --set-version Ubuntu 2`が示されています。"
+    },
+    {
+      "id": 9,
+      "question": "WSL（Ubuntu）側のターミナルにいるか、Windows側のPowerShellにいるかを見分ける方法として本文で説明されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "ウィンドウのタイトルバーの色で判断する" },
+        { "id": "B", "text": "プロンプトの末尾が`$`ならLinux（Ubuntu）側、`>`ならWindows側と判断する" },
+        { "id": "C", "text": "タスクマネージャーのプロセス名で判断する" },
+        { "id": "D", "text": "ファイルアイコンの種類で判断する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文では「`$`で終わっていればLinux（Ubuntu）側、`>`で終わっていればWindows側」とプロンプトの末尾の記号で見分けられると説明されています。"
+    },
+    {
+      "id": 10,
+      "question": "`.wslconfig`について、本文の説明と合致するものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL2 VMがWindowsのユーザーセッションごとに起動されるため、`%UserProfile%`に置くことでユーザーごとに独立した設定を持てるようになっている" },
+        { "id": "B", "text": "`/etc/wsl.conf`と全く同じ役割を持つファイルであり、置き場所が違うだけである" },
+        { "id": "C", "text": "`wsl --shutdown`を実行した瞬間に設定内容が読み込まれ反映される" },
+        { "id": "D", "text": "編集には管理者権限が必要である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文では「このVMはWindowsのユーザーセッションごとに起動されるため、設定もWindowsユーザーに紐づく場所（`%UserProfile%`）に置く仕組みになっている」と説明されています。`/etc/wsl.conf`はディストロ内部固有の設定で階層が異なり、`wsl --shutdown`自体は設定を反映せずVMを終了させるだけ、`%UserProfile%`は書き込み権限があるため管理者権限は不要、とされています。"
+    },
+    {
+      "id": 11,
+      "question": "本教材がDocker Desktopではなく、WSL内へのDocker Engine直接インストールを主軸にしている理由として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "内部の仕組みが見える学習効果と、企業ライセンス費用の回避" },
+        { "id": "B", "text": "Docker DesktopがWindows 11に対応していないため" },
+        { "id": "C", "text": "Docker Engineの方がインストールが簡単だから" },
+        { "id": "D", "text": "Docker Desktopが日本語に対応していないため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02-install-docker-engine.mdの「なぜDocker Desktopを使わないか」では、「内部の仕組みが見える学習効果と、企業ライセンス費用の回避という理由から、WSL内へのDocker Engine直接インストールを主軸にします」と説明されています。"
+    },
+    {
+      "id": 12,
+      "question": "`sudo usermod -aG docker $USER`を実行して`docker`グループにユーザーを追加した後、この変更を反映させるために必要な操作はどれか。",
+      "options": [
+        { "id": "A", "text": "VS Codeを再起動する" },
+        { "id": "B", "text": "Windows側のPowerShellで`wsl --shutdown`を実行し、WSLを完全に終了させてから開き直す" },
+        { "id": "C", "text": "`docker version`を実行する" },
+        { "id": "D", "text": "何もしなくても即座に反映される" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「この変更はすぐには反映されません。一度WSLを完全に終了させる必要があります。Windows側のPowerShellで`wsl --shutdown`を実行してから、ターミナルを開き直してください」と説明されています。"
+    },
+    {
+      "id": 13,
+      "question": "Dockerデーモンを「パターンB」の方法で自動起動させる場合、`/etc/wsl.conf`に追記する内容として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`[boot]`セクションに`systemd=true`" },
+        { "id": "B", "text": "`[wsl2]`セクションに`memory=4GB`" },
+        { "id": "C", "text": "`[network]`セクションに`docker=enabled`" },
+        { "id": "D", "text": "`[boot]`セクションに`docker=auto`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「`/etc/wsl.conf`を編集（無ければ新規作成）し、以下を追記します」として`[boot]`セクションに`systemd=true`を記述する例が示されています。`[wsl2]`セクションの`memory=4GB`は`.wslconfig`側の設定であり、別のファイルです。"
+    },
+    {
+      "id": 14,
+      "question": "WSLのディストロで既定でsystemdが無効になっている理由として、本文で説明されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSLは通常のLinuxのようなフルブートを経ずオンデマンドで起動する軽量モデルを採用しており、既存ツールとの後方互換性のため有効化がオプトインになっているから" },
+        { "id": "B", "text": "systemdはDockerと技術的に互換性がないため" },
+        { "id": "C", "text": "Microsoftがセキュリティ上の理由でsystemdの使用を禁止しているため" },
+        { "id": "D", "text": "WSL2ではsystemd自体をインストールすることができないため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文では「WSLのディストロは、そうしたフルブートを経ずに`wsl`コマンドを叩いた瞬間にオンデマンドで起動する、という軽量な起動モデルを採用しています」「有効化はデフォルトではなくオプトイン（`/etc/wsl.conf`での明示的な設定）という形になっています」と説明されています。"
+    },
+    {
+      "id": 15,
+      "question": "`docker version`と`docker run hello-world`による動作確認について、本文の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker version`はClientとServerの両方のバージョンが表示されればCLIとデーモンの両方が正常動作しており、`docker run hello-world`は「Hello from Docker!」というメッセージが表示されればイメージのpullからコンテナの起動・終了までが正常に動作している" },
+        { "id": "B", "text": "`docker version`はデーモンが停止していてもエラーなく両方のバージョンが表示される" },
+        { "id": "C", "text": "`docker run hello-world`はイメージのpullを行わずにメッセージを表示する" },
+        { "id": "D", "text": "`docker version`は`docker`グループへの追加が完了していなくても常に成功する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「`Client`と`Server`の両方のバージョン情報が表示されれば、CLIとデーモンの両方が正常に動作しています」「このメッセージが表示されれば、イメージのpull・コンテナの起動・終了までの一連の流れが正常に動作しています」と説明されています。"
+    },
+    {
+      "id": 16,
+      "question": "WSL内のプロジェクトをVS Codeで直接編集できるようにするために必要な拡張機能はどれか。",
+      "options": [
+        { "id": "A", "text": "`ms-vscode-remote.remote-wsl`" },
+        { "id": "B", "text": "`ms-azuretools.vscode-docker`" },
+        { "id": "C", "text": "`ms-vscode-remote.remote-containers`" },
+        { "id": "D", "text": "`ms-python.python`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03-vscode-remote-wsl.mdでは「Windows側のVS Codeに、拡張機能`ms-vscode-remote.remote-wsl`をインストールします」と説明されており、この拡張によりWSL内のファイルを直接編集するモードで起動できます。"
+    },
+    {
+      "id": 17,
+      "question": "Remote-WSL拡張が有効な状態でWSLのターミナルから`code .`を実行した場合の内部動作として、本文の説明と合致するものはどれか。",
+      "options": [
+        { "id": "A", "text": "UI（クライアント）はWindows側で表示されたまま、実体であるVS CodeサーバーがWSL（Linux）側で起動し、拡張機能や言語サーバーもWSL内で実行される" },
+        { "id": "B", "text": "VS Code全体がWSL内のウィンドウとして表示される" },
+        { "id": "C", "text": "WindowsとWSLの両方に同時にVS Codeサーバーが起動する" },
+        { "id": "D", "text": "Windows側のVS Codeが自動的にアンインストールされる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「UI（クライアント）はWindows側で表示されたまま、実体である『VS Codeサーバー』がWSL（Linux）側で起動する構成になります。拡張機能・言語サーバー・デバッガなどはこのサーバー側、つまりWSL内で実行されます」と説明されています。"
+    },
+    {
+      "id": 18,
+      "question": "WSLから`code .`で起動した場合とWindowsから直接VS Codeを起動した場合の比較表に、本文で記載されていない項目はどれか。",
+      "options": [
+        { "id": "A", "text": "統合ターミナルの既定シェル" },
+        { "id": "B", "text": "拡張機能の実行場所" },
+        { "id": "C", "text": "Dockerイメージのビルド速度" },
+        { "id": "D", "text": "使われるnode/python/git等の実体" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "比較表の項目は「ファイルアクセス」「拡張機能の実行場所」「統合ターミナルの既定シェル」「使われるnode/python/git等」「ウィンドウ左下の表示」の5項目であり、Dockerイメージのビルド速度についての記載はありません。"
+    },
+    {
+      "id": 19,
+      "question": "本教材でプロジェクトをWSL側のファイルシステム（`/home/<user>/...`）に置き、WSLのターミナルから`code .`で起動する運用に統一している理由として本文で説明されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "Windows側（`/mnt/c/...`）経由のアクセスは9pプロトコル越しになりパフォーマンスが落ちるため" },
+        { "id": "B", "text": "Windows側のファイルシステムにはDockerからアクセスすることが技術的に不可能なため" },
+        { "id": "C", "text": "`/mnt/c/...`はセキュリティポリシー上使用が禁止されているため" },
+        { "id": "D", "text": "WSL側でしかVS Codeサーバーをインストールできない仕様のため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「Windowsから直接起動したVS Codeで`/mnt/c/...`経由の同じプロジェクトを開くこともできますが、9pプロトコル越しのアクセスになりパフォーマンスが落ちます」と説明されており、これがWSL側運用に統一する理由となっています。"
+    },
+    {
+      "id": 20,
+      "question": "Dev Containers拡張（`ms-vscode-remote.remote-containers`）の役割として、本文の説明と合致するものはどれか。",
+      "options": [
+        { "id": "A", "text": "プロジェクトの`.devcontainer/devcontainer.json`定義に基づいて、コンテナ内で直接開発する環境を構築する" },
+        { "id": "B", "text": "WSLのインストール自体を自動化する" },
+        { "id": "C", "text": "Dockerのイメージ・コンテナ・ボリュームをGUIで一覧確認する" },
+        { "id": "D", "text": "WindowsとWSL間でファイルを自動同期する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「この拡張は、プロジェクトの`.devcontainer/devcontainer.json`定義に基づいて、コンテナ内で直接開発する環境を構築するためのものです」と説明されています。GUIでのイメージ・コンテナ・ボリューム一覧確認は任意の`ms-azuretools.vscode-docker`拡張の役割です。"
+    },
+    {
+      "id": 21,
+      "question": "Docker DesktopとWSL+Docker Engine直接導入の比較として、本文の表と合致するものはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker DesktopはGUIがあり、WSL+Docker Engine直接導入はCLI操作が中心である" },
+        { "id": "B", "text": "WSL+Docker Engine直接導入にはGUIが標準で付属する" },
+        { "id": "C", "text": "Docker Desktopは無料で商用ライセンスが一切不要である" },
+        { "id": "D", "text": "WSL+Docker Engine直接導入では`docker`コマンドを使うことができない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "比較表の「GUI」の項目では、Docker Desktopは「あり（コンテナ/イメージ管理画面）」、WSL+Docker Engine直接導入は「なし（CLI操作）」とされています。"
+    },
+    {
+      "id": 22,
+      "question": "Docker Desktopのライセンスについて、本文の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "大企業（従業員251人以上または年間売上一定額以上が目安）では商用サブスクリプションが必要になる場合がある" },
+        { "id": "B", "text": "企業規模によらずすべての利用者が無条件で無料利用できる" },
+        { "id": "C", "text": "個人利用でも必ず有料契約を結ぶ必要がある" },
+        { "id": "D", "text": "Docker Engine自体が有料化されている" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "比較表の「ライセンス」の項目には、Docker Desktopについて「大企業（従業員251人以上または年間売上一定額以上が目安）では商用サブスクリプションが必要になる場合がある」と記載されており、対してWSL+Docker Engine直接導入は「無料（Docker Engine自体はOSS）」とされています。"
+    },
+    {
+      "id": 23,
+      "question": "Docker Desktop環境でリソース制限（メモリ・CPU）を変更する場合、本文ではどこで設定すると説明されているか。",
+      "options": [
+        { "id": "A", "text": "「設定」→「Resources」画面" },
+        { "id": "B", "text": "`.wslconfig`ファイルを直接編集する" },
+        { "id": "C", "text": "`/etc/wsl.conf`を編集する" },
+        { "id": "D", "text": "ターミナルで`docker resource set`コマンドを実行する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「リソース制限（メモリ・CPU）は、Docker Desktopの場合『設定』→『Resources』画面から行います。本教材で扱う`.wslconfig`による設定と役割は同じです」と説明されています。`.wslconfig`はWSL+Docker Engine直接導入側での設定方法です。"
+    },
+    {
+      "id": 24,
+      "question": "実務でDocker Desktop環境に配属された場合の読み替えについて、本文の説明と異なるものはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker`コマンドの使い方自体はDocker Desktop環境でもWSL直接導入環境でも変わらない" },
+        { "id": "B", "text": "WSL統合（どのディストロでDockerコマンドを使えるようにするか）は「設定」→「Resources」→「WSL Integration」画面で切り替える" },
+        { "id": "C", "text": "リソース制限は`.wslconfig`による設定と役割が全く異なるため、本教材の知識は転用できない" },
+        { "id": "D", "text": "リソース制限はDocker Desktopの「設定」→「Resources」画面から行う" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "本文には「リソース制限（メモリ・CPU）は、Docker Desktopの場合『設定』→『Resources』画面から行います。本教材で扱う`.wslconfig`による設定と役割は同じです」と明記されており、役割が同じであるため知識は転用できます。Cはこれと矛盾する誤った説明です。"
+    },
+    {
+      "id": 25,
+      "question": "本教材が03章以降で前提とする環境として本文に記載されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL + Docker Engine直接導入" },
+        { "id": "B", "text": "Docker Desktop（WSL2 backend）" },
+        { "id": "C", "text": "クラウド上のマネージドDocker環境" },
+        { "id": "D", "text": "Windowsネイティブ版Docker（Hyper-Vベース）" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「本教材はこれ以降、すべてWSL + Docker Engine直接導入を前提に進めます。コマンド例はすべてWSLのターミナル上でそのまま実行できる形で記載します」と明記されています。"
+    }
+  ]
+}

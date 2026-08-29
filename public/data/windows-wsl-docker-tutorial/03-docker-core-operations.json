@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "「03 Docker Core Operations」章の「この章で学ぶこと」に明記されていないものはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Composeによる複数コンテナの一括管理" },
+        { "id": "B", "text": "イメージの取得・ビルド・削除" },
+        { "id": "C", "text": "コンテナの起動・停止・削除・ログ確認" },
+        { "id": "D", "text": "named volumeとbind mountの基本" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「この章で学ぶこと」には、イメージの取得・ビルド・削除、コンテナの起動・停止・削除・ログ確認、named volumeとbind mountの基本、Dockerの既定ネットワークとコンテナ間通信の最小構成の4項目が挙げられている。Docker Composeについては本章では扱われていない。"
+    },
+    {
+      "id": 2,
+      "question": "この章の「学習目標」として明記されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Composeでマルチコンテナアプリを構築できる" },
+        { "id": "B", "text": "ユーザー定義bridgeでコンテナ間通信ができる" },
+        { "id": "C", "text": "Dockerfileのマルチステージビルドを使いこなせる" },
+        { "id": "D", "text": "Kubernetesクラスタにデプロイできる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "README.mdの学習目標には「ユーザー定義bridgeでコンテナ間通信ができる」が明記されている。Docker Compose、マルチステージビルド、Kubernetesへのデプロイはこの章の学習目標には含まれていない。"
+    },
+    {
+      "id": 3,
+      "question": "この章の「演習案」として挙げられている内容はどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Hubにイメージをpushする" },
+        { "id": "B", "text": "docker-compose.ymlを作成する" },
+        { "id": "C", "text": "2つのコンテナをユーザー定義bridgeに接続し、コンテナ名で通信できることを確認する" },
+        { "id": "D", "text": "マルチステージビルドでイメージサイズを削減する" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "README.mdの演習案3番目に「2つのコンテナをユーザー定義bridgeに接続し、コンテナ名で通信できることを確認する」と明記されている。他の選択肢はこの章の演習案には含まれていない。"
+    },
+    {
+      "id": 4,
+      "question": "この章の「成功判定」に挙げられている基本コマンドの組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "build, push, pull, tag, login, logout" },
+        { "id": "B", "text": "compose up, compose down, compose ps, compose logs" },
+        { "id": "C", "text": "network create, network ls, network rm, network connect" },
+        { "id": "D", "text": "run, ps, logs, exec, stop, rm" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "README.mdの成功判定には「基本コマンド（run, ps, logs, exec, stop, rm）を迷わず使える」と明記されている。"
+    },
+    {
+      "id": 5,
+      "question": "成功判定の「コンテナ削除でデータが消える理由と、それを防ぐ方法を説明できる」という項目は、本章のどの内容に主に対応するか。",
+      "options": [
+        { "id": "A", "text": "レイヤキャッシュの仕組み" },
+        { "id": "B", "text": "named volume/bind mountによるデータ永続化" },
+        { "id": "C", "text": "ユーザー定義bridgeのDNS機能" },
+        { "id": "D", "text": "docker execの-iと-tオプション" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "コンテナ削除でデータが消える理由と防ぐ方法は03-volume-basics.mdで扱われる内容であり、named volumeとbind mountによるデータ永続化がこれに対応する。"
+    },
+    {
+      "id": 6,
+      "question": "`docker pull nginx` のようにタグを省略した場合、自動的にどのタグが使われるか。",
+      "options": [
+        { "id": "A", "text": "latest" },
+        { "id": "B", "text": "stable" },
+        { "id": "C", "text": "none" },
+        { "id": "D", "text": "タグなしでは取得できない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01-image-basics.mdに「タグを省略すると自動的にlatestが使われます」と明記されている。"
+    },
+    {
+      "id": 7,
+      "question": "使われていないイメージを一括削除するコマンドはどれか。",
+      "options": [
+        { "id": "A", "text": "docker rmi --all" },
+        { "id": "B", "text": "docker images --prune" },
+        { "id": "C", "text": "docker system delete" },
+        { "id": "D", "text": "docker image prune" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "01-image-basics.mdに「使われていないイメージを一括削除」するコマンドとして`docker image prune`が紹介されている。"
+    },
+    {
+      "id": 8,
+      "question": "`docker build -t sample-app:1.0 .` を実行する際、末尾の `.` は何を指定しているか。",
+      "options": [
+        { "id": "A", "text": "現在のユーザーのホームディレクトリ" },
+        { "id": "B", "text": "レイヤキャッシュを無効化するオプション" },
+        { "id": "C", "text": "Dockerfileがあるディレクトリ（ビルドコンテキスト）" },
+        { "id": "D", "text": "イメージの隠しタグ" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "01-image-basics.mdに「`.`: Dockerfileがあるディレクトリ（ビルドコンテキスト）を指定する」と明記されている。"
+    },
+    {
+      "id": 9,
+      "question": "レイヤキャッシュを効果的に活用するために本文で推奨されているDockerfileの書き方はどれか。",
+      "options": [
+        { "id": "A", "text": "変更頻度が高い命令を上に、低い命令を下に書く" },
+        { "id": "B", "text": "変更頻度が低い命令を上に、高い命令を下に書く" },
+        { "id": "C", "text": "FROM命令は常にDockerfileの最後に書く" },
+        { "id": "D", "text": "キャッシュを使わないよう毎回--no-cacheオプションを付けてビルドする" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "01-image-basics.mdに「変更頻度が低い命令を上に、変更頻度が高い命令を下に書くとビルドが高速化されます」と明記されている。"
+    },
+    {
+      "id": 10,
+      "question": "サンプルのDockerfileで `COPY package.json package-lock.json ./` と `RUN npm ci` を、`COPY . .`（ソースコードのコピー）より先に書いている目的は何か。",
+      "options": [
+        { "id": "A", "text": "ソースコードだけを変更した場合に、依存パッケージの再インストールを避けキャッシュを有効活用するため" },
+        { "id": "B", "text": "イメージのサイズを小さくするため" },
+        { "id": "C", "text": "セキュリティ上の理由でCOPYとRUNを分離する必要があるため" },
+        { "id": "D", "text": "Dockerfileの文法上、RUNとCOPYは同じブロックに書けないため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01-image-basics.mdに「依存パッケージのインストールとソースコードのコピーを分けて書くと、ソースコードだけを変更した際に依存パッケージの再インストールが走らずに済みます」と説明されている。"
+    },
+    {
+      "id": 11,
+      "question": "`docker run -d --name web -p 8080:80 nginx` における `-d` オプションの意味はどれか。",
+      "options": [
+        { "id": "A", "text": "デバッグモードで起動する" },
+        { "id": "B", "text": "コンテナを削除可能にする" },
+        { "id": "C", "text": "バックグラウンドで実行する（detached）" },
+        { "id": "D", "text": "デフォルトネットワークを無効化する" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "02-container-lifecycle.mdに「`-d`: バックグラウンドで実行する（detached）」と明記されている。"
+    },
+    {
+      "id": 12,
+      "question": "`docker run -d --name web -p 8080:80 nginx` における `-p 8080:80` の意味はどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナ内の8080番ポートをWindows/WSL側の80番ポートに転送する" },
+        { "id": "B", "text": "コンテナのプロセス優先度を80に設定する" },
+        { "id": "C", "text": "コンテナに8080個のポートを割り当てる" },
+        { "id": "D", "text": "Windows/WSL側の8080番ポートを、コンテナ内の80番ポートに転送する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "02-container-lifecycle.mdに「`-p 8080:80`: Windows/WSL側の8080番ポートを、コンテナ内の80番ポートに転送する」と明記されている。"
+    },
+    {
+      "id": 13,
+      "question": "起動中のコンテナだけでなく、停止中のコンテナも含めて一覧表示するコマンドはどれか。",
+      "options": [
+        { "id": "A", "text": "docker ps" },
+        { "id": "B", "text": "docker ps -a" },
+        { "id": "C", "text": "docker container list --stopped" },
+        { "id": "D", "text": "docker ps --all-running" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "02-container-lifecycle.mdに「停止中も含めた全コンテナ一覧」として`docker ps -a`が紹介されている。`docker ps`のみだと起動中のコンテナしか表示されない。"
+    },
+    {
+      "id": 14,
+      "question": "`docker exec -it web bash` において `-i` と `-t` を両方セットで使う必要がある理由として、本文の説明と合うものはどれか。",
+      "options": [
+        { "id": "A", "text": "`-i`だけだとキー入力は送れるがプロンプトが表示されず、`-t`だけだと端末らしい見た目にはなるが標準入力が閉じておりキー入力が届かないため" },
+        { "id": "B", "text": "`-i`はイメージ指定、`-t`はタグ指定のオプションであり両方必須のため" },
+        { "id": "C", "text": "セキュリティ上、両方揃わないとexecコマンド自体が実行できない仕様のため" },
+        { "id": "D", "text": "`-i`はrootユーザーでの実行、`-t`は一般ユーザーでの実行を意味するため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02-container-lifecycle.mdに「`-i`だけだとキー入力は送れますが、bashは自分が端末に繋がっていると認識できずプロンプトが表示されない状態になります。逆に`-t`だけだと、端末らしい見た目にはなりますが、標準入力が閉じているためキー入力そのものが届きません」と説明されている。"
+    },
+    {
+      "id": 15,
+      "question": "コンテナの停止・削除に関する記述として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker rm`は起動中のコンテナも含めてどんな状態でも削除できる" },
+        { "id": "B", "text": "`docker stop`はコンテナを完全に削除するコマンドである" },
+        { "id": "C", "text": "`docker restart`は停止のみを行い、起動は別途`docker start`が必要である" },
+        { "id": "D", "text": "`docker rm`は停止済みのコンテナのみ削除でき、起動中のコンテナを削除するには`docker rm -f`を使う" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "02-container-lifecycle.mdに「`docker rm web` # 削除（停止済みのコンテナのみ削除可能）」「`docker rm -f web` # 強制削除（起動中でも削除する）」と明記されている。"
+    },
+    {
+      "id": 16,
+      "question": "named volumeやbind mountを使わずにコンテナ内で作成したファイルは、コンテナを削除するとどうなるか。",
+      "options": [
+        { "id": "A", "text": "自動的にホスト側にバックアップされる" },
+        { "id": "B", "text": "次回同じイメージから起動した際に自動的に復元される" },
+        { "id": "C", "text": "コンテナ固有の書き込み可能レイヤに保存されているため、コンテナ削除と共に消える" },
+        { "id": "D", "text": "Docker Engineが自動的に別のnamed volumeに退避する" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "03-volume-basics.mdに「コンテナ内で作成したファイルは、そのコンテナ固有の書き込み可能レイヤに保存されており、コンテナを削除すると一緒に消えます」と明記されている。"
+    },
+    {
+      "id": 17,
+      "question": "named volumeを作成し、それをコンテナにマウントするコマンドの組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "docker volume new myvol / docker run -it --name test2 --mount myvol ubuntu bash" },
+        { "id": "B", "text": "docker volume create myvol / docker run -it --name test2 -v myvol:/data ubuntu bash" },
+        { "id": "C", "text": "docker create volume myvol / docker run -it --name test2 -b myvol:/data ubuntu bash" },
+        { "id": "D", "text": "docker volume make myvol / docker run -it --name test2 --volume-from myvol ubuntu bash" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "03-volume-basics.mdに`docker volume create myvol`でボリュームを作成し、`docker run -it --name test2 -v myvol:/data ubuntu bash`でマウントする例が示されている。"
+    },
+    {
+      "id": 18,
+      "question": "`docker volume inspect myvol` の出力に含まれる `Mountpoint` について、正しい説明はどれか。",
+      "options": [
+        { "id": "A", "text": "named volumeの実データがホスト（WSL2 VM）側のどこに保存されているかを示す絶対パスであり、bind mountにはこの概念がない" },
+        { "id": "B", "text": "コンテナ内でボリュームがマウントされるパスを示す" },
+        { "id": "C", "text": "ボリュームの最大サイズ（マウント可能な容量の上限）を示す" },
+        { "id": "D", "text": "ボリュームを利用しているコンテナの数を示す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03-volume-basics.mdに「`Mountpoint`は、named volumeの実データがホスト（WSL2 VM）側のどこに保存されているかを示す絶対パスです」「`Mountpoint`はnamed volume固有のフィールドです。bind mountは...`Mountpoint`という概念はありません」と明記されている。"
+    },
+    {
+      "id": 19,
+      "question": "bind mountに関する注意点として本文に明記されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "bind mountはnamed volumeより常に高速である" },
+        { "id": "B", "text": "bind mountはroot権限がないと使用できない" },
+        { "id": "C", "text": "bind mountはコンテナ削除時に自動的にホスト側のファイルも削除される" },
+        { "id": "D", "text": "Windows側のパス（`/mnt/c/...`）をbind mountすると性能が大きく落ちる" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "03-volume-basics.mdに「Windows側のパス（`/mnt/c/...`）をbind mountすると性能が大きく落ちるという重要な注意点があります」と明記されている。"
+    },
+    {
+      "id": 20,
+      "question": "named volumeとbind mountの使い分けに関する表の内容として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "named volumeはユーザーが指定したホスト側パスを使い、bind mountはDocker Engineが管理する" },
+        { "id": "B", "text": "bind mountは常にnamed volumeより性能が高い" },
+        { "id": "C", "text": "named volumeはDBデータなどの永続化に向き、bind mountは開発中のソースコード共有に向く典型例として挙げられている" },
+        { "id": "D", "text": "named volumeはホスト側から普段使っているエディタで直接編集しやすい" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "03-volume-basics.mdの表で、named volumeの用途の典型例は「DBデータなどの永続化」、bind mountの用途の典型例は「開発中のソースコードの共有」とされている。"
+    },
+    {
+      "id": 21,
+      "question": "Docker Engineをインストールすると既定で作られる3種類のネットワークの組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "bridge, overlay, macvlan" },
+        { "id": "B", "text": "bridge, host, none" },
+        { "id": "C", "text": "default, custom, external" },
+        { "id": "D", "text": "internal, external, isolated" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "04-network-basics-intro.mdに`docker network ls`の結果として`bridge`, `host`, `none`の3種類が既定で作られると説明されている。"
+    },
+    {
+      "id": 22,
+      "question": "`host`ネットワークの説明として本文の内容と合うものはどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナがホストのネットワークスタックをそのまま共有する特殊モードである" },
+        { "id": "B", "text": "コンテナ起動時に指定しなければ使われる既定のネットワークである" },
+        { "id": "C", "text": "ネットワーク接続を一切持たないモードである" },
+        { "id": "D", "text": "複数ホストにまたがる通信専用のネットワークである" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "04-network-basics-intro.mdの表に「`host`: コンテナがホストのネットワークスタックをそのまま共有する特殊モード」と明記されている。"
+    },
+    {
+      "id": 23,
+      "question": "`docker network create sample-net` を実行した場合、既定で使われるドライバはどれか。",
+      "options": [
+        { "id": "A", "text": "host" },
+        { "id": "B", "text": "none" },
+        { "id": "C", "text": "overlay" },
+        { "id": "D", "text": "bridge" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "04-network-basics-intro.mdに「`--driver`を指定していませんが、`docker network create`は既定で`bridge`ドライバを使うため」と説明されている。"
+    },
+    {
+      "id": 24,
+      "question": "ユーザー定義bridgeネットワークに接続した2つのコンテナ間で、IPアドレスを指定せずコンテナ名（`ping web1`）だけで通信できたのはなぜか。",
+      "options": [
+        { "id": "A", "text": "Dockerがすべてのコンテナに固定IPアドレス192.168.1.1を割り当てるため" },
+        { "id": "B", "text": "`host`ネットワークを使っているため名前解決が不要だから" },
+        { "id": "C", "text": "ユーザー定義のbridgeネットワークが持つDNS機能によるもの" },
+        { "id": "D", "text": "`docker exec`が自動的にIPアドレスをコンテナ名に変換するため" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "04-network-basics-intro.mdに「IPアドレスを指定していないのに、コンテナ名だけで通信できました。これはユーザー定義のbridgeネットワークが持つDNS機能によるものです」と明記されている。"
+    },
+    {
+      "id": 25,
+      "question": "本章末の「ここで止める理由」として、次章（04-networking-deep-dive）に持ち越される疑問として挙げられていないものはどれか。",
+      "options": [
+        { "id": "A", "text": "なぜWindows側からlocalhost:8080でコンテナにアクセスできるのか" },
+        { "id": "B", "text": "Docker Composeでネットワークを定義する方法" },
+        { "id": "C", "text": "WSL2のネットワークモードとDockerのネットワークはどう関係しているのか" },
+        { "id": "D", "text": "既定のbridgeとユーザー定義のbridgeで、なぜ名前解決の可否が違うのか" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "04-network-basics-intro.mdの「ここで止める理由」には、localhost:8080でアクセスできる理由、WSL2のネットワークモードとDockerネットワークの関係、既定のbridgeとユーザー定義bridgeで名前解決の可否が違う理由の3点が挙げられている。Docker Composeのネットワーク定義については触れられていない。"
+    }
+  ]
+}

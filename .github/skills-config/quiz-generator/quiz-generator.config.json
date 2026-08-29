@@ -8,7 +8,8 @@
     "src/data/github-copilot-practical-workflows/*.json",
     "src/data/github-copilot-skills-tutorial/*.json",
     "src/data/ai-stock-investing-tutorial/*.json",
-    "src/data/genai-app-integration-tutorial/*.json"
+    "src/data/genai-app-integration-tutorial/*.json",
+    "src/data/windows-wsl-docker-tutorial/*.json"
   ],
   "normalizeDataDir": "src/data"
 }
