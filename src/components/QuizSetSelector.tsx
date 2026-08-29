@@ -126,13 +126,7 @@ const getGroupSummary = (group: string | null, allQuizSets: QuizSet[]): string |
     return `全 ${parentSet.questionCount} 問`;
   }
 
-  const subSeriesLabels = childSets
-    .map((set) => getSubSeriesLabel(set.name))
-    .filter((label): label is string => Boolean(label));
-
-  const subSeriesCount = new Set(subSeriesLabels).size;
-
-  return `全 ${parentSet.questionCount} 問 / ${childSets.length} セット${subSeriesCount > 1 ? ` / ${subSeriesCount} 系列` : ''}`;
+  return `全 ${parentSet.questionCount} 問 / ${childSets.length} セット`;
 };
 
 const isDisplayableSet = (set: QuizSet): boolean => !(set.group && set.parentId === null);
@@ -142,21 +136,13 @@ const difficultyLabel = (difficulty: QuizSet['difficulty']): string => {
   return found ? found.label : difficulty;
 };
 
-const getSubSeriesLabel = (name: string): string | null => {
-  const parts = name.split('|').map((part) => part.trim()).filter(Boolean);
-  return parts.length > 1 ? parts[0] : null;
-};
-
-const getQuizDisplayName = (name: string): string => {
-  const parts = name.split('|').map((part) => part.trim()).filter(Boolean);
-  return parts.length > 1 ? parts.slice(1).join(' | ') : name;
-};
+const getQuizDisplayName = (name: string): string => name.trim();
 
 const organizeBySubSeries = (sets: QuizSet[]): SubSeriesGroup[] => {
   const bySubSeries = new Map<string | null, QuizSet[]>();
 
   for (const set of sets) {
-    const key = getSubSeriesLabel(set.name);
+    const key = set.group ?? null;
     if (!bySubSeries.has(key)) {
       bySubSeries.set(key, []);
     }
