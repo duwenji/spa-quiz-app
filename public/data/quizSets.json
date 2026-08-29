@@ -1443,7 +1443,7 @@
       "icon": "💻",
       "questionCount": 240,
       "difficulty": "beginner to advanced",
-      "dataPath": null,
+      "dataPath": "windows-wsl-docker-tutorial/metadata.json",
       "parentId": null,
       "group": "windows-wsl-docker-tutorial-series",
       "level": 1,
