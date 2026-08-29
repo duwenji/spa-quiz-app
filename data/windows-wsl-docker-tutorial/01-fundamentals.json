@@ -1,0 +1,244 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "本章（01 WSL and Docker Fundamentals）で学ぶDockerのコンテナに関する説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナはプロセス隔離であり、仮想マシンではない" },
+        { "id": "B", "text": "コンテナは仮想マシンと同じ仕組みでOSカーネルごと起動する" },
+        { "id": "C", "text": "コンテナは常にHyper-V上で動作する軽量VMである" },
+        { "id": "D", "text": "コンテナはWindowsカーネルの機能だけで実現されている" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「この章で学ぶこと」に「Dockerの基本概念（コンテナ＝プロセス隔離であり仮想マシンではないこと）」と明記されている。コンテナはホストとLinuxカーネルを共有しながらプロセスの見える範囲だけを隔離する技術であり、OS丸ごとを起動する仮想マシンとは仕組みが異なる。"
+    },
+    {
+      "id": 2,
+      "question": "本章の学習目標にある「なぜWindowsでDockerを使うのにWSL2が必要なのか」を説明する際に使うべき観点として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "GPUドライバの互換性の観点" },
+        { "id": "B", "text": "Linuxカーネル機能（namespaces/cgroupsなど）の観点" },
+        { "id": "C", "text": "Windowsのファイルシステム暗号化の観点" },
+        { "id": "D", "text": "ネットワークファイアウォールの設定の観点" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "README.mdの学習目標に「なぜWindowsでDockerを使うのにWSL2が必要なのかを、Linuxカーネル機能の観点から説明できる」とある。Dockerのコンテナ隔離はLinuxカーネル固有のnamespaces/cgroupsに依存するため、この観点からの説明が求められている。"
+    },
+    {
+      "id": 3,
+      "question": "README.mdの学習目標に含まれる、Windows上でDockerを使う方式の比較として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL1 / WSL2 / Hyper-Vの3方式の違いを説明できる" },
+        { "id": "B", "text": "Docker Desktop / Podman / containerdの3方式の違いを説明できる" },
+        { "id": "C", "text": "Docker Desktop / WSL+Docker Engine / Hyper-V VMの3方式の違いを説明できる" },
+        { "id": "D", "text": "Kubernetes / Docker Swarm / Docker Composeの3方式の違いを説明できる" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "README.mdの学習目標に「Docker Desktop / WSL+Docker Engine / Hyper-V VM の3方式の違いを説明できる」と明記されている。この3方式の比較は01-why-wsl-and-docker.mdで詳しく扱われる。"
+    },
+    {
+      "id": 4,
+      "question": "README.mdの「演習案」に、自分の環境のディストロとバージョンを確認するために実行するコマンドとして挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "docker system info と docker version" },
+        { "id": "B", "text": "docker --status と docker -l -v" },
+        { "id": "C", "text": "wsl --update と wsl --install" },
+        { "id": "D", "text": "wsl --status と wsl -l -v" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "演習案の2に「`wsl --status` と `wsl -l -v` を実行し、自分の環境のディストロとバージョンを確認する」とある。これらはWSL側のコマンドであり、Dockerのコマンドではない。"
+    },
+    {
+      "id": 5,
+      "question": "README.mdの「成功判定」に照らすと、避けるべき誤った理解として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "「コンテナは軽量な仮想マシンである」という理解" },
+        { "id": "B", "text": "コンテナはプロセス隔離技術であるという理解" },
+        { "id": "C", "text": "Dockerを動かすにはWSL2が必須であるという理解" },
+        { "id": "D", "text": "コンテナはホストとLinuxカーネルを共有するという理解" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "成功判定に「『コンテナは軽量な仮想マシンである』という誤解を持たずに説明できる」とある。この表現は誤解であり、正しくはコンテナはプロセス隔離技術でありホストとLinuxカーネルを共有する仕組みである（B・C・Dは本章が身につけさせたい正しい理解）。"
+    },
+    {
+      "id": 6,
+      "question": "01-why-wsl-and-docker.mdにおける「イメージ」と「コンテナ」の関係の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "イメージはコンテナが停止した後に自動生成される読み取り専用のログである" },
+        { "id": "B", "text": "イメージはコンテナを起動するための読み取り専用のテンプレートで、コンテナはそのイメージから実際に起動された実行中のインスタンスである" },
+        { "id": "C", "text": "コンテナは複数のイメージを合成して作られるテンプレートである" },
+        { "id": "D", "text": "イメージとコンテナは同じものを指す別名にすぎない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "文書に「`image`（イメージ）はコンテナを起動するための読み取り専用のテンプレートで、`container`（コンテナ）はそのイメージから実際に起動された実行中のインスタンスです」と明記されている。"
+    },
+    {
+      "id": 7,
+      "question": "Dockerのコンテナ隔離を実現しているLinuxカーネルの機能の組み合わせとして、文書に記載されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "NTFSとntoskrnl" },
+        { "id": "B", "text": "HyperVisorとVmmem" },
+        { "id": "C", "text": "namespacesとcgroups" },
+        { "id": "D", "text": "systemdとSELinux" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "文書に「Dockerのコンテナ隔離は、Linuxカーネルが持つ以下の機能の組み合わせで実現されています」としてnamespacesとcgroupsが挙げられている。"
+    },
+    {
+      "id": 8,
+      "question": "namespacesとcgroupsそれぞれの役割の説明として正しい組み合わせはどれか。",
+      "options": [
+        { "id": "A", "text": "namespacesは物理ネットワークカードの割り当てを行い、cgroupsはディスクのパーティションを管理する" },
+        { "id": "B", "text": "namespacesはCPU・メモリなどのリソースを制限し、cgroupsはファイルシステムやネットワークを分離する" },
+        { "id": "C", "text": "namespacesはコンテナイメージの圧縮を行い、cgroupsはレジストリとの通信を担当する" },
+        { "id": "D", "text": "namespacesはファイルシステムやネットワークなどプロセスから見える範囲を分離し、cgroupsはCPU・メモリなどのリソース使用量を制限・計測する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "文書では「namespaces: プロセスから見えるファイルシステム、ネットワーク、プロセスID、ホスト名などを個別に分離する機能」「cgroups: CPU・メモリなどのリソース使用量を制限・計測する機能」と説明されている。"
+    },
+    {
+      "id": 9,
+      "question": "WindowsネイティブではLinux向けのDockerコンテナを直接動かせない理由として、文書の説明に最も合致するものはどれか。",
+      "options": [
+        { "id": "A", "text": "Windowsカーネルには、namespaces/cgroupsに相当するLinuxカーネル固有の機能が存在しないため" },
+        { "id": "B", "text": "Windowsのライセンス条項がコンテナ実行を禁止しているため" },
+        { "id": "C", "text": "Dockerの実行ファイルがLinux用にしかコンパイルされていないため" },
+        { "id": "D", "text": "Windowsのファイルシステムがtarアーカイブ形式のイメージを読み込めないため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「これらはLinuxカーネル固有の機能です。Windowsカーネルには同等の機能がありません。つまり、WindowsネイティブではLinux向けのDockerコンテナを直接動かせない」とある。"
+    },
+    {
+      "id": 10,
+      "question": "本教材がWindows上でDockerを使う方式として採用しているものと、その採用理由の組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Desktop（WSL2 backend）。GUIで操作が簡単だからという理由による" },
+        { "id": "B", "text": "WSL内へのDocker Engine直接インストール。内部の仕組みが見える学習効果と、企業ライセンス費用の回避という2つの理由による" },
+        { "id": "C", "text": "Hyper-V VM（フルVM）+ Docker。最もセキュアだからという理由による" },
+        { "id": "D", "text": "WSL1上へのDocker Engine直接インストール。導入が最も簡単だからという理由による" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "文書に「本教材では、内部の仕組みが見える学習効果と、企業ライセンス費用の回避という2つの理由から、WSL内へのDocker Engine直接インストールを主軸に進めます」とある。比較表でもこの方式が本教材の主軸（✅）とされている。"
+    },
+    {
+      "id": 11,
+      "question": "WSL1とWSL2の決定的な違いとして、02-wsl-architecture.mdに記載されている内容はどれか。",
+      "options": [
+        { "id": "A", "text": "WSL1とWSL2はどちらも同じLinuxカーネルを内蔵している" },
+        { "id": "B", "text": "WSL1は本物のLinuxカーネルを搭載しているが、WSL2はトランスレーション層である" },
+        { "id": "C", "text": "WSL2は本物のLinuxカーネルを搭載しているが、WSL1はWindowsカーネルがLinuxシステムコールを変換するトランスレーション層である" },
+        { "id": "D", "text": "WSL1とWSL2はどちらもHyper-V上で動作する軽量VMである" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "比較表に、WSL1は「Linuxシステムコールをwindowsカーネルが変換するトランスレーション層」、WSL2は「Hyper-V上で動く軽量VM上に本物のLinuxカーネルを搭載」とあり、Linuxカーネルの有無が両者の決定的な違いである。"
+    },
+    {
+      "id": 12,
+      "question": "WSL2の実体についての説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL1のファイルI/O速度を改善するためのキャッシュ機構にすぎない" },
+        { "id": "B", "text": "Windowsカーネルの中にLinuxシステムコールの変換レイヤーを組み込んだものである" },
+        { "id": "C", "text": "Docker Desktopが独自に管理する専用のコンテナランタイムである" },
+        { "id": "D", "text": "Hyper-Vの技術を使って作られた軽量ユーティリティVMの中で、実際のLinuxカーネルを起動している" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "文書に「WSL2は、Hyper-Vの技術を使って作られた『軽量ユーティリティVM』の中で、実際のLinuxカーネルを起動しています」とあり、このVMはタスクマネージャーでVmmemというプロセス名で確認できると説明されている。"
+    },
+    {
+      "id": 13,
+      "question": "`wsl -l -v` の実行結果のVERSION列について、文書の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "VERSION列が2になっていることが、Docker Engineを動かすための前提条件である" },
+        { "id": "B", "text": "VERSION列が1になっていることが、Docker Engineを動かすための前提条件である" },
+        { "id": "C", "text": "VERSION列はディストロの言語設定を表すものであり、Dockerの動作条件とは無関係である" },
+        { "id": "D", "text": "VERSION列が0であれば、そのディストロが最新版であることを示す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「`VERSION`列が`2`になっていることが、Docker Engineを動かすための前提条件です」と明記されている。WSL1（VERSION=1）ではDockerが動作しない。"
+    },
+    {
+      "id": 14,
+      "question": "Ubuntu・Debianなど複数のディストロをインストールした場合のWSL2アーキテクチャに関する記述として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "ディストロごとに完全に独立したHyper-V VMが1つずつ作成される" },
+        { "id": "B", "text": "各ディストロが独立したカーネルやVMを持つのではなく、共通の1つのWSL2軽量VM（Linuxカーネル）の上で動作する" },
+        { "id": "C", "text": "ディストロが増えるたびに、タスクマネージャー上のVmmemプロセスも比例して増加する" },
+        { "id": "D", "text": "複数ディストロを同時起動すると、それぞれ別々のネットワークインターフェースが自動的に割り当てられる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "文書に「現行のWSLアーキテクチャでは、Ubuntu・Debianなど複数のディストロをインストールしても、それらは共通の1つのWSL2軽量VM（Linuxカーネル）の上で動作します」とあり、Vmmemプロセスも常に1つ、ネットワークインターフェースもVM全体で1つと説明されている。"
+    },
+    {
+      "id": 15,
+      "question": "VMとカーネルが全ディストロで共通であることの実務上の影響について、文書の記述と異なるものはどれか。",
+      "options": [
+        { "id": "A", "text": "`wsl --shutdown`を実行すると、特定のディストロだけでなく実行中の全ディストロが巻き添えで停止する" },
+        { "id": "B", "text": "`.wslconfig`のmemory/processors設定はVM全体にかかり、複数ディストロを同時に使うとその合計が上限を共有する" },
+        { "id": "C", "text": "`.wslconfig`のmemory/processors設定は、ディストロごとに個別の上限として設定できる" },
+        { "id": "D", "text": "ネットワークインターフェース（`eth0`）のIPアドレスはディストロごとではなくVM全体で1つである" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "文書には「リソース制限が全ディストロ共通: `.wslconfig`の`memory`/`processors`設定は、特定のディストロにではなくVM全体にかかります」とあり、ディストロごとに個別設定できるわけではない。B・C・Dはいずれも文書に記載された正しい内容である。"
+    },
+    {
+      "id": 16,
+      "question": "03-docker-concepts.mdにおける「イメージ」と「コンテナ」の違いの説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "イメージは実行中のプロセスであり、コンテナは読み取り専用のテンプレートである" },
+        { "id": "B", "text": "イメージとコンテナはどちらも書き込み可能なレイヤのみで構成される" },
+        { "id": "C", "text": "1つのイメージからは、1つのコンテナしか起動できない" },
+        { "id": "D", "text": "イメージは読み取り専用のレイヤ構造で、コンテナはイメージに書き込み可能なレイヤが1枚追加された実行中のプロセスである" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "文書に「イメージ: …読み取り専用のtarアーカイブ相当のもの」「コンテナ: イメージを元に起動された、書き込み可能なレイヤが1枚追加された実行中のプロセス」とあり、1つのイメージから複数のコンテナを同時に起動できるとも説明されている。"
+    },
+    {
+      "id": 17,
+      "question": "Dockerのイメージのタグに関する記述として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "タグを省略すると自動的に`latest`タグが使われるが、`latest`は常に最新版を意味するタグ名にすぎず、バージョン固定を保証しない" },
+        { "id": "B", "text": "タグを省略するとイメージはダウンロードできずエラーになる" },
+        { "id": "C", "text": "`latest`タグは常に特定のバージョン番号に固定されている" },
+        { "id": "D", "text": "タグは名前とは独立して管理され、レジストリには登録されない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "文書に「タグを省略すると自動的に`latest`タグが使われますが、`latest`は『常に最新版』を意味するタグ名に過ぎず、バージョン固定の保証はありません。実務では明示的なバージョンタグを指定することが推奨されます」とある。"
+    },
+    {
+      "id": 18,
+      "question": "`dockerd`（Dockerデーモン）と`docker`（CLIクライアント）の関係として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`dockerd`はユーザーが直接コマンドを打つためのCLIツールである" },
+        { "id": "B", "text": "docker CLIは`docker.sock`というUnixソケット経由で`dockerd`と通信し、`dockerd`が実際の処理を行う" },
+        { "id": "C", "text": "docker CLIと`dockerd`は必ず別々のマシン上で動作しなければならない" },
+        { "id": "D", "text": "`dockerd`はイメージのダウンロードのみを担当し、コンテナの起動はdocker CLIが単独で行う" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "文書に「`dockerd`（Dockerデーモン）: イメージの管理、コンテナの起動・停止など、実際の処理を行うバックグラウンドプロセス」「`docker`（CLIクライアント）: …`docker.sock`というUnixソケット経由で`dockerd`と通信する」とある。"
+    },
+    {
+      "id": 19,
+      "question": "03章で示されている主要コマンドとその役割の組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker build`は起動中のコンテナ一覧を見る" },
+        { "id": "B", "text": "`docker ps`はデータ永続化用のボリュームを管理する" },
+        { "id": "C", "text": "`docker build`はDockerfileからイメージを作る" },
+        { "id": "D", "text": "`docker volume`はコンテナ間通信用のネットワークを管理する" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "コマンド一覧表に「`docker build`: Dockerfileからイメージを作る」とある。起動中のコンテナ一覧を見るのは`docker ps`、ボリューム管理は`docker volume`、ネットワーク管理は`docker network`である。"
+    },
+    {
+      "id": 20,
+      "question": "02章でインストールされるものと、`docker run`コマンド実行時の処理の流れについて、文書の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "02章でインストールするのはDocker Desktopであり、本教材の主軸として扱われる" },
+        { "id": "B", "text": "02章でインストールするのはdocker CLIのみであり、`dockerd`はWindows側で自動的に起動される" },
+        { "id": "C", "text": "`docker run`コマンドは`dockerd`を経由せず、CLIが直接Linuxカーネルのnamespacesを呼び出す" },
+        { "id": "D", "text": "02章でインストールするのは`dockerd`本体（Docker Engine）であり、`docker run`を打つとCLIが`docker.sock`経由で`dockerd`に指示を送り、`dockerd`が実際にコンテナを起動する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "文書に「02章でインストールするのはこの`dockerd`本体（Docker Engine）です。`docker run`のようなコマンドを打つと、CLIが`docker.sock`経由で`dockerd`に指示を送り、`dockerd`が実際にコンテナを起動します」とある。なお本教材の主軸はDocker Desktopではなく、WSL+Docker Engine直接インストールである。"
+    }
+  ]
+}

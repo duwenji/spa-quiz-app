@@ -1,0 +1,304 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "この章（05 Dev Workflow and File Sharing）の学習目標として挙げられていないものはどれか。",
+      "options": [
+        { "id": "A", "text": "プロジェクトをWSL側ファイルシステムに置くべき理由を説明できる" },
+        { "id": "B", "text": "性能を意識したbind mount / named volumeの使い分けができる" },
+        { "id": "C", "text": "Dev Containersで高速な開発ループを構築できる" },
+        { "id": "D", "text": "docker-compose.ymlで複数サービスを構成できる" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "この章の学習目標はWSL/Windows間の性能差の理解、bind mountとnamed volumeの使い分け、Dev Containersによる開発ループ構築の3点。複数サービスの構成はこの章の「次章へ」に案内されている06-compose-multi-serviceの内容であり、この章の学習目標には含まれない。"
+    },
+    {
+      "id": 2,
+      "question": "この章の演習案に含まれるものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL側とWindows側でファイルI/Oの速度を実測比較する" },
+        { "id": "B", "text": "Dockerイメージをレジストリにpushする" },
+        { "id": "C", "text": "Docker Composeでネットワークを分離する" },
+        { "id": "D", "text": "コンテナのヘルスチェックを設定する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの演習案には「WSL側とWindows側でファイルI/Oの速度を実測比較する」「devcontainer.jsonを作成しDev Containersを起動する」「CRLF混入トラブルを再現し.gitattributesで対処する」の3つが挙げられており、Aが該当する。"
+    },
+    {
+      "id": 3,
+      "question": "この章の「成功判定」によれば、「なぜプロジェクトをWSL側に置くべきか」をどのような観点から説明できることが求められているか。",
+      "options": [
+        { "id": "A", "text": "ネットワークセキュリティの観点" },
+        { "id": "B", "text": "9pプロトコルの観点" },
+        { "id": "C", "text": "ライセンス管理の観点" },
+        { "id": "D", "text": "コンテナイメージサイズの観点" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "README.mdの成功判定には「『なぜプロジェクトをWSL側に置くべきか』を9pプロトコルの観点から説明できる」と明記されている。9pプロトコル越しのアクセスのオーバーヘッドが性能差の原因であるため、この観点からの説明が求められる。"
+    },
+    {
+      "id": 4,
+      "question": "この章の学習を終えた後、次に進む章はどれか。",
+      "options": [
+        { "id": "A", "text": "02-installing-docker-engine" },
+        { "id": "B", "text": "03-container-networking" },
+        { "id": "C", "text": "06-compose-multi-service" },
+        { "id": "D", "text": "07-production-considerations" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "README.mdの「次章へ」には「06-compose-multi-service/README.md」へのリンクが示されている。この章で学んだbind mount/named volumeの知識は、複数サービスをdocker-compose.ymlで構成する06章につながる。"
+    },
+    {
+      "id": 5,
+      "question": "この章が扱うテーマの組み合わせとして最も適切なものはどれか。",
+      "options": [
+        { "id": "A", "text": "ファイルシステムの性能差、bind mount/named volumeの使い分け、Dev Containers、改行コード問題" },
+        { "id": "B", "text": "Dockerfileのマルチステージビルドとイメージ軽量化" },
+        { "id": "C", "text": "Kubernetesへのデプロイとオートスケーリング" },
+        { "id": "D", "text": "Docker Engineのインストール手順とWSL2の有効化" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「この章で学ぶこと」には、WSL/Windows間のファイルシステム性能差、bind mountとnamed volumeの性能特性の違い、VS Code Dev Containersでの開発ループ、改行コード問題への対処の4点が挙げられており、Aがこれに合致する。"
+    },
+    {
+      "id": 6,
+      "question": "WSL2内のLinux ext4ファイルシステムに、WSL側から直接アクセスする際のパスの例はどれか。",
+      "options": [
+        { "id": "A", "text": "/mnt/c/Users/<ユーザー名>/..." },
+        { "id": "B", "text": "/home/<user>/..." },
+        { "id": "C", "text": "\\\\wsl.localhost\\Ubuntu\\home\\<user>\\..." },
+        { "id": "D", "text": "C:\\Users\\<ユーザー名>\\..." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "01-filesystem-boundary.mdでは、WSL2内のLinux ext4ファイルシステムは「/home/<user>/...」というパスで、WSL2 VM内に実体があるネイティブなLinuxファイルシステムであると説明されている。"
+    },
+    {
+      "id": 7,
+      "question": "WSL側からWindowsの`C:\\`ドライブなどをマウントして見る際に使われるパスはどれか。",
+      "options": [
+        { "id": "A", "text": "/home/<user>/..." },
+        { "id": "B", "text": "/mnt/c/..." },
+        { "id": "C", "text": "\\\\wsl$\\Ubuntu\\..." },
+        { "id": "D", "text": "/var/lib/docker/..." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "01-filesystem-boundary.mdでは、Windows側ファイルシステムは「/mnt/c/...」として、WindowsのC:\\ドライブなどをWSL側からマウントして見えるようにしたものと説明されている。"
+    },
+    {
+      "id": 8,
+      "question": "Windows側からWSL内のファイルにアクセスする際の表記のうち、現在推奨されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "\\\\wsl$\\Ubuntu\\home\\<user>\\..." },
+        { "id": "B", "text": "\\\\wsl.localhost\\Ubuntu\\home\\<user>\\..." },
+        { "id": "C", "text": "/mnt/wsl/Ubuntu/home/<user>/..." },
+        { "id": "D", "text": "//wsl/Ubuntu/home/<user>/..." }
+      ],
+      "correctAnswer": "B",
+      "explanation": "01-filesystem-boundary.mdでは、`\\\\wsl$\\`は先に導入された古い表記で一部アプリでネットワークドライブと誤認識される問題があったため、現在は`\\\\wsl.localhost\\`の使用が推奨されていると説明されている（両者は同じ場所を指す）。"
+    },
+    {
+      "id": 9,
+      "question": "WindowsのプロセスからWSL内のLinuxファイル（またはその逆）にアクセスする際に発生する、9pプロトコルについての説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "本来ローカルファイルアクセス用に設計されたプロトコルで、リモートアクセス時にオーバーヘッドが生じる" },
+        { "id": "B", "text": "本来リモートファイルシステム用に設計されたプロトコルで、通常のローカルアクセスに比べオーバーヘッドが大きい" },
+        { "id": "C", "text": "Docker Engineが内部通信専用に開発した独自プロトコルである" },
+        { "id": "D", "text": "GPUアクセラレーションのためにWSL2で新設されたプロトコルである" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "01-filesystem-boundary.mdでは、9pは「本来リモートファイルシステム用に設計されたプロトコルであり、通常のローカルファイルアクセスに比べてオーバーヘッドが大きくなる」と説明されている。特にnode_modulesのような大量の小ファイル操作でこのオーバーヘッドが顕著になる。"
+    },
+    {
+      "id": 10,
+      "question": "01章の実測結果を踏まえて推奨されている、開発プロジェクトの配置場所はどれか。",
+      "options": [
+        { "id": "A", "text": "/mnt/c/Users/<ユーザー名>/projects" },
+        { "id": "B", "text": "\\\\wsl$\\Ubuntu\\tmp" },
+        { "id": "C", "text": "WSL側のファイルシステム（/home/<user>/...）" },
+        { "id": "D", "text": "Windowsのデスクトップフォルダ" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "01-filesystem-boundary.mdでは、/mnt/c/配下は明確に遅いという実測結果を踏まえ、「開発プロジェクトは/mnt/c/...ではなく、WSL側のファイルシステム（/home/<user>/...）に置くことを推奨する」と述べられている。Remote-WSL拡張を使えばWindows側で普段通り編集しながら実体をWSL側に置ける。"
+    },
+    {
+      "id": 11,
+      "question": "bind mountの性能について、02章の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "bind mount元の場所（WSL側かWindows側か）によって性能が大きく変わる" },
+        { "id": "B", "text": "bind mountは常にnamed volumeより高速である" },
+        { "id": "C", "text": "bind mountの性能はDockerのバージョンにのみ依存する" },
+        { "id": "D", "text": "bind mountはWindows側パスの方が常に高速である" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02-bind-mount-vs-volume.mdでは、bind mount元がWSL側パスならコンテナ内I/Oも高速だが、Windows側パスだと9p経由のオーバーヘッドがそのままコンテナ内I/Oに乗り大幅に遅くなると説明されている。同じ`-v`オプションの使い方でも配置場所次第で性能が変わる点が要点。"
+    },
+    {
+      "id": 12,
+      "question": "named volumeが常に高速である理由として、02章で説明されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "named volumeはメモリ上にのみ存在し、ディスクI/Oが発生しないため" },
+        { "id": "B", "text": "named volumeの実体は常にWSL2 VM内（Linuxネイティブなファイルシステム）に存在するため" },
+        { "id": "C", "text": "named volumeはWindows Defenderのスキャン対象外になるため" },
+        { "id": "D", "text": "named volumeは圧縮された状態で保存され転送量が減るため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "02-bind-mount-vs-volume.mdでは、named volumeはDocker Engine自身が管理する領域で、実体は常にWSL2 VM内（Linuxネイティブなファイルシステム）に存在するため、ホスト側のマウント元の場所を気にする必要がなく常に高速であると説明されている。"
+    },
+    {
+      "id": 13,
+      "question": "02章の「開発時の推奨パターン」の表で、頻繁に編集するソースコードに推奨されている方法はどれか。",
+      "options": [
+        { "id": "A", "text": "named volumeにコピーしてから編集する" },
+        { "id": "B", "text": "WSL側パスにcloneし、bind mountする" },
+        { "id": "C", "text": "Windows側パスにcloneし、bind mountする" },
+        { "id": "D", "text": "コンテナイメージに直接焼き込む" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "02-bind-mount-vs-volume.mdの推奨パターン表では、頻繁に編集するソースコードは「WSL側パスにcloneし、bind mount」が推奨されている。一方、永続化データはnamed volume、ビルド成果物キャッシュはnamed volumeでコンテナ内に閉じ込める方法が推奨されている。"
+    },
+    {
+      "id": 14,
+      "question": "node_modulesのようなビルド成果物のキャッシュについて、02章で推奨されている扱い方はどれか。",
+      "options": [
+        { "id": "A", "text": "ソースコードと同じbind mountの対象に含める" },
+        { "id": "B", "text": "named volumeでコンテナ内に閉じ込め、bind mountの対象から外す" },
+        { "id": "C", "text": ".gitignoreに追加するだけで特別な対処はしない" },
+        { "id": "D", "text": "毎回コンテナ起動時にホストからコピーする" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "02-bind-mount-vs-volume.mdでは、node_modulesなどのビルド成果物のキャッシュは「named volumeでコンテナ内に閉じ込め、bind mountの対象から外す」ことが推奨されている。ソースコード全体をbind mountしつつnode_modulesだけ別のnamed volumeにすることで、同期不要な部分の速度低下を避けられる。"
+    },
+    {
+      "id": 15,
+      "question": "docker-compose.ymlの例で`node_modules_cache`という名前付きボリュームを`/app/node_modules`に割り当てる目的として、02章の説明に最も合うものはどれか。",
+      "options": [
+        { "id": "A", "text": "node_modulesの内容を複数プロジェクトで共有するため" },
+        { "id": "B", "text": "ホスト側との同期が不要な依存パッケージ部分の速度低下を避けるため" },
+        { "id": "C", "text": "node_modulesをGitの管理対象に含めるため" },
+        { "id": "D", "text": "コンテナのディスク使用量の上限を設定するため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "02-bind-mount-vs-volume.mdでは、ソースコード全体をbind mountしつつnode_modulesだけ別途named volumeにすることで、「ホスト側との同期が不要な依存パッケージ部分の速度低下を避けられる」と説明されている。"
+    },
+    {
+      "id": 16,
+      "question": "03章で説明されているDev Containersの仕組みとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナのログをVS Codeのターミナルに転送するだけの機能" },
+        { "id": "B", "text": "プロジェクトに.devcontainer/devcontainer.jsonを置き、VS Code自体をコンテナ内で動かし拡張機能・ターミナル・デバッガまで含めて開発できる仕組み" },
+        { "id": "C", "text": "Dockerイメージを自動的にレジストリへpushする仕組み" },
+        { "id": "D", "text": "WSL2を自動インストールするためのVS Code機能" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "03-vscode-dev-containers.mdでは、Dev Containersは「プロジェクトに.devcontainer/devcontainer.jsonを置くことで、VS Code自体をコンテナ内で動かし、拡張機能・ターミナル・デバッガまで含めてコンテナ内の環境で開発できるようにする仕組み」と説明されている。"
+    },
+    {
+      "id": 17,
+      "question": "最小構成のdevcontainer.jsonにおける`workspaceFolder`フィールドの役割はどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナ内でプロジェクトを配置するパスを指定する" },
+        { "id": "B", "text": "ベースとなるDockerイメージを指定する" },
+        { "id": "C", "text": "ホスト側で使用するエディタのテーマを指定する" },
+        { "id": "D", "text": "コンテナのCPU割り当てを指定する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03-vscode-dev-containers.mdでは、devcontainer.jsonの`workspaceFolder`は「コンテナ内でプロジェクトを配置するパス」と説明されている。なお`image`はベースとなるDockerイメージを指定するフィールドである。"
+    },
+    {
+      "id": 18,
+      "question": "devcontainer.jsonの`forwardPorts`フィールドの役割として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナ内で使うポートをホスト側にも自動転送する（04章の`-p`相当をVS Codeが自動で行う）" },
+        { "id": "B", "text": "コンテナ間の通信を暗号化する" },
+        { "id": "C", "text": "ホストのファイアウォール設定を自動変更する" },
+        { "id": "D", "text": "コンテナのDNS設定を上書きする" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03-vscode-dev-containers.mdでは、`forwardPorts`は「コンテナ内で使うポートをホスト側にも自動転送する設定（04章で学んだ-p相当をVS Codeが自動で行う）」と説明されている。"
+    },
+    {
+      "id": 19,
+      "question": "03章で強調されている、Dev Containersを高速に動かすための正しい起動手順はどれか。",
+      "options": [
+        { "id": "A", "text": "Windows側のフォルダ（C:\\Users\\...）を直接開いてからDev Containersを起動する" },
+        { "id": "B", "text": "Remote-WSLでWSL側フォルダを開いた状態からDev Containersを起動する" },
+        { "id": "C", "text": "devcontainer.jsonを作成せず、Dockerfileだけで起動する" },
+        { "id": "D", "text": "先にコンテナを手動でdocker runし、後からVS Codeをアタッチする" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "03-vscode-dev-containers.mdでは、「必ずRemote-WSLでWSL側フォルダを開いてからDev Containersを起動する」順序を徹底するよう説明されている。Windows側フォルダを直接開くと、bind mount元がWindows側パスになり性能低下の原因になる。"
+    },
+    {
+      "id": 20,
+      "question": "VS Codeのコマンドパレットから、コンテナ内で開発を開始するために実行するコマンド名はどれか。",
+      "options": [
+        { "id": "A", "text": "Docker: Build Image" },
+        { "id": "B", "text": "Remote-WSL: New Window" },
+        { "id": "C", "text": "Dev Containers: Reopen in Container" },
+        { "id": "D", "text": "Docker Compose: Up" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "03-vscode-dev-containers.mdでは、コマンドパレット（Ctrl+Shift+P）から「Dev Containers: Reopen in Container」を実行すると説明されている。初回はイメージのpullとコンテナ起動が行われ、統合ターミナルが開く。"
+    },
+    {
+      "id": 21,
+      "question": "04章で説明されている、改行コード問題（CRLF混入）が起きる典型的な原因はどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Engineのバージョンの不一致" },
+        { "id": "B", "text": "Windows上のGit設定（core.autocrlf=trueなど）でcloneしたフォルダをWSL/コンテナ内で使うこと" },
+        { "id": "C", "text": "named volumeを使わずbind mountだけを使うこと" },
+        { "id": "D", "text": "devcontainer.jsonのimageフィールドの指定ミス" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "04-line-endings-and-git.mdでは、「Windows上のGit設定（core.autocrlf=trueなど）でリポジトリをcloneし、そのフォルダをWSL/コンテナ内で使うと、テキストファイルの改行コードがCRLFのまま混入することがある」と説明されている。"
+    },
+    {
+      "id": 22,
+      "question": "CRLFが混入したシェルスクリプトを実行すると典型的に発生するエラーはどれか。",
+      "options": [
+        { "id": "A", "text": "Permission denied" },
+        { "id": "B", "text": "No such file or directory（ファイル自体が存在しない）" },
+        { "id": "C", "text": "bad interpreter: /bin/bash^M: no such file or directory" },
+        { "id": "D", "text": "connection refused" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "04-line-endings-and-git.mdでは、シェルスクリプトの1行目に`\\r`が混入すると「bad interpreter: /bin/bash^M: no such file or directory」のような実行エラーになると説明されている。"
+    },
+    {
+      "id": 23,
+      "question": "改行コード問題への最も確実な対処法として04章で挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "core.autocrlfをtrueに設定し直す" },
+        { "id": "B", "text": "Windows側でcloneしたリポジトリ（/mnt/c/...）をそのまま使い続ける" },
+        { "id": "C", "text": "WSL側で直接git cloneし直す" },
+        { "id": "D", "text": "コンテナのベースイメージをAlpineに変更する" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "04-line-endings-and-git.mdでは、「最も確実な対処は、Windows側でcloneしたリポジトリ（/mnt/c/...）を使うのではなく、WSL側で直接git cloneし直すこと」と説明されている。これによりcore.autocrlf設定に関わらずLFでファイルが展開される。"
+    },
+    {
+      "id": 24,
+      "question": "04章で示されている`.gitattributes`の設定例（`* text=auto eol=lf` など）の目的として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "バイナリファイルをテキストファイルとして扱わせる" },
+        { "id": "B", "text": "テキストファイルを開発者の環境に依存せず常にLFで一貫して管理する" },
+        { "id": "C", "text": "Gitの差分表示を無効化する" },
+        { "id": "D", "text": "コミットメッセージの文字コードをUTF-8に固定する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "04-line-endings-and-git.mdでは、.gitattributesにこの設定を追加することで「テキストファイルは常にLFで管理され、シェルスクリプトも確実にLFになる」と説明されており、開発者の環境に依存せず一貫した挙動になることが目的である。"
+    },
+    {
+      "id": 25,
+      "question": "04章の演習で、CRLF付きのシェルスクリプトの改行コードを修正するために使用できるコマンドとして挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "chmod +x broken.sh" },
+        { "id": "B", "text": "dos2unix broken.sh（または sed -i 's/\\r$//' broken.sh）" },
+        { "id": "C", "text": "docker restart broken.sh" },
+        { "id": "D", "text": "git config --global core.autocrlf true" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "04-line-endings-and-git.mdの演習では、「dos2unix broken.sh（またはsed -i 's/\\r$//' broken.sh）で改行コードを修正し、再実行してエラーが解消することを確認する」と説明されている。"
+    }
+  ]
+}

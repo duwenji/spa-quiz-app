@@ -1,0 +1,244 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "09章の演習で構築する3サービス構成の組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Web + PostgreSQL + Redis" },
+        { "id": "B", "text": "Web + MySQL + Redis" },
+        { "id": "C", "text": "Web + PostgreSQL + Nginx" },
+        { "id": "D", "text": "Web + MongoDB + Redis" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「この章で学ぶこと」に「Web + PostgreSQL + Redisの3サービス構成の構築」と明記されている。DBはPostgreSQL、キャッシュはRedisであり、MySQLやNginx、MongoDBは登場しない。"
+    },
+    {
+      "id": 2,
+      "question": "09章の学習目標として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "これまで学んだ全要素を組み合わせて、実務に近い構成を自力で構築できる" },
+        { "id": "B", "text": "Dockerイメージのビルド方法を新たに学ぶ" },
+        { "id": "C", "text": "Kubernetesクラスタを構築する" },
+        { "id": "D", "text": "WSL2のインストール手順を学ぶ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「学習目標」に「これまで学んだ全要素を組み合わせて、実務に近い構成を自力で構築できる」とある。09章は01〜08章の統合演習であり、新規技術の習得やインストール手順の学習は目的ではない。"
+    },
+    {
+      "id": 3,
+      "question": "09章の「演習案」として述べられている内容はどれか。",
+      "options": [
+        { "id": "A", "text": "Redisを含む3サービス構成を自力で完成させ、Windows側ブラウザから動作確認する" },
+        { "id": "B", "text": "AWSにデプロイして動作確認する" },
+        { "id": "C", "text": "Kubernetesマニフェストを作成する" },
+        { "id": "D", "text": "新しいプログラミング言語を学ぶ" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「演習案」に「Redisを含む3サービス構成を自力で完成させ、Windows側ブラウザから動作確認する」と記載されている。クラウドデプロイやKubernetes、新言語学習は本章の範囲外。"
+    },
+    {
+      "id": 4,
+      "question": "09章の「成功判定」はどのように定義されているか。",
+      "options": [
+        { "id": "A", "text": "03-final-checklist.mdの全項目にチェックが付けられること" },
+        { "id": "B", "text": "テストコードのカバレッジが100%になること" },
+        { "id": "C", "text": "CI/CDパイプラインが構築されること" },
+        { "id": "D", "text": "本番環境にデプロイされること" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「成功判定」には「03-final-checklist.mdの全項目にチェックが付けられる」ことが基準として明記されている。カバレッジやCI/CD、本番デプロイは言及されていない。"
+    },
+    {
+      "id": 5,
+      "question": "09章の次に進む章はどれか。",
+      "options": [
+        { "id": "A", "text": "10-local-rag-anythingllm-ollama" },
+        { "id": "B", "text": "08-security-and-enterprise-network" },
+        { "id": "C", "text": "06-compose-multi-service" },
+        { "id": "D", "text": "11-kubernetes-basics" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「次へ」に「10-local-rag-anythingllm-ollama/README.md」へのリンクが示されている。08章や06章は既に学習済みの過去の章であり、11章は本教材内には存在しない。"
+    },
+    {
+      "id": 6,
+      "question": "お題として、06章で作成したWeb+PostgreSQL構成に何を追加した3サービス構成を構築するか。",
+      "options": [
+        { "id": "A", "text": "Redisキャッシュサービス" },
+        { "id": "B", "text": "Nginxリバースプロキシ" },
+        { "id": "C", "text": "Elasticsearch検索エンジン" },
+        { "id": "D", "text": "RabbitMQメッセージキュー" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01-project-brief.mdの「お題」に「06章で作成したWeb + PostgreSQL構成に、Redisキャッシュサービスを追加した3サービス構成」を構築すると明記されている。"
+    },
+    {
+      "id": 7,
+      "question": "満たすべき要件のうち、dbサービスのデータ永続化に関する記述として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナ再作成後もデータが残り、`docker compose down`で消えないこと" },
+        { "id": "B", "text": "コンテナを再起動するたびにデータが初期化されること" },
+        { "id": "C", "text": "データはWindows側のCドライブに保存されること" },
+        { "id": "D", "text": "データはRedisにキャッシュとして保存されるため永続化は不要" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「満たすべき要件」に「dbサービスのデータが、コンテナ再作成後も残ること（docker compose downで消えないこと）」とある。これはnamed volumeによる永続化を前提とした要件である。"
+    },
+    {
+      "id": 8,
+      "question": "技術要素の対応表で、「サービス名による名前解決（db, cache）」に対応する章として挙げられているのはどれか。",
+      "options": [
+        { "id": "A", "text": "04章・06章" },
+        { "id": "B", "text": "02章のみ" },
+        { "id": "C", "text": "05章・08章" },
+        { "id": "D", "text": "03章・07章" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01-project-brief.mdの対応表で「サービス名による名前解決（db, cache）」の対応する章は「04章・06章」とされている。"
+    },
+    {
+      "id": 9,
+      "question": "技術要素の対応表で、「bind mountをWSL側パスに置く」に対応する章はどれか。",
+      "options": [
+        { "id": "A", "text": "05章" },
+        { "id": "B", "text": "03章" },
+        { "id": "C", "text": "06章" },
+        { "id": "D", "text": "07章" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "対応表では「bind mountをWSL側パスに置く」の対応する章は「05章」とされている。"
+    },
+    {
+      "id": 10,
+      "question": "この章の構成図(mermaid)によれば、Windowsブラウザからのアクセス経路として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Windowsブラウザ → forwardPortsによりVS Code Dev Containers内のwebサービスへ到達し、webはホスト名dbとcacheでそれぞれDB・Redisに接続する" },
+        { "id": "B", "text": "Windowsブラウザは直接dbサービスのポートにアクセスし、webを経由しない" },
+        { "id": "C", "text": "WindowsブラウザはWSL2 VMのIPアドレスを使ってcacheサービスに直接接続する" },
+        { "id": "D", "text": "Windowsブラウザからのアクセスはすべてcacheサービスを経由してからwebに転送される" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "mermaid図では「Browser --forwardPorts--> Web」となっており、さらに「Web --ホスト名: db--> Db」「Web --ホスト名: cache--> Cache」という経路が示されている。ブラウザはwebのみに直接アクセスし、db・cacheへはwebを経由する。"
+    },
+    {
+      "id": 11,
+      "question": "capstone-appのディレクトリ構成において、`.devcontainer/devcontainer.json`はどこに作成が推奨されているか。",
+      "options": [
+        { "id": "A", "text": "WSL側のファイルシステム（例: ~/projects/capstone-app）" },
+        { "id": "B", "text": "Windows側のCドライブ直下" },
+        { "id": "C", "text": "/mnt/c配下のWindowsファイルシステム" },
+        { "id": "D", "text": "Dockerボリューム内" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02-build-and-run.mdには「WSL側で作成します（05章で学んだ通り、必ずWSL側パスに置きます）」とあり、`mkdir -p ~/projects/capstone-app/...`のコマンド例が示されている。"
+    },
+    {
+      "id": 12,
+      "question": "docker-compose.ymlにおいて、webサービスがdbおよびcacheへ接続するための環境変数はどれか。",
+      "options": [
+        { "id": "A", "text": "DATABASE_URLとREDIS_URL" },
+        { "id": "B", "text": "DB_HOSTとCACHE_HOST" },
+        { "id": "C", "text": "POSTGRES_URLとREDIS_HOST" },
+        { "id": "D", "text": "CONNECTION_STRINGとCACHE_URL" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "docker-compose.ymlのwebサービスのenvironmentには`DATABASE_URL: postgres://app:app@db:5432/app`と`REDIS_URL: redis://cache:6379`が設定されている。"
+    },
+    {
+      "id": 13,
+      "question": "docker-compose.ymlのvolumes設定に関する記述として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "webサービスは`./web:/app`のbind mountと`node_modules_cache`のnamed volumeの両方を使う" },
+        { "id": "B", "text": "webサービスはnamed volumeのみを使い、bind mountは使わない" },
+        { "id": "C", "text": "dbサービスはbind mountでデータを永続化する" },
+        { "id": "D", "text": "cacheサービスは`db-data`ボリュームを共有する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "webサービスのvolumesには`- ./web:/app`（bind mount）と`- node_modules_cache:/app/node_modules`（named volume）の両方が定義されている。dbは`db-data`というnamed volumeを使い、cacheはボリュームを持たない。"
+    },
+    {
+      "id": 14,
+      "question": "起動確認手順でRedisへの疎通確認に使われるコマンドと期待される応答はどれか。",
+      "options": [
+        { "id": "A", "text": "`docker compose exec cache redis-cli ping` を実行し `PONG` が返る" },
+        { "id": "B", "text": "`docker compose exec db redis-cli ping` を実行し `OK` が返る" },
+        { "id": "C", "text": "`docker compose logs cache` を実行し `PONG` が表示される" },
+        { "id": "D", "text": "`curl localhost:6379` を実行し `PONG` が返る" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02-build-and-run.mdには「Redisへの疎通確認: docker compose exec cache redis-cli ping」とあり、その応答として`PONG`が示されている。"
+    },
+    {
+      "id": 15,
+      "question": "docker-compose単体での動作確認後、VS Code Dev Containersでの開発に切り替える際の正しい手順はどれか。",
+      "options": [
+        { "id": "A", "text": "`docker compose down`で一度停止し、VS CodeでWSL経由でフォルダを開いてから「Dev Containers: Reopen in Container」を実行する" },
+        { "id": "B", "text": "`docker compose up`を起動したまま、別ターミナルでVS Codeを開くだけでよい" },
+        { "id": "C", "text": "コンテナをすべて削除し、イメージも再ビルドしてからdevcontainer.jsonを新規作成する" },
+        { "id": "D", "text": "Windows側でVS Codeを開き、リモートフォルダとしてC:\\projects\\capstone-appを指定する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "手順では「すべて確認できたら、一度停止し...docker compose down」の後、「VS Codeで~/projects/capstone-appをRemote-WSL経由で開き、コマンドパレットからDev Containers: Reopen in Containerを実行する」と説明されている。"
+    },
+    {
+      "id": 16,
+      "question": "最終チェックリストの項目のうち、01章の内容に対応するものはどれか。",
+      "options": [
+        { "id": "A", "text": "Dockerがコンテナ隔離にLinuxカーネルのnamespaces/cgroupsを使うことを説明できる" },
+        { "id": "B", "text": "WSL内にDocker Engineを直接インストールし、sudoなしで操作できる" },
+        { "id": "C", "text": "イメージ・コンテナ・ボリューム・ネットワークの基本コマンドを迷わず使える" },
+        { "id": "D", "text": "リソース管理・ログ確認・障害対応を自力で実施できる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03-final-checklist.mdでは、01章に対応する項目として「Dockerがコンテナ隔離にLinuxカーネルのnamespaces/cgroupsを使うことを説明できる」が挙げられている。他の選択肢はそれぞれ02章・03章・07章に対応する。"
+    },
+    {
+      "id": 17,
+      "question": "04章に対応するチェックリスト項目の内容として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "Windows・WSL2 VM・Docker Engine・コンテナの4層構造を説明でき、ネットワークトラブルをどの層から切り分けるか判断できる" },
+        { "id": "B", "text": "企業プロキシ対応・シークレット管理・ライセンスの注意点を理解している" },
+        { "id": "C", "text": "docker-compose.ymlで複数サービスを連携させ、名前解決の仕組みを説明できる" },
+        { "id": "D", "text": "プロジェクトをWSL側ファイルシステムに置くべき理由を説明できる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "最終チェックリストの04章対応項目は「Windows・WSL2 VM・Docker Engine・コンテナの4層構造を説明でき、ネットワークトラブルをどの層から切り分けるか判断できる」である。他の選択肢は08章・06章・05章に対応する。"
+    },
+    {
+      "id": 18,
+      "question": "08章に対応するチェックリスト項目として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "企業プロキシ対応・シークレット管理・ライセンスの注意点を理解している" },
+        { "id": "B", "text": "Dockerがコンテナ隔離にLinuxカーネルのnamespaces/cgroupsを使うことを説明できる" },
+        { "id": "C", "text": "リソース管理・ログ確認・障害対応を自力で実施できる" },
+        { "id": "D", "text": "Web+DB+Redisの3サービス構成をDev Containersで開発できた" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "最終チェックリストの08章対応項目は「企業プロキシ対応・シークレット管理・ライセンスの注意点を理解している」である。他の選択肢はそれぞれ01章・07章・本章(09章)に対応する。"
+    },
+    {
+      "id": 19,
+      "question": "本章（09章）自体に対応するチェックリスト項目として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "Web + DB + Redisの3サービス構成をDev Containersで開発できた" },
+        { "id": "B", "text": "docker-compose.ymlで複数サービスを連携させ、名前解決の仕組みを説明できる" },
+        { "id": "C", "text": "イメージ・コンテナ・ボリューム・ネットワークの基本コマンドを迷わず使える" },
+        { "id": "D", "text": "WSL内にDocker Engineを直接インストールし、sudoなしで操作できる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "最終チェックリストには「Web + DB + Redisの3サービス構成をDev Containersで開発できた（本章）」という項目が挙げられており、これが09章自体に対応する唯一の項目である。"
+    },
+    {
+      "id": 20,
+      "question": "最終チェックリストの全項目を振り返ると、01章から08章までの内容と09章の内容の関係についてどう言えるか。",
+      "options": [
+        { "id": "A", "text": "01〜08章で学んだ個別要素（カーネル分離・環境構築・基本操作・ネットワーク・開発ワークフロー・Compose連携・運用・セキュリティ）を、09章では3サービス構成の構築という一つの実践課題に統合して確認している" },
+        { "id": "B", "text": "09章は01〜08章とは独立した新しい技術（Kubernetes）を扱っている" },
+        { "id": "C", "text": "01〜08章の内容は09章では一切使われず、新規に学び直す必要がある" },
+        { "id": "D", "text": "チェックリストは09章の内容のみで構成されており、01〜08章の復習は含まれない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "最終チェックリストは01章から08章それぞれに対応する項目と、本章(09章)に対応する項目を並べて構成されており、README.mdの「01〜08章の内容を統合した総合演習」という記述とも一致する。09章は各章の要素を組み合わせて一つの構成を完成させる統合演習である。"
+    }
+  ]
+}

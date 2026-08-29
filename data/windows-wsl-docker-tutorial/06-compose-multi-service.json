@@ -1,0 +1,244 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "06章「Compose Multi Service」の「この章で学ぶこと」に挙げられていないものはどれか。",
+      "options": [
+        { "id": "A", "text": "docker-compose.ymlの基本構文とコマンド" },
+        { "id": "B", "text": "Composeが自動で作るネットワークとサービス発見の仕組み" },
+        { "id": "C", "text": "Web + DBの実践的な複数サービス構成" },
+        { "id": "D", "text": "Docker imageのマルチステージビルドの最適化手法" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "README.mdの「この章で学ぶこと」には、docker-compose.ymlの基本構文とコマンド、Composeが自動で作るネットワークとサービス発見の仕組み、Web + DBの実践的な複数サービス構成の3点が挙げられており、マルチステージビルドについては触れられていません。"
+    },
+    {
+      "id": 2,
+      "question": "06章の学習目標として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "サービス名による名前解決の仕組みを説明できる" },
+        { "id": "B", "text": "Dockerfileのレイヤーキャッシュを最適化できる" },
+        { "id": "C", "text": "Kubernetesマニフェストへ変換できる" },
+        { "id": "D", "text": "コンテナのリソース制限をcgroupsで直接設定できる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの学習目標には「サービス名による名前解決の仕組みを説明できる」が明記されています。他の選択肢はこの章の学習目標には含まれていません。"
+    },
+    {
+      "id": 3,
+      "question": "README.mdの学習目標で、named volumeによるデータ永続化はどのコマンドの違いによって確認するとされているか。",
+      "options": [
+        { "id": "A", "text": "`docker compose stop`と`docker compose kill`" },
+        { "id": "B", "text": "`docker compose down`と`docker compose down -v`" },
+        { "id": "C", "text": "`docker compose up`と`docker compose restart`" },
+        { "id": "D", "text": "`docker compose build`と`docker compose pull`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "学習目標に「named volumeによるデータ永続化を`docker compose down -v`との違いで確認できる」とあり、通常の`down`と`-v`付き`down`の違いでデータ永続化を確認します。"
+    },
+    {
+      "id": 4,
+      "question": "README.mdの「演習案」にある2つ目の項目で、Redisサービスを追加する目的として述べられているのはどれか。",
+      "options": [
+        { "id": "A", "text": "08章のセキュリティ演習の準備" },
+        { "id": "B", "text": "09章capstoneの準備" },
+        { "id": "C", "text": "05章のボリューム演習のやり直し" },
+        { "id": "D", "text": "10章のCI/CD演習の準備" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "演習案の2番目に「Redisを1サービス追加し、3サービス構成に拡張する（09章capstoneの準備）」と明記されています。"
+    },
+    {
+      "id": 5,
+      "question": "README.mdの「成功判定」に挙げられている基準はどれか。",
+      "options": [
+        { "id": "A", "text": "docker-compose.ymlを自力で書ける／downとdown -vの違いを説明できる" },
+        { "id": "B", "text": "Docker Hubにイメージをpushできる／CIパイプラインを構築できる" },
+        { "id": "C", "text": "docker swarm initを実行できる／ノードをスケールできる" },
+        { "id": "D", "text": "Dockerfileのマルチステージビルドを書ける／イメージサイズを最小化できる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "README.mdの「成功判定」には「`docker-compose.yml`を自力で書ける」「`down`と`down -v`の違いを説明できる」の2点が挙げられています。"
+    },
+    {
+      "id": 6,
+      "question": "01-compose-basics.mdで示されている最小構成のdocker-compose.ymlで、webサービスに設定されている項目はどれか。",
+      "options": [
+        { "id": "A", "text": "image: nginx:latestとports: \"8080:80\"" },
+        { "id": "B", "text": "build: .とcommand: npm start" },
+        { "id": "C", "text": "image: postgres:16とvolumes: db-data" },
+        { "id": "D", "text": "restart: alwaysとnetworks: custom" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01-compose-basics.mdの最小構成では、`services.web`に`image: nginx:latest`と`ports: - \"8080:80\"`が定義されており、これは03章の`docker run -p 8080:80 nginx`と同じ内容を宣言的に書いたものと説明されています。"
+    },
+    {
+      "id": 7,
+      "question": "`docker compose up -d`を実行すると、一発で何が行われると説明されているか。",
+      "options": [
+        { "id": "A", "text": "全サービスの起動のみが行われ、ネットワークは別途手動作成が必要" },
+        { "id": "B", "text": "docker-compose.ymlに書かれた全サービスの起動と、ネットワークの作成までがまとめて行われる" },
+        { "id": "C", "text": "イメージのビルドとDocker Hubへのpushが自動的に行われる" },
+        { "id": "D", "text": "既存のコンテナとボリュームがすべて削除されてから再作成される" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "01-compose-basics.mdには「`docker compose up -d`一発で、`docker-compose.yml`に書かれた全サービスの起動、ネットワークの作成までがまとめて行われます」と説明されています。"
+    },
+    {
+      "id": 8,
+      "question": "01-compose-basics.mdで紹介されている基本コマンドのうち、ログを継続的に確認するためのものはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker compose ps`" },
+        { "id": "B", "text": "`docker compose down`" },
+        { "id": "C", "text": "`docker compose logs -f`" },
+        { "id": "D", "text": "`docker compose up -d`" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "基本コマンドの説明では「ログ確認」として`docker compose logs -f`が紹介されています。`ps`はサービスの状態確認、`down`は停止して削除、`up -d`はバックグラウンド起動のためのコマンドです。"
+    },
+    {
+      "id": 9,
+      "question": "01-compose-basics.mdにおいて、本教材で使用するとされているコマンド形式はどれか。",
+      "options": [
+        { "id": "A", "text": "ハイフンありの`docker-compose`（旧バージョンのスタンドアロンツール）" },
+        { "id": "B", "text": "ハイフンなしの`docker compose`（プラグイン形式）" },
+        { "id": "C", "text": "`docker container-compose`という新コマンド" },
+        { "id": "D", "text": "どちらも同等に使えるため区別していない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「古い情報では`docker-compose`（ハイフンあり、別コマンド）という表記をよく見かけますが、これは旧バージョンのスタンドアロンツールです。本教材では現行の`docker compose`（プラグイン形式）を使います」と明記されています。"
+    },
+    {
+      "id": 10,
+      "question": "01-compose-basics.mdの演習で、`docker compose up -d`後にWindows側ブラウザから確認するURLはどれか。",
+      "options": [
+        { "id": "A", "text": "http://localhost:3000" },
+        { "id": "B", "text": "http://localhost:80" },
+        { "id": "C", "text": "http://localhost:8080" },
+        { "id": "D", "text": "http://localhost:5432" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "演習の手順2に「Windows側ブラウザから`http://localhost:8080`にアクセスできることを確認する」とあり、docker-compose.ymlの`ports: - \"8080:80\"`設定に対応しています。"
+    },
+    {
+      "id": 11,
+      "question": "Docker Composeがプロジェクトごとに自動作成するネットワークの命名規則として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`<プロジェクト名>_default`" },
+        { "id": "B", "text": "`default_<プロジェクト名>`" },
+        { "id": "C", "text": "`compose-network`（固定名）" },
+        { "id": "D", "text": "`bridge0`" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02-service-discovery-and-network.mdには「Docker Composeは、プロジェクトごとに`<プロジェクト名>_default`というユーザー定義bridgeネットワークを自動的に作成します」と説明されています。"
+    },
+    {
+      "id": 12,
+      "question": "02-service-discovery-and-network.mdのweb・db構成例で、webコンテナ内からdbサービスに接続する際に指定するホスト名はどれか。",
+      "options": [
+        { "id": "A", "text": "dbコンテナのIPアドレスを毎回調べて指定する" },
+        { "id": "B", "text": "`db`というサービス名そのもの" },
+        { "id": "C", "text": "`localhost`" },
+        { "id": "D", "text": "`compose-basics_default`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「この構成では、`web`サービスのコンテナ内から`db`というホスト名（サービス名そのもの）で`db`サービスに接続できます」と説明されており、`ping db`の実行例でIPアドレスを一切指定せずサービス名だけで通信できることが確認されています。"
+    },
+    {
+      "id": 13,
+      "question": "02-service-discovery-and-network.mdのmermaid図が示すネットワーク構成の説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "webとdbの両方がホストから直接到達可能である" },
+        { "id": "B", "text": "ホストから到達できるのは公開ポートを設定したwebだけで、dbはネットワーク内部からしか到達できない" },
+        { "id": "C", "text": "dbのみがホストの公開ポートに接続されており、webは内部専用である" },
+        { "id": "D", "text": "webとdbはどちらもホストから到達できず、外部プロキシが必要である" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「ホストから到達できるのは公開ポートを設定した`web`だけで、`db`はネットワーク内部からしか到達できません」と明記されており、`web`だけが`ports`で公開されているためです。"
+    },
+    {
+      "id": 14,
+      "question": "Composeが自動作成したネットワークに対して`docker network inspect`を実行すると、`Containers`欄に表示される情報として説明されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "各コンテナのビルド履歴とDockerfileの内容" },
+        { "id": "B", "text": "web・dbのコンテナ名とそれぞれのイメージサイズ" },
+        { "id": "C", "text": "web・db両方のコンテナと、それぞれのIPアドレス" },
+        { "id": "D", "text": "ホストマシンのネットワークインターフェース一覧" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "本文には「`Containers`欄に、`web`・`db`両方のコンテナと、それぞれのIPアドレスが表示されます」と説明されています。"
+    },
+    {
+      "id": 15,
+      "question": "02-service-discovery-and-network.mdは、Composeによるネットワーク作成とサービス接続の自動化を、それ以前の章の何と比較して説明しているか。",
+      "options": [
+        { "id": "A", "text": "04章までに学んだ、既定bridgeではなくユーザー定義bridgeを使うことで名前解決ができるという知識、および03章・04章で自分で`docker network create`していた構成" },
+        { "id": "B", "text": "01章で学んだWSL2のディストリビューション管理コマンド" },
+        { "id": "C", "text": "05章で学んだボリュームのバックアップ手順" },
+        { "id": "D", "text": "本章より後の07章で扱うトラブルシューティング手順" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文冒頭で「04章で『既定bridgeでは名前解決ができないが、ユーザー定義bridgeならDNSで名前解決できる』と学びました」と振り返り、さらに「これはComposeを使わずに03章・04章で自分で`docker network create`していた構成と同じで、Composeがネットワーク作成とサービス接続を自動化しているだけです」と説明しています。"
+    },
+    {
+      "id": 16,
+      "question": "03-web-db-example.mdのdocker-compose.ymlで、webサービスの`DATABASE_URL`環境変数に設定されている接続文字列のホスト部分はどれになっているか。",
+      "options": [
+        { "id": "A", "text": "`localhost`" },
+        { "id": "B", "text": "`db`（サービス名）" },
+        { "id": "C", "text": "`127.0.0.1`" },
+        { "id": "D", "text": "`postgres-container`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "docker-compose.ymlでは`DATABASE_URL: postgres://app:app@db:5432/app`のように、接続先ホストとしてサービス名`db`が使われています。これは02章で学んだサービス名がそのままホスト名になる仕組みを利用したものです。"
+    },
+    {
+      "id": 17,
+      "question": "03-web-db-example.mdのdocker-compose.ymlで、PostgreSQLのデータを永続化するために使われている仕組みはどれか。",
+      "options": [
+        { "id": "A", "text": "`tmpfs`マウント" },
+        { "id": "B", "text": "bind mountでホストの`/tmp`にマウント" },
+        { "id": "C", "text": "named volume`db-data`を`/var/lib/postgresql/data`にマウント" },
+        { "id": "D", "text": "コンテナのレイヤーにそのまま保存し、`--commit`する" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "docker-compose.ymlの`db`サービスには`volumes: - db-data:/var/lib/postgresql/data`とあり、トップレベルの`volumes: db-data:`で定義されたnamed volumeがPostgreSQLのデータディレクトリにマウントされています。"
+    },
+    {
+      "id": 18,
+      "question": "03-web-db-example.mdで`docker compose up -d --build`を実行する理由として最も適切なものはどれか。",
+      "options": [
+        { "id": "A", "text": "`db`サービスにpostgres:16以外の新しいイメージをpullするため" },
+        { "id": "B", "text": "`web`サービスが`build: ./web`で定義されており、Dockerfileからイメージをビルドして起動する必要があるため" },
+        { "id": "C", "text": "既存のnamed volumeを強制的に再作成するため" },
+        { "id": "D", "text": "コンテナのネットワークを再作成するため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "docker-compose.ymlの`web`サービスは`build: ./web`で`web/Dockerfile`からビルドする構成になっているため、`--build`オプションを付けて起動時にイメージをビルドしています。"
+    },
+    {
+      "id": 19,
+      "question": "03-web-db-example.mdのデータ永続化確認手順で、データを作成した後に`docker compose down`（`-v`なし）してから`docker compose up -d`し直した場合、`SELECT * FROM t;`の結果はどうなると説明されているか。",
+      "options": [
+        { "id": "A", "text": "1行返る（データが残っている）" },
+        { "id": "B", "text": "ERROR: relation \"t\" does not exist（データが消えている）" },
+        { "id": "C", "text": "0行返る（テーブルは残るが中身が消える）" },
+        { "id": "D", "text": "コンテナが起動せずエラーになる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「通常のdown（volumeは残る）」の後に`up -d`して確認すると「→ 1行返る（データが残っている）」と説明されています。`-v`オプションなしの`down`ではnamed volumeが削除されないためです。"
+    },
+    {
+      "id": 20,
+      "question": "03-web-db-example.mdで、`docker compose down -v`を実行してから`docker compose up -d`し直し、テーブルを`SELECT`した場合に何が起きると説明されているか。",
+      "options": [
+        { "id": "A", "text": "以前と同じデータが1行返る" },
+        { "id": "B", "text": "`ERROR: relation \"t\" does not exist`となり、データが消えている" },
+        { "id": "C", "text": "テーブル構造だけが残り、行データのみ削除される" },
+        { "id": "D", "text": "postgresコンテナが自動的に別ポートで再起動する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「-v付きdown（volumeも削除される）」の後に`up -d`して確認すると「→ ERROR: relation \"t\" does not exist（データが消えている）」とあり、`docker compose down -v`はnamed volume（`db-data`）ごと削除するため、テーブル自体が失われることが説明されています。"
+    }
+  ]
+}

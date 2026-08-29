@@ -1,0 +1,244 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "この章（07 Operations and Troubleshooting）で学ぶ内容として挙げられていないものはどれか。",
+      "options": [
+        { "id": "A", "text": ".wslconfigによるリソース制限とVmmemメモリ肥大化への対処" },
+        { "id": "B", "text": "コンテナログの確認とリアルタイムモニタリング" },
+        { "id": "C", "text": "ネットワーク以外の典型的な障害パターンへの対処" },
+        { "id": "D", "text": "Dockerイメージのマルチステージビルドによる軽量化" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "この章の「この章で学ぶこと」には、.wslconfigによるリソース制限とVmmemメモリ肥大化への対処、コンテナログの確認とリアルタイムモニタリング、ネットワーク以外の典型的な障害パターンへの対処の3点が挙げられている。マルチステージビルドによるイメージ軽量化はこの章の範囲には含まれていない。"
+    },
+    {
+      "id": 2,
+      "question": "この章の学習目標として明記されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL2/Dockerのリソース使用状況を把握し、制限を設定できる" },
+        { "id": "B", "text": "Dockerfileのベストプラクティスを説明できる" },
+        { "id": "C", "text": "Kubernetesクラスタを構築できる" },
+        { "id": "D", "text": "WSL1とWSL2のアーキテクチャの違いを説明できる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "学習目標には「WSL2/Dockerのリソース使用状況を把握し、制限を設定できる」「ログとモニタリングコマンドを使いこなせる」「ポート競合・ディスク容量不足・コンテナ即終了などの障害に対処できる」の3つが挙げられており、Aが該当する。"
+    },
+    {
+      "id": 3,
+      "question": "この章の演習案として挙げられている内容はどれか。",
+      "options": [
+        { "id": "A", "text": "Docker Composeでマルチコンテナ構成を作成する" },
+        { "id": "B", "text": "わざとポート競合を発生させ、Windows側・WSL側両方で原因プロセスを特定する" },
+        { "id": "C", "text": "GitHub Actionsでコンテナイメージを自動ビルドする" },
+        { "id": "D", "text": "WSL2にGPUパススルーを設定する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "演習案には「.wslconfigでメモリ制限を設定し、反映を確認する」「docker system pruneでディスク使用量を整理する」「わざとポート競合を発生させ、Windows側・WSL側両方で原因プロセスを特定する」の3つが挙げられており、Bが該当する。"
+    },
+    {
+      "id": 4,
+      "question": "この章の「成功判定」の基準として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "ネットワーク起因の障害と、それ以外の障害を切り分けられる" },
+        { "id": "B", "text": "Dockerイメージを外部レジストリに公開できる" },
+        { "id": "C", "text": "WSL上でGUIアプリケーションを起動できる" },
+        { "id": "D", "text": "複数ディストロ間でファイルを共有できる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "成功判定には「リソース管理・ログ確認・障害対応の一連の流れを自力で実施できる」「ネットワーク起因の障害と、それ以外の障害を切り分けられる」の2点が挙げられており、Aが該当する。"
+    },
+    {
+      "id": 5,
+      "question": "この章では、ネットワーク起因のトラブルシューティングはどのように扱われているか。",
+      "options": [
+        { "id": "A", "text": "この章内で他の障害パターンと合わせて詳しく扱っている" },
+        { "id": "B", "text": "この章の範囲外であり、別の章（04-networking-deep-dive）で扱われている" },
+        { "id": "C", "text": "次章（08-security-and-enterprise-network）で初めて扱われる" },
+        { "id": "D", "text": "本チュートリアルでは扱っていない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "03-common-failures-playbook.mdの冒頭で「ネットワーク起因のトラブル（『Windowsから繋がらない』等）は04-networking-deep-dive/06-network-troubleshooting.mdで扱っています。この章ではそれ以外の障害を扱います」と明記されている。"
+    },
+    {
+      "id": 6,
+      "question": "Vmmemプロセスについて、01-resource-management.mdで説明されている現象はどれか。",
+      "options": [
+        { "id": "A", "text": "負荷の高い処理を行った後もメモリを解放せずに保持し続けることがある" },
+        { "id": "B", "text": "常に物理メモリの半分までしか使用しない" },
+        { "id": "C", "text": "コンテナを1つ起動するごとに新しいVmmemプロセスが生成される" },
+        { "id": "D", "text": "Windowsを再起動しない限り一切メモリを解放しない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「Vmmem（WSL2 VM全体を表すプロセス）は、負荷の高い処理を行った後もメモリを解放せずに保持し続けることがあります」とあり、長時間使用するとタスクマネージャー上でメモリ使用量が増え続けるように見える現象として説明されている。"
+    },
+    {
+      "id": 7,
+      "question": "`.wslconfig`の`[wsl2]`セクションで設定できる項目とその意味の組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "memory: WSL2 VM全体が使える最大メモリ量" },
+        { "id": "B", "text": "processors: WSL2 VMが使用できる最大ディスク容量" },
+        { "id": "C", "text": "swap: WSL2 VMに割り当てるCPUコア数" },
+        { "id": "D", "text": "memory: コンテナ1つあたりのメモリ上限" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文では`memory`はWSL2 VM全体が使える最大メモリ量、`processors`はWSL2 VMに割り当てるCPUコア数、`swap`はスワップ領域のサイズと説明されており、Aの組み合わせが正しい。"
+    },
+    {
+      "id": 8,
+      "question": "`.wslconfig`の変更内容を反映させるために必要な操作と、その仕組みの説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`wsl --shutdown`を実行すると設定ファイルを再読み込みする処理が走り、即座に反映される" },
+        { "id": "B", "text": "`wsl --shutdown`でWSL2 VMを一度壊し、次回起動時にゼロから作り直すことで新しい設定が反映される" },
+        { "id": "C", "text": "Windowsを再起動しない限り、`.wslconfig`の変更は一切反映されない" },
+        { "id": "D", "text": "WSLターミナル内で`source ~/.wslconfig`を実行すれば反映される" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「`wsl --shutdown`自体は終了コマンドであり、設定を読み込み直す処理は含まれていません。VMを一度壊し、次回起動時にゼロから作り直させることで新しい設定が反映される」と説明されており、Bが正しい。"
+    },
+    {
+      "id": 9,
+      "question": "Vmmemのメモリを解放する方法について、01-resource-management.mdの説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`wsl --shutdown`が最も確実だが、起動中の全プロセス・コンテナも停止する" },
+        { "id": "B", "text": "`docker system prune`を実行すれば必ずメモリが解放される" },
+        { "id": "C", "text": "`sudo sh -c \"echo 1 > /proc/sys/vm/drop_caches\"`が最も確実で根本的な解決策である" },
+        { "id": "D", "text": "Vmmemのメモリはタスクマネージャーから直接解放操作ができる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「即座にメモリを解放したい場合は、`wsl --shutdown`が最も確実です（起動中の全プロセス・コンテナも停止するので注意してください）」とあり、`drop_caches`によるキャッシュ解放は「効果は限定的」「根本的な解決にはならないことが多い」と説明されている。"
+    },
+    {
+      "id": 10,
+      "question": "`docker system prune`と`docker system prune -a`の違いについて正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`-a`を付けても付けなくても削除対象は同じである" },
+        { "id": "B", "text": "`docker system prune`は停止中コンテナ・未使用ネットワーク・ダングリングイメージを削除し、`-a`を付けると使用中でないすべてのイメージ（タグ付き含む）も削除する" },
+        { "id": "C", "text": "`-a`を付けると使用中のボリュームも含めてすべて削除される" },
+        { "id": "D", "text": "`docker system prune`はイメージのみを対象とし、コンテナには影響しない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「`docker system prune -a`は、使用中でないすべてのイメージ（タグ付きイメージも含む）を削除します。次回ビルド時に再ダウンロードが必要になるため、実行前に`docker system df`で影響範囲を必ず確認してください」とあり、Bが正しい説明である。"
+    },
+    {
+      "id": 11,
+      "question": "`docker logs web`（`-f`オプションなし）を実行した場合の動作として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナ起動後の標準出力・標準エラー出力の内容を一括表示し、表示し終えるとコマンドが終了する" },
+        { "id": "B", "text": "リアルタイムでログをストリーミングし続け、`Ctrl+C`で終了する" },
+        { "id": "C", "text": "直近10分以内のログのみを表示する" },
+        { "id": "D", "text": "コンテナ内のファイルシステムの変更履歴を表示する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「`docker logs web`は、コンテナが起動してから標準出力・標準エラー出力に書き出した内容を一括表示し、表示し終えるとコマンド自体は終了します（`-f`を付けない限りストリーミングはしません）」と説明されている。"
+    },
+    {
+      "id": 12,
+      "question": "`docker logs -f --tail 100 web`はどのような動作をするか。",
+      "options": [
+        { "id": "A", "text": "直近100行のログのみを表示して終了する（リアルタイム追跡はしない）" },
+        { "id": "B", "text": "直近100行から開始してリアルタイムに追跡し続ける、最もよく使う組み合わせ" },
+        { "id": "C", "text": "コンテナ起動から100分間分のログを表示する" },
+        { "id": "D", "text": "コンテナを100回再起動した際のログを表示する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "オプション一覧の表に「`docker logs -f --tail 100 web`: 直近100行から開始してリアルタイム追跡（最もよく使う組み合わせ）」と明記されている。"
+    },
+    {
+      "id": 13,
+      "question": "Docker Composeで起動した複数サービスのログを確認する際の注意点として、本文が指摘していることはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker compose logs -f`はサービスを1つしか指定できない" },
+        { "id": "B", "text": "サービス名がそのままコンテナ名になっているとは限らないため、`docker ps`で実際のコンテナ名を確認してから`docker logs`を実行すると確実" },
+        { "id": "C", "text": "Composeで起動したコンテナには`docker logs`コマンドが使用できない" },
+        { "id": "D", "text": "`docker compose logs`は常にリアルタイム追跡のみで、一括表示はできない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「Composeで起動した場合、サービス名がそのままコンテナ名になっているとは限りません。`docker ps`で実際のコンテナ名を確認してから`docker logs`を実行すると確実です」と説明されている。なお`docker compose logs -f web db`のように複数サービスを指定することも可能である。"
+    },
+    {
+      "id": 14,
+      "question": "`docker stats`コマンドで確認できる情報として挙げられているものはどれか。",
+      "options": [
+        { "id": "A", "text": "CPU使用率、メモリ使用量、ネットワークI/O、ディスクI/O" },
+        { "id": "B", "text": "コンテナ内で実行されているプロセスの標準出力ログ全文" },
+        { "id": "C", "text": "イメージのビルド履歴とレイヤー構成" },
+        { "id": "D", "text": "コンテナが使用しているDockerfileの内容" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「CPU使用率、メモリ使用量、ネットワークI/O、ディスクI/Oをリアルタイムで確認できます。`Ctrl+C`で終了します」と説明されており、Aが正しい。"
+    },
+    {
+      "id": 15,
+      "question": "Dockerの既定のログドライバとその注意点について正しい説明はどれか。",
+      "options": [
+        { "id": "A", "text": "既定のログドライバは`syslog`であり、外部サーバーへの転送が必須である" },
+        { "id": "B", "text": "既定のログドライバは`json-file`で、ローテーション設定をしていないとログファイルが無制限に肥大化しディスクを圧迫することがある" },
+        { "id": "C", "text": "Dockerのログは既定で自動的に10MBごとにローテーションされるため、設定は不要である" },
+        { "id": "D", "text": "既定のログドライバはメモリ上にのみログを保持し、コンテナ停止時に自動的に消去される" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「Dockerの既定のログドライバは`json-file`で、コンテナの標準出力・標準エラー出力をJSON形式のファイルとしてホスト側に保存します。ログをローテーションする設定をしていない場合、ログファイルが無制限に肥大化し、ディスクを圧迫することがあります」とあり、実務では`--log-opt max-size`等でサイズ上限を明示することが推奨されている。"
+    },
+    {
+      "id": 16,
+      "question": "「`bind: address already in use`」というポート競合エラーが発生し、`sudo ss -tulpn | grep 8080`でWSL側に該当プロセスが見つからなかった場合、次にどう対処すべきか。",
+      "options": [
+        { "id": "A", "text": "WSL側の問題ではないと判断し、そのまま調査を打ち切る" },
+        { "id": "B", "text": "Windows側PowerShellで`netstat -ano | findstr 8080`を実行し、Windows側のプロセスを確認する" },
+        { "id": "C", "text": "`.wslconfig`のmemory値を増やして再起動する" },
+        { "id": "D", "text": "`docker system prune -a`を実行してイメージを再ビルドする" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「WSL側でポートを使っているプロセスが見つからない場合、犯人はWindows側にいる可能性があります」とあり、localhostフォワーディングの仕組み上WSL側とWindows側が同じポート番号を奪い合うため、Windows側PowerShellで`netstat -ano | findstr 8080`を実行して確認する必要があると説明されている。"
+    },
+    {
+      "id": 17,
+      "question": "WSL2の仮想ディスクファイル`ext4.vhdx`が、`docker system prune`でコンテナやイメージを削除しても自動的に縮小されない理由として説明されているものはどれか。",
+      "options": [
+        { "id": "A", "text": "`ext4.vhdx`は固定長ディスクであり、作成時のサイズから変化しない仕様になっているため" },
+        { "id": "B", "text": "`ext4.vhdx`は可変長（dynamically expanding）の仮想ディスクで、データ増加時にファイルサイズは伸びるが、データ削除時に自動でファイルサイズを縮める処理は行われないため" },
+        { "id": "C", "text": "Docker Desktopのバグにより縮小処理が無効化されているため" },
+        { "id": "D", "text": "WSL2が仮想ディスクではなく物理パーティションを直接使用しているため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「`ext4.vhdx`は『可変長（dynamically expanding）』の仮想ディスクです。中身のデータが増えるとWindows側のファイルサイズも一緒に伸びていきますが、逆方向（データを消したときにファイルサイズを縮める処理）は自動では行われません」と説明されている。ゲスト側で領域が未使用になっても、ホスト側のvhdxファイル自体の縮小（コンパクト化）は別途明示的に実行する必要がある。"
+    },
+    {
+      "id": 18,
+      "question": "肥大化した`ext4.vhdx`を縮小する手段として、比較的新しいWSLバージョンで使えるコマンドはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker system prune -a --volumes`" },
+        { "id": "B", "text": "`wsl --shutdown --compact`" },
+        { "id": "C", "text": "`wsl --manage Ubuntu --compact`" },
+        { "id": "D", "text": "`wsl --unregister Ubuntu --resize`" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "本文には「対応バージョンの場合、コンパクト化を試みる」として`wsl --manage Ubuntu --compact`が挙げられている。対応していない古いWSLバージョンの場合は`diskpart`を使った手動コンパクト化が必要になると説明されている。"
+    },
+    {
+      "id": 19,
+      "question": "コンテナが起動直後に`Exited (1)`となってすぐ終了してしまう場合、最優先で確認すべきものと、典型的な原因の組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "最優先確認は`docker stats`、典型原因はメモリ制限超過" },
+        { "id": "B", "text": "最優先確認は`docker logs`、典型原因はフォアグラウンドで動き続けるプロセスが無いイメージをそのまま起動したこと" },
+        { "id": "C", "text": "最優先確認は`.wslconfig`、典型原因はCPUコア数の設定不足" },
+        { "id": "D", "text": "最優先確認は`netstat -ano`、典型原因はポート競合" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「最優先で確認すべきは`docker logs`です」とあり、典型的な原因として「フォアグラウンドで動き続けるプロセスが無いイメージ（例: `ENTRYPOINT`も`CMD`も設定されていないbaseイメージをそのまま起動した）」が挙げられている。コンテナはメインプロセスが終了すると同時に停止するという基本仕様に基づく。"
+    },
+    {
+      "id": 20,
+      "question": "WSLが応答しなくなった場合の最終手段として紹介されている`wsl --unregister <distro>`について、正しい説明はどれか。",
+      "options": [
+        { "id": "A", "text": "ディストロを一時停止するだけで、データはそのまま保持される" },
+        { "id": "B", "text": "対象ディストロ内の全データを完全に削除するため、実行前にnamed volumeのデータや設定ファイルなど失って困るものがないか必ず確認する必要がある" },
+        { "id": "C", "text": "`.wslconfig`の設定のみをリセットし、コンテナやボリュームには影響しない" },
+        { "id": "D", "text": "Windows側のDocker Desktopの設定を初期化するコマンドである" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "本文には「それでも改善しない場合の最終手段として`wsl --unregister <distro>`がありますが、これは対象ディストロ内の全データを完全に削除します。実行前に、named volumeのデータや設定ファイルなど、失って困るものがないか必ず確認してください」と明記されている。まずは`wsl --shutdown`による再起動を試み、それでも改善しない場合の最終手段として位置づけられている。"
+    }
+  ]
+}
