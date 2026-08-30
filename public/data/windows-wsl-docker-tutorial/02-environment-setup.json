@@ -299,6 +299,78 @@
       ],
       "correctAnswer": "A",
       "explanation": "本文には「本教材はこれ以降、すべてWSL + Docker Engine直接導入を前提に進めます。コマンド例はすべてWSLのターミナル上でそのまま実行できる形で記載します」と明記されています。"
+    },
+    {
+      "id": 26,
+      "question": "初回セットアップ時に入力したユーザー名が、2回目以降の`wsl`起動時に再度尋ねられない仕組みとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`/etc/wsl.conf`の`[user] default=`に自動的に書き込まれて永続化され、次回以降の起動処理がこの値を確認して「セットアップ済み」と判断し対話的な入力画面(OOBE)をスキップするため" },
+        { "id": "B", "text": "Windowsのレジストリに暗号化された状態でLinuxユーザー名がキャッシュされているため" },
+        { "id": "C", "text": "Ubuntuアプリ自体が内部データベースにユーザー名を保存し、Microsoftアカウントと照合しているため" },
+        { "id": "D", "text": "WSLが毎回ネットワーク経由でユーザー名を再取得しているため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01-install-wsl.mdには「初回起動時に入力したユーザー名は、実は`/etc/wsl.conf`に自動的に書き込まれて永続化されています」「次回以降...WSLの起動処理はまずこの`default=`の値を確認します。すでに値が設定されていれば『セットアップ済み』と判断し、対話的な入力画面（OOBE）自体をスキップして」と説明されています。"
+    },
+    {
+      "id": 27,
+      "question": "`wsl`コマンドでの起動時にパスワードの入力を求められない理由として本文が説明しているものはどれか。",
+      "options": [
+        { "id": "A", "text": "`wsl`コマンドによる起動は認証を伴う「ログイン」ではなく、すでにサインイン済みのWindowsセッション内でユーザー権限のプロセスを1つ起動する操作に過ぎず、認証プロトコルを一切経由しないため" },
+        { "id": "B", "text": "WSL内のLinuxユーザーには、そもそもパスワードという概念が存在しないため" },
+        { "id": "C", "text": "パスワード確認はネットワーク経由の場合のみ行われ、ローカルでの起動時には省略される仕様のため" },
+        { "id": "D", "text": "WSL2では`sudo`自体が廃止され、権限昇格の概念がなくなったため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「`wsl`コマンドは、Windows側から見れば『WSL VM内で指定したユーザー権限のプロセスを1つ起動する』操作に過ぎず、認証プロトコルを一切経由しません」「この設計が成立するのは、Windowsへのサインイン自体が、すでに認証ステップとして機能しているから」と説明されています。"
+    },
+    {
+      "id": 28,
+      "question": "スタートメニューから「Ubuntu」を開いた場合と、PowerShellで`wsl`と入力して開いた場合の違いとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "前者はUbuntuのホームディレクトリ（`~`）から始まり、後者は現在のWindows側の作業ディレクトリを引き継ぐため、`C:\\Users\\alice\\project`なら`/mnt/c/Users/alice/project`から始まることがある" },
+        { "id": "B", "text": "前者はrootユーザー、後者は一般ユーザーとしてログインするという違いがある" },
+        { "id": "C", "text": "前者はWSL1、後者はWSL2のディストリビューションとして起動するという違いがある" },
+        { "id": "D", "text": "両者に違いはなく、常に同じディレクトリから始まる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「Startメニューから開くとホームディレクトリから始まり、`wsl`コマンドから開くと現在のWindowsディレクトリを引き継ぐ、という違いがあります」と明記されています。"
+    },
+    {
+      "id": 29,
+      "question": "本教材がUbuntu標準リポジトリの`docker.io`パッケージではなく、Docker公式リポジトリからのインストール手順を採用している理由として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "標準リポジトリのバージョンはUbuntu側の検証・同期の都合でDocker公式リリースより古くなりがちで、`docker-buildx-plugin`や`docker-compose-plugin`が含まれていないことも多いため" },
+        { "id": "B", "text": "`docker.io`パッケージはWSL環境では技術的にインストールできないため" },
+        { "id": "C", "text": "Docker公式リポジトリの方がダウンロード容量が小さいため" },
+        { "id": "D", "text": "`docker.io`パッケージには既知の脆弱性が常に含まれているため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02-install-docker-engine.mdには「標準リポジトリのバージョンはUbuntu側の検証・同期の都合でDocker公式のリリースより古くなりがちで、`docker-buildx-plugin`や`docker-compose-plugin`（`docker compose`のサブコマンド形式）が含まれていないことも多いためです」と説明されています。"
+    },
+    {
+      "id": 30,
+      "question": "Docker公式リポジトリ登録手順にある`install -m 0755 -d /etc/apt/keyrings`と`curl ... | gpg --dearmor -o ...`が、それぞれ何をしているかの組み合わせとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "前者は信頼済みGPG鍵を置く専用ディレクトリの作成、後者はDocker公式のGPG公開鍵をASCII armor形式からapt用のバイナリ形式に変換して保存すること" },
+        { "id": "B", "text": "前者はDockerイメージの保存先ディレクトリの作成、後者はイメージレイヤーの署名検証" },
+        { "id": "C", "text": "前者はdockerグループの作成、後者はsystemdサービスの有効化" },
+        { "id": "D", "text": "前者はネットワークインターフェースの設定、後者はコンテナのビルド" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文の表には「`install -m 0755 -d /etc/apt/keyrings`｜信頼済みGPG鍵を置く専用ディレクトリを作成」「`curl ... | gpg --dearmor -o ...`｜Docker公式のGPG公開鍵をダウンロードし、テキスト形式（ASCII armor）からapt用のバイナリ形式に変換して保存」と説明されています。"
+    },
+    {
+      "id": 31,
+      "question": "`docker run hello-world`の実行後、終了済み（Exited）のコンテナが自動的に削除されない理由と、その対処として正しい説明はどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナが失敗して終了した場合に`docker logs`で後から原因を調べられるよう、明示的に削除しない限り残す仕様になっており、`docker rm`や`docker container prune`、または`docker run --rm`で使い捨てにできる" },
+        { "id": "B", "text": "これはDocker Engineの不具合であり、次期バージョンで自動削除されるよう修正される予定である" },
+        { "id": "C", "text": "終了済みコンテナはディスクを圧迫するため、Docker Engineが7日後に自動的に削除する仕様になっている" },
+        { "id": "D", "text": "`docker ps`（`-a`なし）を実行すると、表示と同時に終了済みコンテナが自動的に削除される" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "本文には「これは不具合ではなく仕様です。コンテナが失敗して終了した場合に、後から`docker logs <ID>`で原因を調べられるようにするため、明示的に削除しない限り残すという設計になっています」とあり、`docker rm`・`docker container prune`・`docker run --rm`が後始末の方法として紹介されています。"
     }
   ]
 }

@@ -299,6 +299,114 @@
       ],
       "correctAnswer": "B",
       "explanation": "04ファイルには、`runc`が実際にやっていることの1番目として「`config.json`（rootfsの場所・環境変数・実行コマンド・必要なnamespaces種別などを記述したOCI仕様のファイル）を読み込む」と説明されています。"
+    },
+    {
+      "id": 26,
+      "question": "`docker-compose.yml`の`anythingllm`サービスに`STORAGE_DIR=/app/server/storage`という環境変数が必要な理由として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`volumes`側のマウント先と同じパスを指定する必須項目であり、未設定だと起動直後にクラッシュするため" },
+        { "id": "B", "text": "GPU passthroughを有効化するためのフラグであるため" },
+        { "id": "C", "text": "Ollamaとの通信先ポートを指定するための項目であるため" },
+        { "id": "D", "text": "日本語Embeddingモデルのダウンロード先を指定するための項目であるため" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルの設定項目一覧には「`STORAGE_DIR`は`volumes`のマウント先と同じパスを指定する必須項目で、未設定だと起動直後にクラッシュします」と説明されています。"
+    },
+    {
+      "id": 27,
+      "question": "`docker-compose.yml`の`depends_on`が実際に保証する内容として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "対象コンテナの起動順のみであり、Ollama内でモデルロードが完了しヘルスチェックが通った状態まで待つわけではない" },
+        { "id": "B", "text": "対象コンテナのヘルスチェックがすべて通るまで完全に待機してから起動する" },
+        { "id": "C", "text": "GPUの割り当て優先順位を決定する" },
+        { "id": "D", "text": "コンテナ間のネットワーク帯域の優先順位を決定する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルには「`depends_on`は`ollama`コンテナの起動順のみを保証します。Ollama内でモデルロードが完了しヘルスチェックが通った状態を待つわけではないので、起動直後にAnythingLLMからの疎通確認が失敗する場合は数秒待ってから再試行してください」と説明されています。"
+    },
+    {
+      "id": 28,
+      "question": "Composeプロジェクト名が`local-rag`の場合、named volume `ollama_data`の実データが保存される場所として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "WSL2ディストリビューション（Docker Engineが動いているVM）側の`/var/lib/docker/volumes/local-rag_ollama_data/_data`" },
+        { "id": "B", "text": "Windows側の`C:\\Users\\<user>\\ollama_data`フォルダ" },
+        { "id": "C", "text": "`\\\\wsl$`経由でWindowsエクスプローラーから直接閲覧できる`anythingllm_storage`フォルダ" },
+        { "id": "D", "text": "AnythingLLMコンテナイメージ内部の一時ファイルシステム" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルには「named volumeの実データはコンテナの外、WSL2ディストリビューション（Docker Engineが動いているVM）側の`/var/lib/docker/volumes/<volume名>/_data`に保存されます」「実際のボリューム名には`<プロジェクト名>_<volume名>`というプレフィックスが付きます」とあり、`/var/lib/docker`配下はroot専用領域のためWindows側から`\\\\wsl$`経由で直接見るのも非推奨と説明されています。"
+    },
+    {
+      "id": 29,
+      "question": "`docker compose up -d`実行時に自動生成されるNetwork/Volume/Containerの命名規則として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "NetworkとVolumeは`<プロジェクト名>_<名前>`、Containerは`<プロジェクト名>-<サービス名>-<連番>`という規則で命名され、プロジェクト名は既定で`docker-compose.yml`が置かれているディレクトリ名から自動決定される" },
+        { "id": "B", "text": "すべてのリソースがランダムなUUIDのみで命名される" },
+        { "id": "C", "text": "Containerのみプロジェクト名が付き、NetworkとVolumeには一切付かない" },
+        { "id": "D", "text": "プロジェクト名は常に`docker-compose`という固定文字列になる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルには「コンテナ名は`<プロジェクト名>-<サービス名>-<連番>`という規則です」「プロジェクト名`local-rag`は、`docker-compose.yml`が置かれているディレクトリ名からComposeが自動で決定しています」「`docker compose -p 別名`で明示的に指定したりすると、Network/Volume/Container名のプレフィックスも変わる」と説明されています。"
+    },
+    {
+      "id": 30,
+      "question": "`docker compose ps -a`のSTATUS表示に関する説明として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`anythingllm`にはイメージ側にHEALTHCHECKが定義されているため起動直後は`Up ... (health: starting)`と表示され、しばらくすると`(healthy)`に変わるが、`ollama`にはHEALTHCHECKが定義されていないため単に`Up ...`とだけ表示される" },
+        { "id": "B", "text": "`ollama`と`anythingllm`は常に同じSTATUS表示になる" },
+        { "id": "C", "text": "`-a`オプションを付けると、停止中のコンテナは一覧から除外される" },
+        { "id": "D", "text": "STATUS列にはコンテナが消費しているCPU使用率がパーセンテージで表示される" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルの表には「`anythingllm`は起動直後だと`Up ... (health: starting)`のように表示されます。これはイメージ側にHEALTHCHECKが定義されており...しばらくすると`Up ... (healthy)`に変わります。`ollama`にはHEALTHCHECKが定義されていないため、単に`Up ...`とだけ表示されます」と説明されています。"
+    },
+    {
+      "id": 31,
+      "question": "`docker compose ps -a`のPORTS列で、`ollama`サービスにホスト側ポートが表示されない理由として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`docker-compose.yml`の`ollama`サービスに`ports:`を指定していないため、コンテナ間ネットワーク内にのみ公開されており、Windows側から`localhost:11434`には到達できない" },
+        { "id": "B", "text": "Ollamaは常にホストネットワークモードで動作するためポート表示自体が不要になる" },
+        { "id": "C", "text": "Windows側のファイアウォールが11434番ポートを常にブロックしているため" },
+        { "id": "D", "text": "`depends_on`の設定が不足しているため、ポートが割り当てられていない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルの表には「`ollama`は`11434/tcp`のみで、ホスト側ポートが付いていません。`ports:`を書いていないためコンテナ間ネットワーク内にのみ公開されており、Windows側から`localhost:11434`には到達できません（`anythingllm`からサービス名`ollama`経由でのみアクセス可能）」と説明されています。"
+    },
+    {
+      "id": 32,
+      "question": "02ファイルに新たに追加されたGemma 4系モデルについて、本文が注意を促している点として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "2026年リリースの最新モデルで公式には140以上の言語に対応するとされるが、日本語での実運用ベンチマークはまだ乏しいため、本番導入前にQwen 3と比較検証することが推奨されている" },
+        { "id": "B", "text": "Gemma 4は商用利用が一切禁止されているため、本教材の用途では使用できない" },
+        { "id": "C", "text": "Gemma 4はEmbedding専用モデルであり、チャット用LLMとしては使用できない" },
+        { "id": "D", "text": "Gemma 4はOllama経由では配布されておらず、直接ビルドする必要がある" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "02ファイルには「Gemma 4は2026年リリースの最新モデルで、公式には140以上の言語に対応するとされていますが、日本語での実運用ベンチマークはまだ乏しいため、本番導入前に自分のユースケースでQwen 3と比較検証することを推奨します」と注意書きがあります。"
+    },
+    {
+      "id": 33,
+      "question": "AnythingLLMでチャット送信時に「model is required」というエラーが出た場合、03ファイルが示している切り分け手順の流れとして正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "コンテナ起動状態の確認 → モデルpull済みかの確認 → `ollama run`によるOllama単体での推論確認 → `anythingllm`コンテナから`ollama:11434`へのHTTP疎通確認 → AnythingLLM側のLLM Preference/Chat Settingsのモデル未選択を疑う、という順に切り分ける" },
+        { "id": "B", "text": "原因調査をせず、まずOllamaコンテナを削除して作り直す" },
+        { "id": "C", "text": "`wsl --shutdown`でWSL全体を再起動すれば必ず解消する" },
+        { "id": "D", "text": "AnythingLLMのイメージを最新版に更新するだけでよい" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03ファイルのトラブルシューティング節には、コンテナ起動確認→モデルpull確認→`ollama run`での単体推論確認→`anythingllm`から`ollama:11434`へのHTTP疎通確認→ログ確認、という順に切り分け、最終的に「原因はAnythingLLM側のモデル選択設定（設定→LLM Preference、およびワークスペース個別のChat Settingsが両方とも空になっていないか）に絞り込めます」と説明されています。"
+    },
+    {
+      "id": 34,
+      "question": "`ollama`コンテナ内で`curl`を実行しようとすると`exec: \"curl\": executable file not found in $PATH`のようなエラーになる場合、03ファイルが示している対処として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`ollama`コンテナ自体には`curl`が入っていないため、代わりに`anythingllm`コンテナから`docker compose exec anythingllm curl ...`でOllamaのAPIへアクセスして確認する" },
+        { "id": "B", "text": "`ollama`イメージに毎回`apt install curl`を手動で実行する必要がある" },
+        { "id": "C", "text": "`curl`の代わりに`ping`コマンドを使えば`/api/chat`の疎通確認ができる" },
+        { "id": "D", "text": "`ollama`コンテナを`--privileged`モードで再起動すれば自動的に`curl`が使えるようになる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "03ファイルには「Ollamaコンテナイメージには`curl`が入っていないことがあり」失敗する例が示された上で、「その場合は、`anythingllm`コンテナから Ollama へ直接アクセスして確認します」として`docker compose exec anythingllm curl ...`の実行例が示されています。"
     }
   ]
 }

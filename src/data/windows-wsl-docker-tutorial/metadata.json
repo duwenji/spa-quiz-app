@@ -7,7 +7,7 @@
     "version": "1.0.0",
     "license": "MIT",
     "language": "ja",
-    "totalQuestions": 240,
+    "totalQuestions": 255,
     "estimatedDuration": "2.5-3.5 hours",
     "difficultyProgression": "progressive",
     "sections": [
@@ -32,7 +32,7 @@
         "order": 2,
         "name": "環境構築 | WSLとDocker Engineのインストール",
         "description": "WSL2環境の構築手順、Docker Engineのインストールと自動起動設定、VS Code Remote-WSL/Dev Containers連携、Docker Desktopとの比較を学ぶ",
-        "questionCount": 25,
+        "questionCount": 31,
         "difficulty": "beginner to intermediate",
         "estimatedTime": "15-20 minutes",
         "keyTopics": [
@@ -160,7 +160,7 @@
         "order": 10,
         "name": "ローカルRAG構築 | AnythingLLM + Ollama",
         "description": "AnythingLLM＋Ollamaのアーキテクチャ構築、日本語モデルの選定、RAGワークスペースの取り込みと動作検証、コンテナランタイム（dockerd/containerd/runc）の内部構造を学ぶ",
-        "questionCount": 25,
+        "questionCount": 34,
         "difficulty": "advanced",
         "estimatedTime": "15-20 minutes",
         "keyTopics": [
