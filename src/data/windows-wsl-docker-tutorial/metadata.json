@@ -7,7 +7,7 @@
     "version": "1.0.0",
     "license": "MIT",
     "language": "ja",
-    "totalQuestions": 255,
+    "totalQuestions": 257,
     "estimatedDuration": "2.5-3.5 hours",
     "difficultyProgression": "progressive",
     "sections": [
@@ -160,7 +160,7 @@
         "order": 10,
         "name": "ローカルRAG構築 | AnythingLLM + Ollama",
         "description": "AnythingLLM＋Ollamaのアーキテクチャ構築、日本語モデルの選定、RAGワークスペースの取り込みと動作検証、コンテナランタイム（dockerd/containerd/runc）の内部構造を学ぶ",
-        "questionCount": 34,
+        "questionCount": 36,
         "difficulty": "advanced",
         "estimatedTime": "15-20 minutes",
         "keyTopics": [

@@ -407,6 +407,30 @@
       ],
       "correctAnswer": "A",
       "explanation": "03ファイルには「Ollamaコンテナイメージには`curl`が入っていないことがあり」失敗する例が示された上で、「その場合は、`anythingllm`コンテナから Ollama へ直接アクセスして確認します」として`docker compose exec anythingllm curl ...`の実行例が示されています。"
+    },
+    {
+      "id": 35,
+      "question": "`mintplexlabs/anythingllm`イメージに定義されているHEALTHCHECKの実装として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`--interval=1m --timeout=10s --start-period=1m`で定義されており、`docker-healthcheck.sh`が`http://localhost:3001/api/ping`にHTTPリクエストを送りステータス200が返れば正常（healthy）と判定する" },
+        { "id": "B", "text": "`docker-healthcheck.sh`は`ollama`コンテナ側のモデルロード完了状況を直接チェックしている" },
+        { "id": "C", "text": "HEALTHCHECKはコンテナ内部からではなく、Windows側のブラウザからのアクセスの有無で判定される" },
+        { "id": "D", "text": "`--start-period`は、チェックに失敗した際にコンテナを自動再起動するまでの待機時間を指定するオプションである" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルには「`HEALTHCHECK --interval=1m --timeout=10s --start-period=1m CMD /bin/bash /usr/local/bin/docker-healthcheck.sh || exit 1`」と、`docker-healthcheck.sh`が`http://localhost:${SERVER_PORT:-3001}/api/ping`にHTTPリクエストを送り200なら`exit 0`（healthy）、そうでなければ`exit 1`（unhealthy）とする実装が説明されています。`--start-period`は起動直後の猶予期間であり、この間の表示が`(health: starting)`にあたります。"
+    },
+    {
+      "id": 36,
+      "question": "`docker-compose.yml`の`anythingllm`サービスで、チャット用LLMモデルを指定する環境変数として正しいものはどれか。",
+      "options": [
+        { "id": "A", "text": "`OLLAMA_MODEL_PREF`（例: `qwen3:8b`）。Embeddingモデルを指定する`EMBEDDING_MODEL_PREF`に相当する、チャット用の変数である" },
+        { "id": "B", "text": "`EMBEDDING_MODEL_PREF`を1つだけ設定すれば、チャットとEmbeddingの両方に自動的に適用される" },
+        { "id": "C", "text": "`LLM_PROVIDER`の値としてモデル名そのものを直接指定する（例: `LLM_PROVIDER=qwen3:8b`）" },
+        { "id": "D", "text": "`OLLAMA_BASE_PATH`のURLパスの一部としてモデル名を埋め込む" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "01ファイルには「`OLLAMA_MODEL_PREF`は、Embeddingにおける`EMBEDDING_MODEL_PREF`に相当する、チャット用LLMモデルを指定する環境変数です。ここでは02章で推奨する`qwen3:8b`を初期値として指定しています」と説明されています。"
     }
   ]
 }
