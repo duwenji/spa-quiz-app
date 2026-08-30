@@ -136,13 +136,13 @@
       "id": 12,
       "question": "`bge-m3`について02ファイルで説明されている内容として正しいものはどれか。",
       "options": [
-        { "id": "A", "text": "Ollama公式ライブラリに含まれる推奨Embeddingモデルである" },
+        { "id": "A", "text": "Ollama公式ライブラリに`bge-m3:567m`として掲載されているBAAI製モデルで、密集/多ベクトル/スパース検索を同時実行でき100以上の言語に対応するが、本教材ではApache-2.0でMTEB上位かつ日本語対応が明記された`qwen3-embedding`を第一候補としている" },
         { "id": "B", "text": "Google製の軽量Embeddingモデルで、低スペック環境向けである" },
         { "id": "C", "text": "多言語RAGでよく紹介されるが、Ollama公式ライブラリには存在しない（`bge-large`のみ存在する）" },
         { "id": "D", "text": "チャット用LLMモデルであり、Embeddingには使用できない" }
       ],
-      "correctAnswer": "C",
-      "explanation": "02ファイルには「`bge-m3`は多言語RAGでよく紹介されますが、Ollama公式ライブラリには存在しません（`bge-large`のみ）」とあり、そのため`qwen3-embedding`を第一候補とすることが推奨されています。"
+      "correctAnswer": "A",
+      "explanation": "02ファイルの表には`bge-m3`（`bge-m3:567m`、BAAI製、密集/多ベクトル/スパース検索を同時実行でき100以上の言語・8Kコンテキストに対応）が掲載されており、「Ollama公式ライブラリにも`bge-m3:567m`として掲載されており...ただし本教材では、Apache-2.0ライセンスでMTEB上位かつ日本語対応が明記されている`qwen3-embedding`を第一候補とする」と説明されています。Cはbge-m3がOllamaで未提供だった頃の古い誤情報です。"
     },
     {
       "id": 13,
