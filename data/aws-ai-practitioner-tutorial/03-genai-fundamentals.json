@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {"id":1,"question":"生成AIモデルが入力や出力を処理する基本単位はどれですか？","options":[{"id":"A","text":"トークン"},{"id":"B","text":"サブネット"},{"id":"C","text":"コンテナ"},{"id":"D","text":"アベイラビリティゾーン"}],"correctAnswer":"A","explanation":"トークンはモデルが扱うテキストの分割単位で、コンテキスト長や料金に影響します。"},
+    {"id":2,"question":"テキストを意味的な検索に使える数値ベクトルへ変換するものはどれですか？","options":[{"id":"A","text":"埋め込みモデル"},{"id":"B","text":"IAMポリシー"},{"id":"C","text":"ロードバランサー"},{"id":"D","text":"監査ログ"}],"correctAnswer":"A","explanation":"埋め込みはテキストなどをベクトル化し、類似検索やRAGに利用します。"},
+    {"id":3,"question":"事実と異なる内容をもっともらしく生成する現象はどれですか？","options":[{"id":"A","text":"ハルシネーション"},{"id":"B","text":"暗号化"},{"id":"C","text":"量子化"},{"id":"D","text":"正規化"}],"correctAnswer":"A","explanation":"ハルシネーションは生成AIの代表的な限界で、RAGや出力検証などでリスクを抑えます。"},
+    {"id":4,"question":"同じ入力でも毎回異なる出力になる可能性を表す性質はどれですか？","options":[{"id":"A","text":"非決定性"},{"id":"B","text":"可逆暗号化"},{"id":"C","text":"静的型付け"},{"id":"D","text":"データ冗長化"}],"correctAnswer":"A","explanation":"生成AIの出力はサンプリングなどにより非決定的になり得ます。"},
+    {"id":5,"question":"大量かつ安定した推論需要に対して検討しやすいBedrockの選択肢はどれですか？","options":[{"id":"A","text":"プロビジョンドスループット"},{"id":"B","text":"毎回の手動ログイン"},{"id":"C","text":"CloudTrailの停止"},{"id":"D","text":"IAMポリシーの削除"}],"correctAnswer":"A","explanation":"安定した大規模利用では、プロビジョンドスループットとオンデマンドのコスト・性能を比較します。"}
+  ]
+}

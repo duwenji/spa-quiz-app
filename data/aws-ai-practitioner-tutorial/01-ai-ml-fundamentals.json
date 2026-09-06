@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {"id":1,"question":"AI・ML・深層学習の関係として正しいものはどれですか？","options":[{"id":"A","text":"AIはMLの一部である"},{"id":"B","text":"深層学習はMLの一手法である"},{"id":"C","text":"MLと深層学習は無関係である"},{"id":"D","text":"生成AIは必ずルールベースである"}],"correctAnswer":"B","explanation":"深層学習は機械学習の一手法で、AIの領域に含まれます。01章の包含関係を確認してください。"},
+    {"id":2,"question":"迷惑メールかどうかをカテゴリで判定するタスクはどれですか？","options":[{"id":"A","text":"分類"},{"id":"B","text":"回帰"},{"id":"C","text":"クラスタリング"},{"id":"D","text":"次元削減"}],"correctAnswer":"A","explanation":"分類は入力を離散したカテゴリへ割り当てる問題です。"},
+    {"id":3,"question":"音声をテキストへ変換するAWSサービスはどれですか？","options":[{"id":"A","text":"Amazon Translate"},{"id":"B","text":"Amazon Polly"},{"id":"C","text":"Amazon Transcribe"},{"id":"D","text":"Amazon Comprehend"}],"correctAnswer":"C","explanation":"Transcribeは音声認識、Translateは翻訳、Pollyは音声合成、Comprehendは自然言語処理です。"},
+    {"id":4,"question":"学習済みモデルを本番へ配置した後に必要な活動はどれですか？","options":[{"id":"A","text":"モデル監視と再評価"},{"id":"B","text":"データ収集の停止"},{"id":"C","text":"評価データの削除"},{"id":"D","text":"予測結果の記録停止"}],"correctAnswer":"A","explanation":"MLOpsではデプロイ後も性能、データ分布、ビジネス指標を継続監視します。"},
+    {"id":5,"question":"不正検知で見逃しを減らしたいとき、重視しやすい指標はどれですか？","options":[{"id":"A","text":"再現率"},{"id":"B","text":"文字数"},{"id":"C","text":"レイテンシーだけ"},{"id":"D","text":"ファイルサイズ"}],"correctAnswer":"A","explanation":"再現率は実際の陽性をどれだけ検出できたかを表し、見逃し低減の評価に関係します。"}
+  ]
+}

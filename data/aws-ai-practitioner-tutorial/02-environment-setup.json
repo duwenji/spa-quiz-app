@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {"id":1,"question":"日常のAWS操作でルートユーザーを避ける主な理由はどれですか？","options":[{"id":"A","text":"最小権限と監査可能性を確保するため"},{"id":"B","text":"ルートユーザーはBedrockを使えないため"},{"id":"C","text":"ルートユーザーは請求を発生させないため"},{"id":"D","text":"IAMが不要になるため"}],"correctAnswer":"A","explanation":"日常作業はIAMユーザーやロールで行い、最小権限と操作の追跡性を確保します。"},
+    {"id":2,"question":"IAMロールの説明として適切なものはどれですか？","options":[{"id":"A","text":"一時的な権限をAWSサービスや利用者へ付与できる"},{"id":"B","text":"必ずパスワードを共有する仕組みである"},{"id":"C","text":"S3バケット専用の暗号鍵である"},{"id":"D","text":"請求額を固定する設定である"}],"correctAnswer":"A","explanation":"ロールは信頼された主体へ一時的な認証情報と権限を提供します。"},
+    {"id":3,"question":"Amazon Bedrockでモデルを使い始める前に必要となる操作はどれですか？","options":[{"id":"A","text":"モデルアクセスをリクエストし許可を受ける"},{"id":"B","text":"CloudTrailを削除する"},{"id":"C","text":"ルートユーザーのMFAを無効化する"},{"id":"D","text":"すべてのリージョンを閉鎖する"}],"correctAnswer":"A","explanation":"教材では、対象モデルについてアクセスをリクエストし、許可後にPlaygroundなどで利用する流れを扱います。"},
+    {"id":4,"question":"AWS Budgetsの用途はどれですか？","options":[{"id":"A","text":"予算しきい値に対する通知を設定する"},{"id":"B","text":"モデルの回答を生成する"},{"id":"C","text":"音声を文字に変換する"},{"id":"D","text":"IAMポリシーを自動削除する"}],"correctAnswer":"A","explanation":"Budgetsはコストや使用量の予算を設定し、しきい値到達時に通知できます。"},
+    {"id":5,"question":"Bedrockの利用コストを確認・分析するサービスはどれですか？","options":[{"id":"A","text":"AWS Cost Explorer"},{"id":"B","text":"Amazon Polly"},{"id":"C","text":"Amazon Lex"},{"id":"D","text":"AWS Artifact"}],"correctAnswer":"A","explanation":"Cost Explorerは利用状況とコストを分析するためのサービスです。"}
+  ]
+}

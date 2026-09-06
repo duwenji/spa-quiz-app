@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {"id":1,"question":"特定タスクの例で既存モデルの重みを調整する手法はどれですか？","options":[{"id":"A","text":"ファインチューニング"},{"id":"B","text":"RAG"},{"id":"C","text":"単純検索"},{"id":"D","text":"監査"}],"correctAnswer":"A","explanation":"ファインチューニングは用途に合わせたデータでモデルを追加調整します。"},
+    {"id":2,"question":"大規模モデルの知識や能力を小型モデルへ移す手法はどれですか？","options":[{"id":"A","text":"蒸留"},{"id":"B","text":"分類"},{"id":"C","text":"暗号化"},{"id":"D","text":"クラスタリング"}],"correctAnswer":"A","explanation":"蒸留は教師モデルの知識を生徒モデルへ移し、推論コストなどの削減を狙います。"},
+    {"id":3,"question":"要約の評価で代表的に使われる指標はどれですか？","options":[{"id":"A","text":"ROUGE"},{"id":"B","text":"BLEUだけ"},{"id":"C","text":"DNS"},{"id":"D","text":"IAM"}],"correctAnswer":"A","explanation":"ROUGEは要約と参照文の重複などを測る代表的な指標です。"},
+    {"id":4,"question":"機械翻訳の評価で代表的に使われる指標はどれですか？","options":[{"id":"A","text":"BLEU"},{"id":"B","text":"ROUGEだけ"},{"id":"C","text":"再起動回数"},{"id":"D","text":"ストレージ容量"}],"correctAnswer":"A","explanation":"BLEUは生成翻訳と参照翻訳の一致度を評価する指標として知られます。"},
+    {"id":5,"question":"生成AIの評価でモデル指標と併せて確認すべき業務指標はどれですか？","options":[{"id":"A","text":"タスク完了率やユーザー満足度"},{"id":"B","text":"キーボードの種類"},{"id":"C","text":"データセンターの壁の色"},{"id":"D","text":"IAMユーザー名の長さ"}],"correctAnswer":"A","explanation":"モデルスコアだけでなく、実際の業務成果や利用者価値との整合を確認します。"}
+  ]
+}
