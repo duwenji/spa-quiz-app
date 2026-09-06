@@ -175,6 +175,7 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
   const [difficulty, setDifficulty] = useState<DifficultyFilter>('all');
   const [isConditionExpanded, setIsConditionExpanded] = useState(false);
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(() => new Set());
+  const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(() => new Set());
 
   const normalizedQuery = query.trim().toLowerCase();
 
@@ -185,6 +186,18 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
         next.delete(groupKey);
       } else {
         next.add(groupKey);
+      }
+      return next;
+    });
+  };
+
+  const toggleCategoryExpansion = (category: string) => {
+    setCollapsedCategories((prev) => {
+      const next = new Set(prev);
+      if (next.has(category)) {
+        next.delete(category);
+      } else {
+        next.add(category);
       }
       return next;
     });
@@ -403,16 +416,30 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
 
         <div className="space-y-4 sm:space-y-6">
           {organized.map((section, sectionIndex) => (
+            (() => {
+              const categoryPanelId = `quiz-category-panel-${sectionIndex}`;
+              const isCategoryExpanded = !collapsedCategories.has(section.category);
+
+              return (
             <section
               key={section.category}
               className="selector-fade-in rounded-2xl border border-white/80 bg-white/95 p-4 shadow-[0_10px_35px_-20px_rgba(17,24,39,0.4)] sm:p-7"
               style={{ animationDelay: `${Math.min(sectionIndex * 70, 280)}ms` }}
             >
-              <h2 className="mb-4 inline-flex items-center rounded-xl bg-gradient-to-r from-cyan-50 via-sky-50 to-emerald-50 px-3 py-2 text-lg font-black text-slate-900 sm:mb-5 sm:px-4 sm:text-2xl">
-                {section.category}
-              </h2>
+              <button
+                type="button"
+                onClick={() => toggleCategoryExpansion(section.category)}
+                aria-expanded={isCategoryExpanded}
+                aria-controls={categoryPanelId}
+                className="mb-4 flex w-full items-center justify-between gap-4 rounded-xl bg-gradient-to-r from-cyan-50 via-sky-50 to-emerald-50 px-3 py-2 text-left transition hover:from-cyan-100 hover:via-sky-100 hover:to-emerald-100 focus:outline-none focus:ring-2 focus:ring-sky-200 sm:mb-5 sm:px-4"
+              >
+                <span className="text-lg font-black text-slate-900 sm:text-2xl">{section.category}</span>
+                <span className="shrink-0 text-sm font-black text-sky-700 sm:text-base">
+                  {isCategoryExpanded ? '折りたたむ −' : '展開する ＋'}
+                </span>
+              </button>
 
-              <div className="space-y-5">
+              <div id={categoryPanelId} className={isCategoryExpanded ? 'space-y-5' : 'hidden'} hidden={!isCategoryExpanded}>
                 {section.groups.map((group, idx) => {
                   const groupParent = getGroupParent(group.groupName, quizSets);
                   const groupSummary = getGroupSummary(group.groupName, quizSets);
@@ -532,6 +559,8 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
                 })}
               </div>
             </section>
+              );
+            })()
           ))}
         </div>
 
