@@ -175,9 +175,7 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
   const [difficulty, setDifficulty] = useState<DifficultyFilter>('all');
   const [isConditionExpanded, setIsConditionExpanded] = useState(false);
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(() => new Set());
-  const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(
-    () => new Set(['AWS AI Practitioner'])
-  );
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(() => new Set());
 
   const normalizedQuery = query.trim().toLowerCase();
 
@@ -194,7 +192,7 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
   };
 
   const toggleCategoryExpansion = (category: string) => {
-    setCollapsedCategories((prev) => {
+    setExpandedCategories((prev) => {
       const next = new Set(prev);
       if (next.has(category)) {
         next.delete(category);
@@ -420,7 +418,7 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
           {organized.map((section, sectionIndex) => (
             (() => {
               const categoryPanelId = `quiz-category-panel-${sectionIndex}`;
-              const isCategoryExpanded = !collapsedCategories.has(section.category);
+              const isCategoryExpanded = expandedCategories.has(section.category);
 
               return (
             <section
