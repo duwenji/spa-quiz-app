@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {"id":1,"question":"テキストの感情やエンティティを分析するサービスはどれですか？","options":[{"id":"A","text":"Amazon Comprehend"},{"id":"B","text":"Amazon Kendra"},{"id":"C","text":"Amazon Polly"},{"id":"D","text":"AWS CloudTrail"}],"correctAnswer":"A","explanation":"Comprehendは自然言語処理による感情分析、エンティティ抽出などを提供します。"},
+    {"id":2,"question":"企業内の文書を検索するインテリジェント検索サービスはどれですか？","options":[{"id":"A","text":"Amazon Kendra"},{"id":"B","text":"Amazon Translate"},{"id":"C","text":"Amazon Rekognition"},{"id":"D","text":"AWS Budgets"}],"correctAnswer":"A","explanation":"Kendraは企業データを対象にした検索を支援します。"},
+    {"id":3,"question":"対話型の生成AIアシスタントとして位置づけられるAWSサービスはどれですか？","options":[{"id":"A","text":"Amazon Q"},{"id":"B","text":"Amazon S3"},{"id":"C","text":"AWS Config"},{"id":"D","text":"Amazon Transcribe"}],"correctAnswer":"A","explanation":"Amazon Qは業務や開発を支援する生成AIアシスタントです。"},
+    {"id":4,"question":"BedrockとSageMakerの料金モデルの比較として教材に合うものはどれですか？","options":[{"id":"A","text":"Bedrockは主にトークン、SageMakerは主にインスタンス利用を考える"},{"id":"B","text":"どちらも常に無料である"},{"id":"C","text":"BedrockはDNS、SageMakerは監査ログの課金である"},{"id":"D","text":"料金モデルは比較できない"}],"correctAnswer":"A","explanation":"用途と稼働形態に応じ、Bedrockのトークン課金とSageMakerの推論基盤コストを比較します。"},
+    {"id":5,"question":"生成AI利用コストを事前に概算するAWSツールはどれですか？","options":[{"id":"A","text":"AWS Pricing Calculator"},{"id":"B","text":"Amazon Polly"},{"id":"C","text":"AWS CloudTrail"},{"id":"D","text":"SageMaker Clarify"}],"correctAnswer":"A","explanation":"Pricing Calculatorで入力トークン数、出力、リクエスト数、稼働時間などを仮定して試算します。"}
+  ]
+}

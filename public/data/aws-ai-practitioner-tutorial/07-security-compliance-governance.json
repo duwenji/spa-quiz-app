@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {"id":1,"question":"AWS API呼び出しの監査証跡を記録するサービスはどれですか？","options":[{"id":"A","text":"AWS CloudTrail"},{"id":"B","text":"Amazon Comprehend"},{"id":"C","text":"Amazon Kendra"},{"id":"D","text":"AWS Budgets"}],"correctAnswer":"A","explanation":"CloudTrailは誰がいつどのAPI操作を行ったかを記録し、監査や調査に利用できます。"},
+    {"id":2,"question":"AWS Configの主な役割はどれですか？","options":[{"id":"A","text":"AWSリソース設定の記録とルール評価"},{"id":"B","text":"基盤モデルの事前学習"},{"id":"C","text":"音声の読み上げ"},{"id":"D","text":"トークンの分割"}],"correctAnswer":"A","explanation":"Configはリソース設定や変更を追跡し、コンプライアンスルールで評価します。"},
+    {"id":3,"question":"責任共有モデルで、通常AWS側の責任にあたるものはどれですか？","options":[{"id":"A","text":"データセンターの物理的セキュリティ"},{"id":"B","text":"IAMポリシーの設計"},{"id":"C","text":"アプリの入力検証"},{"id":"D","text":"S3データの分類"}],"correctAnswer":"A","explanation":"AWSはクラウドの基盤を保護し、利用者はクラウド上の設定やデータを保護します。"},
+    {"id":4,"question":"RAGで回答の根拠を明示しやすくするために重要なものはどれですか？","options":[{"id":"A","text":"検索文書の出典と引用を保持する"},{"id":"B","text":"監査ログを無効化する"},{"id":"C","text":"すべての文書を無期限保存する"},{"id":"D","text":"IAMを使わない"}],"correctAnswer":"A","explanation":"出典と引用を保持すると、回答の検証や利用者への説明がしやすくなります。"},
+    {"id":5,"question":"AIシステムのガバナンスを表す組み合わせはどれですか？","options":[{"id":"A","text":"ルール・責任者・レビュー・証拠"},{"id":"B","text":"モデルサイズだけ"},{"id":"C","text":"広告・色・フォント"},{"id":"D","text":"入力削除だけ"}],"correctAnswer":"A","explanation":"ガバナンスは、ルールと責任分担、レビュー、監査可能な証拠を継続的に運用する仕組みです。"}
+  ]
+}

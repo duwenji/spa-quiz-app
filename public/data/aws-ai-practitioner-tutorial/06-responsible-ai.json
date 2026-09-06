@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {"id":1,"question":"学習データや予測結果の偏りを検出・分析するAWSサービスはどれですか？","options":[{"id":"A","text":"Amazon SageMaker Clarify"},{"id":"B","text":"Amazon Route 53"},{"id":"C","text":"AWS Budgets"},{"id":"D","text":"Amazon Polly"}],"correctAnswer":"A","explanation":"SageMaker Clarifyはバイアス分析や説明可能性の向上を支援します。"},
+    {"id":2,"question":"生成AIの入力・出力へ有害コンテンツや拒否トピックのポリシーを適用する機能はどれですか？","options":[{"id":"A","text":"Bedrock Guardrails"},{"id":"B","text":"CloudTrail"},{"id":"C","text":"AWS Artifact"},{"id":"D","text":"Cost Explorer"}],"correctAnswer":"A","explanation":"Guardrailsは入力・出力を検査し、ブロックやマスキングなどの制御を行います。"},
+    {"id":3,"question":"個人情報を検出した場合に利用者へ見せないようにするGuardrailsの動作はどれですか？","options":[{"id":"A","text":"マスキング"},{"id":"B","text":"学習データへの追加"},{"id":"C","text":"DNS変換"},{"id":"D","text":"モデル蒸留"}],"correctAnswer":"A","explanation":"機密情報ポリシーでは検出した情報をブロックまたはマスキングする設計を選べます。"},
+    {"id":4,"question":"AIの透明性を高める説明として適切なものはどれですか？","options":[{"id":"A","text":"利用目的、限界、重要判断への人間の関与を示す"},{"id":"B","text":"根拠のない出力を確定事実として扱う"},{"id":"C","text":"評価結果を隠す"},{"id":"D","text":"すべてのアクセス制御を解除する"}],"correctAnswer":"A","explanation":"利用者が適切に判断できるよう、目的、限界、リスク、人的関与を説明します。"},
+    {"id":5,"question":"責任あるAIの公平性を確認する方法として適切なものはどれですか？","options":[{"id":"A","text":"グループ別の性能差や不利益を測定する"},{"id":"B","text":"誤答をすべて評価から除外する"},{"id":"C","text":"入力データを無条件に削除する"},{"id":"D","text":"モデルを監視しない"}],"correctAnswer":"A","explanation":"公平性では属性グループごとの結果や影響を測定し、偏りを発見・改善します。"}
+  ]
+}
