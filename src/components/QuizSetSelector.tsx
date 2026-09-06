@@ -175,7 +175,9 @@ export const QuizSetSelector = ({ quizSets, onSelectQuizSet }: QuizSetSelectorPr
   const [difficulty, setDifficulty] = useState<DifficultyFilter>('all');
   const [isConditionExpanded, setIsConditionExpanded] = useState(false);
   const [expandedGroups, setExpandedGroups] = useState<Set<string>>(() => new Set());
-  const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(() => new Set());
+  const [collapsedCategories, setCollapsedCategories] = useState<Set<string>>(
+    () => new Set(['AWS AI Practitioner'])
+  );
 
   const normalizedQuery = query.trim().toLowerCase();
 
