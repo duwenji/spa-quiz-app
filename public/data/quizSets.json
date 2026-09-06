@@ -1681,7 +1681,7 @@
       "description": "トークン、埋め込み、FM、ハルシネーション、非決定性、Bedrockの推論方式とコストを確認する章別クイズです。",
       "category": "AWS AI Practitioner",
       "icon": "✨",
-      "questionCount": 5,
+      "questionCount": 6,
       "difficulty": "beginner to intermediate",
       "dataPath": "aws-ai-practitioner-tutorial/03-genai-fundamentals.json",
       "parentId": "aws-ai-practitioner-tutorial",
@@ -1689,7 +1689,7 @@
       "level": 2,
       "order": 4,
       "estimatedLearningTime": "4-6分",
-      "topics": ["トークン", "埋め込み", "ハルシネーション", "非決定性", "Bedrockコスト"]
+      "topics": ["トークン", "埋め込み", "ハルシネーション", "非決定性", "Bedrockコスト", "KiroとStrands Agents"]
     },
     {
       "id": "aws-ai-practitioner-04-fm-design",
