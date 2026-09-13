@@ -6,7 +6,7 @@
       "description": "GitHub Copilot の Custom Agent と Agent Skills を横断的に学べる総合シリーズです。役割設計、比較、実装、運用までを体系的に理解できます。",
       "category": "GitHub Copilot",
       "icon": "🧠",
-      "questionCount": 126,
+      "questionCount": 171,
       "difficulty": "beginner to advanced",
       "dataPath": "github-copilot-agent-series/metadata.json",
       "parentId": null,
@@ -502,10 +502,10 @@
     {
       "id": "github-copilot-skills-advanced",
       "name": "Skill | 応用運用",
-      "description": "大規模チームやエンタープライズ環境でのスキル管理、セキュリティ、パフォーマンス、ガバナンスを学ぶクイズです。",
+      "description": "大規模チームやエンタープライズ環境でのスキル管理、セキュリティ、パフォーマンス、ガバナンス、マルチターンのコンテキスト・履歴管理（ハンドオフ、Skill×Subagent連携、Split-and-Merge）を学ぶクイズです。",
       "category": "GitHub Copilot",
       "icon": "🚀",
-      "questionCount": 15,
+      "questionCount": 20,
       "difficulty": "advanced",
       "dataPath": "github-copilot-skills-tutorial/advanced.json",
       "parentId": "github-copilot-agent-series",
@@ -516,7 +516,7 @@
     {
       "id": "github-copilot-skills-advanced-topics",
       "name": "Skill | 高度なパターン",
-      "description": "複合スキル、マルチモーダル処理、分散トランザクション、次世代 AI 対応などの高度テーマを学ぶクイズです。",
+      "description": "複合スキルの実現パターン、MCPサーバーを介した外部API連携、命名・トークン効率などのベストプラクティスを学ぶクイズです。",
       "category": "GitHub Copilot",
       "icon": "🎓",
       "questionCount": 15,
@@ -526,6 +526,20 @@
       "group": "github-copilot-agent-series",
       "level": 2,
       "order": 12
+    },
+    {
+      "id": "github-copilot-skills-spec-pipeline",
+      "name": "Skill | 大規模仕様生成パイプライン",
+      "description": "大量の仕様書を一括生成する際の落とし穴、仕様階層、逐次実行計画、状態管理と再開、仕様統合、評価方法までを学ぶクイズです。",
+      "category": "GitHub Copilot",
+      "icon": "🧩",
+      "questionCount": 40,
+      "difficulty": "advanced",
+      "dataPath": "github-copilot-skills-tutorial/spec-pipeline.json",
+      "parentId": "github-copilot-agent-series",
+      "group": "github-copilot-agent-series",
+      "level": 2,
+      "order": 13
     },
     {
       "id": "dev-process-skill-library",
@@ -1681,7 +1695,7 @@
       "description": "トークン、埋め込み、FM、ハルシネーション、非決定性、Bedrockの推論方式とコストを確認する章別クイズです。",
       "category": "AWS AI Practitioner",
       "icon": "✨",
-      "questionCount": 5,
+      "questionCount": 6,
       "difficulty": "beginner to intermediate",
       "dataPath": "aws-ai-practitioner-tutorial/03-genai-fundamentals.json",
       "parentId": "aws-ai-practitioner-tutorial",
@@ -1689,7 +1703,7 @@
       "level": 2,
       "order": 4,
       "estimatedLearningTime": "4-6分",
-      "topics": ["トークン", "埋め込み", "ハルシネーション", "非決定性", "Bedrockコスト"]
+      "topics": ["トークン", "埋め込み", "ハルシネーション", "非決定性", "Bedrockコスト", "KiroとStrands Agents"]
     },
     {
       "id": "aws-ai-practitioner-04-fm-design",

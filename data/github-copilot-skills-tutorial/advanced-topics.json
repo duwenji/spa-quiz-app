@@ -2,363 +2,363 @@
   "questions": [
     {
       "id": 1,
-      "question": "複合スキル（Composite Skill）の dependency management で、セマンティック・バージョニングと「互換性マトリクス」を管理する理由は何ですか？",
+      "question": "GitHub Copilot の Agent Skills には、複数スキルを宣言的に連結するための専用スキーマ（`compositeDefinition`、`dependsOn`、`parallelize` などのフィールド）が存在しますか？",
       "options": [
         {
           "id": "A",
-          "text": "スキル間の互換性を明確化し、アップデート時の依存関係破損を事前に検出・避ける"
+          "text": "存在しない。複合的なパターンは、SKILL.md本文での指示・Copilotの自動チェーン・外部スクリプトのいずれかで実現する"
         },
         {
           "id": "B",
-          "text": "バージョン管理は不要"
+          "text": "存在する。SKILL.mdのフロントマターに`compositeDefinition`を書けば宣言的にワークフローを定義できる"
         },
         {
           "id": "C",
-          "text": "互換性マトリクスは不要"
+          "text": "存在する。ただし`dependsOn`のみサポートされ、`parallelize`は非対応"
         },
         {
           "id": "D",
-          "text": "常に最新バージョンを強制"
+          "text": "存在する。ただしJSON Schemaではなく YAML でのみ記述できる"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "複合スキルでは、スキル A v2.0 は スキル B v1.5+ でなければ動作しない、など複雑な依存関係が発生します。これを可視化した互換性マトリクスと semantic versionig で管理することで、スムーズなアップデートが可能になります。"
+      "explanation": "GitHub Copilot の Agent Skills 仕様には複数スキルを宣言的に連結する専用フォーマットはありません。複合的な処理は、(A) 1つのSKILL.mdの本文で他スキルの利用を指示する、(B) Copilotが会話中に複数スキルを自動的に順に選択する、(C) 外部スクリプトからCopilot CLIを複数回呼び出す、のいずれかで実現します。"
     },
     {
       "id": 2,
-      "question": "複合スキルの execution engine 設計で、「トランザクション的な原子性（Atomicity）」を実現する場合、どのような処理を組み込むべきですか？",
+      "question": "複合的な処理を実現する方法の一つとして、「1つのSKILL.mdの本文で他のスキルの利用を指示する」場合、どのような実装が必要ですか？",
       "options": [
         {
           "id": "A",
-          "text": "ロールバック機構（処理失敗時に前の状態に戻す）、分散トランザクション制御、Saga パターン"
+          "text": "本文に「まず/analyze-code-qualityの観点で分析し、次に修正案を提示する」のように自然な文章でステップを記述するだけでよく、専用の宣言的フォーマットは不要"
         },
         {
           "id": "B",
-          "text": "失敗時もそのまま継続"
+          "text": "フロントマターに`dependsOn: [analyze-code-quality]`を追加する必要がある"
         },
         {
           "id": "C",
-          "text": "トランザクション管理不要"
+          "text": "各ステップをJSON Schemaで厳密に定義した`compositeDefinition`ブロックが必要"
         },
         {
           "id": "D",
-          "text": "すべてのステップを再実行"
+          "text": "他スキルのSKILL.mdファイルをフロントマターで`import`する必要がある"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "複合スキルで「すべてのステップが成功するか、すべて失敗して元の状態に戻るか」の原子性を実現するには、ロールバック機構と Saga パターン（複数ステップの分散トランザクション制御）が必須です。"
+      "explanation": "複合スキルの実体も1つのSKILL.mdです。「他のスキルの観点を使って分析し、次に...」というように本文の自然な文章でステップを指示するだけで実現でき、専用の宣言的フォーマットは必要ありません。"
     },
     {
       "id": 3,
-      "question": "複合スキルでステップ間の「data contract」（入出力の厳密な定義）を JSON Schema で実行可能に検証する場合、リアルタイム性の課題にどう対処すべきですか？",
+      "question": "ユーザーが「コードを分析して、テストを生成して、ドキュメントも書いて」のように複数の意図を含む依頼をした場合、Copilotエージェントの挙動として正しいものはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "ステップ実行前に入力値の事前検証、実行中もスキーマ違反を監視、エラー時は即座に停止"
+          "text": "該当する複数のスキルを会話の中で順に自動選択して実行することがある。これは個別スキルを複合スキルとして事前設計しなくても起こり得る"
         },
         {
           "id": "B",
-          "text": "事後的に検証"
+          "text": "1つのスキルしか実行されず、残りの依頼は無視される"
         },
         {
           "id": "C",
-          "text": "検証は不要"
+          "text": "エラーになり、依頼を1つずつに分割するよう求められる"
         },
         {
           "id": "D",
-          "text": "ランダムに検証"
+          "text": "必ず`compositeDefinition`で事前定義されたスキルのみが呼び出される"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "data contract 違反は早期に検出すべきです。ステップ実行前の入力値 検証、実行中の契約監視（assertion）、違反時の即座の停止で、問題を最小限に抑えます。"
+      "explanation": "複数の意図を含む依頼に対して、Copilotエージェントは該当する複数のスキルを会話の中で自動的に順に選択して実行することがあります。これは事前に複合スキルとして設計していなくても起こり得る挙動です。"
     },
     {
       "id": 4,
-      "question": "複合スキルが「非決定的」（同じ入力で異なる出力が生じる可能性）な場合、テスト・検証戦略として何を採用すべきですか？",
+      "question": "外部スクリプトからCopilot CLIを複数回呼び出して結果を受け渡す「実現方法C」について、正しい説明はどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "統計的テスト（複数回実行の分布確認）、確率的アサーション、fuzz テスト"
+          "text": "Copilotが内部で複合スキルを実行する仕組みではなく、自分で書く自動化コードであり、CLIの非対話モード（`copilot -p`）を複数回呼び出して前段の出力を次のプロンプトに埋め込む"
         },
         {
           "id": "B",
-          "text": "単一回のテスト"
+          "text": "Copilot CLI自体が`--composite`フラグを提供しており、それを使えば自動的に複数回呼び出される"
         },
         {
           "id": "C",
-          "text": "非決定的は許容不可"
+          "text": "SKILL.mdの`parallelize: true`フィールドを設定すると自動的にこの動作になる"
         },
         {
           "id": "D",
-          "text": "テストスキップ"
+          "text": "MCPサーバーが自動的にこの処理を代行する"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "LLM を含む複合スキルは非決定的です。確定的にテストできないため、複数回実行の結果分布を確認、確率的アサーション（期待値の 70-90% が条件を満たすか）、adversarial input での robustness をテストします。"
+      "explanation": "実現方法Cは、Copilotの外側で組み立てる自作の自動化スクリプトです。`copilot -p`による非対話プロンプトの呼び出しを複数回行い、前段の出力を次のプロンプトに埋め込むことで、複数スキル・複数回の呼び出しを連鎖させます。"
     },
     {
       "id": 5,
-      "question": "複合スキルのパフォーマンス最適化で、「キャッシング戦略」を採用する場合、キャッシュの invalidation (無効化）タイミングはどう判断すべきですか？",
+      "question": "複合パターンの「Parallel（並列実行）」について、GitHub Copilotで実際に真の並列実行を行いたい場合、公式にサポートされた方法はどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "依存スキルの変更、パラメータ変更、時間ベース（TTL 経過）、データソースの更新検知"
+          "text": "Custom Agentsのサブエージェント機能を使う"
         },
         {
           "id": "B",
-          "text": "常にキャッシュを使用"
+          "text": "1つのSKILL.md本文に「並列に実行して」と書けば厳密に並列実行が保証される"
         },
         {
           "id": "C",
-          "text": "キャッシュは無効化不要"
+          "text": "`parallelize: true`をフロントマターに設定する"
         },
         {
           "id": "D",
-          "text": "手動削除のみ"
+          "text": "複数のSKILL.mdを同じディレクトリに置くだけで自動的に並列実行される"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "キャッシュの鮮度を保つには、依存スキル・パラメータ変更による自動 invalidation、TTL 設定（データの腐敗防止），データソースの更新を監視しての先制削除などを組み合わせます。"
+      "explanation": "単一のSKILL.md本文だけでは真の並列実行を保証できず、あくまで「複数の観点を並べて検討して」という指示になります。実際に並列実行を行いたい場合は、Custom Agentsのサブエージェント機能を使うのが公式にサポートされた方法です。"
     },
     {
       "id": 6,
-      "question": "API 統合スキル（外部 API を複数呼び出す）において、rate limiting と circuit breaker パターンをどの層で実装すべきですか？",
+      "question": "複合パターンの「Conditional（条件付き実行）」をSKILL.md本文で実現する場合の特徴として正しいものはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "API クライアント層（各 API 呼び出しコンポーネント）とスキルレベル（複合スキル全体）の二重化"
+          "text": "「〜の場合のみ、次にBを行ってください」と本文に条件を書くだけで実現できるが、条件判定自体はLLMの解釈に委ねられ、プログラムのような厳密な分岐ではない"
         },
         {
           "id": "B",
-          "text": "API サーバー側のみ"
+          "text": "条件分岐には`if`/`else`をYAMLで記述した専用ブロックが必要"
         },
         {
           "id": "C",
-          "text": "Rate limiting は不要"
+          "text": "条件付き実行は仕様上サポートされておらず実現不可能"
         },
         {
           "id": "D",
-          "text": "ネットワークレベルのみ"
+          "text": "条件判定はCopilot CLIのオプション引数で厳密に制御される"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "外部 API の呼び出しでは、各 API 呼び出し時に rate limit チェック（API 側の制限に対応），スキル全体でも circuit breaker（API が一時的に利用不可なら他の経路に）を、多層で実装して耐障害性を高めます。"
+      "explanation": "条件付き実行は本文に自然文で条件を書くだけで実現できますが、判定自体はLLMの解釈に委ねられるため、プログラムのような厳密な分岐にはなりません。"
     },
     {
       "id": 7,
-      "question": "複合スキルのモニタリング・可視化で、「分散トレーシング」（distributed tracing）を導入する場合、何を記録・可視化すべきですか？",
+      "question": "複合パターンの「Loop（反復実行）」で、入力の件数が多い場合に注意すべき点は何ですか？",
       "options": [
         {
           "id": "A",
-          "text": "各ステップの実行時間、レイテンシー、エラー箇所、外部 API 呼び出しの詳細"
+          "text": "一度に渡す量に注意する必要があり、Progressive Disclosure（コンテキスト管理）と同じ考慮が求められる"
         },
         {
           "id": "B",
-          "text": "全体の実行時間のみ"
+          "text": "件数に関わらず常に全件を一度にプロンプトへ含めればよい"
         },
         {
           "id": "C",
-          "text": "トレーシング不要"
+          "text": "Loopパターンには件数の上限がなく無制限に処理できる"
         },
         {
           "id": "D",
-          "text": "ログファイルのみ"
+          "text": "反復回数は`dependsOn`フィールドで指定する"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "分散トレーシングでは、各処理ステップの詳細（何に時間をかけているか）、外部 API のレイテンシー、エラー発生箇所を可視化することで、パフォーマンスボトルネックと問題の原因特定が容易になります。"
+      "explanation": "Loopパターンで件数が多い場合は、一度に渡す量に注意する必要があり、Progressive Disclosureのコンテキスト管理と同様の考慮が必要になります。"
     },
     {
       "id": 8,
-      "question": "複合スキルで「dynamic workflow generation」（実行時にステップを動的に決定）を実装する場合、可読性・保守性を支保するための仕組みはなのですか？",
+      "question": "複合パターンのテストについて、正しい説明はどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "DAG（有向非環グラフ）表現、ワークフロービジュアライゼーション、実行計画の事前確認機能"
+          "text": "複合パターンは最終的に1つのSKILL.mdの指示にCopilotが従う仕組みなので、通常のスキルと同じ観点でテストを行う"
         },
         {
           "id": "B",
-          "text": "動的生成は避けるべき"
+          "text": "複合パターン専用のテストフレームワークが公式に提供されている"
         },
         {
           "id": "C",
-          "text": "可視化は不要"
+          "text": "複合パターンは非決定的なため、原理的にテスト不可能である"
         },
         {
           "id": "D",
-          "text": "ドキュメント記述のみ"
+          "text": "`compositeDefinition`のJSON Schemaバリデーションに合格すればテストは不要"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "動的ワークフローは強力でも複雑です。DAG で実行フローを可視化し、実行前に計画を確認できる仕組み、ワークフロー図の自動生成で、理解と保守性を高めます。"
+      "explanation": "複合パターンの実体は1つのSKILL.mdの指示に従ってCopilotが一連の作業を行うものなので、テストも正常系・条件分岐・エッジケースなど、通常のスキルと同じ観点で行います。"
     },
     {
       "id": 9,
-      "question": "AI Copilot スキルが「hallucination」（LLM が事実でないことを生成）する問題に対処するための、複合スキルレベルでの戦略はどれですか？",
+      "question": "SKILL.md のフロントマターに、外部サービスとの接続を宣言する `externalAPIs` や `gitIntegration`、`webhookEndpoint` のようなフィールドは存在しますか？",
       "options": [
         {
           "id": "A",
-          "text": "事実確認ステップの組み込み、複数モデルの一致判定、confidence スコアの算出"
+          "text": "存在しない。スキルが外部システムに触れられるのは、allowed-toolsで承認された同梱スクリプトを実行する場合と、MCPサーバーが提供するツールを使う場合の2通りだけ"
         },
         {
           "id": "B",
-          "text": "Hallucination は避けられない"
+          "text": "存在する。`externalAPIs`にAPIエンドポイントの一覧を列挙すればよい"
         },
         {
           "id": "C",
-          "text": "出力をそのまま使用"
+          "text": "存在する。`webhookEndpoint`を設定すればスキルが自動でWebhookを受信できる"
         },
         {
           "id": "D",
-          "text": "LLM スキップ"
+          "text": "存在する。`gitIntegration: true`とすればPRの自動レビューが有効化される"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Hallucination 対策には、外部データベース・ナレッジベースとの照合ステップ、複数モデルの結果一致判定、confidence スコア付与で信頼度を示す、などの複合的なアプローチが有効です。"
+      "explanation": "SKILL.mdフロントマターにはこれらのフィールドは存在しません。スキルが外部システムに触れられるのは、(1) allowed-toolsで事前承認された同梱スクリプトを実行する場合、(2) MCPサーバーが提供するツールを使う場合の2通りだけです。"
     },
     {
       "id": 10,
-      "question": "複合スキルで「multimodal input」（テキスト、画像、音声など）を処理する場合、データ形式の標準化と変換をどこで行うべきですか？",
+      "question": "スキルに新しい外部サービスへの汎用的な接続そのものを追加したい場合、何を用意すべきですか？",
       "options": [
         {
           "id": "A",
-          "text": "入力ステップで unified format に変換、各処理ステップは共通フォーマットで操作"
+          "text": "MCPサーバー"
         },
         {
           "id": "B",
-          "text": "各ステップで個別に変換"
+          "text": "SKILL.mdフロントマターの`externalAPIs`フィールド"
         },
         {
           "id": "C",
-          "text": "変換は不要"
+          "text": "GitHub Actionsのwebhookトリガーのみ"
         },
         {
           "id": "D",
-          "text": "出力時のみ変換"
+          "text": "allowed-toolsに`curl`を追加するだけで十分"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "multimodal 処理では、入力の多様性がステップ間の結合度を高めます。入口で一つの統一フォーマット（例：JSON with embedded base64）に正規化することで、ステップ間の独立性と再利用性が高まります。"
+      "explanation": "新しい外部サービスへの接続そのものを追加したい場合は、スキルではなくMCPサーバーを用意することが推奨されています。"
     },
     {
       "id": 11,
-      "question": "複合スキルの「batch processing」（大量データを一括処理）と「streaming」（逐次処理）のどちらを選ぶべき基準はどれですか？",
+      "question": "「社内ナレッジベースを検索してからレビューする」という要件をスキルの正規の機能として実現する方法はどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "レイテンシー重視（リアルタイムフィードバック必要）ならストリーミング、スループット重視（全体の処理量）ならバッチ"
+          "text": "スキルの`scripts/`ディレクトリに検索スクリプトを同梱し、`allowed-tools`で事前承認する"
         },
         {
           "id": "B",
-          "text": "常にバッチ"
+          "text": "SKILL.mdフロントマターに`gitIntegration: true`を設定する"
         },
         {
           "id": "C",
-          "text": "常にストリーミング"
+          "text": "webhookEndpointフィールドにナレッジベースのURLを指定する"
         },
         {
           "id": "D",
-          "text": "選択は無関係"
+          "text": "この要件はスキルの仕組みでは一切実現できない"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "バッチ処理は効率的（複数レコード基づいて最適化可能）ですが、すべての入力待機が必要です。ストリーミングは入力到着時点から処理開始でき、リアルタイム性が求められます。"
+      "explanation": "スキルの`scripts/`ディレクトリに検索スクリプト（例: search_kb.py）を同梱し、`allowed-tools`で事前承認する形で実現できます。これはSKILL.mdの正規の機能です。より恒常的に複数スキルから使い回したい場合はMCPサーバー化も検討します。"
     },
     {
       "id": 12,
-      "question": "複合スキルで複数の LLM バックエンド（Claude、GPT、LLAMA など）を abstraction レイヤで統一する場合、どのパターンが保守性を最大化しますか？",
+      "question": "「PRが作られたら自動でレビューしてほしい」という要件に対して、正しいアプローチはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "Adapter パターン（各 LLM の違いを隠蔽）+ Strategy パターン（実行時に LLM を切り替え）"
+          "text": "webhookやCI連携を自作する必要はなく、公式機能のCopilot code reviewが既にこれをサポートしている"
         },
         {
           "id": "B",
-          "text": "単一 LLM に固定"
+          "text": "SKILL.mdフロントマターに`webhookEndpoint`を設定してGitHubのPRイベントを購読する"
         },
         {
           "id": "C",
-          "text": "共通化は不要"
+          "text": "`.github/skills/code-review/SKILL.md`に加えて専用のCI設定ファイルを必ず追加する必要がある"
         },
         {
           "id": "D",
-          "text": "すべての LLM に対応する汎用コード"
+          "text": "MCPサーバーを自作してPRイベントをポーリングする以外に方法はない"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "複数 LLM 対応では、Adapter パターンで API の違いを隠蔽し、Strategy パターンでコスト・速度・精度に基づいて実行時に最適な LLM を選択する仕組みが、保守性と拡張性を両立します。"
+      "explanation": "Copilot code review（GA機能）が公式にPRの自動レビューをサポートしています。`.github/skills/code-review/SKILL.md`という名前でスキルを配置するだけで、関連するタイミングで自動的にこのスキルが参照され、webhookエンドポイントやCI連携フィールドをスキル側に書く必要はありません。"
     },
     {
       "id": 13,
-      "question": "複合スキルの「feedback loop」実装で、ユーザーフィードバック → スキル改善のサイクルを自動化する場合、何が必要ですか？",
+      "question": "Copilot code reviewではカバーしきれない社内固有の集計などを追加したい場合の、補完的な自作パターンはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "フィードバック収集メカニズム、改善案の自動生成（改善スキル）、A/B テスト、メトリクスの自動追跡"
+          "text": "GitHub Actionsから Copilot CLI を非対話モード（`copilot -p`）で呼び出し、結果をPRコメントとして投稿する"
         },
         {
           "id": "B",
-          "text": "手動フィードバック収集のみ"
+          "text": "SKILL.mdフロントマターの`externalAPIs`に集計ロジックを直接記述する"
         },
         {
           "id": "C",
-          "text": "フィードバック不要"
+          "text": "Copilot code review機能を無効化し、独自のwebhookサーバーに完全に置き換える"
         },
         {
           "id": "D",
-          "text": "フィードバック記録のみ"
+          "text": "MCPサーバーなしには一切実現できない"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "自動改善ループには、ユーザー満足度やエラー率データの継続的収集、改善案生成スキル、複数改善案の A/B テスト、メトリクスの自動分析が組み合わさることで、スキルが継続的に進化します。"
+      "explanation": "Copilot code reviewではカバーしきれない独自チェックは、GitHub ActionsからCopilot CLIを非対話モードで呼び出すことで補完できます。これはスキルの機能ではなく、CIジョブの一部として組み立てる自動化です。"
     },
     {
       "id": 14,
-      "question": "「composite skill library」（再利用可能な複合スキルテンプレート集）を組織内で運用する場合、ライセンシング・知的財産の戦略はどうアプローチすべきですか？",
+      "question": "GitHub Copilot Agent Skills のスキル命名規則のベストプラクティスとして正しいものはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "社内専用（All Rights Reserved）と Public（MIT など open source）を分離、ライセンス互換性マトリクスの維持"
+          "text": "`processing-pdfs`のような動名詞形（verb + -ing）が推奨され、`anthropic-helper`や`claude-tools`のような予約語的な名前は避けるべき"
         },
         {
           "id": "B",
-          "text": "すべて同じライセンス"
+          "text": "`helper`や`utils`のような汎用的な名前が最も推奨される"
         },
         {
           "id": "C",
-          "text": "ライセンスは無視"
+          "text": "スキル名は必ず英単語1語のみで構成しなければならない"
         },
         {
           "id": "D",
-          "text": "著作権は不要"
+          "text": "命名規則に決まりはなく、どのような名前でも機能的な差はない"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "複合スキルライブラリでは、社内専有のビジネスロジックは社内専用ライセンス、再利用可能な一般的ロジックは Open Source ライセンス、そして依存関係のライセンス互換性を常に監視することが重要です。"
+      "explanation": "推奨されるのは`processing-pdfs`のような動名詞形（verb + -ing）で、名詞句（`pdf-processing`等）も許容されます。一方`helper`や`utils`のような曖昧な名前、`anthropic-helper`や`claude-tools`のような予約語的な名前は避けるべきとされています。"
     },
     {
       "id": 15,
-      "question": "複合スキルが next generation AI（例：multimodal、reasoning-intensive）の進化に対応するため、アーキテクチャはどのような特性を持つべきですか？",
+      "question": "SKILL.md のトークン効率に関するベストプラクティスとして正しいものはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "plugin-based な処理エンジン、LLM API の abstraction、新しい I/O タイプへの拡張可能性、バージョン forward/backward compatibility"
+          "text": "メタデータは常に先読みされるため約100トークンに抑え、本文は推奨500行未満・上限1000行とし、参考資料（references/*.md）は必要な時だけオンデマンドで読み込ませる"
         },
         {
           "id": "B",
-          "text": "固定的な設計"
+          "text": "本文の行数に制限はなく、詳細であればあるほど良い"
         },
         {
           "id": "C",
-          "text": "拡張性は不要"
+          "text": "メタデータは省略可能で、本文にすべての情報を詰め込むべき"
         },
         {
           "id": "D",
-          "text": "将来予測不可能"
+          "text": "参考資料は常にSKILL.md本文に埋め込み、オンデマンド読み込みは避けるべき"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "AI の急速な進化に対応するため、複合スキルは plugin-based（新しい処理タイプを追加可能）、抽象化された LLM インターフェース、新しい I/O フォーマット対応、バージョン互換性の維持が必須です。"
+      "explanation": "メタデータ（フロントマター）は常に先読みされるため約100トークンに収め、SKILL.md本文はスキル起動時に読み込まれるため推奨500行未満・上限1000行（約5000トークン）とし、詳細な参考資料は`references/*.md`としてオンデマンドで読み込ませることで、トークンという共有資源を効率的に使います。"
     }
   ]
 }

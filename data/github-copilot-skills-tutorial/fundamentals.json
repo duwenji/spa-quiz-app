@@ -30,7 +30,7 @@
       "options": [
         {
           "id": "A",
-          "text": "GitHub.com、GitHub Copilot CLI、VS Code Insiders など複数のプラットフォーム"
+          "text": "Copilot cloud agent、Copilot CLI、VS Code（通常版・agent mode）など複数のプラットフォーム"
         },
         {
           "id": "B",
@@ -38,7 +38,7 @@
         },
         {
           "id": "C",
-          "text": "VS Code のみ"
+          "text": "VS Code Insiders のみ（プレビュー限定）"
         },
         {
           "id": "D",
@@ -46,7 +46,7 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Agent Skills は Anthropic が管理するオープンスタンダードであり、GitHub.com、GitHub Copilot CLI、VS Code Insiders など複数のプラットフォームで利用可能です。"
+      "explanation": "GitHub公式ドキュメントによれば、Agent Skills は Copilot cloud agent、GitHub Copilot CLI、VS Code（agent mode。Insiders限定ではなく通常版で利用可能）、JetBrains IDEs、GitHub Copilot app、Copilot code review など複数のプラットフォームで利用できます。"
     },
     {
       "id": 3,
@@ -118,7 +118,7 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Agent Skills は Anthropic が管理するオープンスタンダードであり、GitHub Copilot 以外にも Claude などの複数の LLM で利用可能です。これにより、スキルの再利用性と互換性が向上します。"
+      "explanation": "Agent Skills はもともと Anthropic が原案を作成しオープンスタンダードとして公開したもので、現在は agentskills/agentskills（GitHub org）を中心にコミュニティが運営しています。GitHub Copilot だけでなく Claude Code、Cursor、Gemini CLI、VS Code、JetBrains系IDEなど複数のツールで採用されており、プロプライエタリ仕様ではありません。"
     },
     {
       "id": 6,
@@ -141,8 +141,8 @@
           "text": "実装形式を選択する必要がない"
         }
       ],
-      "correctAnswer": "A",
-      "explanation": "スキルの実装方法は 2 つあります。SKILL.md（ほぼすべての開発者向き）と JSON（システム開発者や複雑なケース向き）です。初めての方は SKILL.md を推奨します。"
+      "correctAnswer": "B",
+      "explanation": "GitHub Copilot Agent Skills の実装形式は SKILL.md の一つだけです。内部的にJSON形式が存在するという情報は誤りで、agentskills.io の公式仕様上もSKILL.mdが唯一の実装形式とされています。"
     },
     {
       "id": 7,
@@ -174,7 +174,7 @@
       "options": [
         {
           "id": "A",
-          "text": "Part 0: スキル形式の選択と実装"
+          "text": "Part 0: スキル形式の理解"
         },
         {
           "id": "B",
@@ -190,7 +190,7 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "初めての学習者向けに、最初に Part 0（スキル形式の理解）を読むことを推奨しています。基礎理解なしに複雑な実装や高度なパターンに進むことは避けるべきです。"
+      "explanation": "初めての学習者向けに、最初に Part 0（スキル形式の理解）を読むことを推奨しています。SKILL.md が唯一の実装形式であることを理解してから、複雑な実装や高度なパターンに進むべきです。"
     },
     {
       "id": 9,
@@ -242,7 +242,7 @@
     },
     {
       "id": 11,
-      "question": "Agent Skills の参考実装はどこで確認できますか？",
+      "question": "Anthropic が公開しているサンプルスキル集（仕様そのものの「参照実装」ではない）はどこで確認できますか？",
       "options": [
         {
           "id": "A",
@@ -262,7 +262,7 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Anthropic が公開している参考実装は https://github.com/anthropics/skills で確認できます。これは Agent Skills を理解するための最良のリソースです。"
+      "explanation": "https://github.com/anthropics/skills は Anthropic が公開しているサンプルスキル集です。ただし、これは仕様そのものの「参照実装」ではなく、あくまで一例です。公式仕様自体は agentskills.io/specification で定義されています。"
     },
     {
       "id": 12,
@@ -270,11 +270,11 @@
       "options": [
         {
           "id": "A",
-          "text": "VS Code Insiders ではプレビュー提供中、安定版は近日対応予定"
+          "text": "通常版の VS Code（agent mode）で利用可能。Insiders 限定ではない"
         },
         {
           "id": "B",
-          "text": "安定版でのみ実装されている"
+          "text": "VS Code Insiders でのみプレビュー提供中"
         },
         {
           "id": "C",
@@ -286,7 +286,7 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "VS Code Insiders はプレビュー版として Agent Skills に対応しており、通常の安定版 VS Code では近日リリースが予定されています。"
+      "explanation": "GitHub公式ドキュメントによれば、Visual Studio Code（agent mode）は通常版で利用可能であり、Insiders限定というのは誤りです。"
     },
     {
       "id": 13,
@@ -314,51 +314,51 @@
     },
     {
       "id": 14,
-      "question": "Agent Skills がサポートされるプラットフォームとして、最初に正式対応したものはどれですか？",
+      "question": "Copilot code review におけるスキルの活用方法として正しいのはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "GitHub.com（Copilot Editor）"
+          "text": "code-review という名前のディレクトリにあるスキルを自動的に活用する"
         },
         {
           "id": "B",
-          "text": "GitHub Copilot CLI"
+          "text": "手動でスキルを都度アタッチする必要がある"
         },
         {
           "id": "C",
-          "text": "VS Code Insiders"
+          "text": "Copilot code review はスキルをサポートしていない"
         },
         {
           "id": "D",
-          "text": "Slack"
+          "text": "JSON 形式のスキルのみ対応している"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Agent Skills は GitHub.com（Copilot Editor）が最初の正式対応プラットフォームです。その後、GitHub Copilot CLI や VS Code Insiders（プレビュー）へと対応が広がっています。"
+      "explanation": "GitHub公式ドキュメントによれば、Copilot code review はレビュー観点のスキル（例：code-review という名前のディレクトリ）を自動的に活用します。"
     },
     {
       "id": 15,
-      "question": "公式が推奨するスキル実装形式は何ですか？",
+      "question": "SKILL.md の YAML frontmatter で必須とされるフィールドはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "SKILL.md（推奨）"
+          "text": "name と description の 2 つ"
         },
         {
           "id": "B",
-          "text": "JSON（推奨）"
+          "text": "name, description, license の 3 つ"
         },
         {
           "id": "C",
-          "text": "YAML のみ"
+          "text": "name, description, compatibility, metadata, allowed-tools すべて"
         },
         {
           "id": "D",
-          "text": "形式は問わない"
+          "text": "必須フィールドはない"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "GitHub 公式が推奨する実装形式は SKILL.md です。JSON は主にシステム開発者や複雑なケース向きです。初めての方は SKILL.md を使用すべきです。"
+      "explanation": "agentskills.io の仕様では、必須フィールドは name（64文字以下）と description（1024文字以下）の2つのみです。license、compatibility、metadata、allowed-tools はすべてオプションフィールドです。"
     }
   ]
 }
