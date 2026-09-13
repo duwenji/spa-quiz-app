@@ -4,7 +4,7 @@
     "name": "GitHub Copilot Agent & Skills 総合シリーズ",
     "description": "GitHub Copilot の Custom Agent と Agent Skills を横断的に学ぶための総合シリーズです。役割設計から比較、実装、再利用、運用までを段階的に学べます。",
     "version": "1.0.0",
-    "totalQuestions": 126,
+    "totalQuestions": 171,
     "sections": [
       {
         "id": "agent-basics",
@@ -65,9 +65,9 @@
         "track": "Skill",
         "order": 7,
         "name": "Skill | 学習トラック",
-        "questionCount": 90,
-        "estimatedTime": "45-60分",
-        "keyTopics": ["fundamentals", "implementation", "advanced topics"]
+        "questionCount": 135,
+        "estimatedTime": "65-90分",
+        "keyTopics": ["fundamentals", "implementation", "advanced topics", "spec generation pipeline"]
       }
     ]
   }

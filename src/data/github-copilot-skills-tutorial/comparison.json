@@ -26,27 +26,27 @@
     },
     {
       "id": 2,
-      "question": "Agent Skills が「Copilot 専用」と言われる理由はどれですか？",
+      "question": "Agent Skills（SKILL.md）と GitHub Copilot の関係を正しく説明しているものはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "GitHub Copilot とその関連ツール向け、外部 LLM では直接的には利用できない"
+          "text": "SKILL.md というファイル形式自体はオープン標準で Claude Code・Cursor・Gemini CLI 等でも利用できるが、name/description に基づく自動選択や実行の挙動は Copilot など各ツールの実装に依存する"
         },
         {
           "id": "B",
-          "text": "GitHub が権利を持っているため他では絶対使用不可"
+          "text": "Agent Skills は GitHub Copilot 専用の機能であり、他のツールでは一切使用できない"
         },
         {
           "id": "C",
-          "text": "Copilot でしか同等の機能がない"
+          "text": "SKILL.md は GitHub が著作権を持つ非公開フォーマットである"
         },
         {
           "id": "D",
-          "text": "技術的に他のプラットフォームでは動作しない"
+          "text": "Agent Skills は MCP の別名であり、実質的に同じ仕組みである"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Agent Skills は Copilot ファミリー（GitHub.com, CLI, VS Code など）向け設計です。オープンスタンダードですが、MCP と異なり Claude や GPT など外部 LLM での直接的なサポートは限定的です。"
+      "explanation": "SKILL.md はオープン標準のフォーマットで、GitHub Copilot だけでなく Claude Code、Cursor、Gemini CLI、VS Code、JetBrains など複数ツールで採用されています。ただし name/description を使った自動選択の仕組みや実行時の挙動は各ツールの実装に依存します。"
     },
     {
       "id": 3,
@@ -98,11 +98,11 @@
     },
     {
       "id": 5,
-      "question": "Agent Skills と MCP を「トラステッド コンテキスト」として考えた場合、トレードオフはどれですか？",
+      "question": "Agent Skills と MCP のトレードオフを正しく説明しているものはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "Agent Skills は簡単だが Copilot 限定、MCP は複雑だが複数 LLM 対応"
+          "text": "Agent Skills は SKILL.md を書くだけの手軽なセットアップだが外部ツール連携が限定的、MCP は実装コストが高いが外部システムとの安全な連携が可能"
         },
         {
           "id": "B",
@@ -118,31 +118,31 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Agent Skills は実装が簡単で学習コストが低いが Copilot に限定されます。MCP は実装コストが高いですが、Claude、Cline などの複数の LLM で利用可能です。選択は要件によります。"
+      "explanation": "Agent Skills は SKILL.md（Markdown + YAML frontmatter）を作成するだけで始められ学習コストが低い一方、外部ツール・API 連携は限定的です。MCP は専用サーバー実装が必要でセットアップコストが高い一方、外部システムへの安全なアクセスや複数 LLM 対応など強力な拡張性を持ちます。選択は要件次第です。"
     },
     {
       "id": 6,
-      "question": "Agent Skills の「単純度」が低い（複雑）理由は何ですか？",
+      "question": "SKILL.md の YAML frontmatter で必須とされているフィールドはどれですか？",
       "options": [
         {
           "id": "A",
-          "text": "多くのメタデータと複雑なパラメータロジックが必要"
+          "text": "name と description の2つのみ（license・compatibility・metadata・allowed-tools は任意）"
         },
         {
           "id": "B",
-          "text": "単純度は低くない"
+          "text": "parameters と outputFormat"
         },
         {
           "id": "C",
-          "text": "サーバー開発が必須"
+          "text": "prompt.system と prompt.template"
         },
         {
           "id": "D",
-          "text": "複数言語での実装が必須"
+          "text": "name, description, parameters, outputFormat, cacheKey の5つすべて"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Agent Skills は Markdown ベースで直感的に見えますが、実際にはメタデータフロントマター、条件分岐、パラメータ設計など複雑なロジックが必要になります。"
+      "explanation": "実際の仕様では、SKILL.md の frontmatter で必須なのは name と description の2フィールドのみです。license、compatibility、metadata、allowed-tools は任意項目であり、parameters や outputFormat のような構造化パラメータ／出力スキーマは存在しません。"
     },
     {
       "id": 7,
@@ -170,27 +170,27 @@
     },
     {
       "id": 8,
-      "question": "Agent Skills アーキテクチャでスキル定義ファイルが保存される場所はどこですか？",
+      "question": "Agent Skills（SKILL.md）はどこで管理・保存されますか？",
       "options": [
         {
           "id": "A",
-          "text": "Copilot Server の内蔵ストレージ"
+          "text": "リポジトリ内（例：.github/skills/配下）で Git によりバージョン管理される"
         },
         {
           "id": "B",
-          "text": "ローカルコンピュータ上のみ"
+          "text": "Copilot Server の内蔵ストレージにのみ保存される"
         },
         {
           "id": "C",
-          "text": "外部の MCP サーバー"
+          "text": "外部の MCP サーバー上に保存される"
         },
         {
           "id": "D",
-          "text": "不明確"
+          "text": "ブラウザのローカルストレージにのみ保存される"
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Agent Skills のアーキテクチャでは、スキル定義ファイルは Copilot Server に統合されたストレージに保存され、クライアント側からアクセスします。"
+      "explanation": "Agent Skills は SKILL.md ファイルとしてリポジトリ内（例：.github/skills/code-review/SKILL.md）で管理され、Git でバージョン管理されます。チーム全体で共有・追跡が可能です。"
     },
     {
       "id": 9,
@@ -238,7 +238,7 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "チーム全体で統一された手順書を実行するなら Agent Skills が最適です。手順の標準化と再利用がメインのユースケースです。共"
+      "explanation": "チーム全体で統一された手順書を実行するなら Agent Skills が最適です。手順の標準化と再利用がメインのユースケースです。"
     },
     {
       "id": 11,
@@ -262,7 +262,7 @@
         }
       ],
       "correctAnswer": "A",
-      "explanation": "Agent Skills がオープンスタンダード（Anthropic 管理）であることの強みは、複数の組織やコミュニティが参加でき、より良い仕様へと進化していくことです。特定ベンダーへの依存がありません。"
+      "explanation": "Agent Skills はオープンスタンダードとして定義されており、特定ベンダーにロックインされません。そのため GitHub Copilot だけでなく Claude Code、Cursor、Gemini CLI など複数ツールのコミュニティが同じ SKILL.md 資産を共有・改善できます。"
     },
     {
       "id": 12,
