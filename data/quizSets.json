@@ -516,10 +516,10 @@
     {
       "id": "github-copilot-skills-advanced-topics",
       "name": "Skill | 高度なパターン",
-      "description": "複合スキルの実現パターン、MCPサーバーを介した外部API連携、命名・トークン効率などのベストプラクティスを学ぶクイズです。",
+      "description": "複合スキルの実現パターン、MCPサーバーを介した外部API連携、命名・トークン効率などのベストプラクティスに加え、実在するOSSスキル集Superpowers（配布・統治スキル・タスク型/プロセス型の違い・Bulletproofing）を学ぶクイズです。",
       "category": "GitHub Copilot",
       "icon": "🎓",
-      "questionCount": 15,
+      "questionCount": 25,
       "difficulty": "advanced",
       "dataPath": "github-copilot-skills-tutorial/advanced-topics.json",
       "parentId": "github-copilot-agent-series",
