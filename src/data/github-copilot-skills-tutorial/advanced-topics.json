@@ -359,6 +359,246 @@
       ],
       "correctAnswer": "A",
       "explanation": "メタデータ（フロントマター）は常に先読みされるため約100トークンに収め、SKILL.md本文はスキル起動時に読み込まれるため推奨500行未満・上限1000行（約5000トークン）とし、詳細な参考資料は`references/*.md`としてオンデマンドで読み込ませることで、トークンという共有資源を効率的に使います。"
+    },
+    {
+      "id": 16,
+      "question": "実例として紹介されている「Superpowers」とは何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "個人開発者obra氏が公開するOSS（`github.com/obra/superpowers`、MIT License）で、GitHub公式のPlugin機構経由でCopilot CLIにインストールできる、GitHub非検証のコミュニティ製スキル集"
+        },
+        {
+          "id": "B",
+          "text": "GitHubが公式に提供するAgent Skillsのリファレンス実装"
+        },
+        {
+          "id": "C",
+          "text": "Anthropicが自社製品専用に配布しているスキル集で、Copilot CLIでは利用できない"
+        },
+        {
+          "id": "D",
+          "text": "VS Code拡張機能としてのみ配布されているスキル集"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Superpowersは個人開発者obra氏が公開するOSS（MIT License）です。GitHub公式のPlugin機構経由でCopilot CLIにインストール可能ですが、GitHubによって内容が検証された公式製品ではないコミュニティ製Pluginである点に注意が必要です。"
+    },
+    {
+      "id": 17,
+      "question": "SuperpowersはどのようなパッケージとしてCopilot CLIに配布されていますか？また対応ツールにはどのような特徴がありますか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "複数のSkillをまとめたPluginとして配布され、GitHub Copilot CLIだけでなくClaude Code、Cursor、Codex、Gemini CLI等にも同じスキル本体を配布できる"
+        },
+        {
+          "id": "B",
+          "text": "単一のSKILL.mdファイルとして配布され、Copilot CLI専用に書き直されている"
+        },
+        {
+          "id": "C",
+          "text": "MCPサーバーとして配布され、スキルという概念は使われていない"
+        },
+        {
+          "id": "D",
+          "text": "GitHub Actionsのワークフローファイルとして配布されている"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Superpowersは複数のSkillをまとめたPluginとして配布されています。「Agent Skillsはオープン仕様でありベンダー専用ではない」という仕様共通性を利用し、同じスキル本体をGitHub Copilot CLI、Claude Code、Cursor、Codex、Gemini CLI等の複数ツールへ配布している実例です。"
+    },
+    {
+      "id": 18,
+      "question": "Copilot CLIにSuperpowersをインストールする際のコマンド構文として正しいものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "`copilot plugin marketplace add obra/superpowers-marketplace` でmarketplaceを登録し、続けて `copilot plugin install superpowers@superpowers-marketplace` でインストールする"
+        },
+        {
+          "id": "B",
+          "text": "`copilot skill install obra/superpowers` の1コマンドのみで完結する"
+        },
+        {
+          "id": "C",
+          "text": "`.github/skills/`に手動でファイルをコピーする以外に方法はない"
+        },
+        {
+          "id": "D",
+          "text": "`copilot plugin fetch --repo obra/superpowers` でインストールする"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "GitHub公式ドキュメントの仕様（`copilot plugin marketplace add OWNER/REPO` → `copilot plugin install PLUGIN@MARKETPLACE`）に沿って、まずSuperpowers専用のmarketplaceを登録し、次にそのmarketplaceからプラグインをインストールします。"
+      },
+    {
+      "id": 19,
+      "question": "サードパーティPluginであるSuperpowersを導入する際に注意すべきセキュリティ上のポイントはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "サードパーティのmarketplace・PluginはGitHubによって内容を検証されていないため、`copilot plugin marketplace browse`等でインストール前に内容を確認する習慣をつけるべき"
+        },
+        {
+          "id": "B",
+          "text": "GitHub公式のPlugin機構を経由するものはすべてGitHubが内容を検証済みなので確認は不要"
+        },
+        {
+          "id": "C",
+          "text": "MITライセンスであれば内容の安全性が保証される"
+        },
+        {
+          "id": "D",
+          "text": "スター数が一定以上のリポジトリであれば検証は不要"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`gh skill`によるサードパーティスキル共有と同様、サードパーティのmarketplace・PluginはGitHubによって内容を検証されていません。`copilot plugin marketplace browse superpowers-marketplace`等でインストール前に内容を確認する習慣が推奨されます。"
+    },
+    {
+      "id": 20,
+      "question": "Superpowersに収録されている14個のスキルの分類について、正しい説明はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "全スキルの利用を統制する「Meta」層（`using-superpowers`、`writing-skills`）と、「Collaboration & Planning」層、「Testing / Debugging」層に分かれている"
+        },
+        {
+          "id": "B",
+          "text": "全スキルが1つのフラットなカテゴリに属し、階層構造はない"
+        },
+        {
+          "id": "C",
+          "text": "「Frontend」「Backend」「Infra」の3層に分類されている"
+        },
+        {
+          "id": "D",
+          "text": "スキルごとに独立したPluginとして配布されており、まとめる階層構造は存在しない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Superpowersの14スキルは、全スキルの利用そのものを統制する「Meta」層（`using-superpowers`、`writing-skills`）と、`brainstorming`や`writing-plans`等を含む「Collaboration & Planning」層、`test-driven-development`等を含む「Testing / Debugging」層に分類されています。"
+    },
+    {
+      "id": 21,
+      "question": "Superpowersにおける「単一責任の原則」の実例として正しいものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "企画（`brainstorming`）・計画立案（`writing-plans`）・計画実行（`executing-plans`）が1つの巨大な「開発スキル」にまとめられず、3つの別スキルに分かれている"
+        },
+        {
+          "id": "B",
+          "text": "全ての工程を1つの`development`スキルにまとめ、内部でフェーズを分岐させている"
+        },
+        {
+          "id": "C",
+          "text": "`test-driven-development`が`systematic-debugging`の機能を内包している"
+        },
+        {
+          "id": "D",
+          "text": "単一責任の原則はSuperpowersでは採用されていない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "「コード分析・修正提案・テスト生成を全部やる1スキル」を悪い例とする単一責任の原則どおり、Superpowersでも企画・計画立案・計画実行が`brainstorming`・`writing-plans`・`executing-plans`という3つの別スキルに分かれています。"
+    },
+    {
+      "id": 22,
+      "question": "メタスキル`using-superpowers`が果たす役割として正しいものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "「分析→修正→テスト」のような固定パイプラインではなく、他の全スキルの利用そのものを統制する一段上のガバナンス層として、あらゆるタスク着手前にスキルの有無を確認させる"
+        },
+        {
+          "id": "B",
+          "text": "13個の実装スキルの実行順序をJSON Schemaで厳密に定義する"
+        },
+        {
+          "id": "C",
+          "text": "他のスキルを呼び出さず、単独でコード分析からテスト生成まで完結する"
+        },
+        {
+          "id": "D",
+          "text": "GitHub Copilot CLI専用の設定ファイルを生成するツールである"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`using-superpowers`は「エージェントはいかなるタスクに着手する前にも関連スキルの有無を必ず確認しなければならない」と指示するメタスキルです。特定の固定パイプラインではなく、他の全スキルの利用そのものを統制する一段上のガバナンス層として機能します。"
+    },
+    {
+      "id": 23,
+      "question": "本チュートリアルのサンプルスキルとSuperpowersの大半のスキルを比較した「タスク型スキル」と「プロセス型スキル」の違いとして正しいものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "タスク型は入力から決まった形式の出力を生成することが目的で出力スキーマの正確さが成功基準となるのに対し、プロセス型（Superpowersの大半）は作業の進め方・規律を守らせることが目的で、期待した手順を踏んだかが成功基準となる"
+        },
+        {
+          "id": "B",
+          "text": "タスク型とプロセス型は出力フォーマットが異なるだけで、成功基準はどちらもJSON Schema適合率で測る"
+        },
+        {
+          "id": "C",
+          "text": "プロセス型スキルは常にタスク型スキルより行数が短くなるという法則がある"
+        },
+        {
+          "id": "D",
+          "text": "GitHub Copilot Agent Skillsの仕様上、プロセス型とタスク型は明確に区別されるフィールドを持つ"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`analyze-code-quality`等の本チュートリアルのサンプルは「入力→決まった形式の出力」を目的とするタスク型スキルです。一方Superpowersの大半（`test-driven-development`、`systematic-debugging`、`brainstorming`等）は、出力形式ではなくエージェントの振る舞い・作業手順そのものを規定するプロセス型スキルで、成功基準も「期待した手順を踏んだか」になります。"
+    },
+    {
+      "id": 24,
+      "question": "`writing-skills`が明文化している「Description = When to Use, NOT What the Skill Does」というSDO（Skill Discovery Optimization）ルールの根拠として説明されているものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "descriptionがスキルの処理内容（ワークフロー）を要約していると、エージェントが本文を読まずdescriptionの要約だけに従ってしまい、実際には2回必要なレビューを1回しか行わない、といった検証結果が観測されたため"
+        },
+        {
+          "id": "B",
+          "text": "descriptionの文字数がGitHub Copilot CLIの技術的な上限（100文字）を超えるとパースエラーになるため"
+        },
+        {
+          "id": "C",
+          "text": "ワークフローの要約をdescriptionに書くとYAMLのパースが失敗するため"
+        },
+        {
+          "id": "D",
+          "text": "特に根拠は説明されておらず、単なる慣習として推奨されているだけ"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`writing-skills`は、「code review between tasks」のようにワークフローを要約したdescriptionを与えると、フローチャートで2回レビューを示しているにもかかわらずエージェントが1回しかレビューを行わなかった、という実際のテスト結果を根拠に、descriptionには発動条件のみを書くべきと明文化しています。"
+    },
+    {
+      "id": 25,
+      "question": "`writing-skills`が一般化している「Bulletproofing（言い訳潰し）」技法とその適用範囲について、正しい説明はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "抜け道を名指しで塞ぐ・「精神は守っている」論法を先に封じる・実際にエージェントに背かせて出た言い訳をRed Flags表に追記し続ける、という3点から成り、「規律を破る失敗」向けの技法であり「出力の形式が違う」失敗には逆効果になりうるとされている"
+        },
+        {
+          "id": "B",
+          "text": "あらゆる種類のスキルの失敗（出力形式の誤りも含む）に同じように適用すべき唯一の技法である"
+        },
+        {
+          "id": "C",
+          "text": "Bulletproofingは`test-driven-development`スキル固有の機能であり、他のスキルの作成には応用できない"
+        },
+        {
+          "id": "D",
+          "text": "抜け道を塞ぐのではなく、抜け道の存在を許容しつつ性弱説に基づいてログを残すことに主眼を置いた技法である"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Bulletproofingは、(1)抜け道を名指しで塞ぐ、(2)「ルールの文言違反はルールの精神違反である」と明記して精神論の言い訳を封じる、(3)実際にエージェントに背かせて出た言い訳をRed Flags表にREFACTORフェーズで追記し続ける、の3点から成ります。`writing-skills`自身が明記するとおり「規律を破る失敗」向けの技法であり、「出力の形式が違う」失敗（Match the Form to the Failure）には逆効果になりうるため、本チュートリアルのタスク型スキルには別の対策（出力例の明示、EDD）を使うべきとされています。"
     }
   ]
 }
