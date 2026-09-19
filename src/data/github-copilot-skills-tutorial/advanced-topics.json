@@ -599,6 +599,246 @@
       ],
       "correctAnswer": "A",
       "explanation": "Bulletproofingは、(1)抜け道を名指しで塞ぐ、(2)「ルールの文言違反はルールの精神違反である」と明記して精神論の言い訳を封じる、(3)実際にエージェントに背かせて出た言い訳をRed Flags表にREFACTORフェーズで追記し続ける、の3点から成ります。`writing-skills`自身が明記するとおり「規律を破る失敗」向けの技法であり、「出力の形式が違う」失敗（Match the Form to the Failure）には逆効果になりうるため、本チュートリアルのタスク型スキルには別の対策（出力例の明示、EDD）を使うべきとされています。"
+    },
+    {
+      "id": 26,
+      "question": "複数ステップにまたがるタスクの計画・TODO管理について、本チュートリアルが整理する3つの選択肢の使い分けとして正しいものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "会話1回で完結する軽い計画でよければCopilotの`/plan`（Plan agent）、レビュー承認・品質ゲート・仕様統合が必要ならPart 6の仕様化パイプライン、ドメインを問わない一般的な複数ステップ作業には汎用task-planner Skillを使う"
+        },
+        {
+          "id": "B",
+          "text": "常にPlan agentを使うべきで、Part 6パイプラインとtask-planner Skillはどちらも非推奨の旧方式である"
+        },
+        {
+          "id": "C",
+          "text": "task-planner SkillはPart 6パイプラインの上位互換であり、Part 6パイプラインは廃止予定である"
+        },
+        {
+          "id": "D",
+          "text": "3つの選択肢はいずれも同じ`tasks.json`/`state.json`形式を共有しており、セッションをまたぐ再開の可否では区別されない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "永続化の仕組みが異なる3択です。Plan agentはセッションメモリファイル（会話内のみ）でその場限りの単発タスクに、Part 6パイプラインは`plan.json`/`state.json`で品質ゲート・統合工程が必要な大規模コード仕様化に、汎用task-planner Skillは`tasks.json`/`state.json`でドメインを問わない一般的な複数ステップ作業に向いています。"
+    },
+    {
+      "id": 27,
+      "question": "GitHub CopilotのPlan agent（`/plan`）について正しい説明はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "SKILL.mdで実装されたSkillではなく、Copilot Chat自体が持つ組み込み機能であり、生成された計画はセッション専用のセッションメモリファイル（`/memories/session/plan.md`）に保存されるが、現在の会話内でのみ有効でセッションをまたいで再開する仕組みではない"
+        },
+        {
+          "id": "B",
+          "text": "Plan agentはSKILL.mdとして`.github/skills/plan/`に実装されており、本チュートリアルが扱う「Skillの一形態」である"
+        },
+        {
+          "id": "C",
+          "text": "Plan agentが生成する計画は、Part 6の`state.json`と同じ仕組みでセッションをまたいで再開できる"
+        },
+        {
+          "id": "D",
+          "text": "`chat.planAgent.defaultModel`設定を有効にすると、計画がセッションをまたいで自動的に永続化されるようになる"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Plan agentはSkillではなくCopilot Chat自体の別機能です。計画はセッションメモリファイルに自動保存され`Chat: Show Memory Files`で参照できますが、現在の会話内でのみ有効で、Part 6の状態ファイルのようなセッションをまたいだ再開の仕組みはありません。`chat.planAgent.defaultModel`は使用モデルの指定であり永続化とは無関係です。"
+    },
+    {
+      "id": 28,
+      "question": "Claude CodeのTask管理ツールについて正しい説明はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "モデルにより提供されるツールが異なる。Claude 3.x・Opus 4〜4.7・Sonnet 4〜4.6・Haiku 4.5では既定で`TaskCreate`/`TaskGet`/`TaskList`/`TaskUpdate`が提供され、それ以外の新しいモデルでは既定で提供されない（書面のTODOリストなしでも複数ステップの作業を追跡できるため）。`TodoWrite`は`CLAUDE_CODE_ENABLE_TASKS=0`設定時のレガシー互換パスとして使われる"
+        },
+        {
+          "id": "B",
+          "text": "`TodoWrite`が常に既定で有効な唯一のツールであり、`TaskCreate`等は実験的機能にすぎない"
+        },
+        {
+          "id": "C",
+          "text": "モデルによらず全く同一のタスク管理ツールセットが常に既定で提供される"
+        },
+        {
+          "id": "D",
+          "text": "`TaskUpdate`には不要になったタスクを削除する仕組みがなく、一度作成したタスクは消せない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "提供されるツールはモデルに依存します。各タスクは`pending`→`in_progress`→`completed`のライフサイクルを持ち、不要なタスクは`TaskUpdate`で`status: \"deleted\"`にします。本章のtask-planner Skillの4状態（pending/in_progress/completed/blocked）はこの設計と独立に考案されたものですが、結果的に同種の語彙に収束しています。"
+    },
+    {
+      "id": 29,
+      "question": "汎用task-planner SkillとPart 6の仕様化パイプラインの違いとして正しいものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "task-planner Skillは4状態（pending/in_progress/completed/blocked）でレビュー承認・品質ゲート・統合工程を持たないのに対し、Part 6のパイプラインは6状態（planned/in_progress/generated/reviewed/accepted/blocked）で10項目の品質ゲートを経て`accepted`に確定する、より厳密な専用設計になっている"
+        },
+        {
+          "id": "B",
+          "text": "両者は状態数・レビュー有無を含めて全く同じ設計であり、対象ドメインが違うだけである"
+        },
+        {
+          "id": "C",
+          "text": "task-planner Skillの方が状態数が多く、より厳密な品質管理を行う"
+        },
+        {
+          "id": "D",
+          "text": "Part 6パイプラインには状態ファイルによる再開機能がなく、task-planner Skillだけが再開可能である"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Part 6のパイプラインは既存コードのメソッド単位仕様化専用に設計され、6状態・10項目の品質ゲート・下位仕様から上位仕様への統合工程を持ちます。task-planner Skillはこの考え方を汎用化したもので、4状態のみ・レビューは成果物確認のみ・統合工程なし、というシンプルな構成です。"
+    },
+    {
+      "id": 30,
+      "question": "task-planner Skillの再開（レジューム）の考え方として正しいものはどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Part 6のパイプラインと同じく、1タスク処理するごとに状態ファイルを保存し、次回起動時はprocessing_orderの先頭から「completedでもblocked（依存未解消）でもない最初のタスク」に着手する"
+        },
+        {
+          "id": "B",
+          "text": "全タスクが完了するまで状態ファイルへの保存は行わず、最後にまとめて1回だけ保存する"
+        },
+        {
+          "id": "C",
+          "text": "再開時は常にprocessing_orderの末尾から逆順に処理を再開する"
+        },
+        {
+          "id": "D",
+          "text": "`blocked`状態になったタスクは自動的にリストから削除され、二度と処理対象にならない"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Part 6-4の状態管理と同じ考え方で、1タスク処理するごとに状態ファイルを保存し、次回はprocessing_orderの先頭から「completedでもblocked（依存未解消）でもない最初のタスク」に着手します。blockedは依存タスク解消でpendingに戻り再び処理対象になります。"
+    },
+    {
+      "id": 31,
+      "question": "`allowed-tools`フロントマターの値（`Bash(...)`、`Read`等）と、各クライアントが実行環境内部で持つToolとの関係について正しい説明はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "`allowed-tools`の語彙はagentskills.ioのオープン仕様が定めるポータブルな名前であり、VS Codeの`#edit`/`#search/codebase`等の内部Tool IDと必ずしも1対1で一致しない。実際にどのToolが呼ばれるかの対応付けはクライアント実装に委ねられている"
+        },
+        {
+          "id": "B",
+          "text": "`allowed-tools`の語彙はVS Codeの内部Toolset名と完全に1対1で対応するよう仕様が定めている"
+        },
+        {
+          "id": "C",
+          "text": "`allowed-tools`に書ける値はCopilot CLIのToolのみを対象とし、VS Codeでは一切参照されない"
+        },
+        {
+          "id": "D",
+          "text": "`allowed-tools`の語彙はクライアントごとに全く別のスキーマとして各クライアントが個別に規定している"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`allowed-tools`の値の語彙はagentskills.ioのオープン仕様が定めるポータブルな名前で、各クライアントの内部Tool ID（VS Codeの`#edit`/`#search/codebase`など）と必ずしも1対1で一致しません。Part 3-2が`allowed-tools`を「実験的、対応状況はクライアント依存」と注記しているのはこのためです。"
+    },
+    {
+      "id": 32,
+      "question": "VS Codeのチャットが持つ組み込みAgent role「Ask」「Agent」「Plan」について、2026年9月時点の公式ドキュメントに基づく正しい説明はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "Askは質問に答えコードを変更しない読み取り専用、Agentはタスクを自律的に計画・実行するフルToolset、Planはコード変更前に調査し構造化された実装計画を作る読み取り専用roleで、承認後は「Start Implementation」でAgent roleにハンドオフできる"
+        },
+        {
+          "id": "B",
+          "text": "Ask・Agent・Planの3つはすべて同じフルToolsetを持ち、チャットUIの見た目だけが異なる"
+        },
+        {
+          "id": "C",
+          "text": "かつて存在した独立の「Edit mode」は、現在も既定で表示される主要な4つ目のroleとして扱われている"
+        },
+        {
+          "id": "D",
+          "text": "PlanはAskと異なり、ファイル編集・コマンド実行を含むフルToolsetを持つ"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Ask・Planはどちらも読み取り専用ですが、Askはその場の質問・説明のQ&A、Planは実装計画という成果物を作ることが目的で、承認後に「Start Implementation」でAgent roleへハンドオフする導線を持ちます。旧「Edit mode」はAgent modeへの機能統合により非推奨・既定非表示になっており、現行の組み込みroleは実質Ask/Agent/Planの3つです。"
+    },
+    {
+      "id": 33,
+      "question": "GitHub Copilot CLIのTool承認モデルについて正しい説明はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "`read`/`view`・`grep`/`glob`など読み取り専用のToolは既定で自動許可される一方、`write`/`edit`や破壊的なshellコマンド、`web_fetch`/`web_search`は確認が必要で、`--deny-tool`は`--allow-tool`より常に優先される"
+        },
+        {
+          "id": "B",
+          "text": "すべてのToolが既定で自動許可され、`--deny-tool`で個別に無効化する方式である"
+        },
+        {
+          "id": "C",
+          "text": "`--allow-tool`と`--deny-tool`が競合した場合は`--allow-tool`が優先される"
+        },
+        {
+          "id": "D",
+          "text": "MCPサーバー提供Toolは既定で確認なしに自動許可される"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "読み取り専用の操作（検索・読み取り・読み取り専用シェルコマンド）は既定で自動許可され、システムを変更しうる操作（破壊的シェルコマンド・ファイル編集・URLアクセス、MCPサーバー提供Tool）は既定で確認が必要です。拒否ルールは許可ルールより常に優先されます（`--deny-tool`が`--allow-tool`に勝つ）。"
+    },
+    {
+      "id": 34,
+      "question": "Copilot coding agent（クラウド）のTool実行モデルが、VS Code/CLIと本質的に異なる点は何ですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "対話的な承認プロンプトを出せないため、シェル実行はBashツール経由でそのプロセスにのみファイアウォールが適用され、リポジトリ管理者が事前設定したMCPサーバーのTool群はタスク中に都度の承認なしで自律的に使われる、という「実行前確認」ではない設計になっている"
+        },
+        {
+          "id": "B",
+          "text": "VS Code/CLIと全く同じ対話的承認プロンプトがブラウザ上に表示される"
+        },
+        {
+          "id": "C",
+          "text": "クラウド環境ではMCPサーバーは一切利用できず、Bashツールのみが使える"
+        },
+        {
+          "id": "D",
+          "text": "ファイアウォールはBashツールだけでなく、MCPサーバーやセットアップ手順で起動した全プロセスにも一律適用される"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Copilot coding agentはGitHub.com上で非同期にIssue/PRを処理するため対話的な承認プロンプトを出せません。シェル実行はBashツールを通じて行われ、ファイアウォールが適用されるのはこのBashツールが起動したプロセスのみ（MCPサーバーやセットアップ手順で起動したプロセスには適用されない）です。事前設定されたMCPサーバーのTool群はタスク中に自律的に使われます。"
+    },
+    {
+      "id": 35,
+      "question": "GitHub公式ドキュメントが定めるAgent Skillsの対応環境と、VS CodeのAsk/Plan modeの関係について正しい説明はどれですか？",
+      "options": [
+        {
+          "id": "A",
+          "text": "公式ドキュメントはVS Code/JetBrainsについて「agent mode」と限定してAgent Skills対応を謳っており、Ask modeはこれに含まれない。公式ワークショップ資料も「スクリプトが実行されない場合はAgent modeにいることを確認」とトラブルシューティングに明記している。Plan modeについては明示的な記載がなく、読み取り専用である以上動作しない可能性が高いが未確認の推測とされる"
+        },
+        {
+          "id": "B",
+          "text": "Ask mode・Plan modeを含むVS Codeの全roleで、Agent Skillsが等しく公式にサポートされている"
+        },
+        {
+          "id": "C",
+          "text": "SKILL.mdの`allowed-tools`に`shell`等を書いておけば、Ask modeでもSkillの本体機能が動作するようになる"
+        },
+        {
+          "id": "D",
+          "text": "Plan modeでSkillが動作しないことは、公式ドキュメントで明言された確定事実である"
+        }
+      ],
+      "correctAnswer": "A",
+      "explanation": "GitHub公式ドキュメントは「Agent skills work with ... agent mode in Visual Studio Code and JetBrains IDEs」と限定して書いており、Ask modeは対応環境に含まれません。`allowed-tools`は確認プロンプトを省略する事前承認にすぎず、Skillが発火しないAsk modeでは書いても無意味です。Plan modeについては公式に明言された事実はなく「未確認の推測」とされています。"
     }
   ]
 }
