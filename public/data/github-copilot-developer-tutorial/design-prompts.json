@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Promptに書くべき内容として正しい3点はどれですか？",
+      "options": [
+        { "id": "A", "text": "タスク定義、出力形式、実行条件" },
+        { "id": "B", "text": "役割、境界、tools" },
+        { "id": "C", "text": "用語、ルール、制約" },
+        { "id": "D", "text": "入力、手順、検証" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Promptに書くべき内容は「タスク定義」「出力形式」「実行条件」の3点に絞ります。"
+    },
+    {
+      "id": 2,
+      "question": "Promptの2形式のうち、繰り返し使う・チームで共有する場合に向くのはどれですか？",
+      "options": [
+        { "id": "A", "text": "チャット直接入力" },
+        { "id": "B", "text": "Prompt ファイル（.prompt.md）" },
+        { "id": "C", "text": "Agent instructions" },
+        { "id": "D", "text": "File Instructions" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "チャット直接入力は1回限り・使い捨てに向き、Promptファイル（.prompt.md）は繰り返し使う・チームで共有する場合に向いています。"
+    },
+    {
+      "id": 3,
+      "question": "Promptファイルの agent フィールドで『複数ステップで自律的に進めてほしい』場合に選ぶ値はどれですか？",
+      "options": [
+        { "id": "A", "text": "ask" },
+        { "id": "B", "text": "agent" },
+        { "id": "C", "text": "plan" },
+        { "id": "D", "text": "review" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "agent フィールドの選択基準では、複数ステップで自律的に進めてほしい場合は `agent` を選びます。"
+    },
+    {
+      "id": 4,
+      "question": "Promptファイルの agent フィールドで『実装計画を立てたい』場合に選ぶ値はどれですか？",
+      "options": [
+        { "id": "A", "text": "ask" },
+        { "id": "B", "text": "agent" },
+        { "id": "C", "text": "plan" },
+        { "id": "D", "text": "カスタムエージェント名" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "実装計画を立てたい場合は `plan` を選びます。回答・提案だけほしい場合は `ask`、複数ステップで自律的に進めてほしい場合は `agent` です。"
+    },
+    {
+      "id": 5,
+      "question": "Prompt ファイルのチーム共有用の置き場所はどれですか？",
+      "options": [
+        { "id": "A", "text": ".github/prompts/" },
+        { "id": "B", "text": ".github/skills/" },
+        { "id": "C", "text": ".github/agents/" },
+        { "id": "D", "text": ".github/instructions/" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Promptファイルのチーム共有用（ワークスペース）の置き場所は `.github/prompts/` です。"
+    },
+    {
+      "id": 6,
+      "question": "SkillとPromptファイルの違いのうち、『起動方法』の違いとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Promptはエージェントが自動選択し、Skillはユーザーが手動起動する" },
+        { "id": "B", "text": "Promptはユーザーがチャットで手動起動し、Skillは Copilot エージェントが自動選択する" },
+        { "id": "C", "text": "両方ともユーザーが手動起動する" },
+        { "id": "D", "text": "両方とも自動選択され、手動起動はできない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "起動方法の違いは、Promptファイルはユーザーが Chat で手動起動し、Skill は Copilot エージェントが自動選択する点です。"
+    },
+    {
+      "id": 7,
+      "question": "NG例1『Promptに常設ルールを毎回書く』の正しい修正方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "常設ルールを Workspace Instructions または File Instructions へ移す" },
+        { "id": "B", "text": "常設ルールをそのままAgentのtoolsに追加する" },
+        { "id": "C", "text": "常設ルールをSkillのargument-hintに移す" },
+        { "id": "D", "text": "常設ルールを毎回コピー＆ペーストし続ける" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "常設ルールを毎回Promptに書くのは冗長なので、Instructionへ移せば自動的に適用され省略できます。"
+    },
+    {
+      "id": 8,
+      "question": "NG例2『Promptに役割定義を毎回書く』の正しい修正方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "役割定義を Agent（.agent.md）に分離する" },
+        { "id": "B", "text": "役割定義を毎回そのままPromptに残す" },
+        { "id": "C", "text": "役割定義をInstructionのAvoidセクションに書く" },
+        { "id": "D", "text": "役割定義をCHANGELOGに記録する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "役割定義を毎回Promptに書くのはAgentの責務であり、Promptが肥大化する原因になるため、Agentへ分離します。"
+    },
+    {
+      "id": 9,
+      "question": "Prompt ファイルの model フィールドの役割として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "使用するAIモデルを指定する（省略時はモデルピッカーの選択値）" },
+        { "id": "B", "text": "使用するtoolsの一覧を指定する" },
+        { "id": "C", "text": "Promptの呼び出し名を指定する" },
+        { "id": "D", "text": "実行するAgentの種類を指定する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "model フィールドは使用するAIモデルを指定し、省略時はモデルピッカーの選択値が使われます。"
+    },
+    {
+      "id": 10,
+      "question": "Promptのレビュー基準に含まれていない項目はどれですか？",
+      "options": [
+        { "id": "A", "text": "タスク定義が1文で説明できるか" },
+        { "id": "B", "text": "出力形式が具体的か" },
+        { "id": "C", "text": "常設ルールや役割定義が混入していないか" },
+        { "id": "D", "text": "使用トークン数が一定以下に収まっているか" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Promptのレビュー基準は、タスク定義の明確さ、出力形式、常設ルール/役割定義の混入有無、agentの選択適切性、ファイル化の必要性であり、トークン数の基準は挙げられていません。"
+    }
+  ]
+}

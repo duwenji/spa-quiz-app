@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "`requirements-refinement` Skillの用途として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "要求・受入条件・非機能要件・スコープ境界を明確化する" },
+        { "id": "B", "text": "APIの入出力・エラー・互換性を実装前に明文化する" },
+        { "id": "C", "text": "単体・結合・E2Eを横断してテスト戦略を統合整理する" },
+        { "id": "D", "text": "リリース前の確認・ロールアウト・ロールバック・監視を統合整理する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`requirements-refinement` は要求・受入条件・非機能要件・スコープ境界を明確化するSkillです。"
+    },
+    {
+      "id": 2,
+      "question": "`requirements-refinement` の実行モードのうち、監査対象や複数部門・ステークホルダーが関わる案件で使うのはどれですか？",
+      "options": [
+        { "id": "A", "text": "speed" },
+        { "id": "B", "text": "balance" },
+        { "id": "C", "text": "strict" },
+        { "id": "D", "text": "draft" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "`strict` モードは監査対象、複数部門・ステークホルダーがいる案件で使います。"
+    },
+    {
+      "id": 3,
+      "question": "`requirements-refinement` の実行モードのうち、小規模修正や緊急対応で最小限の要件確認が必要な場合に使うのはどれですか？",
+      "options": [
+        { "id": "A", "text": "speed" },
+        { "id": "B", "text": "balance" },
+        { "id": "C", "text": "strict" },
+        { "id": "D", "text": "audit" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`speed` モードは小規模修正や緊急対応で最小限の要件確認が必要な場合に使います。"
+    },
+    {
+      "id": 4,
+      "question": "`requirements-refinement` の argument-hint に含まれる情報として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "対象メソッド、行範囲、断定禁止の制約" },
+        { "id": "B", "text": "背景、達成したい成果、対象範囲、除外範囲、非機能要件、現時点の不明点" },
+        { "id": "C", "text": "リリース対象、依存先、ロールバック条件" },
+        { "id": "D", "text": "対象変更、影響範囲、既存テスト資産" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`requirements-refinement` のargument-hintは「背景、達成したい成果、対象範囲、除外範囲、非機能要件、現時点の不明点」です。"
+    },
+    {
+      "id": 5,
+      "question": "`api-contract-design` Skillの用途として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "要求・受入条件・非機能要件・スコープ境界を明確化する" },
+        { "id": "B", "text": "APIの入出力・エラー・互換性を実装前に明文化する" },
+        { "id": "C", "text": "レビュー観点・優先度・差戻し基準を平準化する" },
+        { "id": "D", "text": "障害・インシデントの事実整理・原因分析を組織学習へ繋げる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`api-contract-design` はAPIの入出力・エラー・互換性を実装前に明文化するSkillです。"
+    },
+    {
+      "id": 6,
+      "question": "`feature-implementation-unified` Skillは何フェーズ・何段階で進みますか？",
+      "options": [
+        { "id": "A", "text": "2フェーズ6段階" },
+        { "id": "B", "text": "3フェーズ10段階" },
+        { "id": "C", "text": "4フェーズ14段階" },
+        { "id": "D", "text": "5フェーズ20段階" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "機能実装は要件整理から報告まで4フェーズ14段階で進む、最もフェーズ数が多いSkillです。"
+    },
+    {
+      "id": 7,
+      "question": "`feature-implementation` の実行フローで、最も重要とされるゲートはどれですか？",
+      "options": [
+        { "id": "A", "text": "段階3（背景・スコープの入力）" },
+        { "id": "B", "text": "段階7（方式案承認ゲート）" },
+        { "id": "C", "text": "段階11（検証項目承認）" },
+        { "id": "D", "text": "段階14（報告）" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "段階7（方式案承認）が最も重要なゲートであり、ここで方向を確定します。"
+    },
+    {
+      "id": 8,
+      "question": "`code-review-assistant` Skillの用途として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "レビュー観点・優先度・差戻し基準を平準化する" },
+        { "id": "B", "text": "テスト戦略の単体・結合・E2E配分を決定する" },
+        { "id": "C", "text": "リリース前の依存確認とロールバック条件を整理する" },
+        { "id": "D", "text": "要件・受入条件を明確化する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`code-review-assistant` はレビュー観点・優先度・差戻し基準を平準化するSkillです。"
+    },
+    {
+      "id": 9,
+      "question": "NGパターン『実装後にAPI仕様を書く』の対処法として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "`api-contract-design` を実装前に必ず実行する" },
+        { "id": "B", "text": "`test-strategy` を実装後に実行する" },
+        { "id": "C", "text": "仕様書自体を作成しない" },
+        { "id": "D", "text": "`strict` モードのみを常に使う" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "実装後にAPI仕様を書くと仕様と実装の乖離が起き手戻りが大きくなるため、`api-contract-design` を実装前に必ず実行します。"
+    },
+    {
+      "id": 10,
+      "question": "ミニ演習のシナリオ（既存ユーザープロフィールAPIにニックネームフィールドを追加、既存クライアントへの影響禁止）で最初に使うべきSkillはどれですか？",
+      "options": [
+        { "id": "A", "text": "feature-implementation" },
+        { "id": "B", "text": "code-review-assistant" },
+        { "id": "C", "text": "api-contract-design" },
+        { "id": "D", "text": "release-readiness" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "解答例では、まず `api-contract-design` でニックネームフィールドの入出力設計と後方互換確認を行い、次に `feature-implementation`、最後に `code-review-assistant` の順で使います。"
+    },
+    {
+      "id": 11,
+      "question": "『とりあえず実装して後で要件を決める』というNGパターンの問題点はどれですか？",
+      "options": [
+        { "id": "A", "text": "大幅な手戻りが発生する" },
+        { "id": "B", "text": "実装速度が上がりすぎる" },
+        { "id": "C", "text": "テストが不要になる" },
+        { "id": "D", "text": "レビューが不要になる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "要件を後回しにすると大幅な手戻りが発生するため、`requirements-refinement` を実装前に実行することが推奨されます。"
+    },
+    {
+      "id": 12,
+      "question": "『strict モードのみ使う』というNGパターンの問題点はどれですか？",
+      "options": [
+        { "id": "A", "text": "小規模変更でも証跡が膨大になる" },
+        { "id": "B", "text": "承認ゲートが完全になくなる" },
+        { "id": "C", "text": "AIが分析を一切行わなくなる" },
+        { "id": "D", "text": "Skillが呼び出せなくなる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`strict` モードのみを使うと、小規模変更でも証跡が膨大になります。案件規模に応じて `balance` や `speed` を選択するのが対処法です。"
+    }
+  ]
+}

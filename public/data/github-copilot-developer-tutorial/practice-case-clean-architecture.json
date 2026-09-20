@@ -1,0 +1,172 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Clean Architectureの提唱者は誰ですか？",
+      "options": [
+        { "id": "A", "text": "Eric Evans" },
+        { "id": "B", "text": "Robert C. Martin（通称 Uncle Bob）" },
+        { "id": "C", "text": "Alistair Cockburn" },
+        { "id": "D", "text": "Jeffrey Palermo" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Clean Architectureは Robert C. Martin（通称 Uncle Bob）が提唱しました。"
+    },
+    {
+      "id": 2,
+      "question": "Clean Architecture がブログ記事として最初に公開された年はいつですか？",
+      "options": [
+        { "id": "A", "text": "2003年" },
+        { "id": "B", "text": "2008年" },
+        { "id": "C", "text": "2012年" },
+        { "id": "D", "text": "2017年" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "2012年8月にブログ記事『The Clean Architecture』として公開され、2017年に著書として体系化されました。"
+    },
+    {
+      "id": 3,
+      "question": "Clean Architecture が解決しようとした問題として、本文で挙げられていないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "フレームワーク依存によるリプレースコストの増大" },
+        { "id": "B", "text": "DBや外部APIなしでは業務ロジックを単体テストできない" },
+        { "id": "C", "text": "ControllerやModelへの業務判定の混入" },
+        { "id": "D", "text": "セキュリティ脆弱性の多発" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "本文で挙げられている問題はフレームワーク依存、テスト困難、ロジック散在、再利用不能の4つで、セキュリティ脆弱性についての言及はありません。"
+    },
+    {
+      "id": 4,
+      "question": "Clean Architectureの先行思想として本文で挙げられていないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Hexagonal Architecture（ポート&アダプター）" },
+        { "id": "B", "text": "Onion Architecture" },
+        { "id": "C", "text": "DDD（ドメイン駆動設計）" },
+        { "id": "D", "text": "TDD（テスト駆動開発）" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "先行思想として挙げられているのはHexagonal Architecture、Onion Architecture、DDD、SOLID原則の4つで、TDDは含まれていません。"
+    },
+    {
+      "id": 5,
+      "question": "Hexagonal Architecture（ポート&アダプター）の提唱者は誰ですか？",
+      "options": [
+        { "id": "A", "text": "Alistair Cockburn" },
+        { "id": "B", "text": "Jeffrey Palermo" },
+        { "id": "C", "text": "Eric Evans" },
+        { "id": "D", "text": "Robert C. Martin" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Hexagonal Architectureは Alistair Cockburn が2005年に提唱しました。"
+    },
+    {
+      "id": 6,
+      "question": "Clean Architectureの4層構造における依存方向として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "上から下（外から内）へ向かい、Domainは何も知らない" },
+        { "id": "B", "text": "下から上（内から外）へ向かい、Infrastructureが何も知らない" },
+        { "id": "C", "text": "すべての層が双方向に依存し合う" },
+        { "id": "D", "text": "Presentationがすべての層を直接呼び出す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "依存の矢印は常に内側の層に向かいます。Domainは何も知らず、Infrastructureが Domain のインターフェースを実装します。"
+    },
+    {
+      "id": 7,
+      "question": "4原則のうち『依存性逆転（DIP）』の意味として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Domainは抽象に依存し、実装詳細に依存しない" },
+        { "id": "B", "text": "Presentationは常にDomainを直接呼び出す" },
+        { "id": "C", "text": "業務手順をControllerに集約する" },
+        { "id": "D", "text": "層責務を分けずに1つのクラスにまとめる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "依存性逆転（DIP）は、Domainが抽象に依存し実装詳細に依存しないことです。破ると差し替え不能になり、インターフェース経由で接続することで防ぎます。"
+    },
+    {
+      "id": 8,
+      "question": "clean-architecture実装チェックリストで、『Domain純度』のOKの状態として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "DomainがフレームワークやORM実装型をimportしない" },
+        { "id": "B", "text": "DomainがHTTPリクエストを直接処理する" },
+        { "id": "C", "text": "DomainがDB接続を保持する" },
+        { "id": "D", "text": "DomainがControllerを直接呼び出す" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "『Domain純度』のOKの状態は、DomainがフレームワークやORM実装型を import しないことです。崩れているサインはDomainがDBエンティティやHTTP型に依存していることです。"
+    },
+    {
+      "id": 9,
+      "question": "このケーススタディで扱う前提ケース（注文キャンセル機能）の業務ルールはどれですか？",
+      "options": [
+        { "id": "A", "text": "注文作成から24時間以内のみキャンセル可能" },
+        { "id": "B", "text": "注文作成から7日以内のみキャンセル可能" },
+        { "id": "C", "text": "キャンセルには上長の承認が必要" },
+        { "id": "D", "text": "キャンセルは無制限に何度でも可能" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "この章の前提ケースの業務ルールは「注文作成から24時間以内のみキャンセル可能」です。"
+    },
+    {
+      "id": 10,
+      "question": "Instruction（Repository custom instructions）に書くべき内容として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "依存方向ルール、命名規則、コード変更時の更新順序、監査ログ方針など全案件共通のルール" },
+        { "id": "B", "text": "今回の注文キャンセル機能固有の受入条件" },
+        { "id": "C", "text": "domain-designer Agentの責務定義" },
+        { "id": "D", "text": "feature-implementation Skillの実施手順の詳細" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Instructionには、依存方向、命名規則、コード変更時の更新順序、監査ログ方針、API互換性方針など、全案件で常に守るルールを書きます。"
+    },
+    {
+      "id": 11,
+      "question": "Agentに書くべき内容として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "『依存方向は Presentation → Application → Domain』という常設ルール" },
+        { "id": "B", "text": "domain-designer は Domain 層の設計とレビューを担当する、という役割と判断基準" },
+        { "id": "C", "text": "今回のPRだけの依頼内容" },
+        { "id": "D", "text": "feature-implementation Skillの実施手順" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Agentは『誰が何に責任を持つか』という役割境界と判断基準を定義する場所です。手順は書きません。"
+    },
+    {
+      "id": 12,
+      "question": "Skillに書くべき内容として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "複数案件で繰り返す作業手順（例: feature-implementation Skillの実施手順）" },
+        { "id": "B", "text": "今回の案件だけの受入条件" },
+        { "id": "C", "text": "review-guardian Agentの判断基準" },
+        { "id": "D", "text": "全案件共通の監査ログ方針" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Skillは複数案件で繰り返す作業手順を再利用可能な形で定義する場所です。特定の案件情報は含みません。"
+    },
+    {
+      "id": 13,
+      "question": "Promptに書いてはいけないものとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "今回のreasonフィールドは任意、100文字以内という仕様詳細" },
+        { "id": "B", "text": "『層依存ルールを守って実装してください』という常設ルール" },
+        { "id": "C", "text": "今回の受入条件の一覧" },
+        { "id": "D", "text": "今回の期待出力の指定" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "常に守るルールは既にInstructionに定義済みであるため、Promptに毎回書くのは冗長です。Instructionが適用されるため削除してよい記述です。"
+    },
+    {
+      "id": 14,
+      "question": "『迷ったときの判定ルール』で、『次の案件でも同じことを書くか?』がYesの場合の配置先はどれですか？",
+      "options": [
+        { "id": "A", "text": "Prompt" },
+        { "id": "B", "text": "SkillかInstruction" },
+        { "id": "C", "text": "Agent" },
+        { "id": "D", "text": "README" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "『次の案件でも同じことを書くか?』がYesならSkillかInstructionへ、『チーム全員に守らせたいか?』がYesならInstructionへ、『誰がやるかを分けたいか?』がYesならAgentへ、それ以外はPromptに書きます。"
+    }
+  ]
+}

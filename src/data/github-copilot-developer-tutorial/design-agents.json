@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Agentに書くべき4項目として正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "役割、境界、tools、出力姿勢" },
+        { "id": "B", "text": "用語、ルール、制約、品質観点" },
+        { "id": "C", "text": "入力、手順、出力、検証" },
+        { "id": "D", "text": "タスク定義、出力形式、実行条件" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Agentに書くべきことは「役割」「境界」「tools」「出力姿勢」の4つです。"
+    },
+    {
+      "id": 2,
+      "question": "Agent化の判断目安（表）に含まれていない項目はどれですか？",
+      "options": [
+        { "id": "A", "text": "依頼の頻度" },
+        { "id": "B", "text": "役割の固定" },
+        { "id": "C", "text": "権限の制御" },
+        { "id": "D", "text": "実装言語の種類" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Agent化の判断目安は「依頼の頻度」「役割の固定」「権限の制御」「出力の安定化」の4項目で、実装言語の種類は含まれていません。"
+    },
+    {
+      "id": 3,
+      "question": "読み取り専用Agentパターンの特徴として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "read と search を中心にし、編集権限を持たせない" },
+        { "id": "B", "text": "read, search, edit を使い、変更対象を明確に限定する" },
+        { "id": "C", "text": "execute を含み、権限が強いので境界の明記が必須" },
+        { "id": "D", "text": "すべてのtoolsを無制限に許可する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "読み取り専用Agentは read と search を中心にし、編集権限を持たせないことで安全に導入しやすくなります。"
+    },
+    {
+      "id": 4,
+      "question": "tools設計の基本原則として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "将来使うかもしれないtoolsもあらかじめすべて許可しておく" },
+        { "id": "B", "text": "必要最小限に絞る" },
+        { "id": "C", "text": "execute を必ず含める" },
+        { "id": "D", "text": "tools は多ければ多いほど良い" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "tools は多ければ良いわけではなく、原則は「必要最小限」です。"
+    },
+    {
+      "id": 5,
+      "question": "built-in の tools として本文で説明されているカテゴリに含まれないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "read" },
+        { "id": "B", "text": "search" },
+        { "id": "C", "text": "edit" },
+        { "id": "D", "text": "deploy" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "built-in の tools は read・search・edit・execute の4カテゴリで説明されており、deploy という built-in カテゴリはありません。"
+    },
+    {
+      "id": 6,
+      "question": "Agentファイルの拡張子と、チーム共有用の格納場所として正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": ".chatmode.md を .github/chatmodes/ に置く" },
+        { "id": "B", "text": ".agent.md を .github/agents/ に置く" },
+        { "id": "C", "text": ".prompt.md を .github/prompts/ に置く" },
+        { "id": "D", "text": ".skill.md を .github/skills/ に置く" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Agentファイルは `.agent.md` 拡張子を使い、チーム共有用は `.github/agents/` フォルダに置きます。"
+    },
+    {
+      "id": 7,
+      "question": "以前使われていた形式から `.agent.md` に変更されたファイル形式はどれですか？",
+      "options": [
+        { "id": "A", "text": ".instructions.md" },
+        { "id": "B", "text": ".chatmode.md" },
+        { "id": "C", "text": ".prompt.md" },
+        { "id": "D", "text": "SKILL.md" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "以前の `.chatmode.md` 形式から `.agent.md` に変更されました。既存の `.chatmode.md` があればリネームが推奨されます。"
+    },
+    {
+      "id": 8,
+      "question": "発展的なfrontmatterのうち、他のAgentをサブエージェントとして呼び出せるようにするフィールドはどれですか？",
+      "options": [
+        { "id": "A", "text": "model" },
+        { "id": "B", "text": "handoffs" },
+        { "id": "C", "text": "agents" },
+        { "id": "D", "text": "mcp-servers" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "`agents` フィールドを指定すると、他のAgentをサブエージェントとして呼び出せるようになります。"
+    },
+    {
+      "id": 9,
+      "question": "NG例1「レビューも実装もデバッグもリリースチェックも全部やる万能Agent」の修正方法として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "1つのAgentにさらに多くのtoolsを追加する" },
+        { "id": "B", "text": "docs用、debug用、release用などに分割する" },
+        { "id": "C", "text": "Agentを廃止しSkillだけで運用する" },
+        { "id": "D", "text": "Instructionにすべての役割を書き込む" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "役割が広すぎるとtoolsが肥大化しレビューしづらくなるため、docs用・debug用・release用などに役割を分割します。"
+    },
+    {
+      "id": 10,
+      "question": "Agentのレビュー基準にある「単一責務か」は何を確認する観点ですか？",
+      "options": [
+        { "id": "A", "text": "利用場面が具体的か" },
+        { "id": "B", "text": "役割が1つに絞られているか" },
+        { "id": "C", "text": "tools が最小限か" },
+        { "id": "D", "text": "やってはいけないことが書かれているか" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "「単一責務か」は役割が1つに絞られているかを確認する観点です。"
+    }
+  ]
+}

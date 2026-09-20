@@ -1,0 +1,128 @@
+{
+  "series": {
+    "id": "github-copilot-developer-tutorial",
+    "name": "GitHub Copilot 開発者チュートリアル",
+    "description": "Instruction・Agent・Skill・Prompt の責務分離を軸に、設計ガイド、実践テンプレート、Clean Architectureケーススタディ、大規模コードの仕様化、運用ガバナンスまでを体系的に学ぶシリーズです。",
+    "version": "1.0.0",
+    "totalQuestions": 148,
+    "sections": [
+      {
+        "id": "intro-and-boundary-model",
+        "track": "導入・中核概念",
+        "order": 1,
+        "name": "導入と中核概念 | 4者の境界モデル",
+        "questionCount": 12,
+        "estimatedTime": "10-14分",
+        "keyTopics": ["中心思想", "開発ドキュメント3軸", "境界モデル", "NG例"]
+      },
+      {
+        "id": "design-instructions",
+        "track": "設計ガイド",
+        "order": 2,
+        "name": "設計ガイド | Instruction",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["copilot-instructions.md", "File Instructions", "AGENTS.md", "設計パターン"]
+      },
+      {
+        "id": "design-agents",
+        "track": "設計ガイド",
+        "order": 3,
+        "name": "設計ガイド | Agent",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["役割と境界", "tools設計", ".agent.md", "サブエージェント"]
+      },
+      {
+        "id": "design-skills",
+        "track": "設計ガイド",
+        "order": 4,
+        "name": "設計ガイド | Skill",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["入力・手順・出力・検証", "SKILL.md", "argument-hint", "設計パターン"]
+      },
+      {
+        "id": "design-prompts",
+        "track": "設計ガイド",
+        "order": 5,
+        "name": "設計ガイド | Prompt",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": [".prompt.md", "agentフィールド", "Skillとの違い", "設計パターン"]
+      },
+      {
+        "id": "integration-and-extensions",
+        "track": "設計ガイド",
+        "order": 6,
+        "name": "設計ガイド | 連携・拡張（AGENTS.md・MCP・サブエージェント）",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["AGENTS.md", "MCP", "サブエージェント", "handoffs"]
+      },
+      {
+        "id": "practice-minimum-examples",
+        "track": "実践テンプレート",
+        "order": 7,
+        "name": "実践テンプレート | 概要と最小サンプル",
+        "questionCount": 12,
+        "estimatedTime": "10-14分",
+        "keyTopics": ["Skill共通パターン", "最小サンプル", "4者連携シナリオ", "NG例"]
+      },
+      {
+        "id": "practice-requirements-design",
+        "track": "実践テンプレート",
+        "order": 8,
+        "name": "実践テンプレート | 要件・計画〜設計・実装フェーズ",
+        "questionCount": 12,
+        "estimatedTime": "10-14分",
+        "keyTopics": ["requirements-refinement", "api-contract-design", "feature-implementation-unified", "code-review-assistant"]
+      },
+      {
+        "id": "practice-verification-ops-learning",
+        "track": "実践テンプレート",
+        "order": 9,
+        "name": "実践テンプレート | 検証・品質〜運用・リリース〜振り返り・改善フェーズ",
+        "questionCount": 14,
+        "estimatedTime": "12-16分",
+        "keyTopics": ["test-strategy-unified", "release-readiness", "incident-postmortem", "known-how-ingestion"]
+      },
+      {
+        "id": "practice-case-clean-architecture",
+        "track": "実践テンプレート",
+        "order": 10,
+        "name": "実践テンプレート | ケーススタディ: Clean Architectureで4者を運用する",
+        "questionCount": 14,
+        "estimatedTime": "12-16分",
+        "keyTopics": ["Clean Architecture", "依存性逆転", "層責務", "4者マッピング"]
+      },
+      {
+        "id": "practice-method-spec-generation",
+        "track": "実践テンプレート",
+        "order": 11,
+        "name": "実践テンプレート | 大規模コードの仕様化: メソッド単位逐次生成",
+        "questionCount": 12,
+        "estimatedTime": "10-14分",
+        "keyTopics": ["逐次仕様化", "承認ゲート", "事実と推測の分離", "メソッド単位10項目"]
+      },
+      {
+        "id": "governance-quality-gates",
+        "track": "運用ガバナンス",
+        "order": 12,
+        "name": "運用ガバナンス | レビュー基準と品質ゲート",
+        "questionCount": 12,
+        "estimatedTime": "10-14分",
+        "keyTopics": ["命名規約", "品質ゲート3層", "CI例", "導入チェックリスト"]
+      },
+      {
+        "id": "glossary-and-faq",
+        "track": "付録",
+        "order": 13,
+        "name": "付録 | 用語集とFAQ",
+        "questionCount": 10,
+        "estimatedTime": "8-12分",
+        "keyTopics": ["ADR", "Runbook", "CHANGELOG", "混同しやすい用語"]
+      }
+    ]
+  }
+}

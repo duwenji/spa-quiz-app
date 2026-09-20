@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "フェーズDで説明されるSkillの共通動作パターンにおいて、『判断（承認ゲート）』は誰が行いますか？",
+      "options": [
+        { "id": "A", "text": "AIが自動で行う" },
+        { "id": "B", "text": "必ず開発者が行う" },
+        { "id": "C", "text": "MCPサーバーが行う" },
+        { "id": "D", "text": "Agentが行う" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "すべてのSkillは共通パターンで動作し、AIは分析・生成を担当しますが、判断（承認ゲート）は必ず開発者が行います。"
+    },
+    {
+      "id": 2,
+      "question": "すべてのSkillに共通するfrontmatterの設定として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "model: gpt-4.1" },
+        { "id": "B", "text": "user-invocable: true" },
+        { "id": "C", "text": "agent: plan" },
+        { "id": "D", "text": "excludeAgent: code-review" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "全SkillはCopilotチャットから直接呼び出せるよう `user-invocable: true` が設定されています。"
+    },
+    {
+      "id": 3,
+      "question": "開発フェーズとSkillの対応表で、『検証・品質』フェーズに対応するSkillはどれですか？",
+      "options": [
+        { "id": "A", "text": "requirements-refinement" },
+        { "id": "B", "text": "release-readiness" },
+        { "id": "C", "text": "test-strategy-unified" },
+        { "id": "D", "text": "incident-postmortem" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "『検証・品質』フェーズには `test-strategy-unified` Skillが対応します。"
+    },
+    {
+      "id": 4,
+      "question": "開発フェーズとSkillの対応表で、『振り返り・改善』フェーズに対応するSkillの1つはどれですか？",
+      "options": [
+        { "id": "A", "text": "api-contract-design" },
+        { "id": "B", "text": "incident-postmortem" },
+        { "id": "C", "text": "feature-implementation-unified" },
+        { "id": "D", "text": "requirements-refinement" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "『振り返り・改善』フェーズには incident-postmortem / known-how-ingestion / documentation-sync が対応します。"
+    },
+    {
+      "id": 5,
+      "question": "最小サンプルの考え方の表で、Instructionにおいて『最小サンプルで必須』とされているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "言語、命名、品質観点、禁止事項" },
+        { "id": "B", "text": "詳細な例外ルール、AGENTS.mdとの併用" },
+        { "id": "C", "text": "サブエージェント/handoffs" },
+        { "id": "D", "text": "高度な制約、分岐条件" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Instructionの最小サンプルで必須なのは「言語、命名、品質観点、禁止事項」です。詳細な例外ルールなどは後から足せばよいものとされています。"
+    },
+    {
+      "id": 6,
+      "question": "開発ドキュメント更新実例『ケース1: APIに新しいパラメータを追加』で、必ず更新すべきとされるのはどれですか？",
+      "options": [
+        { "id": "A", "text": "README のみ" },
+        { "id": "B", "text": "API仕様書とデータ設計ドキュメント" },
+        { "id": "C", "text": "Runbook のみ" },
+        { "id": "D", "text": "更新は不要" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "ケース1では、API仕様書（パラメータ定義、デフォルト値、型、制約）とデータ設計ドキュメント（DBスキーマ変更があれば）を必ず更新すべきとされています。"
+    },
+    {
+      "id": 7,
+      "question": "開発ドキュメント更新実例『ケース3: 重要な設計決定を後から変更』で、必ず行うべきこととして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "ADRを追加し、旧ADRにコメントを追加する" },
+        { "id": "B", "text": "READMEだけを更新する" },
+        { "id": "C", "text": "Runbookのみを更新する" },
+        { "id": "D", "text": "CHANGELOGを削除する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "設計決定を変更した場合、ADRを追加（新しい決定を記載）し、旧ADRにコメントを追加（なぜ方針が変わったか）することが必須とされています。"
+    },
+    {
+      "id": 8,
+      "question": "4者を並べて比べる表で、Skillの『向く用途』として説明されているものはどれですか？",
+      "options": [
+        { "id": "A", "text": "共通知識の安定化" },
+        { "id": "B", "text": "専門担当の切り出し" },
+        { "id": "C", "text": "反復作業の標準化" },
+        { "id": "D", "text": "その場タスクの実行" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "4者比較表で、Skillの向く用途は「反復作業の標準化」です。"
+    },
+    {
+      "id": 9,
+      "question": "チーム導入の前後比較（教材リポジトリの運用を整理したい）で『導入後（改善）』として挙げられていないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "READMEは入口説明に限定し、常設ルールはInstructionへ分離する" },
+        { "id": "B", "text": "docs-reviewer Agentを使い、依頼文のばらつきを削減する" },
+        { "id": "C", "text": "link-check Skillで公開前チェックを定型化する" },
+        { "id": "D", "text": "レビュー担当の依頼文を毎回チャットに手入力する" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "『レビュー担当の依頼文を毎回チャットに手入力する』は導入前（NG）の状態として挙げられています。導入後はdocs-reviewer Agentがこれを解消します。"
+    },
+    {
+      "id": 10,
+      "question": "NG例1『Instructionにリリースプロセスの5ステップを埋め込む』の正しい修正方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "Instructionには『公開前はリンクと用語整合を必ず確認する』とだけ書き、詳細ステップはSkillに分離する" },
+        { "id": "B", "text": "5ステップをそのままAgentのtoolsに追加する" },
+        { "id": "C", "text": "5ステップをすべて削除し何も書かない" },
+        { "id": "D", "text": "5ステップをPromptとして毎回入力する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "再利用手順が知識ファイルに混ざっている問題を解消するため、常設の要旨だけをInstructionに残し、詳細ステップはSkillに分離します。"
+    },
+    {
+      "id": 11,
+      "question": "『自分のチーム向けに改変するときの順序』として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "先にSkillの検証を追加 → Agentの役割を絞る → Instructionを最小化" },
+        { "id": "B", "text": "先にInstructionを最小化 → Agentの役割を1つに絞る → Skillの入力・手順・検証を追加" },
+        { "id": "C", "text": "先にPromptを作成 → Instructionを廃止 → Agentのみで運用" },
+        { "id": "D", "text": "順序は決まっていない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "この順序にすると境界が崩れにくくなります: 先にInstructionを最小化する → 次にAgentの役割を1つに絞る → 最後にSkillの入力、手順、検証を追加する。"
+    },
+    {
+      "id": 12,
+      "question": "4者連携シナリオ（教材公開前にdocsを最終確認したい）で、最初に行うことはどれですか？",
+      "options": [
+        { "id": "A", "text": "Skillを実行してlink-checkを走らせる" },
+        { "id": "B", "text": "Instructionで前提共有（用語統一・結論先出し）を行う" },
+        { "id": "C", "text": "Promptで今回のレビュー対象を指定する" },
+        { "id": "D", "text": "再検証して公開判断する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "4者連携シナリオでは、Instructionで前提共有 → Agent起動 → Promptで依頼 → Skill実行 → 問題一覧 → 修正反映 → 再検証、の順で進みます。"
+    }
+  ]
+}

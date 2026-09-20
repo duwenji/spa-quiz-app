@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "AGENTS.md の特徴として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Copilot専用で、他のAIツールでは読み込めない" },
+        { "id": "B", "text": "特定ベンダーに依存しない、ツール横断のInstructionファイルの業界共通フォーマット" },
+        { "id": "C", "text": "リポジトリ直下にしか置けない" },
+        { "id": "D", "text": "Skillの一種として扱われる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "AGENTS.md は特定ベンダーに依存しない、ツール横断のInstructionファイルの業界共通フォーマットで、GitHub Copilotもこれを読み込みます。"
+    },
+    {
+      "id": 2,
+      "question": "AGENTS.md がリポジトリ内の複数階層に存在する場合の優先ルールはどれですか？",
+      "options": [
+        { "id": "A", "text": "リポジトリ直下のものが常に優先される" },
+        { "id": "B", "text": "最も近い階層のものが優先される" },
+        { "id": "C", "text": "ファイル名のアルファベット順で優先される" },
+        { "id": "D", "text": "すべて無視され copilot-instructions.md のみ適用される" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "AGENTS.md はリポジトリ内の任意の階層に配置でき、最も近い階層のものが優先されます。モノレポでのサブプロジェクトごとの指示分けに向いています。"
+    },
+    {
+      "id": 3,
+      "question": "copilot-instructions.md と AGENTS.md が両方存在する場合、どうなりますか？",
+      "options": [
+        { "id": "A", "text": "AGENTS.md のみが適用される" },
+        { "id": "B", "text": "copilot-instructions.md のみが適用される" },
+        { "id": "C", "text": "両方の内容が適用される" },
+        { "id": "D", "text": "エラーになり、どちらも適用されない" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "copilot-instructions.md と AGENTS.md の両方が存在する場合、両方の内容が適用されます。片方だけに寄せる必要はありません。"
+    },
+    {
+      "id": 4,
+      "question": "File Instructions の excludeAgent frontmatter の用途はどれですか？",
+      "options": [
+        { "id": "A", "text": "適用対象のファイルパターンを指定する" },
+        { "id": "B", "text": "特定のAgentにはその指示を適用したくない場合に使う" },
+        { "id": "C", "text": "Skillの実行順序を指定する" },
+        { "id": "D", "text": "MCPサーバーの認証情報を指定する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "excludeAgent は、特定のAgent（例: code-review のようなビルトイン用途）にはこの指示を適用したくない場合に使います。"
+    },
+    {
+      "id": 5,
+      "question": "MCP は何の略ですか？",
+      "options": [
+        { "id": "A", "text": "Model Context Protocol" },
+        { "id": "B", "text": "Multi Copilot Platform" },
+        { "id": "C", "text": "Managed Context Provider" },
+        { "id": "D", "text": "Model Configuration Package" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "MCP（Model Context Protocol）は、外部システムをCopilotから操作するための標準プロトコルです。"
+    },
+    {
+      "id": 6,
+      "question": "MCPサーバーが認証情報を必要とする場合、Secret/Variable の名前はどのように命名する必要がありますか？",
+      "options": [
+        { "id": "A", "text": "MCP_SECRET_ で始める" },
+        { "id": "B", "text": "COPILOT_MCP_ で始める" },
+        { "id": "C", "text": "任意の名前でよい" },
+        { "id": "D", "text": "AGENT_ で始める" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "MCPサーバーが認証情報を必要とする場合、`COPILOT_MCP_` で始まる名前のSecret/Variableとして登録します。それ以外の名前は参照できません。"
+    },
+    {
+      "id": 7,
+      "question": "Agent や Prompt の tools フィールドで、MCPサーバーが提供するツールをすべて許可する記法はどれですか？",
+      "options": [
+        { "id": "A", "text": "<サーバー名>/all" },
+        { "id": "B", "text": "<サーバー名>/*" },
+        { "id": "C", "text": "mcp:<サーバー名>" },
+        { "id": "D", "text": "*.mcp" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`<サーバー名>/*` と書くと、そのMCPサーバーが提供するツールをすべて許可します。個別のツール名を列挙して絞り込むことも可能です。"
+    },
+    {
+      "id": 8,
+      "question": "サブエージェント（agentsフィールド）とhandoffsの『実行主体』の違いとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "サブエージェントは親Agentが自動で子Agentを呼び出し、handoffsはユーザーがボタンを押して切り替える" },
+        { "id": "B", "text": "両方ともユーザーが手動で切り替える" },
+        { "id": "C", "text": "両方とも自動で切り替わり、ユーザーの操作は不要" },
+        { "id": "D", "text": "サブエージェントはユーザーが手動起動し、handoffsは自動で起動する" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "サブエージェントは親Agentが子Agentを自動で呼び出し、同じ会話の中で完結します。handoffsはユーザーがボタンを押して次のAgentへ切り替える手動操作です。"
+    },
+    {
+      "id": 9,
+      "question": "Agentの frontmatter で `agents: [\"*\"]` と指定した場合の意味はどれですか？",
+      "options": [
+        { "id": "A", "text": "サブエージェントを一切使わない" },
+        { "id": "B", "text": "ワークスペース内のすべてのAgentをサブエージェントとして使える" },
+        { "id": "C", "text": "すべてのMCPサーバーを許可する" },
+        { "id": "D", "text": "すべてのhandoffsを無効化する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`agents: [\"*\"]` は、ワークスペース内のすべてのAgentをサブエージェントとして使えるようにする指定です。既定は `agents: []`（一切使わない）です。"
+    },
+    {
+      "id": 10,
+      "question": "NG例3『調査→実装→レビューという工程の切り替えをすべてサブエージェントで自動化する』の正しい修正方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "すべての工程をhandoffsで自動化し、ユーザーの確認を完全に省略する" },
+        { "id": "B", "text": "工程の切り替えにはhandoffsを使いユーザーの確認を挟み、同一フェーズ内の専門作業の委任にはサブエージェントを使う" },
+        { "id": "C", "text": "サブエージェントとhandoffsを両方とも使わず、単一のAgentに統合する" },
+        { "id": "D", "text": "MCPサーバーを追加して工程管理をすべて外部化する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "フェーズが変わる作業はユーザーが内容を確認してから次に進みたいことが多いため、工程の切り替えにはhandoffsを使い、同一フェーズ内の専門作業の委任にはサブエージェントを使い分けます。"
+    }
+  ]
+}
