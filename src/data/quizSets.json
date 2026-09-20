@@ -333,7 +333,7 @@
       "difficulty": "intermediate",
       "dataPath": "github-copilot/github-copilot-variables.json",
       "parentId": null,
-      "group": "github-copilot-variables-series",
+      "group": null,
       "level": 1,
       "order": 1
     },
@@ -347,7 +347,7 @@
       "difficulty": "intermediate",
       "dataPath": "github-copilot/github-copilot-csharp-best-practices.json",
       "parentId": null,
-      "group": "github-copilot-csharp-best-practices-series",
+      "group": null,
       "level": 1,
       "order": 2
     },
@@ -676,7 +676,7 @@
       "difficulty": "intermediate",
       "dataPath": "spa-quiz-app/spa-quiz-app-docs.json",
       "parentId": null,
-      "group": "spa-quiz-app-docs-series",
+      "group": null,
       "level": 1,
       "order": 1
     },
@@ -1328,7 +1328,7 @@
       "difficulty": "intermediate",
       "dataPath": "ai-stock-investing-tutorial/app-design.json",
       "parentId": null,
-      "group": "ai-stock-app-design-series",
+      "group": null,
       "level": 1,
       "order": 2,
       "estimatedLearningTime": "20-25分",
