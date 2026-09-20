@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Instructionの3種類のうち、常時・リポジトリ全体に適用されるものはどれですか？",
+      "options": [
+        { "id": "A", "text": "File Instructions（*.instructions.md）" },
+        { "id": "B", "text": "Repository custom instructions（copilot-instructions.md）" },
+        { "id": "C", "text": "Prompt ファイル（*.prompt.md）" },
+        { "id": "D", "text": "Agent instructions のうち applyTo を指定したもの" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Repository custom instructions（Workspace Instructions）は `.github/copilot-instructions.md` に置き、常時・リポジトリ全体に適用されます。"
+    },
+    {
+      "id": 2,
+      "question": "File Instructions（*.instructions.md）が適用されるタイミングはどれですか？",
+      "options": [
+        { "id": "A", "text": "常時、リポジトリ全体に適用される" },
+        { "id": "B", "text": "applyTo で指定したパターンに一致するファイルを扱うときのみ適用される" },
+        { "id": "C", "text": "ユーザーが手動でChatに入力したときのみ適用される" },
+        { "id": "D", "text": "Copilot以外のAIツールでのみ適用される" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "File Instructionsは `.github/instructions/` に置き、frontmatterの `applyTo` に一致するファイル種別を扱うときだけ適用されます。"
+    },
+    {
+      "id": 3,
+      "question": "AGENTS.md を使う主な理由として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "Copilot専用の高速な読み込みを実現するため" },
+        { "id": "B", "text": "Copilot以外のAIコーディングツールとも指示を共有したいとき" },
+        { "id": "C", "text": "リポジトリ全体のCHANGELOGを自動生成するため" },
+        { "id": "D", "text": "Skillの実行速度を上げるため" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "AGENTS.mdは、Copilot以外のAIコーディングツールとも共通の指示を持たせたいときに使います。"
+    },
+    {
+      "id": 4,
+      "question": "Instructionに含めるべき4系統として正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "用語、ルール、制約、品質観点" },
+        { "id": "B", "text": "手順、役割、tools、出力姿勢" },
+        { "id": "C", "text": "入力、実施ステップ、出力、検証" },
+        { "id": "D", "text": "タスク定義、出力形式、実行条件、参照範囲" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Instructionに入れるべき内容は「用語」「ルール」「制約」「品質観点」の4系統に絞ります。"
+    },
+    {
+      "id": 5,
+      "question": "開発ドキュメント分類で、「なぜそう決めたか」を扱う文書はどれですか？",
+      "options": [
+        { "id": "A", "text": "README / docs/index" },
+        { "id": "B", "text": "ADR / 設計ドキュメント" },
+        { "id": "C", "text": "Runbook / 運用手順" },
+        { "id": "D", "text": "CHANGELOG" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "開発ドキュメント分類表では、ADR / 設計ドキュメントの目的は「なぜそう決めたか」であり、設計判断を変えたときに更新します。"
+    },
+    {
+      "id": 6,
+      "question": "段階別ドキュメント戦略で、「段階1: 個人開発または2-3人の小規模チーム」でまず更新すべき文書はどれですか？",
+      "options": [
+        { "id": "A", "text": "仕様書、ADR" },
+        { "id": "B", "text": "API契約、Runbook、CHANGELOG" },
+        { "id": "C", "text": "README / docs/index" },
+        { "id": "D", "text": "サブエージェント設定" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "段階1（小規模チーム）ではREADME / docs/indexをまず更新し、用語・文体・リンク整合などの最小ルールをInstructionに書きます。"
+    },
+    {
+      "id": 7,
+      "question": "設計パターン3種のうち、『複数リポジトリで共通ルールを持ちたい』『品質ゲートを組織的に揃えたい』場面に向くのはどれですか？",
+      "options": [
+        { "id": "A", "text": "最小ルール型" },
+        { "id": "B", "text": "レビュー基準連携型" },
+        { "id": "C", "text": "ガバナンス型" },
+        { "id": "D", "text": "チェック型" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "ガバナンス型は複数リポジトリでの共通ルール運用や、Tech Lead主導のチーム導入、組織的な品質ゲート統一に向いています。"
+    },
+    {
+      "id": 8,
+      "question": "パターン選択マトリクスで、初心者への推奨度が最も高いとされているのはどれですか？",
+      "options": [
+        { "id": "A", "text": "最小ルール型" },
+        { "id": "B", "text": "レビュー基準連携型" },
+        { "id": "C", "text": "ガバナンス型" },
+        { "id": "D", "text": "推奨度に差はない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "パターン選択マトリクスでは、最小ルール型が初心者への推奨度「高」、レビュー基準連携型が「中」、ガバナンス型が「低」とされています。"
+    },
+    {
+      "id": 9,
+      "question": "Instructionを作る実装フローの正しい順序はどれですか？",
+      "options": [
+        { "id": "A", "text": "短い箇条書きにする → よくあるズレを収集 → レビューで削る → 常に有効かを判定" },
+        { "id": "B", "text": "よくあるズレを収集 → 常に有効かを判定 → 知識・ルールだけ残す → 短い箇条書きにする → レビューで削る" },
+        { "id": "C", "text": "レビューで削る → 知識・ルールだけ残す → よくあるズレを収集 → 短い箇条書きにする" },
+        { "id": "D", "text": "常に有効かを判定 → 短い箇条書きにする → よくあるズレを収集 → レビューで削る" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "実装フローは「よくあるズレを収集 → 常に有効かを判定 → 知識・ルールだけ残す → 短い箇条書きにする → レビューで削る」という順で進めます。"
+    },
+    {
+      "id": 10,
+      "question": "Instructionのレビュー基準にある「境界が守られているか」は何を確認する観点ですか？",
+      "options": [
+        { "id": "A", "text": "毎回守る内容だけになっているか" },
+        { "id": "B", "text": "1回読んで理解できる長さか" },
+        { "id": "C", "text": "AgentやSkillの内容が混ざっていないか" },
+        { "id": "D", "text": "変更責任者が判断しやすい単位か" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "「境界が守られているか」は、AgentやSkillの内容が混ざっていないかを確認する観点です。"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Skillに最低限必要な4項目として正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "役割、境界、tools、出力姿勢" },
+        { "id": "B", "text": "入力、手順、出力、検証" },
+        { "id": "C", "text": "用語、ルール、制約、品質観点" },
+        { "id": "D", "text": "タスク定義、出力形式、実行条件" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Skillに最低限必要なのは「入力」「手順」「出力」「検証」の4つです。"
+    },
+    {
+      "id": 2,
+      "question": "Skill化の判断目安（表）に含まれていない項目はどれですか？",
+      "options": [
+        { "id": "A", "text": "反復性" },
+        { "id": "B", "text": "入力の共通性" },
+        { "id": "C", "text": "手順の固定性" },
+        { "id": "D", "text": "利用料金" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "Skill化の判断目安は「反復性」「入力の共通性」「手順の固定性」「検証の必要性」の4項目で、利用料金は含まれていません。"
+    },
+    {
+      "id": 3,
+      "question": "設計パターン3種のうち、FAQ生成やクイズ生成が例として挙げられているのはどれですか？",
+      "options": [
+        { "id": "A", "text": "チェック型 Skill" },
+        { "id": "B", "text": "生成型 Skill" },
+        { "id": "C", "text": "調査・修正型 Skill" },
+        { "id": "D", "text": "検証付き Skill" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "生成型Skillの例として、FAQ生成、クイズ生成、ドキュメント要約生成が挙げられています。"
+    },
+    {
+      "id": 4,
+      "question": "Skillの格納において特に注意すべきルールはどれですか？",
+      "options": [
+        { "id": "A", "text": "SKILL.md は必ず1000行以上にする" },
+        { "id": "B", "text": "ディレクトリ名と frontmatter の name フィールドを一致させないとサイレントに読み込まれない" },
+        { "id": "C", "text": "SKILL.md をリポジトリのルート直下に置く" },
+        { "id": "D", "text": "SKILL.md には frontmatter を書かない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Skillはディレクトリ単位で管理し、ディレクトリ名とfrontmatterのnameフィールドが一致しないと、Skillはサイレントに読み込まれません。"
+    },
+    {
+      "id": 5,
+      "question": "SKILL.md の本体の目安として説明されている行数はどれですか？",
+      "options": [
+        { "id": "A", "text": "100行程度" },
+        { "id": "B", "text": "500行程度" },
+        { "id": "C", "text": "2000行程度" },
+        { "id": "D", "text": "行数の目安はない" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "SKILL.md は目安として500行程度に収め、長くなる場合は references/ 配下に分割します。"
+    },
+    {
+      "id": 6,
+      "question": "Skillが大きくなってきたときの正しい分割方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "SKILL.md を複数のリポジトリに分散配置する" },
+        { "id": "B", "text": "本体は短く保ち、詳細なチェック項目や具体例は references/ 配下のファイルに分離する" },
+        { "id": "C", "text": "手順をすべてAgentのfrontmatterに移す" },
+        { "id": "D", "text": "検証条件を削除して手順だけ残す" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "SKILL.mdの本体は短く保ち（利用場面、手順の要約、参照先）、詳細は references/ 配下のファイルに分割することで、発見時は軽く、実際に使われるときだけ詳細が読み込まれるようにします。"
+    },
+    {
+      "id": 7,
+      "question": "NG例1「必要に応じて確認して、いい感じに直す」の問題点として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "入力条件が不明で優先順位が決められない" },
+        { "id": "B", "text": "再利用できず、実行者によって結果がぶれる" },
+        { "id": "C", "text": "手順より役割が前面に出ている" },
+        { "id": "D", "text": "検証条件が多すぎる" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "手順が明示されていないと再利用できず、実行者によって結果がぶれてしまいます。ステップと出力・検証条件を明示するのが修正方法です。"
+    },
+    {
+      "id": 8,
+      "question": "NG例3「この Skill はシニアレビューアとして振る舞い、品質方針も判断する」の修正方法はどれですか？",
+      "options": [
+        { "id": "A", "text": "Skillのtoolsをすべてexecuteにする" },
+        { "id": "B", "text": "『シニアレビューア』という役割はAgentに移し、Skillにはレビューの手順、入力、出力、検証だけを書く" },
+        { "id": "C", "text": "Skillの入力条件をすべて削除する" },
+        { "id": "D", "text": "この内容をInstructionにそのまま移す" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Skillが手順ではなく人格や責務を持ち始めるとAgentとの境界が崩れるため、役割はAgentへ移し、Skillにはレビュー手順だけを残します。"
+    },
+    {
+      "id": 9,
+      "question": "SKILL.md の frontmatter にある argument-hint の役割はどれですか？",
+      "options": [
+        { "id": "A", "text": "スキル識別名を定義する" },
+        { "id": "B", "text": "いつ使うかを示す短い説明を書く" },
+        { "id": "C", "text": "最初に何を入力すべきかの案内を示す" },
+        { "id": "D", "text": "手動呼び出しの可否を示す" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "argument-hint は、Skillを呼び出すときに最初に何を入力すべきかの案内を示すフィールドです。"
+    },
+    {
+      "id": 10,
+      "question": "Skillのレビュー基準にある「検証可能か」は何を確認する観点ですか？",
+      "options": [
+        { "id": "A", "text": "開始条件が読めるか" },
+        { "id": "B", "text": "実施順序が明確か" },
+        { "id": "C", "text": "何を返すか分かるか" },
+        { "id": "D", "text": "成功条件が確認できるか" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "「検証可能か」は成功条件が確認できるかを確認する観点です。"
+    }
+  ]
+}

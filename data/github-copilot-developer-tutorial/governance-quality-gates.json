@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "運用ガバナンスで最低限必要とされる4項目として正しい組み合わせはどれですか？",
+      "options": [
+        { "id": "A", "text": "利用ポリシー、レビュー基準、品質ゲート、改善ループ" },
+        { "id": "B", "text": "役割、境界、tools、出力姿勢" },
+        { "id": "C", "text": "入力、手順、出力、検証" },
+        { "id": "D", "text": "タスク定義、出力形式、実行条件、参照範囲" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "運用ガバナンスで最低限必要なのは「利用ポリシー」「レビュー基準」「品質ゲート」「改善ループ」の4つです。"
+    },
+    {
+      "id": 2,
+      "question": "命名規約表で、File Instructionsのファイル名規約として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "purpose.instructions.md" },
+        { "id": "B", "text": "AGENTS.md" },
+        { "id": "C", "text": "purpose.agent.md" },
+        { "id": "D", "text": "skills/{skill-name}/SKILL.md" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "File Instructionsの命名規約は `purpose.instructions.md`（例: documentation-basics.instructions.md）です。"
+    },
+    {
+      "id": 3,
+      "question": "命名規約表で、Agentのファイル名規約として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "purpose.instructions.md" },
+        { "id": "B", "text": "purpose.agent.md" },
+        { "id": "C", "text": "AGENTS.md" },
+        { "id": "D", "text": "NN-subtopic.md" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Agentの命名規約は `purpose.agent.md`（例: docs-reviewer.agent.md）です。"
+    },
+    {
+      "id": 4,
+      "question": "Skillファイルの格納パス規約として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "skills/{skill-name}/SKILL.md" },
+        { "id": "B", "text": ".github/prompts/{skill-name}.prompt.md" },
+        { "id": "C", "text": "{skill-name}.skill.md" },
+        { "id": "D", "text": "docs/skills/{skill-name}.md" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Skillの格納パス規約は `skills/{skill-name}/SKILL.md`（例: skills/link-check/SKILL.md）です。"
+    },
+    {
+      "id": 5,
+      "question": "品質ゲート3層の正しい順序はどれですか？",
+      "options": [
+        { "id": "A", "text": "公開判定 → 内容チェック → 構造チェック" },
+        { "id": "B", "text": "構造チェック → 内容チェック → 公開判定" },
+        { "id": "C", "text": "内容チェック → 公開判定 → 構造チェック" },
+        { "id": "D", "text": "構造チェックと内容チェックは同時に行い、公開判定は不要" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "品質ゲートは「構造チェック → 内容チェック → 公開判定」の3層で構成されます。"
+    },
+    {
+      "id": 6,
+      "question": "開発ドキュメント責務チェックで、『APIやデータ構造の変更時』に確認すべき項目として本文に含まれていないものはどれですか？",
+      "options": [
+        { "id": "A", "text": "仕様書が更新されているか" },
+        { "id": "B", "text": "API契約が新しい定義を反映しているか" },
+        { "id": "C", "text": "影響が大きければADRが記録されているか" },
+        { "id": "D", "text": "READMEの文字数が一定以下か" }
+      ],
+      "correctAnswer": "D",
+      "explanation": "API・データ構造変更時の確認項目は仕様書、API契約、ADRの3点であり、README文字数の基準は含まれていません。"
+    },
+    {
+      "id": 7,
+      "question": "最小CI例で、最初にCI化するのが現実的とされる『壊れやすい2項目』はどれですか？",
+      "options": [
+        { "id": "A", "text": "相対リンクの検証とglossaryと本文の主要用語整合の検証" },
+        { "id": "B", "text": "Skillの実行速度とAgentのtools数" },
+        { "id": "C", "text": "CHANGELOGの文字数とREADMEの見出し数" },
+        { "id": "D", "text": "画像ファイルのサイズとフォントの種類" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "手動確認を減らすため、まず『相対リンクの検証』と『glossaryと本文の主要用語整合の検証』という壊れやすい2項目からCI化するのが現実的とされています。"
+    },
+    {
+      "id": 8,
+      "question": "失敗1『ルールはあるが誰も見ない』の原因として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "長すぎる、更新責任者がいない" },
+        { "id": "B", "text": "ルールが厳しすぎる" },
+        { "id": "C", "text": "CIが導入されていない" },
+        { "id": "D", "text": "Instructionが存在しない" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "失敗1の原因は「長すぎる」「更新責任者がいない」ことです。対策は最小ルールから始め、オーナーを決めることです。"
+    },
+    {
+      "id": 9,
+      "question": "失敗2『レビュー基準が人によって違う』の対策として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "横断レビュー表をチェックリスト化する" },
+        { "id": "B", "text": "レビューを廃止する" },
+        { "id": "C", "text": "Instructionをすべて削除する" },
+        { "id": "D", "text": "Agentのtoolsを増やす" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "レビュー基準が暗黙知のまま運用されていることが原因であり、対策は横断レビュー表をチェックリスト化することです。"
+    },
+    {
+      "id": 10,
+      "question": "導入チェックリストで『導入前』に行うこととして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "利用実績を振り返る" },
+        { "id": "B", "text": "ライセンスと利用対象者を決め、利用ポリシーを定める" },
+        { "id": "C", "text": "高リスク領域の運用を見直す" },
+        { "id": "D", "text": "ルールとテンプレートを更新する" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "導入前のチェック項目は「ライセンスと利用対象者を決めた」「利用ポリシーを定めた」「禁止入力ルールを共有した」「初版のInstructionを用意した」の4つです。"
+    },
+    {
+      "id": 11,
+      "question": "Instructionのレビュー観点として正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "descriptionではなく本文が常設知識に絞られているか" },
+        { "id": "B", "text": "toolsが最小限か" },
+        { "id": "C", "text": "入力が明確か" },
+        { "id": "D", "text": "サブエージェントを使っているか" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Instructionのレビューでは「descriptionではなく本文が常設知識に絞られているか」「長い手順が混ざっていないか」「曖昧語ではなく確認可能な表現か」を確認します。"
+    },
+    {
+      "id": 12,
+      "question": "横断レビュー表の『境界が守られているか』の観点で、Skillに対する問いとして正しいものはどれですか？",
+      "options": [
+        { "id": "A", "text": "知識だけか" },
+        { "id": "B", "text": "役割だけか" },
+        { "id": "C", "text": "手順だけか" },
+        { "id": "D", "text": "依頼タスクだけか" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "横断レビュー表では、Instructionは『知識だけか』、Agentは『役割だけか』、Skillは『手順だけか』、Promptは『依頼タスクだけか』を確認します。"
+    }
+  ]
+}
