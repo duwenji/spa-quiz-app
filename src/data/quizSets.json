@@ -36,6 +36,7 @@
       "level": 2,
       "order": 1,
       "estimatedLearningTime": "5-7分",
+      "subGroupLabel": "🤖 Agent編",
       "topics": [
         "custom agents",
         "roles",
@@ -57,6 +58,7 @@
       "level": 2,
       "order": 2,
       "estimatedLearningTime": "5-7分",
+      "subGroupLabel": "🤖 Agent編",
       "topics": [
         "custom agents",
         "skills",
@@ -78,6 +80,7 @@
       "level": 2,
       "order": 3,
       "estimatedLearningTime": "6-8分",
+      "subGroupLabel": "🤖 Agent編",
       "topics": [
         "frontmatter",
         "role",
@@ -99,6 +102,7 @@
       "level": 2,
       "order": 4,
       "estimatedLearningTime": "6-8分",
+      "subGroupLabel": "🤖 Agent編",
       "topics": [
         "docs-writer",
         "evaluation",
@@ -120,6 +124,7 @@
       "level": 2,
       "order": 5,
       "estimatedLearningTime": "6-8分",
+      "subGroupLabel": "🤖 Agent編",
       "topics": [
         "best practices",
         "single responsibility",
@@ -141,6 +146,7 @@
       "level": 2,
       "order": 6,
       "estimatedLearningTime": "6-9分",
+      "subGroupLabel": "🤖 Agent編",
       "topics": [
         "subagents",
         "handoff",
@@ -327,7 +333,7 @@
       "difficulty": "intermediate",
       "dataPath": "github-copilot/github-copilot-variables.json",
       "parentId": null,
-      "group": null,
+      "group": "github-copilot-variables-series",
       "level": 1,
       "order": 1
     },
@@ -341,7 +347,7 @@
       "difficulty": "intermediate",
       "dataPath": "github-copilot/github-copilot-csharp-best-practices.json",
       "parentId": null,
-      "group": null,
+      "group": "github-copilot-csharp-best-practices-series",
       "level": 1,
       "order": 2
     },
@@ -455,7 +461,8 @@
       "parentId": "github-copilot-agent-series",
       "group": "github-copilot-agent-series",
       "level": 2,
-      "order": 7
+      "order": 7,
+      "subGroupLabel": "📚 Skills編"
     },
     {
       "id": "github-copilot-skills-basics",
@@ -469,7 +476,8 @@
       "parentId": "github-copilot-agent-series",
       "group": "github-copilot-agent-series",
       "level": 2,
-      "order": 8
+      "order": 8,
+      "subGroupLabel": "📚 Skills編"
     },
     {
       "id": "github-copilot-skills-comparison",
@@ -483,7 +491,8 @@
       "parentId": "github-copilot-agent-series",
       "group": "github-copilot-agent-series",
       "level": 2,
-      "order": 9
+      "order": 9,
+      "subGroupLabel": "📚 Skills編"
     },
     {
       "id": "github-copilot-skills-implementation",
@@ -497,7 +506,8 @@
       "parentId": "github-copilot-agent-series",
       "group": "github-copilot-agent-series",
       "level": 2,
-      "order": 10
+      "order": 10,
+      "subGroupLabel": "📚 Skills編"
     },
     {
       "id": "github-copilot-skills-advanced",
@@ -511,7 +521,8 @@
       "parentId": "github-copilot-agent-series",
       "group": "github-copilot-agent-series",
       "level": 2,
-      "order": 11
+      "order": 11,
+      "subGroupLabel": "📚 Skills編"
     },
     {
       "id": "github-copilot-skills-advanced-topics",
@@ -525,7 +536,8 @@
       "parentId": "github-copilot-agent-series",
       "group": "github-copilot-agent-series",
       "level": 2,
-      "order": 12
+      "order": 12,
+      "subGroupLabel": "📚 Skills編"
     },
     {
       "id": "github-copilot-skills-spec-pipeline",
@@ -539,7 +551,8 @@
       "parentId": "github-copilot-agent-series",
       "group": "github-copilot-agent-series",
       "level": 2,
-      "order": 13
+      "order": 13,
+      "subGroupLabel": "📚 Skills編"
     },
     {
       "id": "dev-process-skill-library",
@@ -663,7 +676,7 @@
       "difficulty": "intermediate",
       "dataPath": "spa-quiz-app/spa-quiz-app-docs.json",
       "parentId": null,
-      "group": null,
+      "group": "spa-quiz-app-docs-series",
       "level": 1,
       "order": 1
     },
@@ -1315,7 +1328,7 @@
       "difficulty": "intermediate",
       "dataPath": "ai-stock-investing-tutorial/app-design.json",
       "parentId": null,
-      "group": null,
+      "group": "ai-stock-app-design-series",
       "level": 1,
       "order": 2,
       "estimatedLearningTime": "20-25分",

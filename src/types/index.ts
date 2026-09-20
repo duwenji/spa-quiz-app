@@ -53,4 +53,5 @@ export interface QuizSet {
   group: string | null;
   level: 1 | 2;
   order: number;
+  subGroupLabel?: string | null;
 }
