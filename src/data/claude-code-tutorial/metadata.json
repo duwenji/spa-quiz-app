@@ -3,8 +3,8 @@
     "id": "claude-code-tutorial",
     "name": "Claude Code 実践チュートリアル 総合シリーズ",
     "description": "Claude Code の基礎から発展まで、基礎・コア機能・スキル・フック・メモリ・MCP・応用の7カテゴリで体系的に学べる総合クイズシリーズです。",
-    "version": "1.0.0",
-    "totalQuestions": 68,
+    "version": "1.1.0",
+    "totalQuestions": 76,
     "sections": [
       {
         "id": "claude-code-fundamentals",
@@ -29,9 +29,9 @@
         "track": "Skills",
         "order": 3,
         "name": "スキルシステム | SKILL.md の使い方",
-        "questionCount": 10,
-        "estimatedTime": "8-12分",
-        "keyTopics": ["SKILL.md", "プロジェクトスキル", "個人スキル", "自動読み込み", "Agent Skills"]
+        "questionCount": 15,
+        "estimatedTime": "12-18分",
+        "keyTopics": ["SKILL.md", "プロジェクトスキル", "個人スキル", "自動読み込み", "Agent Skills", "Plugin", "plugin.json"]
       },
       {
         "id": "claude-code-hooks-automation",
@@ -64,10 +64,10 @@
         "id": "claude-code-advanced",
         "track": "Advanced",
         "order": 7,
-        "name": "発展・応用 | CI/CD 統合とチームワークフロー",
-        "questionCount": 8,
-        "estimatedTime": "6-10分",
-        "keyTopics": ["GitHub Actions", "GitLab CI", "品質ゲート", "コスト管理"]
+        "name": "発展・応用 | CI/CD 統合とプラグイン運用",
+        "questionCount": 11,
+        "estimatedTime": "9-14分",
+        "keyTopics": ["GitHub Actions", "GitLab CI", "品質ゲート", "コスト管理", "Plugin公開", "marketplace.json"]
       }
     ]
   }

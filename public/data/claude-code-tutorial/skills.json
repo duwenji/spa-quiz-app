@@ -119,6 +119,66 @@
       ],
       "correctAnswer": "C",
       "explanation": "スキルは `/<name>` のスラッシュコマンドとして呼び出せます。例えば `code-review` スキルなら `/code-review` と入力します。スキルの description にマッチする会話をすることで自動読み込みもされます。"
+    },
+    {
+      "id": 11,
+      "question": "Plugin を認識させるために `plugin.json` で唯一必須のフィールドはどれですか？",
+      "options": [
+        { "id": "A", "text": "`version`" },
+        { "id": "B", "text": "`name`" },
+        { "id": "C", "text": "`description`" },
+        { "id": "D", "text": "`author`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`plugin.json` で必須なのは `name` だけです。kebab-case のプラグイン識別子で、`/plugin-name:skill-name` の名前空間になります。`version` は省略できますが、更新が正しく配信されないことがあるため実務上は設定が推奨されます。"
+    },
+    {
+      "id": 12,
+      "question": "Plugin の Skill 自動検出が既定でスキャンする範囲として正しいのはどれですか？",
+      "options": [
+        { "id": "A", "text": "`skills/` 配下を再帰的にすべて検索する" },
+        { "id": "B", "text": "`skills/<skill-name>/SKILL.md` の1階層のみ" },
+        { "id": "C", "text": "`.claude-plugin/` 配下のみ" },
+        { "id": "D", "text": "`plugin.json` に列挙されたファイルのみ" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "既定では `skills/` 直下1階層（`skills/<skill-name>/SKILL.md`）のみがスキャンされます。カテゴリ分けした2階層構成（`skills/<category>/<skill-name>/SKILL.md`）は検出されないため、`plugin.json` の `skills` 配列にカテゴリディレクトリを明示登録する必要があります。"
+    },
+    {
+      "id": 13,
+      "question": "Plugin 内の Skill の呼び出し名を決めるのは何ですか？",
+      "options": [
+        { "id": "A", "text": "SKILL.md フロントマターの `name` フィールド" },
+        { "id": "B", "text": "Skill が置かれたディレクトリ名" },
+        { "id": "C", "text": "`plugin.json` の `displayName`" },
+        { "id": "D", "text": "SKILL.md 内の見出し（`# タイトル`）" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Plugin としてインストールした場合、呼び出し名にはディレクトリ名が使われます。フロントマターの `name` は一覧表示用であり、呼び出し名の決定には使われません。"
+    },
+    {
+      "id": 14,
+      "question": "作成中の Plugin をグローバル設定に登録せずに手早く検証したいとき、どのコマンドを使いますか？",
+      "options": [
+        { "id": "A", "text": "`claude plugin install`" },
+        { "id": "B", "text": "`claude --plugin-dir <path> plugin details <name>@inline`" },
+        { "id": "C", "text": "`/plugin marketplace add`" },
+        { "id": "D", "text": "`claude plugin tag`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`claude --plugin-dir <path>` はセッション限定でディスク上の Plugin を読み込むため、グローバル設定を汚さずに Skill 検出結果やトークンコストを確認できます。公開後の実際のインストール体験まで確認したい場合は `marketplace add` → `install` の2段階フローを使います。"
+    },
+    {
+      "id": 15,
+      "question": "SKILL.md と Plugin の互換性について正しい説明はどれですか？",
+      "options": [
+        { "id": "A", "text": "SKILL.md も Plugin のパッケージング機構も、すべてのツールで完全に共通である" },
+        { "id": "B", "text": "SKILL.md の中身は agentskills.io 準拠でツール横断的に使えるが、Plugin としての配布の仕組み（マニフェスト形式・インストールコマンド）はツールごとに異なる" },
+        { "id": "C", "text": "Plugin は Claude Code 専用の概念で、他のツールには存在しない概念であるため比較のしようがない" },
+        { "id": "D", "text": "SKILL.md はツールごとに書き方が異なるが、Plugin の仕組みは共通である" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "SKILL.md の中身は Agent Skills オープンスタンダードに基づき複数ツールで使い回せますが、`plugin.json`/`marketplace.json` や `/plugin install` のようなパッケージング・配布の仕組みは Claude Code 固有です。GitHub Copilot CLI や Cursor、Gemini CLI などはそれぞれ別のインストールコマンドを持ちます。"
     }
   ]
 }
