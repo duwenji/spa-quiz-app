@@ -1467,7 +1467,7 @@
       "category": "Claude Code",
       "icon": "🤝",
       "questionCount": 10,
-      "difficulty": "intermediate to advanced",
+      "difficulty": "advanced",
       "dataPath": "claude-code-tutorial/mcp-agents.json",
       "parentId": "claude-code-tutorial",
       "group": "claude-code-tutorial-series",
