@@ -11,6 +11,7 @@
     "src/data/ai-stock-investing-tutorial/*.json",
     "src/data/genai-app-integration-tutorial/*.json",
     "src/data/aws-ai-practitioner-tutorial/*.json",
+    "src/data/aws-generative-ai-developer-professional-tutorial/*.json",
     "src/data/windows-wsl-docker-tutorial/*.json"
   ],
   "normalizeDataDir": "src/data"
