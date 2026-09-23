@@ -49,7 +49,7 @@
       "category": "GitHub Copilot",
       "icon": "🔧",
       "questionCount": 15,
-      "difficulty": "intermediate to advanced",
+      "difficulty": "advanced",
       "dataPath": "github-copilot-skills-tutorial/implementation.json",
       "parentId": "github-copilot-skills-tutorial",
       "group": "github-copilot-skills-series",

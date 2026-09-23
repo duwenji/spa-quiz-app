@@ -95,6 +95,42 @@
       ],
       "correctAnswer": "C",
       "explanation": "GitLab CI でマージリクエスト時のみ実行するには `only: merge_requests` を使います。GitHub Actions の `on: pull_request:` に相当します。GitLab の Merge Request は GitHub の Pull Request に対応しています。"
+    },
+    {
+      "id": 9,
+      "question": "Plugin の Hooks コマンド内で、インストール先ディレクトリを指すプレースホルダーはどれですか？",
+      "options": [
+        { "id": "A", "text": "`${CLAUDE_PROJECT_DIR}`" },
+        { "id": "B", "text": "`${CLAUDE_PLUGIN_ROOT}`" },
+        { "id": "C", "text": "`${CLAUDE_HOME}`" },
+        { "id": "D", "text": "`${PLUGIN_PATH}`" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "`${CLAUDE_PLUGIN_ROOT}` はプラグインのインストールディレクトリを指すプレースホルダーです。Plugin の Hooks はインストール先が利用者ごとに変わるため、絶対パスをハードコードせずこのプレースホルダーを使います。永続データ用には `${CLAUDE_PLUGIN_DATA}` があります。"
+    },
+    {
+      "id": 10,
+      "question": "組織で複数の Plugin をまとめて配布する `marketplace.json` で、モノレポの特定ディレクトリを指す `source` の書き方はどれですか？",
+      "options": [
+        { "id": "A", "text": "`{ \"source\": \"github\", \"repo\": \"owner/repo\" }`" },
+        { "id": "B", "text": "`{ \"source\": \"git-subdir\", \"url\": \"...\", \"path\": \"plugins/foo\" }`" },
+        { "id": "C", "text": "`{ \"source\": \"archive\", \"url\": \"...\", \"sha256\": \"...\" }`" },
+        { "id": "D", "text": "`\"./plugins/foo\"`（相対パス文字列のみ）" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "モノレポ内の特定ディレクトリを Plugin として配布するには `{ \"source\": \"git-subdir\", \"url\": \"...\", \"path\": \"plugins/foo\" }` を使います。相対パス文字列（D）は同一リポジトリ内での参照に限られ、別リポジトリのモノレポ内ディレクトリは指定できません。"
+    },
+    {
+      "id": 11,
+      "question": "Plugin を更新したのに利用者側に変更が反映されないというトラブルの、最も典型的な原因はどれですか？",
+      "options": [
+        { "id": "A", "text": "`plugin.json` の `version` を上げ忘れている" },
+        { "id": "B", "text": "`marketplace.json` の `owner` フィールドが未設定" },
+        { "id": "C", "text": "`skills/` ディレクトリの名前を変更した" },
+        { "id": "D", "text": "`description` フィールドが長すぎる" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "`version` を設定していても、内容変更時に上げ忘れると利用者側にキャッシュされた古いバージョンのまま反映されません。内容を変更するたびに `version` を上げる運用を徹底することが重要です。"
     }
   ]
 }
